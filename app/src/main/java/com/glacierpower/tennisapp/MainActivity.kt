@@ -2,6 +2,9 @@ package com.glacierpower.tennisapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import okhttp3.OkHttpClient
+import okhttp3.Request
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
