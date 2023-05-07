@@ -11,4 +11,8 @@ class RankingInteractor @Inject constructor(
     suspend fun getAtpRanking(): ResultState<List<RankingModel>> {
         return rankingRepository.getAtpRanking()
     }
+
+    suspend fun getWtaRanking(): ResultState<List<RankingModel>> {
+        return rankingRepository.getWtaRanking()
+    }
 }

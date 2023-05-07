@@ -6,4 +6,8 @@ import com.glacierpower.tennisapp.utils.ResultState
 interface RankingRepository {
 
     suspend fun getAtpRanking(): ResultState<List<RankingModel>>
+
+    suspend fun getWtaRanking(): ResultState<List<RankingModel>>
+
+
 }

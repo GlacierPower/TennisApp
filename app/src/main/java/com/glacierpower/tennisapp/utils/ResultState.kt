@@ -1,9 +1,7 @@
 package com.glacierpower.tennisapp.utils
 
-sealed class ResultState<out T>
-
-class Success<out T>(val data: T) : ResultState<T>()
-
-class Error<T>(val e: Exception) : ResultState<T>()
-
-class Loading<T> : ResultState<T>()
+sealed class ResultState<T>(val data: T? = null, val message: String? = null) {
+    class Success<T>(data: T) : ResultState<T>(data)
+    class Error<T>(message: String, data: T? = null) : ResultState<T>(data, message)
+    class Loading<T> : ResultState<T>()
+}

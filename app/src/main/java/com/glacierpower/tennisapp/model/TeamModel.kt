@@ -3,7 +3,7 @@ package com.glacierpower.tennisapp.model
 data class TeamModel(
     val country:CountryModel,
     val disabled: Boolean,
-    val gender: String,
+    val gender: String? = null,
     val id: Int,
     val name: String,
     val nameCode: String,
