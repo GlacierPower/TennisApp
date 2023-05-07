@@ -3,10 +3,8 @@ package com.glacierpower.tennisapp.data.service.responce
 import com.google.gson.annotations.SerializedName
 import com.squareup.moshi.Json
 
-data class RankingResponce(
-    @SerializedName("rankings")
-    val rankings: List<Rankings>,
-    @SerializedName("updatedAtTimestamp")
+data class RankingResponse(
+    val rankings: MutableList<Rankings>,
     val updatedAtTimestamp: Int
 )
 
@@ -16,16 +14,16 @@ data class Rankings(
     @field:Json(name = "bestRankingDateTimestamp")
     val bestRankingDateTimestamp: Int,
     @field:Json(name = "country")
-    val country: String? = null,
+    val country: Country,
     @field:Json(name = "id")
     val id: Int,
-    @field:Json(name = "points")
+    @SerializedName("points")
     val points: Int,
     @field:Json(name = "previousPoints")
     val previousPoints: Int,
     @field:Json(name = "previousRanking")
     val previousRanking: Int,
-    @field:Json(name = "ranking")
+    @SerializedName( "ranking")
     val ranking: Int,
     @field:Json(name = "rankingClass")
     val rankingClass: String,
@@ -45,7 +43,7 @@ data class Team(
     @field:Json(name = "disabled")
     val disabled: Boolean,
     @field:Json(name = "gender")
-    val gender: String,
+    val gender: String? = null,
     @field:Json(name = "id")
     val id: Int,
     @field:Json(name = "name")
@@ -91,7 +89,7 @@ data class Sport(
 
 data class Country(
     @field:Json(name = "alpha2")
-    val alpha2: String,
+    val alpha2: String? = null,
     @field:Json(name = "name")
     val name: String
 )

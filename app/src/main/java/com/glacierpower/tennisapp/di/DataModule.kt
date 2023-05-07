@@ -4,7 +4,7 @@ import android.content.Context
 import com.glacierpower.tennisapp.data.repositoryImpl.RankingRepositoryImpl
 import com.glacierpower.tennisapp.data.service.TennisApiService
 import com.glacierpower.tennisapp.domain.RankingRepository
-import com.glacierpower.tennisapp.utils.Constants.API_KEY
+import com.glacierpower.tennisapp.utils.Constants.SECOND_API_KEY
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -50,7 +50,7 @@ abstract class DataModule {
 
                     val newRequestBuilder = originalRequest.newBuilder()
                         .header(HEADER_KEY_RAPID_API_HOST, HEADER_VALUE_RAPID_API_HOST)
-                        .header(HEADER_KEY_RAPID_API_KEY, API_KEY)
+                        .header(HEADER_KEY_RAPID_API_KEY, SECOND_API_KEY)
 
                     val newRequest = newRequestBuilder.build()
                     chain.proceed(newRequest)
