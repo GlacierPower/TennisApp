@@ -1,4 +1,4 @@
-package com.glacierpower.tennisapp.ui.ranking
+package com.glacierpower.tennisapp.presentation.ranking
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,7 +12,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.glacierpower.tennisapp.R
 import com.glacierpower.tennisapp.databinding.FragmentRankingBinding
-import com.glacierpower.tennisapp.ui.adapter.RankingAdapter
+import com.glacierpower.tennisapp.presentation.adapter.RankingAdapter
 import com.glacierpower.tennisapp.utils.ResultState
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -21,6 +21,8 @@ import dagger.hilt.android.AndroidEntryPoint
 class RankingFragment : Fragment() {
 
     private val viewModel: RankingViewModel by viewModels()
+
+
 
     private lateinit var rankingAdapter: RankingAdapter
 

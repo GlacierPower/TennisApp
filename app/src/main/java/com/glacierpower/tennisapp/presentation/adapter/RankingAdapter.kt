@@ -1,4 +1,4 @@
-package com.glacierpower.tennisapp.ui.adapter
+package com.glacierpower.tennisapp.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.glacierpower.tennisapp.databinding.RankingItemsBinding
-import com.glacierpower.tennisapp.model.RankingModel
+import com.glacierpower.tennisapp.model.rankingModel.RankingModel
 
 class RankingAdapter :
     RecyclerView.Adapter<RankingAdapter.RankingViewHolder>() {
@@ -23,8 +23,8 @@ class RankingAdapter :
     }
 
     override fun onBindViewHolder(holder: RankingAdapter.RankingViewHolder, position: Int) {
-        val news = differ.currentList[position]
-        holder.bind(news)
+        val ranking = differ.currentList[position]
+        holder.bind(ranking)
 
     }
 

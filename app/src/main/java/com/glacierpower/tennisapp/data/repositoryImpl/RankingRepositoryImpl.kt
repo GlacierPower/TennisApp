@@ -2,8 +2,8 @@ package com.glacierpower.tennisapp.data.repositoryImpl
 
 import com.glacierpower.tennisapp.data.mappers.toEntity
 import com.glacierpower.tennisapp.data.service.TennisApiService
-import com.glacierpower.tennisapp.domain.RankingRepository
-import com.glacierpower.tennisapp.model.RankingModel
+import com.glacierpower.tennisapp.domain.ranking.RankingRepository
+import com.glacierpower.tennisapp.model.rankingModel.RankingModel
 import com.glacierpower.tennisapp.utils.ResultState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

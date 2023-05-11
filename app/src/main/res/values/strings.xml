@@ -12,6 +12,9 @@
     <string name="adapter_position_ranking">0</string>
     <string name="nothing_selected">Nothing selected</string>
     <string name="wta_single">WTA-single</string>
+    <string name="country">Country</string>
+    <string name="enter_player_name">Enter player name</string>
+    <string name="search">Search</string>
 
     <string-array name="Ranking">
         <item>ATP Ranking</item>

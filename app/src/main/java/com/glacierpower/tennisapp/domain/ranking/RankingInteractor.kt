@@ -1,6 +1,6 @@
-package com.glacierpower.tennisapp.domain
+package com.glacierpower.tennisapp.domain.ranking
 
-import com.glacierpower.tennisapp.model.RankingModel
+import com.glacierpower.tennisapp.model.rankingModel.RankingModel
 import com.glacierpower.tennisapp.utils.ResultState
 import javax.inject.Inject
 

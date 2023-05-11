@@ -1,4 +1,4 @@
-package com.glacierpower.tennisapp.ui
+package com.glacierpower.tennisapp.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.glacierpower.tennisapp.R
 import com.glacierpower.tennisapp.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,10 +23,16 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment)
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.rankingFragment
+                R.id.rankingFragment,
+                R.id.searchFragment
             )
         )
+
         setupActionBarWithNavController(navController, appBarConfiguration)
 
+        binding.bottomNav.setupWithNavController(navController)
+
     }
+
+
 }

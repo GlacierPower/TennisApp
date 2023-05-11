@@ -1,11 +1,11 @@
-package com.glacierpower.tennisapp.ui.ranking
+package com.glacierpower.tennisapp.presentation.ranking
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.glacierpower.tennisapp.domain.RankingInteractor
-import com.glacierpower.tennisapp.model.RankingModel
+import com.glacierpower.tennisapp.domain.ranking.RankingInteractor
+import com.glacierpower.tennisapp.model.rankingModel.RankingModel
 import com.glacierpower.tennisapp.utils.Constants.NO_CONNECTION
 import com.glacierpower.tennisapp.utils.InternetConnection
 import com.glacierpower.tennisapp.utils.ResultState

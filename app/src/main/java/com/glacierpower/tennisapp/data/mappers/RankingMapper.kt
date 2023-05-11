@@ -1,7 +1,7 @@
 package com.glacierpower.tennisapp.data.mappers
 
 import com.glacierpower.tennisapp.data.service.responce.*
-import com.glacierpower.tennisapp.model.*
+import com.glacierpower.tennisapp.model.rankingModel.*
 
 fun Rankings.toEntity(): RankingModel {
     return RankingModel(

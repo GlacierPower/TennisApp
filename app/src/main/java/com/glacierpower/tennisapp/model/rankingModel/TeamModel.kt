@@ -1,7 +1,7 @@
-package com.glacierpower.tennisapp.model
+package com.glacierpower.tennisapp.model.rankingModel
 
 data class TeamModel(
-    val country:CountryModel,
+    val country: CountryModel,
     val disabled: Boolean,
     val gender: String? = null,
     val id: Int,
@@ -11,8 +11,8 @@ data class TeamModel(
     val ranking: Int,
     val shortName: String,
     val slug: String,
-    val sport:SportModel,
-    val teamColor:ColorModel,
+    val sport: SportModel,
+    val teamColor: ColorModel,
     val type: Int,
     val userCount: Int
 )
