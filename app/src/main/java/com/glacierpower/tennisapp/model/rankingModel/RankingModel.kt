@@ -1,4 +1,4 @@
-package com.glacierpower.tennisapp.model
+package com.glacierpower.tennisapp.model.rankingModel
 
 import com.glacierpower.tennisapp.data.service.responce.Country
 

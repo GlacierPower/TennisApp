@@ -2,8 +2,10 @@ package com.glacierpower.tennisapp.di
 
 import android.content.Context
 import com.glacierpower.tennisapp.data.repositoryImpl.RankingRepositoryImpl
+import com.glacierpower.tennisapp.data.repositoryImpl.SearchRepositoryImpl
 import com.glacierpower.tennisapp.data.service.TennisApiService
-import com.glacierpower.tennisapp.domain.RankingRepository
+import com.glacierpower.tennisapp.domain.ranking.RankingRepository
+import com.glacierpower.tennisapp.domain.search.SearchRepository
 import com.glacierpower.tennisapp.utils.Constants.SECOND_API_KEY
 import dagger.Binds
 import dagger.Module
@@ -23,9 +25,14 @@ import java.util.concurrent.TimeUnit
 abstract class DataModule {
 
     @Binds
-    abstract fun provideRankingRepository(
+    abstract fun bindRankingRepository(
         rankingRepositoryImpl: RankingRepositoryImpl
     ): RankingRepository
+
+    @Binds
+    abstract fun bindSearchRepository(
+        searchRepositoryImpl: SearchRepositoryImpl
+    ): SearchRepository
 
     companion object {
 

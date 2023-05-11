@@ -11,7 +11,7 @@
         android:id="@+id/ranking_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.ranking.RankingFragment">
+        tools:context=".presentation.ranking.RankingFragment">
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_ranking"
             android:layout_width="match_parent"
@@ -144,4 +144,6 @@
 
 
 
-</androidx.constraintlayout.widget.ConstraintLayout></androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

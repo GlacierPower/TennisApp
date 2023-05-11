@@ -1,7 +1,9 @@
 package com.glacierpower.tennisapp.di
 
-import com.glacierpower.tennisapp.domain.RankingInteractor
-import com.glacierpower.tennisapp.domain.RankingRepository
+import com.glacierpower.tennisapp.domain.ranking.RankingInteractor
+import com.glacierpower.tennisapp.domain.ranking.RankingRepository
+import com.glacierpower.tennisapp.domain.search.SearchInteractor
+import com.glacierpower.tennisapp.domain.search.SearchRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,5 +19,12 @@ class DomainModule {
         rankingRepository: RankingRepository
     ): RankingInteractor {
         return RankingInteractor(rankingRepository)
+    }
+
+    @Provides
+    fun provideSearchInteracror(
+        searchRepository: SearchRepository
+    ): SearchInteractor {
+        return SearchInteractor(searchRepository)
     }
 }
