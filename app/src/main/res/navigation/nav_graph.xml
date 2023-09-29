@@ -15,5 +15,10 @@
         android:name="com.glacierpower.tennisapp.presentation.search.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/liveEventFragment"
+        android:name="com.glacierpower.tennisapp.presentation.live_events.LiveEventFragment"
+        android:label="@string/live"
+        tools:layout="@layout/fragment_live_event" />
 
 </navigation>

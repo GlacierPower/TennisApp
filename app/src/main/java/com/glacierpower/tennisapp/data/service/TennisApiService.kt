@@ -1,5 +1,6 @@
 package com.glacierpower.tennisapp.data.service
 
+import com.glacierpower.tennisapp.data.service.responce.Events.LiveEventsResponse
 import com.glacierpower.tennisapp.data.service.responce.RankingResponse
 import com.glacierpower.tennisapp.data.service.responce.SearchResponse
 import retrofit2.Response
@@ -17,4 +18,6 @@ interface TennisApiService {
     @GET("search/{value}")
     suspend fun search(@Path("value") value: String): Response<SearchResponse>
 
+    @GET("events/live")
+    suspend fun getLiveEvents():Response<LiveEventsResponse>
 }

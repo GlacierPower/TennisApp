@@ -1,5 +1,6 @@
 package com.glacierpower.tennisapp.data.repositoryImpl
 
+import android.util.Log
 import com.glacierpower.tennisapp.data.mappers.toEntity
 import com.glacierpower.tennisapp.data.service.TennisApiService
 import com.glacierpower.tennisapp.domain.search.SearchRepository
@@ -19,7 +20,8 @@ class SearchRepositoryImpl @Inject constructor(
         return withContext(Dispatchers.IO) {
             ResultState.Success(searchResponse.body()?.result!!.map {searchResult->
                 searchResult.toEntity()
-            })
+            }
+            )
         }
     }
 

@@ -59,7 +59,7 @@ class SearchAdapter :
             searchItemsBinding.apply {
                 searchItemsBinding.tvPlayerName.text = searchResultModel.entityModel.name
                 searchItemsBinding.tvPlayerCountry.text =
-                    searchResultModel.entityModel.country.name
+                    searchResultModel.entityModel.country?.name
 
             }
 

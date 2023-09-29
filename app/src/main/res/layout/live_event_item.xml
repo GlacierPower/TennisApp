@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="80dp">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/firstCountry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_start"
+        android:hint="@string/ranking_number"
+        android:paddingTop="@dimen/default_padding"
+        android:paddingBottom="@dimen/default_padding"
+        android:textSize="10sp"
+        app:fontFamily="@font/arvo"
+        app:layout_constraintBottom_toBottomOf="@+id/first_player"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tournament" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/secondCountry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:hint="@string/ranking_number"
+        android:paddingTop="@dimen/default_padding"
+        android:paddingBottom="@dimen/default_padding"
+        android:textSize="10sp"
+        app:fontFamily="@font/arvo"
+        app:layout_constraintBottom_toBottomOf="@+id/second_player"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/first_player" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/period"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="130dp"
+        android:hint="@string/period"
+        android:paddingTop="@dimen/default_padding"
+        android:paddingBottom="@dimen/default_padding"
+        android:textSize="@dimen/text_size_live"
+        app:fontFamily="@font/arvo"
+        app:layout_constraintBottom_toBottomOf="@+id/first_player"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/first_player" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/first_player"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="27dp"
+        android:hint="@string/player_name"
+        android:paddingTop="@dimen/default_padding"
+        android:paddingBottom="@dimen/default_padding"
+        android:textSize="@dimen/text_size_live"
+        app:fontFamily="@font/arvo"
+        app:layout_constraintBottom_toTopOf="@+id/second_player"
+        app:layout_constraintStart_toEndOf="@+id/firstCountry"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tournament"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="2dp"
+        android:hint="@string/tournament"
+        android:paddingTop="@dimen/default_padding"
+        android:paddingBottom="@dimen/default_padding"
+        android:textSize="13sp"
+        app:fontFamily="@font/arvo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tournament_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:hint="@string/type"
+        android:paddingTop="@dimen/default_padding"
+        android:paddingBottom="@dimen/default_padding"
+        android:textSize="13sp"
+        app:fontFamily="@font/arvo"
+        app:layout_constraintStart_toEndOf="@+id/tournament"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/second_player"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="2dp"
+        android:hint="@string/player_name"
+        android:paddingTop="@dimen/default_padding"
+        android:paddingBottom="@dimen/default_padding"
+        android:textSize="@dimen/text_size_live"
+        app:fontFamily="@font/arvo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/secondCountry" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/first_player_point"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="100dp"
+        android:hint="@string/point"
+        android:textSize="@dimen/text_size_live"
+        app:fontFamily="@font/arvo"
+        app:layout_constraintBottom_toBottomOf="@+id/first_player"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/first_player" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/first_player_set1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="75dp"
+        android:hint="@string/point"
+        android:textSize="@dimen/text_size_live"
+        app:fontFamily="@font/arvo"
+        app:layout_constraintBottom_toBottomOf="@+id/first_player_point"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/first_player_point" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/first_player_set2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:hint="@string/point"
+        android:textSize="@dimen/text_size_live"
+        app:fontFamily="@font/arvo"
+        app:layout_constraintBottom_toBottomOf="@+id/first_player_set1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/first_player_point" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/first_player_set3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:hint="@string/point"
+        android:textSize="@dimen/text_size_live"
+        app:fontFamily="@font/arvo"
+        app:layout_constraintBottom_toBottomOf="@+id/first_player_set2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/first_player_point" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/second_player_point"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="7dp"
+        android:hint="@string/point"
+        android:textSize="@dimen/text_size_live"
+        app:fontFamily="@font/arvo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/first_player" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/second_player_set1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="75dp"
+        android:layout_marginBottom="7dp"
+        android:hint="@string/point"
+        android:textSize="@dimen/text_size_live"
+        app:fontFamily="@font/arvo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/first_player" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/second_player_set2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="7dp"
+        android:hint="@string/point"
+        android:textSize="@dimen/text_size_live"
+        app:fontFamily="@font/arvo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/first_player" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/second_player_set3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="7dp"
+        android:hint="@string/point"
+        android:textSize="@dimen/text_size_live"
+        app:fontFamily="@font/arvo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/first_player" />
+
+    <View
+        android:id="@+id/border"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/teal_700"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

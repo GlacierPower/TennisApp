@@ -15,7 +15,8 @@ fun SearchResult.toEntity(): SearchResultModel {
 
 fun SearchEntity.toEntity(): EntityModel {
     return EntityModel(
-        country.toEntity(),
+        country?.toEntity(),
+        disabled,
         gender,
         id,
         name,

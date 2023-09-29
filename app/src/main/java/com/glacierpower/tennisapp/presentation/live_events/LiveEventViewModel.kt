@@ -1,12 +1,11 @@
-package com.glacierpower.tennisapp.presentation.search
+package com.glacierpower.tennisapp.presentation.live_events
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.glacierpower.tennisapp.domain.events.LiveEventInteractor
-import com.glacierpower.tennisapp.domain.search.SearchInteractor
-import com.glacierpower.tennisapp.model.resultModel.SearchResultModel
+import com.glacierpower.tennisapp.model.eventModel.EventModel
 import com.glacierpower.tennisapp.utils.Constants
 import com.glacierpower.tennisapp.utils.InternetConnection
 import com.glacierpower.tennisapp.utils.ResultState
@@ -16,41 +15,36 @@ import java.io.IOException
 import javax.inject.Inject
 
 @HiltViewModel
-class SearchViewModel @Inject constructor(
-    private val searchInteractor: SearchInteractor,
+class LiveEventViewModel @Inject constructor(
+    private val liveEventInteractor: LiveEventInteractor
 ) : ViewModel() {
 
     @Inject
     lateinit var internetConnection: InternetConnection
 
-    private var _search = MutableLiveData<ResultState<List<SearchResultModel>>>()
-    val search: LiveData<ResultState<List<SearchResultModel>>> get() = _search
-
     private var _connection = MutableLiveData<Boolean>()
     val connection: LiveData<Boolean> get() = _connection
 
-    var searchPage = 1
+    private var _liveEvent = MutableLiveData<ResultState<List<EventModel>>>()
+    val liveEvent: LiveData<ResultState<List<EventModel>>> get() = _liveEvent
 
-    fun searchPlayer(query: String) {
-        _search.postValue(ResultState.Loading())
+    fun getLiveEvent() {
+        _liveEvent.postValue(ResultState.Loading())
         viewModelScope.launch {
             try {
                 if (internetConnection.isOnline()) {
-                    val searchResponse = searchInteractor.playerSearch(query)
-                    _search.value = searchResponse
+                    val response = liveEventInteractor.getLiveEvent()
+                    _liveEvent.value = response
                     _connection.value = false
                 } else {
                     _connection.value = true
-                    _search.postValue(ResultState.Error(Constants.NO_CONNECTION))
+                    _liveEvent.postValue(ResultState.Error(Constants.NO_CONNECTION))
                 }
-
             } catch (exception: Exception) {
                 when (exception) {
-                    is IOException -> _search.postValue(ResultState.Error(exception.message!!))
+                    is IOException -> _liveEvent.postValue(ResultState.Error(exception.message!!))
                 }
             }
         }
-
     }
-
 }

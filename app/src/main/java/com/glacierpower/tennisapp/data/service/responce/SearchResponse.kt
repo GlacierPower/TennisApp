@@ -1,44 +1,48 @@
 package com.glacierpower.tennisapp.data.service.responce
 
-import com.squareup.moshi.Json
+import com.google.gson.annotations.SerializedName
 
 data class SearchResponse(
-    @field:Json(name = "result")
+    @SerializedName("results")
     val result: MutableList<SearchResult>
 )
 
 data class SearchResult(
-    @field:Json(name = "entity")
+    @SerializedName("entity")
     val searchEntity: SearchEntity,
-    val score: Int,
+    @SerializedName("score")
+    val score: Float,
+    @SerializedName("type")
     val type: String
 )
 
 data class SearchEntity(
-    @field:Json(name = "country")
-    val country: Country,
-    @field:Json(name = "gender")
+    @SerializedName("country")
+    val country: Country?,
+    @SerializedName("disabled")
+    val disabled: Boolean?,
+    @SerializedName("gender")
     val gender: String,
-    @field:Json(name = "id")
+    @SerializedName("id")
     val id: Int,
-    @field:Json(name = "name")
+    @SerializedName("name")
     val name: String,
-    @field:Json(name = "nameCode")
+    @SerializedName("nameCode")
     val nameCode: String,
-    @field:Json(name = "national")
+    @SerializedName("national")
     val national: Boolean,
-    @field:Json(name = "ranking")
-    val ranking: Int,
-    @field:Json(name = "shortName")
+    @SerializedName("ranking")
+    val ranking: Int?,
+    @SerializedName("shortName")
     val shortName: String,
-    @field:Json(name = "slug")
+    @SerializedName("slug")
     val slug: String,
-    @field:Json(name = "sport")
+    @SerializedName("sport")
     val sport: Sport,
-    @field:Json(name = "teamColors")
+    @SerializedName("teamColor")
     val teamColor: TeamColor,
-    @field:Json(name ="type")
-    val type:Int,
-    @field:Json(name = "userCount")
-    val userCount:Int
+    @SerializedName("type")
+    val type: Int,
+    @SerializedName("userCount")
+    val userCount: Int
 )

@@ -38,59 +38,59 @@ data class Rankings(
 )
 
 data class Team(
-    @field:Json(name = "country")
+    @SerializedName("country")
     val country: Country,
-    @field:Json(name = "disabled")
+    @SerializedName("disabled")
     val disabled: Boolean,
-    @field:Json(name = "gender")
-    val gender: String? = null,
-    @field:Json(name = "id")
+    @SerializedName("gender")
+    val gender: String?,
+    @SerializedName("id")
     val id: Int,
-    @field:Json(name = "name")
+    @SerializedName("name")
     val name: String,
-    @field:Json(name = "nameCode")
+    @SerializedName("nameCode")
     val nameCode: String,
-    @field:Json(name = "national")
+    @SerializedName("national")
     val national: Boolean,
-    @field:Json(name = "ranking")
+    @SerializedName("ranking")
     val ranking: Int,
-    @field:Json(name = "shortName")
+    @SerializedName("shortName")
     val shortName: String,
-    @field:Json(name = "slug")
+    @SerializedName("slug")
     val slug: String,
-    @field:Json(name = "sport")
+    @SerializedName("sport")
     val sport: Sport,
-    @field:Json(name = "teamColors")
+    @SerializedName("teamColors")
     val teamColors: TeamColor,
-    @field:Json(name = "type")
+    @SerializedName("type")
     val type: Int,
-    @field:Json(name = "userCount")
+    @SerializedName("userCount")
     val userCount: Int
 
 )
 
 data class TeamColor(
-    @field:Json(name = "primary")
+    @SerializedName("primary")
     val primary: String,
-    @field:Json(name = "secondary")
+    @SerializedName("secondary")
     val secondary: String,
-    @field:Json(name = "text")
+    @SerializedName("text")
     val text: String
 )
 
 data class Sport(
-    @field:Json(name = "id")
+    @SerializedName("id")
     val id: Int,
-    @field:Json(name = "name")
+    @SerializedName("name")
     val name: String,
-    @field:Json(name = "slug")
+    @SerializedName("slug")
     val slug: String
 )
 
 data class Country(
-    @field:Json(name = "alpha2")
+    @SerializedName("alpha2")
     val alpha2: String? = null,
-    @field:Json(name = "name")
+    @SerializedName("name")
     val name: String
 )
 

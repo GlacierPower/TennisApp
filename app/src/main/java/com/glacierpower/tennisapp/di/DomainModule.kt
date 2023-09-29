@@ -1,5 +1,7 @@
 package com.glacierpower.tennisapp.di
 
+import com.glacierpower.tennisapp.domain.events.LiveEventInteractor
+import com.glacierpower.tennisapp.domain.events.LiveEventsRepository
 import com.glacierpower.tennisapp.domain.ranking.RankingInteractor
 import com.glacierpower.tennisapp.domain.ranking.RankingRepository
 import com.glacierpower.tennisapp.domain.search.SearchInteractor
@@ -26,5 +28,12 @@ class DomainModule {
         searchRepository: SearchRepository
     ): SearchInteractor {
         return SearchInteractor(searchRepository)
+    }
+
+    @Provides
+    fun provideLiveEventInteractor(
+        liveEventsRepository: LiveEventsRepository
+    ): LiveEventInteractor {
+        return LiveEventInteractor(liveEventsRepository)
     }
 }

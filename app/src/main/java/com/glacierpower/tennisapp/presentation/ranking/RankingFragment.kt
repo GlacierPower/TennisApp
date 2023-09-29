@@ -22,8 +22,6 @@ class RankingFragment : Fragment() {
 
     private val viewModel: RankingViewModel by viewModels()
 
-
-
     private lateinit var rankingAdapter: RankingAdapter
 
     private var _viewBinding: FragmentRankingBinding? = null
@@ -47,7 +45,7 @@ class RankingFragment : Fragment() {
 
         observeInternetConnection()
 
-        getRanking()
+//        getRanking()
 
 
 

@@ -1,12 +1,16 @@
 package com.glacierpower.tennisapp.di
 
 import android.content.Context
+import com.glacierpower.tennisapp.data.repositoryImpl.LiveEventRepositoryImpl
 import com.glacierpower.tennisapp.data.repositoryImpl.RankingRepositoryImpl
 import com.glacierpower.tennisapp.data.repositoryImpl.SearchRepositoryImpl
 import com.glacierpower.tennisapp.data.service.TennisApiService
+import com.glacierpower.tennisapp.domain.events.LiveEventsRepository
 import com.glacierpower.tennisapp.domain.ranking.RankingRepository
 import com.glacierpower.tennisapp.domain.search.SearchRepository
+import com.glacierpower.tennisapp.utils.Constants.API_KEY
 import com.glacierpower.tennisapp.utils.Constants.SECOND_API_KEY
+import com.glacierpower.tennisapp.utils.Constants.THIRD_API_KEY
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -34,6 +38,11 @@ abstract class DataModule {
         searchRepositoryImpl: SearchRepositoryImpl
     ): SearchRepository
 
+    @Binds
+    abstract fun bindLiveEventRepository(
+        liveEventsRepositoryImpl: LiveEventRepositoryImpl
+    ): LiveEventsRepository
+
     companion object {
 
         private const val HEADER_KEY_RAPID_API_HOST = "x-rapidapi-host"
@@ -57,7 +66,7 @@ abstract class DataModule {
 
                     val newRequestBuilder = originalRequest.newBuilder()
                         .header(HEADER_KEY_RAPID_API_HOST, HEADER_VALUE_RAPID_API_HOST)
-                        .header(HEADER_KEY_RAPID_API_KEY, SECOND_API_KEY)
+                        .header(HEADER_KEY_RAPID_API_KEY, THIRD_API_KEY)
 
                     val newRequest = newRequestBuilder.build()
                     chain.proceed(newRequest)
