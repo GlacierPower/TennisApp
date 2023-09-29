@@ -10,6 +10,7 @@ import com.glacierpower.tennisapp.utils.Constants
 import com.glacierpower.tennisapp.utils.InternetConnection
 import com.glacierpower.tennisapp.utils.ResultState
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.io.IOException
 import javax.inject.Inject
@@ -32,19 +33,26 @@ class LiveEventViewModel @Inject constructor(
         _liveEvent.postValue(ResultState.Loading())
         viewModelScope.launch {
             try {
-                if (internetConnection.isOnline()) {
-                    val response = liveEventInteractor.getLiveEvent()
-                    _liveEvent.value = response
-                    _connection.value = false
-                } else {
-                    _connection.value = true
-                    _liveEvent.postValue(ResultState.Error(Constants.NO_CONNECTION))
-                }
+                    if (internetConnection.isOnline()) {
+                        while (true) {
+                            val response = liveEventInteractor.getLiveEvent()
+                            _liveEvent.value = response
+                            _connection.value = false
+                            delay(10000)
+                        }
+                    } else {
+                        _connection.value = true
+                        _liveEvent.postValue(ResultState.Error(Constants.NO_CONNECTION))
+                   delay(30000) }
+
             } catch (exception: Exception) {
                 when (exception) {
                     is IOException -> _liveEvent.postValue(ResultState.Error(exception.message!!))
                 }
             }
+
         }
     }
+
 }
+

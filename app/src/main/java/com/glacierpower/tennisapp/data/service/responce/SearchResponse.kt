@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class SearchResponse(
     @SerializedName("results")
-    val result: MutableList<SearchResult>
+    val results: MutableList<SearchResult>
 )
 
 data class SearchResult(

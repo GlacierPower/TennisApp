@@ -18,7 +18,7 @@ class SearchRepositoryImpl @Inject constructor(
     override suspend fun playerSearch(query: String): ResultState<List<SearchResultModel>> {
         val searchResponse = tennisApiService.search(query)
         return withContext(Dispatchers.IO) {
-            ResultState.Success(searchResponse.body()?.result!!.map {searchResult->
+            ResultState.Success(searchResponse.body()?.results!!.map {searchResult->
                 searchResult.toEntity()
             }
             )

@@ -66,7 +66,7 @@ abstract class DataModule {
 
                     val newRequestBuilder = originalRequest.newBuilder()
                         .header(HEADER_KEY_RAPID_API_HOST, HEADER_VALUE_RAPID_API_HOST)
-                        .header(HEADER_KEY_RAPID_API_KEY, THIRD_API_KEY)
+                        .header(HEADER_KEY_RAPID_API_KEY, SECOND_API_KEY)
 
                     val newRequest = newRequestBuilder.build()
                     chain.proceed(newRequest)
