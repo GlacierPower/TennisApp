@@ -10,9 +10,10 @@ import com.glacierpower.tennisapp.utils.ResultState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
+import javax.inject.Named
 
 class SearchRepositoryImpl @Inject constructor(
-    private val tennisApiService: TennisApiService
+    @Named("Tennis")private val tennisApiService: TennisApiService
 ) : SearchRepository {
 
     override suspend fun playerSearch(query: String): ResultState<List<SearchResultModel>> {

@@ -4,14 +4,12 @@ import android.content.Context
 import com.glacierpower.tennisapp.data.repositoryImpl.LiveEventRepositoryImpl
 import com.glacierpower.tennisapp.data.repositoryImpl.RankingRepositoryImpl
 import com.glacierpower.tennisapp.data.repositoryImpl.SearchRepositoryImpl
+import com.glacierpower.tennisapp.data.service.CountriesFlagsApiService
 import com.glacierpower.tennisapp.data.service.TennisApiService
 import com.glacierpower.tennisapp.domain.events.LiveEventsRepository
 import com.glacierpower.tennisapp.domain.ranking.RankingRepository
 import com.glacierpower.tennisapp.domain.search.SearchRepository
-import com.glacierpower.tennisapp.utils.Constants.API_KEY
 import com.glacierpower.tennisapp.utils.Constants.KEY
-import com.glacierpower.tennisapp.utils.Constants.SECOND_API_KEY
-import com.glacierpower.tennisapp.utils.Constants.THIRD_API_KEY
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -24,6 +22,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.io.File
 import java.util.concurrent.TimeUnit
+import javax.inject.Named
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -50,6 +49,7 @@ abstract class DataModule {
         private const val HEADER_VALUE_RAPID_API_HOST = "tennisapi1.p.rapidapi.com"
         private const val HEADER_KEY_RAPID_API_KEY = "x-rapidapi-key"
         private const val BASE_URL = "https://tennisapi1.p.rapidapi.com/api/tennis/"
+        private const val COUNTRY_FLAGS_URL = "https://flagcdn.com/"
 
         @Provides
         fun provideOkhttpClient(
@@ -83,6 +83,7 @@ abstract class DataModule {
             level = HttpLoggingInterceptor.Level.BODY
         }
 
+        @Named("Tennis")
         @Provides
         fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
             return Retrofit.Builder()
@@ -92,10 +93,26 @@ abstract class DataModule {
                 .build()
         }
 
+        @Named("Tennis")
         @Provides
-        fun provideTennisApiService(retrofit: Retrofit): TennisApiService {
+        fun provideTennisApiService(@Named("Tennis") retrofit: Retrofit): TennisApiService {
             return retrofit.create(TennisApiService::class.java)
         }
 
+        @Named("Countries Flags")
+        @Provides
+        fun provideCountryFlagsRetrofit(okHttpClient: OkHttpClient): Retrofit {
+            return Retrofit.Builder()
+                .baseUrl(COUNTRY_FLAGS_URL)
+                .client(okHttpClient)
+                .addConverterFactory(MoshiConverterFactory.create())
+                .build()
+        }
+
+        @Named("Countries Flags")
+        @Provides
+        fun provideCountriesFlagsApiService(@Named("Countries Flags") retrofit: Retrofit): CountriesFlagsApiService {
+            return retrofit.create(CountriesFlagsApiService::class.java)
+        }
     }
 }

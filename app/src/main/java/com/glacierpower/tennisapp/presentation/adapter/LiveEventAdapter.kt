@@ -1,13 +1,14 @@
 package com.glacierpower.tennisapp.presentation.adapter
 
+import android.net.Uri
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.glacierpower.tennisapp.databinding.LiveEventItemBinding
 import com.glacierpower.tennisapp.model.eventModel.EventModel
+import com.glacierpower.tennisapp.presentation.adapter.listener.LiveEventListener
 import com.glacierpower.tennisapp.utils.Constants.PERIOD1
 import com.glacierpower.tennisapp.utils.Constants.PERIOD2
 import com.glacierpower.tennisapp.utils.Constants.PERIOD3
@@ -15,16 +16,17 @@ import com.glacierpower.tennisapp.utils.Constants.SET1
 import com.glacierpower.tennisapp.utils.Constants.SET2
 import com.glacierpower.tennisapp.utils.Constants.SET3
 import com.glacierpower.tennisapp.utils.Constants.ZERO
+import com.squareup.picasso.Picasso
 
-class LiveEventAdapter :
+class LiveEventAdapter(private val liveEventListener: LiveEventListener) :
     RecyclerView.Adapter<LiveEventAdapter.LiveEventViewHolder>() {
 
     inner class LiveEventViewHolder(private val liveEventItemBinding: LiveEventItemBinding) :
         RecyclerView.ViewHolder(liveEventItemBinding.root) {
         fun bind(eventModel: EventModel) {
             liveEventItemBinding.apply {
-                liveEventItemBinding.firstPlayer.text = eventModel.awayTeam.name
-                liveEventItemBinding.secondPlayer.text = eventModel.homeTeam.name
+                liveEventItemBinding.firstPlayer.text = eventModel.awayTeam.shortName
+                liveEventItemBinding.secondPlayer.text = eventModel.homeTeam.shortName
                 liveEventItemBinding.firstPlayerPoint.text = eventModel.awayScore.point
                 liveEventItemBinding.secondPlayerPoint.text = eventModel.homeScore.point
                 liveEventItemBinding.firstPlayerSet1.text = eventModel.awayScore.period1.toString()
@@ -34,17 +36,21 @@ class LiveEventAdapter :
                     liveEventItemBinding.firstPlayerSet2.text = ZERO
                     liveEventItemBinding.secondPlayerSet2.text = ZERO
                 } else {
-                    liveEventItemBinding.firstPlayerSet2.text = eventModel.awayScore.period2.toString()
-                    liveEventItemBinding.secondPlayerSet2.text = eventModel.homeScore.period2.toString()
+                    liveEventItemBinding.firstPlayerSet2.text =
+                        eventModel.awayScore.period2.toString()
+                    liveEventItemBinding.secondPlayerSet2.text =
+                        eventModel.homeScore.period2.toString()
                 }
 
-                if(eventModel.awayScore.period3 == null && eventModel.homeScore.period3 == null){
+                if (eventModel.awayScore.period3 == null && eventModel.homeScore.period3 == null) {
                     liveEventItemBinding.firstPlayerSet3.text = ZERO
                     liveEventItemBinding.secondPlayerSet3.text = ZERO
-                }else{
+                } else {
 
-                    liveEventItemBinding.firstPlayerSet3.text = eventModel.awayScore.period3.toString()
-                    liveEventItemBinding.secondPlayerSet3.text = eventModel.homeScore.period3.toString()
+                    liveEventItemBinding.firstPlayerSet3.text =
+                        eventModel.awayScore.period3.toString()
+                    liveEventItemBinding.secondPlayerSet3.text =
+                        eventModel.homeScore.period3.toString()
                 }
 
                 when (eventModel.lastPeriod) {
@@ -52,8 +58,9 @@ class LiveEventAdapter :
                     PERIOD2 -> liveEventItemBinding.period.text = SET2
                     PERIOD3 -> liveEventItemBinding.period.text = SET3
                 }
-                liveEventItemBinding.firstCountry.text = eventModel.awayTeam.country?.alpha2
-                liveEventItemBinding.secondCountry.text = eventModel.homeTeam.country?.alpha2
+//                liveEventItemBinding.firstCountry.text = eventModel.awayTeam.country?.alpha2
+//                liveEventItemBinding.secondCountry.text = eventModel.homeTeam.country?.alpha2
+
                 liveEventItemBinding.tournament.text = eventModel.tournament.name
                 liveEventItemBinding.tournamentCategory.text = eventModel.tournament.category?.name
             }

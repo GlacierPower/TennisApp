@@ -14,4 +14,8 @@ class LiveEventInteractor @Inject constructor(
     suspend fun getTournamentImage(id:Int){
         return liveEventsRepository.getTournamentImage(id)
     }
+
+    suspend fun getCountryFlag(code:String){
+        return liveEventsRepository.getCountryFlag(code)
+    }
 }

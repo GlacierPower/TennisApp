@@ -6,6 +6,7 @@ plugins {
     id 'kotlin-parcelize'
 }
 
+
 android {
     namespace 'com.glacierpower.tennisapp'
     compileSdk 33
@@ -14,7 +15,6 @@ android {
         dataBinding = true
         viewBinding = true
     }
-
     defaultConfig {
         applicationId "com.glacierpower.tennisapp"
         minSdk 24
@@ -96,6 +96,7 @@ dependencies {
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
     //lottie
     implementation "com.airbnb.android:lottie:3.4.0"
+
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'

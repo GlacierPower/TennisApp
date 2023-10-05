@@ -2,35 +2,31 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="80dp">
+    android:layout_height="110dp">
 
-    <com.google.android.material.textview.MaterialTextView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/firstCountry"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="15dp"
+        android:layout_height="10dp"
         android:layout_marginStart="@dimen/padding_start"
-        android:hint="@string/ranking_number"
+        android:background="@drawable/live_event"
         android:paddingTop="@dimen/default_padding"
         android:paddingBottom="@dimen/default_padding"
-        android:textSize="11sp"
-        app:fontFamily="@font/arvo"
         app:layout_constraintBottom_toBottomOf="@+id/first_player"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tournament" />
+        app:layout_constraintTop_toTopOf="@+id/first_player" />
 
-    <com.google.android.material.textview.MaterialTextView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/secondCountry"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:hint="@string/ranking_number"
+        android:layout_width="15dp"
+        android:layout_height="10dp"
+        android:layout_marginStart="@dimen/padding_start"
+        android:background="@drawable/live_event"
         android:paddingTop="@dimen/default_padding"
         android:paddingBottom="@dimen/default_padding"
-        android:textSize="11sp"
-        app:fontFamily="@font/arvo"
         app:layout_constraintBottom_toBottomOf="@+id/second_player"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/first_player" />
+        app:layout_constraintTop_toTopOf="@+id/second_player" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/period"
@@ -48,55 +44,83 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/first_player"
-        android:layout_width="wrap_content"
+        android:layout_width="185dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="5dp"
         android:hint="@string/player_name"
         android:paddingTop="@dimen/default_padding"
         android:paddingBottom="@dimen/default_padding"
         android:textSize="@dimen/text_size_live"
         app:fontFamily="@font/arvo"
+        android:singleLine="true"
         app:layout_constraintBottom_toTopOf="@+id/second_player"
         app:layout_constraintStart_toEndOf="@+id/firstCountry"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tournament"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="2dp"
-        android:hint="@string/tournament"
-        android:paddingTop="@dimen/default_padding"
-        android:paddingBottom="@dimen/default_padding"
-        android:textSize="13sp"
-        app:fontFamily="@font/arvo"
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/purple_200"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tournament_category"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:hint="@string/type"
-        android:paddingTop="@dimen/default_padding"
-        android:paddingBottom="@dimen/default_padding"
-        android:textSize="13sp"
-        app:fontFamily="@font/arvo"
-        app:layout_constraintStart_toEndOf="@+id/tournament"
-        app:layout_constraintTop_toTopOf="parent" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tournament"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="65dp"
+            android:layout_marginTop="2dp"
+            android:hint="@string/tournament"
+            android:paddingTop="@dimen/default_padding"
+            android:paddingBottom="@dimen/default_padding"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/arvo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tournament_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="65dp"
+            android:layout_marginTop="20dp"
+            android:hint="@string/type"
+            android:paddingTop="@dimen/default_padding"
+            android:paddingBottom="@dimen/default_padding"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/arvo"
+            app:layout_constraintStart_toStartOf="@+id/tournament"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+           android:id="@+id/tournament_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="@dimen/padding_start"
+            android:layout_marginTop="@dimen/default_padding"
+            android:background="@drawable/pic"
+            app:shapeAppearanceOverlay="@style/circleImageView" />
+    </androidx.cardview.widget.CardView>
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/second_player"
-        android:layout_width="wrap_content"
+        android:layout_width="185dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginBottom="2dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="4dp"
         android:hint="@string/player_name"
         android:paddingTop="@dimen/default_padding"
         android:paddingBottom="@dimen/default_padding"
+        android:singleLine="true"
         android:textSize="@dimen/text_size_live"
         app:fontFamily="@font/arvo"
         app:layout_constraintBottom_toBottomOf="parent"

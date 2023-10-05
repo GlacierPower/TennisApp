@@ -37,8 +37,21 @@ fun Time.toEntity(): TimeModel {
 
 fun Score.toEntity(): ScoreModel {
     return ScoreModel(
-        current, display, period1, period2, period3, period4, period5, point
+        current,
+        display,
+        period1,
+        period1TieBreak,
+        period2,
+        period2TieBreak,
+        period3,
+        period3TieBreak,
+        period4,
+        period4TieBreak,
+        period5,
+        period5TieBreak,
+        point
     )
+
 }
 
 fun Team.toEntity(): TeamModelLiveEvent {
@@ -56,7 +69,7 @@ fun Team.toEntity(): TeamModelLiveEvent {
         slug,
         sport.toEntity(),
         subTeam?.map {
-                    it.toEntity()
+            it.toEntity()
         },
         teamColors.toEntity(),
         type,
