@@ -3,6 +3,7 @@ package com.glacierpower.tennisapp.data.service
 import com.glacierpower.tennisapp.data.service.responce.Events.LiveEventsResponse
 import com.glacierpower.tennisapp.data.service.responce.RankingResponse
 import com.glacierpower.tennisapp.data.service.responce.SearchResponse
+import okhttp3.ResponseBody
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -20,4 +21,7 @@ interface TennisApiService {
 
     @GET("events/live")
     suspend fun getLiveEvents():Response<LiveEventsResponse>
+
+    @GET("tournament/{id}/image")
+    suspend fun getTournamentImage(@Path("id") id:Int):Response<ResponseBody>
 }

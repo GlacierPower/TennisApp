@@ -9,6 +9,7 @@ import com.glacierpower.tennisapp.domain.events.LiveEventsRepository
 import com.glacierpower.tennisapp.domain.ranking.RankingRepository
 import com.glacierpower.tennisapp.domain.search.SearchRepository
 import com.glacierpower.tennisapp.utils.Constants.API_KEY
+import com.glacierpower.tennisapp.utils.Constants.KEY
 import com.glacierpower.tennisapp.utils.Constants.SECOND_API_KEY
 import com.glacierpower.tennisapp.utils.Constants.THIRD_API_KEY
 import dagger.Binds
@@ -66,7 +67,7 @@ abstract class DataModule {
 
                     val newRequestBuilder = originalRequest.newBuilder()
                         .header(HEADER_KEY_RAPID_API_HOST, HEADER_VALUE_RAPID_API_HOST)
-                        .header(HEADER_KEY_RAPID_API_KEY, SECOND_API_KEY)
+                        .header(HEADER_KEY_RAPID_API_KEY, KEY)
 
                     val newRequest = newRequestBuilder.build()
                     chain.proceed(newRequest)

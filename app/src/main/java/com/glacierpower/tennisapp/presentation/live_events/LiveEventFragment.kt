@@ -1,6 +1,7 @@
 package com.glacierpower.tennisapp.presentation.live_events
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -62,10 +63,12 @@ class LiveEventFragment : Fragment() {
 
     private fun getLiveEvent() {
         viewModel.getLiveEvent()
+        viewModel.getTournamentImage(3515)
         viewModel.liveEvent.observe(viewLifecycleOwner) { response ->
             when (response) {
                 is ResultState.Success -> {
                     liveEventAdapter.differ.submitList(response.data!!)
+                    viewBinding.rvLiveEvent.visibility = View.VISIBLE
                     viewBinding.loadingLayout.visibility = View.GONE
                 }
                 is ResultState.Error -> {
@@ -77,5 +80,8 @@ class LiveEventFragment : Fragment() {
             }
         }
     }
+
+
+
 }
 

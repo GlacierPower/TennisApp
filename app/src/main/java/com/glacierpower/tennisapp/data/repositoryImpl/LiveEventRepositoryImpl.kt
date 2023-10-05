@@ -17,10 +17,16 @@ class LiveEventRepositoryImpl @Inject constructor(
         val liveEventResponse = tennisApiService.getLiveEvents()
         return withContext(Dispatchers.IO) {
             ResultState.Success(liveEventResponse.body()?.events.let { list ->
-                list!!.map {liveEventList ->
+                list!!.map { liveEventList ->
                     liveEventList.toEntity()
                 }
             })
         }
     }
+
+    override suspend fun getTournamentImage(id: Int) {
+        tennisApiService.getTournamentImage(id).raw().request.url
+        Log.w("Image url","${tennisApiService.getTournamentImage(id)}")
+    }
+
 }

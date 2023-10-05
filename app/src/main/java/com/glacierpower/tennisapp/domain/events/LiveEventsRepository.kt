@@ -6,4 +6,6 @@ import com.glacierpower.tennisapp.utils.ResultState
 interface LiveEventsRepository {
 
     suspend fun getLiveEvent():ResultState<List<EventModel>>
+
+    suspend fun getTournamentImage(id:Int)
 }

@@ -1,6 +1,7 @@
 package com.glacierpower.tennisapp.presentation.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
@@ -13,8 +14,10 @@ import com.glacierpower.tennisapp.utils.Constants.PERIOD3
 import com.glacierpower.tennisapp.utils.Constants.SET1
 import com.glacierpower.tennisapp.utils.Constants.SET2
 import com.glacierpower.tennisapp.utils.Constants.SET3
+import com.glacierpower.tennisapp.utils.Constants.ZERO
 
-class LiveEventAdapter : RecyclerView.Adapter<LiveEventAdapter.LiveEventViewHolder>() {
+class LiveEventAdapter :
+    RecyclerView.Adapter<LiveEventAdapter.LiveEventViewHolder>() {
 
     inner class LiveEventViewHolder(private val liveEventItemBinding: LiveEventItemBinding) :
         RecyclerView.ViewHolder(liveEventItemBinding.root) {
@@ -26,10 +29,24 @@ class LiveEventAdapter : RecyclerView.Adapter<LiveEventAdapter.LiveEventViewHold
                 liveEventItemBinding.secondPlayerPoint.text = eventModel.homeScore.point
                 liveEventItemBinding.firstPlayerSet1.text = eventModel.awayScore.period1.toString()
                 liveEventItemBinding.secondPlayerSet1.text = eventModel.homeScore.period1.toString()
-                liveEventItemBinding.firstPlayerSet2.text = eventModel.awayScore.period2.toString()
-                liveEventItemBinding.secondPlayerSet2.text = eventModel.homeScore.period2.toString()
-                liveEventItemBinding.firstPlayerSet3.text = eventModel.awayScore.period3.toString()
-                liveEventItemBinding.secondPlayerSet3.text = eventModel.homeScore.period3.toString()
+
+                if (eventModel.awayScore.period2 == null && eventModel.homeScore.period2 == null) {
+                    liveEventItemBinding.firstPlayerSet2.text = ZERO
+                    liveEventItemBinding.secondPlayerSet2.text = ZERO
+                } else {
+                    liveEventItemBinding.firstPlayerSet2.text = eventModel.awayScore.period2.toString()
+                    liveEventItemBinding.secondPlayerSet2.text = eventModel.homeScore.period2.toString()
+                }
+
+                if(eventModel.awayScore.period3 == null && eventModel.homeScore.period3 == null){
+                    liveEventItemBinding.firstPlayerSet3.text = ZERO
+                    liveEventItemBinding.secondPlayerSet3.text = ZERO
+                }else{
+
+                    liveEventItemBinding.firstPlayerSet3.text = eventModel.awayScore.period3.toString()
+                    liveEventItemBinding.secondPlayerSet3.text = eventModel.homeScore.period3.toString()
+                }
+
                 when (eventModel.lastPeriod) {
                     PERIOD1 -> liveEventItemBinding.period.text = SET1
                     PERIOD2 -> liveEventItemBinding.period.text = SET2
@@ -39,7 +56,6 @@ class LiveEventAdapter : RecyclerView.Adapter<LiveEventAdapter.LiveEventViewHold
                 liveEventItemBinding.secondCountry.text = eventModel.homeTeam.country?.alpha2
                 liveEventItemBinding.tournament.text = eventModel.tournament.name
                 liveEventItemBinding.tournamentCategory.text = eventModel.tournament.category?.name
-
             }
         }
     }

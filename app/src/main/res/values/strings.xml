@@ -6,6 +6,7 @@
     <string name="period">Set 1</string>
     <string name="points">1234</string>
     <string name="point">15</string>
+    <string name="game">0</string>
     <string name="atp_single">ATP-single</string>
     <string name="rank_number">#</string>
     <string name="points_title">Points</string>

@@ -1,8 +1,8 @@
 package com.glacierpower.tennisapp.data.service.responce.Events
 
-import com.squareup.moshi.Json
+import com.google.gson.annotations.SerializedName
 
 data class PlayerTeamInfo(
-    @field:Json(name = "id")
+   @SerializedName("id")
     val id:Int
 )

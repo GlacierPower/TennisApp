@@ -45,7 +45,7 @@ class RankingFragment : Fragment() {
 
         observeInternetConnection()
 
-//        getRanking()
+        getRanking()
 
 
 

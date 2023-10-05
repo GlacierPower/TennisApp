@@ -10,4 +10,8 @@ class LiveEventInteractor @Inject constructor(
     suspend fun getLiveEvent(): ResultState<List<EventModel>> {
         return liveEventsRepository.getLiveEvent()
     }
+
+    suspend fun getTournamentImage(id:Int){
+        return liveEventsRepository.getTournamentImage(id)
+    }
 }
