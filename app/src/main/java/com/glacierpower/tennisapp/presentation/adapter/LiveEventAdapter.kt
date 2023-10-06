@@ -1,6 +1,5 @@
 package com.glacierpower.tennisapp.presentation.adapter
 
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
@@ -9,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.glacierpower.tennisapp.databinding.LiveEventItemBinding
 import com.glacierpower.tennisapp.model.eventModel.EventModel
 import com.glacierpower.tennisapp.presentation.adapter.listener.LiveEventListener
+import com.glacierpower.tennisapp.utils.Constants.FLAG_URL
 import com.glacierpower.tennisapp.utils.Constants.PERIOD1
 import com.glacierpower.tennisapp.utils.Constants.PERIOD2
 import com.glacierpower.tennisapp.utils.Constants.PERIOD3
@@ -16,6 +16,9 @@ import com.glacierpower.tennisapp.utils.Constants.SET1
 import com.glacierpower.tennisapp.utils.Constants.SET2
 import com.glacierpower.tennisapp.utils.Constants.SET3
 import com.glacierpower.tennisapp.utils.Constants.ZERO
+import com.glacierpower.tennisapp.utils.Constants.IMAGE_FORMAT
+import com.glacierpower.tennisapp.utils.Constants.IMAGE_KEY
+import com.glacierpower.tennisapp.utils.Constants.TOURNAMENT_URL
 import com.squareup.picasso.Picasso
 
 class LiveEventAdapter(private val liveEventListener: LiveEventListener) :
@@ -58,9 +61,32 @@ class LiveEventAdapter(private val liveEventListener: LiveEventListener) :
                     PERIOD2 -> liveEventItemBinding.period.text = SET2
                     PERIOD3 -> liveEventItemBinding.period.text = SET3
                 }
-//                liveEventItemBinding.firstCountry.text = eventModel.awayTeam.country?.alpha2
-//                liveEventItemBinding.secondCountry.text = eventModel.homeTeam.country?.alpha2
 
+                liveEventItemBinding.tournamentImage.setOnClickListener {
+                    liveEventListener.getTournamentImage(eventModel.tournament.uniqueTournament.id)
+                }
+
+                val firstFlag = eventModel.awayTeam.country?.alpha2
+                val secondFlag = eventModel.homeTeam.country?.alpha2
+                Picasso.get()
+                    .load("${FLAG_URL}${firstFlag}${IMAGE_FORMAT}")
+                    .into(liveEventItemBinding.firstCountry)
+                Picasso.get()
+                    .load("${FLAG_URL}${secondFlag}${IMAGE_FORMAT}")
+                    .into(liveEventItemBinding.secondCountry)
+
+                val id = eventModel.tournament.uniqueTournament.id
+                Picasso.get()
+                    .load("${TOURNAMENT_URL}${id}${IMAGE_KEY}")
+                    .into(liveEventItemBinding.tournamentImage)
+//                val token = API_KEY
+
+//                val url = "https://tennisapi1.p.rapidapi.com/api/tennis/tournament/${id}/image"
+//                val glideUrl = GlideUrl(url) { mapOf(Pair("Authorization", "Bearer $token")) }
+
+//                Glide.with(liveEventItemBinding.tournamentImage)
+//                    .load(glideUrl)
+//                    .into(liveEventItemBinding.tournamentImage)
                 liveEventItemBinding.tournament.text = eventModel.tournament.name
                 liveEventItemBinding.tournamentCategory.text = eventModel.tournament.category?.name
             }

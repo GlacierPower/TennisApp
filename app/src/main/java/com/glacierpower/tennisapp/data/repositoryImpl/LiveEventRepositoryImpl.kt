@@ -28,7 +28,7 @@ class LiveEventRepositoryImpl @Inject constructor(
     }
 
     override suspend fun getTournamentImage(id: Int) {
-        tennisApiService.getTournamentImage(id).raw().request.url
+        tennisApiService.getTournamentImage(id).raw().request.url.query
         Log.w("Image url", "${tennisApiService.getTournamentImage(id)}")
     }
 
