@@ -5,7 +5,7 @@
     <string name="ranking_number">1</string>
     <string name="period">Set 1</string>
     <string name="points">1234</string>
-    <string name="point">15</string>
+    <string name="point">0</string>
     <string name="game">0</string>
     <string name="atp_single">ATP-single</string>
     <string name="rank_number">#</string>
@@ -16,7 +16,7 @@
     <string name="nothing_selected">Nothing selected</string>
     <string name="wta_single">WTA-single</string>
     <string name="country">Country</string>
-    <string name="enter_player_name">Enter player name</string>
+    <string name="enter_player_name">Enter player name or tournament</string>
     <string name="search">Search</string>
     <string name="live">Live</string>
     <string name="set1">Set 1</string>

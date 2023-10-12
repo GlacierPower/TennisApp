@@ -20,7 +20,7 @@ fun LiveEventList.toEntity(): EventModel {
         id,
         lastPeriod,
         periods.toEntity(),
-        roundInfo.toEntity(),
+        roundInfo?.toEntity(),
         slug,
         startTimestamp,
         status,

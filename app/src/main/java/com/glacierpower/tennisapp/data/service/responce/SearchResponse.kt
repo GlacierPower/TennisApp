@@ -1,5 +1,6 @@
 package com.glacierpower.tennisapp.data.service.responce
 
+import com.glacierpower.tennisapp.data.service.responce.Events.Category
 import com.google.gson.annotations.SerializedName
 
 data class SearchResponse(
@@ -9,7 +10,7 @@ data class SearchResponse(
 
 data class SearchResult(
     @SerializedName("entity")
-    val searchEntity: SearchEntity,
+    val entity: SearchEntity?,
     @SerializedName("score")
     val score: Float,
     @SerializedName("type")
@@ -17,30 +18,34 @@ data class SearchResult(
 )
 
 data class SearchEntity(
+    @SerializedName("category")
+    val category: Category?,
     @SerializedName("country")
-    val country: Country?,
+    val country: Country,
+    @SerializedName("displayInverseHomeAwayTeams")
+    val displayInverseHomeAwayTeams: Boolean,
     @SerializedName("disabled")
-    val disabled: Boolean?,
+    val disabled: Boolean,
     @SerializedName("gender")
-    val gender: String,
+    val gender: String?,
     @SerializedName("id")
     val id: Int,
     @SerializedName("name")
     val name: String,
     @SerializedName("nameCode")
-    val nameCode: String,
+    val nameCode: String?,
     @SerializedName("national")
     val national: Boolean,
     @SerializedName("ranking")
-    val ranking: Int?,
+    val ranking: Int,
     @SerializedName("shortName")
-    val shortName: String,
+    val shortName: String?,
     @SerializedName("slug")
     val slug: String,
     @SerializedName("sport")
-    val sport: Sport,
+    val sport: Sport?,
     @SerializedName("teamColor")
-    val teamColor: TeamColor,
+    val teamColor: TeamColor?,
     @SerializedName("type")
     val type: Int,
     @SerializedName("userCount")

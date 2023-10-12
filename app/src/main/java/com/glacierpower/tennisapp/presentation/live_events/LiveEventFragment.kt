@@ -64,7 +64,6 @@ class LiveEventFragment : Fragment(),LiveEventListener {
 
     private fun getLiveEvent() {
         viewModel.getLiveEvent()
-        viewModel.getTournamentImage(3515)
         viewModel.liveEvent.observe(viewLifecycleOwner) { response ->
             when (response) {
                 is ResultState.Success -> {

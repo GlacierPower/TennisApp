@@ -18,7 +18,7 @@ data class EventModel(
     val id: Int,
     val lastPeriod: String,
     val periods: PeriodsModel,
-    val roundInfo: RoundInfoModel,
+    val roundInfo: RoundInfoModel?,
     val slug: String,
     val startTimestamp: Int,
     val status: Status,

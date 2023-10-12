@@ -101,7 +101,7 @@ class SearchFragment : Fragment() {
                 is ResultState.Success -> {
                     searchResult.data?.let { list ->
                         searchAdapter.differ.submitList(list.toList())
-
+                        viewBinding.loadingLayout.visibility = View.GONE
                     }
                 }
                 is ResultState.Error -> {

@@ -7,15 +7,17 @@ import com.glacierpower.tennisapp.model.resultModel.SearchResultModel
 
 fun SearchResult.toEntity(): SearchResultModel {
     return SearchResultModel(
-        searchEntity.toEntity(),
+        entity?.toEntity(),
         score,
         type
     )
 }
 
-fun SearchEntity.toEntity(): EntityModel {
+fun SearchEntity.toEntity(): EntityModel? {
     return EntityModel(
-        country?.toEntity(),
+        category?.toEntity(),
+        country.toEntity(),
+        displayInverseHomeAwayTeams,
         disabled,
         gender,
         id,
@@ -25,8 +27,8 @@ fun SearchEntity.toEntity(): EntityModel {
         ranking,
         shortName,
         slug,
-        sport.toEntity(),
-        teamColor.toEntity(),
+        sport?.toEntity(),
+        teamColor?.toEntity(),
         type,
         userCount
     )

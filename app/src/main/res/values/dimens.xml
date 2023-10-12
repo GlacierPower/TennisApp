@@ -2,6 +2,7 @@
 <resources>
     <dimen name="default_padding">5dp</dimen>
     <dimen name="text_size_ranking">20sp</dimen>
-    <dimen name="text_size_live">12sp</dimen>
+    <dimen name="text_size_live">13sp</dimen>
+    <dimen name="text_size_tournament">14sp</dimen>
     <dimen name="padding_start">15dp</dimen>
 </resources>

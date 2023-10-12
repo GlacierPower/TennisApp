@@ -12,24 +12,33 @@
         android:layout_marginStart="@dimen/padding_start"
         android:paddingTop="@dimen/default_padding"
         android:paddingBottom="@dimen/default_padding"
-        android:textSize="@dimen/text_size_ranking"
+        android:textSize="@dimen/text_size_tournament"
         app:fontFamily="@font/arvo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/countryFlag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/rowName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/rowName" />
+
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/rowName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="80dp"
         android:hint="@string/player_name"
         android:paddingTop="@dimen/default_padding"
         android:paddingBottom="@dimen/default_padding"
-        android:textSize="@dimen/text_size_ranking"
+        android:textSize="@dimen/text_size_tournament"
         app:fontFamily="@font/arvo"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ranking"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textview.MaterialTextView
@@ -38,7 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
         android:hint="@string/points"
-        android:textSize="@dimen/text_size_ranking"
+        android:textSize="@dimen/text_size_tournament"
         app:fontFamily="@font/arvo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

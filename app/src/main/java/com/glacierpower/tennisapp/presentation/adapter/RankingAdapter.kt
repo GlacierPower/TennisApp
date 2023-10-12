@@ -7,6 +7,9 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.glacierpower.tennisapp.databinding.RankingItemsBinding
 import com.glacierpower.tennisapp.model.rankingModel.RankingModel
+import com.glacierpower.tennisapp.utils.Constants.FLAG_URL
+import com.glacierpower.tennisapp.utils.Constants.IMAGE_FORMAT
+import com.squareup.picasso.Picasso
 
 class RankingAdapter :
     RecyclerView.Adapter<RankingAdapter.RankingViewHolder>() {
@@ -59,6 +62,11 @@ class RankingAdapter :
                 itemsRankingBinding.ranking.text = "${rankingModel.ranking}."
                 itemsRankingBinding.points.text = rankingModel.points.toString()
                 itemsRankingBinding.rowName.text = rankingModel.rowName
+
+                val countryFlag = rankingModel.team.country.alpha2
+                Picasso.get()
+                    .load("${FLAG_URL}${countryFlag}${IMAGE_FORMAT}")
+                    .into(itemsRankingBinding.countryFlag)
             }
         }
     }
