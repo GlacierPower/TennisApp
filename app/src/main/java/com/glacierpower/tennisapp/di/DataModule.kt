@@ -2,11 +2,13 @@ package com.glacierpower.tennisapp.di
 
 import android.content.Context
 import com.glacierpower.tennisapp.data.repositoryImpl.LiveEventRepositoryImpl
+import com.glacierpower.tennisapp.data.repositoryImpl.PlayerDetailsRepositoryImpl
 import com.glacierpower.tennisapp.data.repositoryImpl.RankingRepositoryImpl
 import com.glacierpower.tennisapp.data.repositoryImpl.SearchRepositoryImpl
 import com.glacierpower.tennisapp.data.service.CountriesFlagsApiService
 import com.glacierpower.tennisapp.data.service.TennisApiService
 import com.glacierpower.tennisapp.domain.events.LiveEventsRepository
+import com.glacierpower.tennisapp.domain.palyer_details.PlayerDetailsRepository
 import com.glacierpower.tennisapp.domain.ranking.RankingRepository
 import com.glacierpower.tennisapp.domain.search.SearchRepository
 import com.glacierpower.tennisapp.utils.Constants.KEY
@@ -27,6 +29,12 @@ import javax.inject.Named
 @Module
 @InstallIn(SingletonComponent::class)
 abstract class DataModule {
+
+
+    @Binds
+    abstract fun bindPlayerDetailsRepository(
+        playerDetailsRepositoryImpl: PlayerDetailsRepositoryImpl
+    ): PlayerDetailsRepository
 
     @Binds
     abstract fun bindRankingRepository(

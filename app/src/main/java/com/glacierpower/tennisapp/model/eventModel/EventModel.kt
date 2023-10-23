@@ -1,6 +1,6 @@
 package com.glacierpower.tennisapp.model.eventModel
 
-import com.glacierpower.tennisapp.data.service.responce.Events.*
+import com.glacierpower.tennisapp.data.service.responce.live_event.*
 
 data class EventModel(
     val awayScore: ScoreModel,
@@ -20,7 +20,7 @@ data class EventModel(
     val periods: PeriodsModel,
     val roundInfo: RoundInfoModel?,
     val slug: String,
-    val startTimestamp: Int,
+    val startTimestamp: Long,
     val status: Status,
     val time: TimeModel,
     val tournament: TournamentModel

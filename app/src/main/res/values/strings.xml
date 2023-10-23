@@ -24,6 +24,10 @@
     <string name="set3">Set 3</string>
     <string name="tournament">Tournament</string>
     <string name="type">Type</string>
+    <string name="age">Age</string>
+    <string name="atp">ATP:</string>
+    <string name="results">Results</string>
+    <string name="date">date</string>
 
     <string-array name="Ranking">
         <item>ATP Ranking</item>

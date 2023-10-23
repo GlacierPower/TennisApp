@@ -30,12 +30,6 @@ class LiveEventViewModel @Inject constructor(
     private var _liveEvent = MutableLiveData<ResultState<List<EventModel>>>()
     val liveEvent: LiveData<ResultState<List<EventModel>>> get() = _liveEvent
 
-    fun getTournamentImage(id: Int) {
-        viewModelScope.launch {
-            liveEventInteractor.getTournamentImage(id)
-
-        }
-    }
 
     fun getLiveEvent() {
         _liveEvent.postValue(ResultState.Loading())

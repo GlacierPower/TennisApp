@@ -17,7 +17,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class RankingViewModel @Inject constructor(
-    private val rankingInteractor: RankingInteractor,
+    private val rankingInteractor: RankingInteractor
 ) : ViewModel() {
 
     @Inject

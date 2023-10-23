@@ -9,16 +9,35 @@
         android:id="@+id/rankingFragment"
         android:name="com.glacierpower.tennisapp.presentation.ranking.RankingFragment"
         android:label="@string/rankings"
-        tools:layout="@layout/fragment_ranking" />
+        tools:layout="@layout/fragment_ranking" >
+
+        <action
+            android:id="@+id/action_rankingFragment_to_playerDetails"
+            app:destination="@id/playerDetails" />
+    </fragment>
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.glacierpower.tennisapp.presentation.search.SearchFragment"
+        android:name="com.glacierpower.tennisapp.presentation.search.DetailsFragment"
         android:label="@string/search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_playerDetails"
+            app:destination="@id/playerDetails" />
+    </fragment>
     <fragment
         android:id="@+id/liveEventFragment"
         android:name="com.glacierpower.tennisapp.presentation.live_events.LiveEventFragment"
         android:label="@string/live"
         tools:layout="@layout/fragment_live_event" />
+    <fragment
+        android:id="@+id/playerDetails"
+        android:name="com.glacierpower.tennisapp.presentation.player_details.PlayerDetailsFragment"
+        android:label="PlayerDetails" >
+
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="1" />
+    </fragment>
 
 </navigation>

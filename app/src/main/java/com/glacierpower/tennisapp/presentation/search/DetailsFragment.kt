@@ -8,8 +8,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.glacierpower.tennisapp.databinding.FragmentSearchBinding
 import com.glacierpower.tennisapp.presentation.adapter.SearchAdapter
+import com.glacierpower.tennisapp.presentation.adapter.listener.SearchListener
+import com.glacierpower.tennisapp.presentation.ranking.RankingFragmentDirections
 import com.glacierpower.tennisapp.utils.Constants.DELAY
 import com.glacierpower.tennisapp.utils.ResultState
 import dagger.hilt.android.AndroidEntryPoint
@@ -18,7 +21,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class SearchFragment : Fragment() {
+class DetailsFragment : Fragment(), SearchListener {
 
     private val searchViewModel: SearchViewModel by viewModels()
 
@@ -47,6 +50,7 @@ class SearchFragment : Fragment() {
 
         observeSearchLiveData()
 
+
     }
 
     private fun observeInternetConnection() {
@@ -70,7 +74,6 @@ class SearchFragment : Fragment() {
                 override fun onQueryTextSubmit(query: String?): Boolean {
                     return false
                 }
-
                 override fun onQueryTextChange(newText: String?): Boolean {
                     job?.cancel()
                     job = viewLifecycleOwner.lifecycleScope.launch {
@@ -88,7 +91,7 @@ class SearchFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        searchAdapter = SearchAdapter()
+        searchAdapter = SearchAdapter(this)
         viewBinding.rvSearchPlayer.apply {
             setHasFixedSize(true)
             adapter = searchAdapter
@@ -116,4 +119,12 @@ class SearchFragment : Fragment() {
 
         })
     }
+
+    override fun getPlayerDetails(id: Int) {
+        val action = DetailsFragmentDirections.actionSearchFragmentToPlayerDetails(id)
+        findNavController().navigate(
+            action
+        )
+    }
+
 }

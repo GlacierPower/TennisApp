@@ -1,6 +1,6 @@
 package com.glacierpower.tennisapp.presentation.adapter.listener
 
-interface LiveEventListener {
+interface SearchListener {
 
-    fun getTournamentImage(id:Int)
+    fun getPlayerDetails(id: Int)
 }

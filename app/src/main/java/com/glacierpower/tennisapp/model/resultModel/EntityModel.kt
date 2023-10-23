@@ -1,6 +1,5 @@
 package com.glacierpower.tennisapp.model.resultModel
 
-import com.glacierpower.tennisapp.data.service.responce.Events.Category
 import com.glacierpower.tennisapp.model.eventModel.CategoryModel
 import com.glacierpower.tennisapp.model.rankingModel.ColorModel
 import com.glacierpower.tennisapp.model.rankingModel.CountryModel

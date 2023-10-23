@@ -27,10 +27,6 @@ class LiveEventRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getTournamentImage(id: Int) {
-        tennisApiService.getTournamentImage(id)
-    }
-
     override suspend fun getCountryFlag(code: String) {
         countriesFlagsApiService.getCountryFlag(code).raw().request.url
     }

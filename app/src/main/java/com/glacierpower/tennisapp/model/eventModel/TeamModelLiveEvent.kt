@@ -8,7 +8,7 @@ import com.glacierpower.tennisapp.model.rankingModel.SportModel
 data class TeamModelLiveEvent(
     val country: CountryModel?,
     val disabled:Boolean?,
-    val gender:String,
+    val gender:String?,
     val id:Int,
     val name:String,
     val nameCode:String,

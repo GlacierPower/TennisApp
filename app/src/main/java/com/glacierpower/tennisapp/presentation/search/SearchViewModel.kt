@@ -4,8 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.glacierpower.tennisapp.domain.events.LiveEventInteractor
+import com.glacierpower.tennisapp.R
 import com.glacierpower.tennisapp.domain.search.SearchInteractor
+import com.glacierpower.tennisapp.model.player_details.PlayerDetailsModel
 import com.glacierpower.tennisapp.model.resultModel.SearchResultModel
 import com.glacierpower.tennisapp.utils.Constants
 import com.glacierpower.tennisapp.utils.InternetConnection
@@ -29,7 +30,8 @@ class SearchViewModel @Inject constructor(
     private var _connection = MutableLiveData<Boolean>()
     val connection: LiveData<Boolean> get() = _connection
 
-    var searchPage = 1
+    private var _nav = MutableLiveData<Int?>()
+    val nav: LiveData<Int?> get() = _nav
 
     fun searchPlayer(query: String) {
         _search.postValue(ResultState.Loading())
@@ -52,5 +54,6 @@ class SearchViewModel @Inject constructor(
         }
 
     }
+
 
 }

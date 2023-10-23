@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.glacierpower.tennisapp.databinding.LiveEventItemBinding
 import com.glacierpower.tennisapp.model.eventModel.EventModel
-import com.glacierpower.tennisapp.presentation.adapter.listener.LiveEventListener
 import com.glacierpower.tennisapp.utils.Constants.FLAG_URL
 import com.glacierpower.tennisapp.utils.Constants.IMAGE_FORMAT
 import com.glacierpower.tennisapp.utils.Constants.IMAGE_KEY
@@ -21,7 +20,7 @@ import com.glacierpower.tennisapp.utils.Constants.TOURNAMENT_URL
 import com.glacierpower.tennisapp.utils.Constants.ZERO
 import com.squareup.picasso.Picasso
 
-class LiveEventAdapter(private val liveEventListener: LiveEventListener) :
+class LiveEventAdapter :
     RecyclerView.Adapter<LiveEventAdapter.LiveEventViewHolder>() {
 
     inner class LiveEventViewHolder(private val liveEventItemBinding: LiveEventItemBinding) :
@@ -62,9 +61,6 @@ class LiveEventAdapter(private val liveEventListener: LiveEventListener) :
                     PERIOD3 -> liveEventItemBinding.period.text = SET3
                 }
 
-                liveEventItemBinding.tournamentImage.setOnClickListener {
-                    liveEventListener.getTournamentImage(eventModel.tournament.uniqueTournament.id)
-                }
 
                 val firstFlag = eventModel.awayTeam.country?.alpha2
                 val secondFlag = eventModel.homeTeam.country?.alpha2

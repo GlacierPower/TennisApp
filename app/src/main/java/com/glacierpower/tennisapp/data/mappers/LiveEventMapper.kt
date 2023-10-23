@@ -1,6 +1,6 @@
 package com.glacierpower.tennisapp.data.mappers
 
-import com.glacierpower.tennisapp.data.service.responce.Events.*
+import com.glacierpower.tennisapp.data.service.responce.live_event.*
 import com.glacierpower.tennisapp.model.eventModel.*
 
 fun LiveEventList.toEntity(): EventModel {

@@ -7,7 +7,5 @@ interface LiveEventsRepository {
 
     suspend fun getLiveEvent():ResultState<List<EventModel>>
 
-    suspend fun getTournamentImage(id:Int)
-
     suspend fun getCountryFlag(code:String)
 }

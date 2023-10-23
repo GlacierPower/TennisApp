@@ -1,7 +1,6 @@
 package com.glacierpower.tennisapp.presentation.live_events
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,12 +8,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.glacierpower.tennisapp.databinding.FragmentLiveEventBinding
 import com.glacierpower.tennisapp.presentation.adapter.LiveEventAdapter
-import com.glacierpower.tennisapp.presentation.adapter.listener.LiveEventListener
 import com.glacierpower.tennisapp.utils.ResultState
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class LiveEventFragment : Fragment(),LiveEventListener {
+class LiveEventFragment : Fragment() {
 
     private val viewModel: LiveEventViewModel by viewModels()
 
@@ -55,7 +53,7 @@ class LiveEventFragment : Fragment(),LiveEventListener {
     }
 
     private fun setupRecyclerView() {
-        liveEventAdapter = LiveEventAdapter(this)
+        liveEventAdapter = LiveEventAdapter()
         viewBinding.rvLiveEvent.apply {
             setHasFixedSize(true)
             adapter = liveEventAdapter
@@ -80,11 +78,6 @@ class LiveEventFragment : Fragment(),LiveEventListener {
             }
         }
     }
-
-    override fun getTournamentImage(id: Int) {
-        viewModel.getTournamentImage(id)
-    }
-
 
 }
 

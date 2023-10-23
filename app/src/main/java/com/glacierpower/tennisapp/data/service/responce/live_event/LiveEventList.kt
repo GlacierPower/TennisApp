@@ -1,4 +1,4 @@
-package com.glacierpower.tennisapp.data.service.responce.Events
+package com.glacierpower.tennisapp.data.service.responce.live_event
 
 
 import com.google.gson.annotations.SerializedName
@@ -41,7 +41,7 @@ data class LiveEventList(
     @SerializedName("slug")
     val slug:String,
     @SerializedName("startTimestamp")
-    val startTimestamp:Int,
+    val startTimestamp:Long,
     @SerializedName("status")
     val status:Status,
     @SerializedName("time")

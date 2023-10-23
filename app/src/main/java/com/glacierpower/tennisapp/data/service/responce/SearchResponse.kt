@@ -1,6 +1,6 @@
 package com.glacierpower.tennisapp.data.service.responce
 
-import com.glacierpower.tennisapp.data.service.responce.Events.Category
+import com.glacierpower.tennisapp.data.service.responce.live_event.Category
 import com.google.gson.annotations.SerializedName
 
 data class SearchResponse(
