@@ -44,6 +44,7 @@ data class Team(
     val disabled: Boolean,
     @SerializedName("gender")
     val gender: String?,
+    val fullName:String?,
     @SerializedName("id")
     val id: Int,
     @SerializedName("name")

@@ -39,6 +39,7 @@ fun Score.toEntity(): ScoreModel {
     return ScoreModel(
         current,
         display,
+        normaltime,
         period1,
         period1TieBreak,
         period2,
@@ -59,6 +60,7 @@ fun Team.toEntity(): TeamModelLiveEvent {
         country?.toEntity(),
         disabled,
         gender,
+        fullName,
         id,
         name,
         nameCode,

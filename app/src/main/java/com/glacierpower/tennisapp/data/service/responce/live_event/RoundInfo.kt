@@ -4,11 +4,11 @@ import com.google.gson.annotations.SerializedName
 
 data class RoundInfo(
     @SerializedName("cupRoundType")
-    val cupRoundType:Int,
+    val cupRoundType:Int?,
     @SerializedName("name")
-    val name:String,
+    val name:String?,
     @SerializedName("round")
-    val round:Int,
+    val round:Int?,
     @SerializedName("slug")
-    val slug:String
+    val slug:String?
 )

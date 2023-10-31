@@ -1,6 +1,5 @@
 package com.glacierpower.tennisapp.presentation.adapter.listener
 
-interface SearchListener {
-
-    fun getPlayerDetails(id: Int)
+interface NearEventListener {
+    fun getEventId(id:Int)
 }

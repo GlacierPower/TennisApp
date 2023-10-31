@@ -28,6 +28,11 @@
     <string name="atp">ATP:</string>
     <string name="results">Results</string>
     <string name="date">date</string>
+    <string name="dash">-</string>
+    <string name="zero">0</string>
+    <string name="colon">:</string>
+    <string name="eventDetails">Event Details</string>
+    <string name="stats">Stats</string>
 
     <string-array name="Ranking">
         <item>ATP Ranking</item>

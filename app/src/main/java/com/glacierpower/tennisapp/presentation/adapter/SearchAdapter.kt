@@ -7,12 +7,12 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.glacierpower.tennisapp.databinding.SearchItemsBinding
 import com.glacierpower.tennisapp.model.resultModel.SearchResultModel
-import com.glacierpower.tennisapp.presentation.adapter.listener.SearchListener
+import com.glacierpower.tennisapp.presentation.adapter.listener.Listener
 import com.glacierpower.tennisapp.utils.Constants.IMAGE_KEY
 import com.glacierpower.tennisapp.utils.Constants.TEAM_IMAGE_URL
 import com.squareup.picasso.Picasso
 
-class SearchAdapter(private val searchListener: SearchListener) :
+class SearchAdapter(private val listener: Listener) :
     RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
 
     override fun onCreateViewHolder(
@@ -69,7 +69,7 @@ class SearchAdapter(private val searchListener: SearchListener) :
                     .into(ivPlayer)
 
                 this.tvPlayerName.setOnClickListener {
-                    searchListener.getPlayerDetails(searchResultModel.entityModel!!.id)
+                    listener.getId(searchResultModel.entityModel!!.id)
                 }
             }
 

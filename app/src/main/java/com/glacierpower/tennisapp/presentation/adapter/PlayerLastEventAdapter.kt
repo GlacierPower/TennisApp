@@ -5,20 +5,21 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.glacierpower.tennisapp.R
+import com.glacierpower.tennisapp.databinding.ItemsLastEventsBinding
 import com.glacierpower.tennisapp.databinding.ItemsPlayerDetailsBinding
 import com.glacierpower.tennisapp.model.lastEventModel.LastEventModel
+import com.glacierpower.tennisapp.presentation.adapter.listener.Listener
 import com.glacierpower.tennisapp.utils.Constants
-import com.glacierpower.tennisapp.utils.Extensions.convertToString
+import com.glacierpower.tennisapp.utils.Extensions.shortDate
 import com.squareup.picasso.Picasso
 
-class PlayerDetailsAdapter : RecyclerView.Adapter<PlayerDetailsAdapter.PlayerDetailsViewHolder>() {
+class PlayerLastEventAdapter(private val listener:Listener) : RecyclerView.Adapter<PlayerLastEventAdapter.PlayerDetailsViewHolder>() {
 
-    inner class PlayerDetailsViewHolder(private val itemsPlayerDetailsBinding: ItemsPlayerDetailsBinding) :
-        RecyclerView.ViewHolder(itemsPlayerDetailsBinding.root) {
+    inner class PlayerDetailsViewHolder(private val itemsLastEventsBinding: ItemsLastEventsBinding) :
+        RecyclerView.ViewHolder(itemsLastEventsBinding.root) {
         fun bind(lastEventModel: LastEventModel) {
 
-            itemsPlayerDetailsBinding.apply {
+            itemsLastEventsBinding.apply {
                 this.awayTeam.text = lastEventModel.awayTeam.name
                 this.homeTeam.text = lastEventModel.homeTeam.name
                 this.awayTeamPont.text = lastEventModel.awayScore?.current.toString()
@@ -27,20 +28,23 @@ class PlayerDetailsAdapter : RecyclerView.Adapter<PlayerDetailsAdapter.PlayerDet
                 this.tournamentCategory.text = lastEventModel.tournament.category?.name
 
                 val date = lastEventModel.startTimestamp
-                this.tournamentDate.text = date.convertToString(date)
+                this.tournamentDate.text = date.shortDate(date)
 
                 val id = lastEventModel.tournament.uniqueTournament.id
                 Picasso.get()
                     .load("${Constants.TOURNAMENT_URL}${id}${Constants.IMAGE_KEY}")
-                    .into(itemsPlayerDetailsBinding.tournamentImage)
+                    .into(itemsLastEventsBinding.tournamentImage)
 
+                this.homeTeam.setOnClickListener {
+                    listener.getId(lastEventModel.id)
+                }
             }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlayerDetailsViewHolder {
         return PlayerDetailsViewHolder(
-            ItemsPlayerDetailsBinding.inflate(
+            ItemsLastEventsBinding.inflate(
                 LayoutInflater.from(parent.context), parent, false
             )
         )

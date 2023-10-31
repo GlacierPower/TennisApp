@@ -2,7 +2,8 @@ package com.glacierpower.tennisapp.utils
 
 object Constants {
 
-
+    const val KEY ="445ccae8f6msh2cbf90cd04031d2p1ab8a8jsn2baf87fbd252"
+    const val IMAGE_KEY ="/image?rapidapi-key=445ccae8f6msh2cbf90cd04031d2p1ab8a8jsn2baf87fbd252"
     const val API_KEY = "?rapidapi-key=3fda03978emshb23b8a06fd5a054p19ea90jsnc29f18589219"
     const val SECOND_API_KEY = "64901696e4msh7bb80ad218ceeebp14f189jsnc961faa33f73"
     const val THIRD_API_KEY = "fd1b752a02mshb8012bef87e1172p1d3d5bjsnf83a92993d9f"
@@ -20,5 +21,7 @@ object Constants {
     const val PERIOD1 = "period1"
     const val PERIOD2 = "period2"
     const val PERIOD3 = "period3"
+    const val RANK ="Rank: "
+
 
 }

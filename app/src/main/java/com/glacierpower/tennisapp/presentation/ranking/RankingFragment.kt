@@ -14,13 +14,13 @@ import androidx.navigation.fragment.findNavController
 import com.glacierpower.tennisapp.R
 import com.glacierpower.tennisapp.databinding.FragmentRankingBinding
 import com.glacierpower.tennisapp.presentation.adapter.RankingAdapter
-import com.glacierpower.tennisapp.presentation.adapter.listener.SearchListener
+import com.glacierpower.tennisapp.presentation.adapter.listener.Listener
 import com.glacierpower.tennisapp.utils.ResultState
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class RankingFragment : Fragment(),SearchListener
+class RankingFragment : Fragment(),Listener
 {
 
     private val viewModel: RankingViewModel by viewModels()
@@ -170,7 +170,7 @@ class RankingFragment : Fragment(),SearchListener
             })
     }
 
-    override fun getPlayerDetails(id: Int) {
+    override fun getId(id: Int) {
         val action = RankingFragmentDirections.actionRankingFragmentToPlayerDetails(id)
         findNavController().navigate(
             action

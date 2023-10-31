@@ -7,6 +7,7 @@ import com.glacierpower.tennisapp.data.service.responce.TeamColor
 data class Team(
     val country: Country?,
     val disabled:Boolean?,
+    val fullName:String?,
     val gender:String?,
     val id:Int,
     val name:String,

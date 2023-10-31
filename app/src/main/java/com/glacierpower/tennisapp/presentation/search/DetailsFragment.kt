@@ -11,8 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.glacierpower.tennisapp.databinding.FragmentSearchBinding
 import com.glacierpower.tennisapp.presentation.adapter.SearchAdapter
-import com.glacierpower.tennisapp.presentation.adapter.listener.SearchListener
-import com.glacierpower.tennisapp.presentation.ranking.RankingFragmentDirections
+import com.glacierpower.tennisapp.presentation.adapter.listener.Listener
 import com.glacierpower.tennisapp.utils.Constants.DELAY
 import com.glacierpower.tennisapp.utils.ResultState
 import dagger.hilt.android.AndroidEntryPoint
@@ -21,7 +20,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class DetailsFragment : Fragment(), SearchListener {
+class DetailsFragment : Fragment(), Listener {
 
     private val searchViewModel: SearchViewModel by viewModels()
 
@@ -120,7 +119,7 @@ class DetailsFragment : Fragment(), SearchListener {
         })
     }
 
-    override fun getPlayerDetails(id: Int) {
+    override fun getId(id: Int) {
         val action = DetailsFragmentDirections.actionSearchFragmentToPlayerDetails(id)
         findNavController().navigate(
             action

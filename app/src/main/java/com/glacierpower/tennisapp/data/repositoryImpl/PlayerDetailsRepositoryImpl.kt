@@ -7,8 +7,8 @@ import com.glacierpower.tennisapp.model.lastEventModel.LastEventModel
 import com.glacierpower.tennisapp.model.player_details.PlayerDetailsModel
 import com.glacierpower.tennisapp.model.player_details.PlayerNearEventsModel
 import com.glacierpower.tennisapp.utils.ResultState
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
+import kotlinx.coroutines.GlobalScope.coroutineContext
 import javax.inject.Inject
 import javax.inject.Named
 
@@ -32,10 +32,12 @@ class PlayerDetailsRepositoryImpl @Inject constructor(
     override suspend fun getPlayerLastEvents(id: Int): ResultState<List<LastEventModel>> {
         val playerLastEventsResponse = tennisApiService.getPlayerLastEvents(id)
         return withContext(Dispatchers.IO) {
-            ResultState.Success(playerLastEventsResponse.body()!!.events.map {events->
+            ResultState.Success(playerLastEventsResponse.body()!!.events.map { events ->
                 events.toEntity()
             })
+
         }
+
     }
 
 }

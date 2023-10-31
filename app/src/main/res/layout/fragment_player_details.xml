@@ -16,96 +16,30 @@
             android:id="@+id/rv_player_last_match"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:paddingBottom="65dp"
             android:visibility="gone"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/eventLayout"
-            tools:listitem="@layout/items_player_details" />
+            app:layout_constraintTop_toBottomOf="@+id/rv_player_near_match"
+            tools:listitem="@layout/items_last_events" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvPlayerDetails"
             android:layout_width="match_parent"
             android:layout_height="170dp"
-            app:layout_constraintStart_toStartOf="parent"
+            android:visibility="visible"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintTop_toTopOf="parent"
-            tools:context=".presentation.player_details.PlayerDetailsFragment">
+            tools:listitem="@layout/items_player_details" />
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/countryFlag"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/live_event"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/countryName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:hint="@string/country"
-                android:textSize="@dimen/text_size_live"
-                app:fontFamily="@font/arvo"
-                app:layout_constraintBottom_toBottomOf="@+id/countryFlag"
-                app:layout_constraintStart_toEndOf="@+id/countryFlag"
-                app:layout_constraintTop_toTopOf="@+id/countryFlag" />
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/playerImage"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="15dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/countryName" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/playerName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:hint="@string/player_name"
-                android:textSize="@dimen/text_size_tournament"
-                android:textStyle="bold"
-                app:fontFamily="@font/arvo"
-                app:layout_constraintBottom_toBottomOf="@+id/playerImage"
-                app:layout_constraintStart_toEndOf="@+id/playerImage"
-                app:layout_constraintTop_toTopOf="@+id/playerImage" />
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/shapeableImageView"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="15dp"
-                android:background="@mipmap/growth"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/playerImage" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/tournamentType"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="@string/atp"
-                app:layout_constraintBottom_toBottomOf="@+id/shapeableImageView"
-                app:layout_constraintStart_toEndOf="@+id/shapeableImageView"
-                app:layout_constraintTop_toTopOf="@+id/shapeableImageView" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/ranking"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
-                android:paddingStart="2dp"
-                android:text="@string/ranking_number"
-                app:layout_constraintBottom_toBottomOf="@+id/shapeableImageView"
-                app:layout_constraintStart_toEndOf="@+id/tournamentType"
-                app:layout_constraintTop_toTopOf="@+id/shapeableImageView" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_player_near_match"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:visibility="visible"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView2"
+            tools:listitem="@layout/items_near_player_event" />
 
         <LinearLayout
             android:id="@+id/tryAgainLayout"
@@ -160,8 +94,9 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+            app:layout_constraintTop_toBottomOf="@+id/rvPlayerDetails">
 
             <com.google.android.material.textview.MaterialTextView
 
@@ -173,147 +108,5 @@
                 android:textStyle="bold" />
         </androidx.cardview.widget.CardView>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/eventLayout"
-            android:layout_width="match_parent"
-            android:layout_height="110dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardView2">
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@color/purple_200"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tournament"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="75dp"
-                    android:layout_marginTop="2dp"
-                    android:hint="@string/tournament"
-                    android:paddingTop="@dimen/default_padding"
-                    android:paddingBottom="@dimen/default_padding"
-                    android:singleLine="true"
-                    android:textSize="@dimen/text_size_live"
-                    android:textStyle="bold"
-                    app:fontFamily="@font/arvo"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tournament_category"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="75dp"
-                    android:layout_marginTop="20dp"
-                    android:hint="@string/type"
-                    android:paddingTop="@dimen/default_padding"
-                    android:paddingBottom="@dimen/default_padding"
-                    android:textSize="@dimen/text_size_tournament"
-                    android:textStyle="bold"
-                    app:fontFamily="@font/arvo"
-                    app:layout_constraintStart_toStartOf="@+id/tournament"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/tournament_image"
-                    android:layout_width="40dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="@dimen/padding_start"
-                    android:layout_marginTop="10dp"
-                    android:background="@color/white"
-                    app:shapeAppearanceOverlay="@style/circleImageView" />
-            </androidx.cardview.widget.CardView>
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/tournamentDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:textSize="@dimen/text_size_live"
-                android:hint="@string/date"
-                app:layout_constraintBottom_toBottomOf="@+id/homeTeam"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/awayTeam" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/awayTeam"
-                android:layout_width="185dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="65dp"
-                android:layout_marginTop="5dp"
-                android:hint="@string/player_name"
-                android:paddingTop="@dimen/default_padding"
-                android:paddingBottom="@dimen/default_padding"
-                android:singleLine="true"
-                android:textSize="@dimen/text_size_live"
-                app:fontFamily="@font/arvo"
-                app:layout_constraintBottom_toTopOf="@+id/homeTeam"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardView" />
-
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/homeTeam"
-                android:layout_width="185dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="65dp"
-                android:layout_marginBottom="4dp"
-                android:hint="@string/player_name"
-                android:paddingTop="@dimen/default_padding"
-                android:paddingBottom="@dimen/default_padding"
-                android:singleLine="true"
-                android:textSize="@dimen/text_size_live"
-                app:fontFamily="@font/arvo"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/awayTeamPont"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="7dp"
-                android:layout_marginEnd="50dp"
-                android:layout_marginBottom="15dp"
-                android:hint="@string/game"
-                android:textSize="@dimen/text_size_live"
-                app:fontFamily="@font/arvo"
-                app:layout_constraintBottom_toBottomOf="@+id/first_player_set1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/awayTeam" />
-
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/second_player_set2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="50dp"
-                android:layout_marginBottom="7dp"
-                android:hint="@string/game"
-                android:textSize="@dimen/text_size_live"
-                app:fontFamily="@font/arvo"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/awayTeam" />
-
-            <View
-                android:id="@+id/border"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/teal_700"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </RelativeLayout>

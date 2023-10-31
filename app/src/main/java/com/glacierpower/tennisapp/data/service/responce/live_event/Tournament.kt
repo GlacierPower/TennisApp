@@ -2,6 +2,7 @@ package com.glacierpower.tennisapp.data.service.responce.live_event
 
 data class Tournament(
     val category:Category?,
+    val competitionType:Int?,
     val id:Int,
     val name:String,
     val priority:Int,

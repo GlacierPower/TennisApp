@@ -36,7 +36,7 @@ data class PreviousEvent(
     @SerializedName("periods")
     val periods: Periods,
     @SerializedName("roundInfo")
-    val roundInfo: RoundInfo,
+    val roundInfo: RoundInfo?,
     @SerializedName("slug")
     val slug: String,
     @SerializedName("startTimestamp")

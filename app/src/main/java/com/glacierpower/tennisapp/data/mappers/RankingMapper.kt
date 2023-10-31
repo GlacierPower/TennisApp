@@ -26,6 +26,7 @@ fun Team.toEntity(): TeamModel {
         country.toEntity(),
         disabled,
         gender,
+        fullName,
         id,
         name,
         nameCode,

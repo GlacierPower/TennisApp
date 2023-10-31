@@ -6,13 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.glacierpower.tennisapp.databinding.FragmentLiveEventBinding
 import com.glacierpower.tennisapp.presentation.adapter.LiveEventAdapter
+import com.glacierpower.tennisapp.presentation.adapter.listener.Listener
+import com.glacierpower.tennisapp.presentation.ranking.RankingFragmentDirections
 import com.glacierpower.tennisapp.utils.ResultState
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class LiveEventFragment : Fragment() {
+class LiveEventFragment : Fragment(),Listener {
 
     private val viewModel: LiveEventViewModel by viewModels()
 
@@ -53,7 +56,7 @@ class LiveEventFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        liveEventAdapter = LiveEventAdapter()
+        liveEventAdapter = LiveEventAdapter(this)
         viewBinding.rvLiveEvent.apply {
             setHasFixedSize(true)
             adapter = liveEventAdapter
@@ -77,6 +80,12 @@ class LiveEventFragment : Fragment() {
                 }
             }
         }
+    }
+
+    override fun getId(id: Int) {
+        val action = LiveEventFragmentDirections.actionLiveEventFragmentToEventDetailsFragment(id)
+        findNavController().navigate(
+            action)
     }
 
 }

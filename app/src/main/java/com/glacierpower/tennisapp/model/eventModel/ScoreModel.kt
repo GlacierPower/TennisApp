@@ -3,6 +3,7 @@ package com.glacierpower.tennisapp.model.eventModel
 data class ScoreModel(
     val current:Int,
     val display:Int,
+    val normaltime:Int?,
     val period1:Int,
     val period1TieBreak:Int,
     val period2:Int?,

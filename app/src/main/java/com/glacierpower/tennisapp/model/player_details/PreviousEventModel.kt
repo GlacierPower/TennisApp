@@ -20,7 +20,7 @@ data class PreviousEventModel(
     val homeTeam: TeamModelLiveEvent,
     val id: Int,
     val periods: PeriodsModel,
-    val roundInfo: RoundInfoModel,
+    val roundInfo: RoundInfoModel?,
     val slug: String,
     val startTimestamp: Long,
     val status: Status,

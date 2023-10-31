@@ -7,12 +7,12 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.glacierpower.tennisapp.databinding.RankingItemsBinding
 import com.glacierpower.tennisapp.model.rankingModel.RankingModel
-import com.glacierpower.tennisapp.presentation.adapter.listener.SearchListener
+import com.glacierpower.tennisapp.presentation.adapter.listener.Listener
 import com.glacierpower.tennisapp.utils.Constants.FLAG_URL
 import com.glacierpower.tennisapp.utils.Constants.IMAGE_FORMAT
 import com.squareup.picasso.Picasso
 
-class RankingAdapter(private val searchListener: SearchListener) :
+class RankingAdapter(private val listener: Listener) :
     RecyclerView.Adapter<RankingAdapter.RankingViewHolder>() {
 
     override fun onCreateViewHolder(
@@ -70,7 +70,7 @@ class RankingAdapter(private val searchListener: SearchListener) :
                     .into(itemsRankingBinding.countryFlag)
             }
             itemsRankingBinding.rowName.setOnClickListener {
-                searchListener.getPlayerDetails(rankingModel.team.id)
+                listener.getId(rankingModel.team.id)
             }
         }
     }

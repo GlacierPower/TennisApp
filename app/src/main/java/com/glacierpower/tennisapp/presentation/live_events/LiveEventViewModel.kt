@@ -1,6 +1,5 @@
 package com.glacierpower.tennisapp.presentation.live_events
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -34,7 +33,7 @@ class LiveEventViewModel @Inject constructor(
     fun getLiveEvent() {
         _liveEvent.postValue(ResultState.Loading())
         viewModelScope.launch {
-            try {
+
                 if (internetConnection.isOnline()) {
                     while (true) {
                         val response = liveEventInteractor.getLiveEvent()
@@ -47,12 +46,6 @@ class LiveEventViewModel @Inject constructor(
                     _liveEvent.postValue(ResultState.Error(Constants.NO_CONNECTION))
                     delay(30000)
                 }
-
-            } catch (exception: Exception) {
-                when (exception) {
-                    is IOException -> _liveEvent.postValue(ResultState.Error(exception.message!!))
-                }
-            }
 
         }
     }

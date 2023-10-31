@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.glacierpower.tennisapp.databinding.LiveEventItemBinding
 import com.glacierpower.tennisapp.model.eventModel.EventModel
+import com.glacierpower.tennisapp.presentation.adapter.listener.Listener
 import com.glacierpower.tennisapp.utils.Constants.FLAG_URL
 import com.glacierpower.tennisapp.utils.Constants.IMAGE_FORMAT
 import com.glacierpower.tennisapp.utils.Constants.IMAGE_KEY
@@ -20,7 +21,7 @@ import com.glacierpower.tennisapp.utils.Constants.TOURNAMENT_URL
 import com.glacierpower.tennisapp.utils.Constants.ZERO
 import com.squareup.picasso.Picasso
 
-class LiveEventAdapter :
+class LiveEventAdapter(private val listener: Listener) :
     RecyclerView.Adapter<LiveEventAdapter.LiveEventViewHolder>() {
 
     inner class LiveEventViewHolder(private val liveEventItemBinding: LiveEventItemBinding) :
@@ -78,6 +79,9 @@ class LiveEventAdapter :
 
                 liveEventItemBinding.tournament.text = eventModel.tournament.name
                 liveEventItemBinding.tournamentCategory.text = eventModel.tournament.category?.name
+            }
+            liveEventItemBinding.eventLayout.setOnClickListener {
+                listener.getId(eventModel.id)
             }
         }
     }

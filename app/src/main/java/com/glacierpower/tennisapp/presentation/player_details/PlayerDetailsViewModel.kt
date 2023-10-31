@@ -1,5 +1,6 @@
 package com.glacierpower.tennisapp.presentation.player_details
 
+import android.util.Log
 import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -13,6 +14,10 @@ import com.glacierpower.tennisapp.utils.Constants
 import com.glacierpower.tennisapp.utils.InternetConnection
 import com.glacierpower.tennisapp.utils.ResultState
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.GlobalScope.coroutineContext
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.cancelChildren
 import kotlinx.coroutines.launch
 import java.io.IOException
 import javax.inject.Inject
@@ -59,7 +64,7 @@ class PlayerDetailsViewModel @Inject constructor(private val playerDetailsIntera
                 }
             } catch (exception: Exception) {
                 when (exception) {
-                    is IOException -> _playerDetails.postValue(ResultState.Error(exception.message!!))
+//                    is IOException -> _playerDetails.postValue(ResultState.Error(exception.message!!))
                 }
             }
         }
@@ -71,10 +76,13 @@ class PlayerDetailsViewModel @Inject constructor(private val playerDetailsIntera
             try {
                 if (internetConnection.isOnline()) {
                     val response = playerDetailsInteractor.getPlayerNearEvents(id)
-                    _playerNearEvents.value = response
-                    _convertTime.value = response.data?.nextEvent?.startTimestamp
-                    _connection.value = false
-
+                    if(response.data!!.nextEvent!=null){
+                        _playerNearEvents.value = response
+                        _convertTime.value = response.data.nextEvent?.startTimestamp
+                        _connection.value = false
+                    }else{
+                        _nearEventLayout.value = View.GONE
+                    }
                 } else {
                     _connection.value = true
                     _playerNearEvents.postValue(ResultState.Error(Constants.NO_CONNECTION))
@@ -96,15 +104,16 @@ class PlayerDetailsViewModel @Inject constructor(private val playerDetailsIntera
                     val response = playerDetailsInteractor.getPlayerLastEvents(id)
                     _playerLastEvents.value = response
                     _connection.value = false
+
                 } else {
                     _connection.value = true
                     _playerLastEvents.postValue(ResultState.Error(Constants.NO_CONNECTION))
                 }
 
             } catch (exception: Exception) {
-
                 when (exception) {
                     is IOException -> _playerNearEvents.postValue(ResultState.Error(exception.message!!))
+
                 }
             }
         }

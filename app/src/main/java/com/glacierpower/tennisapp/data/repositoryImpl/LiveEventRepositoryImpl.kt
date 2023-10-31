@@ -1,6 +1,5 @@
 package com.glacierpower.tennisapp.data.repositoryImpl
 
-import android.util.Log
 import com.glacierpower.tennisapp.data.mappers.toEntity
 import com.glacierpower.tennisapp.data.service.CountriesFlagsApiService
 import com.glacierpower.tennisapp.data.service.TennisApiService
@@ -29,6 +28,7 @@ class LiveEventRepositoryImpl @Inject constructor(
 
     override suspend fun getCountryFlag(code: String) {
         countriesFlagsApiService.getCountryFlag(code).raw().request.url
+
     }
 
 }

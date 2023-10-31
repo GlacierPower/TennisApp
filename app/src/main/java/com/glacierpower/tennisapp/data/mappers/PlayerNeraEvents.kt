@@ -57,7 +57,7 @@ fun PreviousEvent.toEntity(): PreviousEventModel {
         homeTeam.toEntity(),
         id,
         periods.toEntity(),
-        roundInfo.toEntity(),
+        roundInfo?.toEntity(),
         slug,
         startTimestamp,
         status,
