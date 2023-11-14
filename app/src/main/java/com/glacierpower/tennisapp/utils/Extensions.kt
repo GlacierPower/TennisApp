@@ -2,6 +2,7 @@ package com.glacierpower.tennisapp.utils
 
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.glacierpower.tennisapp.model.event_statistics_model.EventStatisticsModel
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -11,27 +12,8 @@ object Extensions {
         findNavController().navigate(destination)
     }
 
-    fun String.toDate(
-        dateFormat: String = "yyyy-MM-dd HH:mm:ss",
-        timeZone: TimeZone = TimeZone.getTimeZone("UTC")
-    ): Date {
-        val parser = SimpleDateFormat(dateFormat, Locale.getDefault())
-        parser.timeZone = timeZone
 
-        return parser.parse(this)
-    }
-
-    fun Date.formatTo(
-        dateFormat: String,
-        timeZone: TimeZone = TimeZone.getTimeZone("UTC")
-    ): String {
-        val formatter = SimpleDateFormat(dateFormat, Locale.getDefault())
-        formatter.timeZone = timeZone
-        return formatter.format(this)
-    }
-
-
-    fun Long.shortDate(
+    fun shortDate(
         time: Long,
         timeZone: TimeZone = TimeZone.getTimeZone("Europe/Minsk")
     ): String {
@@ -40,7 +22,7 @@ object Extensions {
         return sdf.format(time * 1000L)
     }
 
-    fun Long.fullDate(
+    fun fullDate(
         time: Long,
         timeZone: TimeZone = TimeZone.getTimeZone("Europe/Minsk")
     ): String {
@@ -49,7 +31,62 @@ object Extensions {
         return sdf.format(time * 1000L)
     }
 
+    fun EventStatisticsModel.awayToString(
+        period: String,
+        group: String,
+        name: String
+    ): List<List<List<String>>> {
+        val eventStatisticsModel = EventStatisticsModel(
+            statistics
+        )
+        return eventStatisticsModel.statistics.filter {
+            it.period == period
+        }.map {
+            it.groups.filter {
+                it.groupName == group
+            }.map {
+                it.statisticsItemModels.filter {
+                    it.name == name
+                }.map {
+                    it.away
+                }
+            }
+        }
+    }
+
+    fun EventStatisticsModel.homeToString(
+        period: String,
+        group: String,
+        name: String
+    ): List<List<List<String>>> {
+        val eventStatisticsModel = EventStatisticsModel(
+            statistics
+        )
+        return eventStatisticsModel.statistics.filter {
+            it.period == period
+        }.map {
+            it.groups.filter {
+                it.groupName == group
+            }.map {
+                it.statisticsItemModels.filter {
+                    it.name == name
+                }.map {
+                    it.home
+                }
+            }
+        }
+    }
 
 
+
+    fun removeBrackets(str: String):String{
+        return str.replace('[', ' ').replace(']', ' ')
+    }
 
 }
+
+
+
+
+
+

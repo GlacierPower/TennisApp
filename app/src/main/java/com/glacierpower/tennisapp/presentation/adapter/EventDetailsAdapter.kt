@@ -10,6 +10,7 @@ import com.glacierpower.tennisapp.databinding.ItemsEventDetailBinding
 import com.glacierpower.tennisapp.model.eventDetailsModel.EventDetailsModel
 import com.glacierpower.tennisapp.presentation.adapter.listener.Listener
 import com.glacierpower.tennisapp.utils.Constants
+import com.glacierpower.tennisapp.utils.Constants.IN_PROGRESS
 import com.glacierpower.tennisapp.utils.Constants.PERIOD1
 import com.glacierpower.tennisapp.utils.Constants.PERIOD2
 import com.glacierpower.tennisapp.utils.Constants.PERIOD3
@@ -32,9 +33,9 @@ class EventDetailsAdapter(private val listener: Listener) :
                 this.awayTeamSet.text = eventDetailsModel.awayScore.current.toString()
 
                 val date = eventDetailsModel.startTimestamp
-                this.tvDateTime.text = date.fullDate(date)
+                this.tvDateTime.text = fullDate(date)
 
-                if (eventDetailsModel.status.type == "inprogress") {
+                if (eventDetailsModel.status.type == IN_PROGRESS) {
 
                     this.homeTeamGamePoint.text =
                         eventDetailsModel.homeScore.period1.toString()
@@ -69,8 +70,9 @@ class EventDetailsAdapter(private val listener: Listener) :
                     this.homeTeamGamePointCurrent.visibility = View.GONE
                     this.awayTeamGamePointCurrent.visibility = View.GONE
                     this.colon.visibility = View.GONE
+                    this.colonPoints.visibility = View.GONE
                     this.status.visibility = View.VISIBLE
-                    this.status.text = eventDetailsModel.status.type.uppercase()
+                    this.status.text = eventDetailsModel.status.description
 
                 }
 

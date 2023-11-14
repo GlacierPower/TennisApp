@@ -25,7 +25,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvPlayerDetails"
             android:layout_width="match_parent"
-            android:layout_height="170dp"
+            android:layout_height="@dimen/rv_player_details_size"
             android:visibility="visible"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintTop_toTopOf="parent"
@@ -34,7 +34,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_player_near_match"
             android:layout_width="match_parent"
-            android:layout_height="110dp"
+            android:layout_height="@dimen/rv_player_near_match_size"
             android:visibility="visible"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintStart_toStartOf="parent"
@@ -77,8 +77,8 @@
 
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/progressAnimationView"
-                android:layout_width="300dp"
-                android:layout_height="300dp"
+                android:layout_width="@dimen/progress_bar_size"
+                android:layout_height="@dimen/progress_bar_size"
                 android:layout_centerInParent="true"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -92,7 +92,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView2"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="@dimen/card_view_player_details_height"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -102,8 +102,8 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginStart="@dimen/tv_player_details_margin_start"
+                android:layout_marginTop="@dimen/tv_player_details_margin_top"
                 android:text="@string/results"
                 android:textStyle="bold" />
         </androidx.cardview.widget.CardView>

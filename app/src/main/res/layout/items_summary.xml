@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView3"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/spinner_height"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/border_size"
+            android:paddingEnd="@dimen/tv_sets_padding"
+            android:text="@string/s"
+            android:textAlignment="viewEnd"
+            android:textSize="@dimen/text_size_live" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/border_size"
+            android:paddingEnd="@dimen/tv_first_set_padding"
+            android:text="@string/_1"
+            android:textAlignment="viewEnd"
+            android:textSize="@dimen/text_size_live" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/border_size"
+            android:paddingEnd="@dimen/tv_second_set_padding"
+            android:text="@string/_2"
+            android:textAlignment="viewEnd"
+            android:textSize="@dimen/text_size_live" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/border_size"
+            android:paddingEnd="@dimen/tv_third_set_padding"
+            android:text="@string/_3"
+            android:textAlignment="viewEnd"
+            android:textSize="@dimen/text_size_live" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/border_size"
+            android:paddingEnd="@dimen/fourth_set_padding"
+            android:text="@string/_4"
+            android:textAlignment="viewEnd"
+            android:textSize="@dimen/text_size_live" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/border_size"
+            android:paddingEnd="@dimen/fifth_set_padding"
+            android:text="@string/_5"
+            android:textAlignment="viewEnd"
+            android:textSize="@dimen/text_size_live" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/summary_layout_height"
+        app:layout_constraintTop_toBottomOf="@+id/cardView3">
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/homeTeamName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_start"
+            android:layout_marginTop="@dimen/default_padding"
+            android:hint="@string/player_name"
+            android:textSize="@dimen/text_size_live"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/homeTeamCountry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_stats_name"
+            android:layout_marginTop="@dimen/default_padding"
+            android:hint="@string/country"
+            android:textSize="@dimen/text_size_live"
+            app:layout_constraintStart_toEndOf="@+id/homeTeamName"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/homeFifthSet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_padding"
+            android:layout_marginEnd="@dimen/fifth_set_padding"
+            android:textSize="@dimen/text_size_live"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/homeFourthSet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_padding"
+            android:layout_marginEnd="@dimen/fourth_set_padding"
+            android:textSize="@dimen/text_size_live"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/homeThirdSet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_padding"
+            android:layout_marginEnd="@dimen/tv_third_set_padding"
+            android:textSize="@dimen/text_size_live"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/homeSecondSet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_padding"
+            android:layout_marginEnd="@dimen/tv_second_set_padding"
+            android:textSize="@dimen/text_size_live"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/homeFirstSet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_padding"
+            android:layout_marginEnd="@dimen/tv_first_set_padding"
+            android:textSize="@dimen/text_size_live"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/homeTeamSetsScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_padding"
+            android:layout_marginEnd="@dimen/tv_sets_padding"
+            android:textSize="@dimen/text_size_live"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/homeTeamPoint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_padding"
+            android:layout_marginEnd="@dimen/tv_away_point"
+            android:textSize="@dimen/text_size_live"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/awayTeamName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_start"
+            android:layout_marginTop="@dimen/margin_stats_name"
+            android:hint="@string/player_name"
+            android:textSize="@dimen/text_size_live"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeTeamName" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/awayTeamCountry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_padding"
+            android:layout_marginTop="@dimen/margin_stats_name"
+            android:hint="@string/country"
+            android:textSize="@dimen/text_size_live"
+            app:layout_constraintStart_toEndOf="@+id/awayTeamName"
+            app:layout_constraintTop_toBottomOf="@+id/homeTeamName" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/awayTeamFifthSet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_stats_name"
+            android:layout_marginEnd="@dimen/fifth_set_padding"
+            android:textSize="@dimen/text_size_live"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeTeamName" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/awayTeamFourthSet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_stats_name"
+            android:layout_marginEnd="@dimen/fourth_set_padding"
+            android:textSize="@dimen/text_size_live"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeTeamName" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/awayTeamThirdSet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_stats_name"
+            android:layout_marginEnd="@dimen/tv_third_set_padding"
+            android:textSize="@dimen/text_size_live"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeTeamName" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/awayTeamSecondSet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_stats_name"
+            android:layout_marginEnd="@dimen/tv_second_set_padding"
+            android:textSize="@dimen/text_size_live"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeTeamName" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/awayTeamFirstSet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_stats_name"
+            android:layout_marginEnd="@dimen/tv_first_set_padding"
+            android:textSize="@dimen/text_size_live"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeTeamName" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/awayTeamSetsScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_stats_name"
+            android:layout_marginEnd="@dimen/tv_sets_padding"
+            android:textSize="@dimen/text_size_live"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeTeamName" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/awayTeamPoint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_stats_name"
+            android:layout_marginEnd="@dimen/tv_away_point"
+            android:textSize="@dimen/text_size_live"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeTeamName" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

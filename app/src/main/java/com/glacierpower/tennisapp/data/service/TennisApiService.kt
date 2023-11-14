@@ -4,6 +4,7 @@ import com.glacierpower.tennisapp.data.service.responce.PlayerLastEventsResponse
 import com.glacierpower.tennisapp.data.service.responce.RankingResponse
 import com.glacierpower.tennisapp.data.service.responce.SearchResponse
 import com.glacierpower.tennisapp.data.service.responce.event_details.EventDetailsResponse
+import com.glacierpower.tennisapp.data.service.responce.event_statistics_response.EventStatisticsResponse
 import com.glacierpower.tennisapp.data.service.responce.live_event.LiveEventsResponse
 import com.glacierpower.tennisapp.data.service.responce.player_details.DetailsResponse
 import com.glacierpower.tennisapp.data.service.responce.player_near_events.PlayerNearEventsResponse
@@ -38,5 +39,8 @@ interface TennisApiService {
 
     @GET("event/{id}")
     suspend fun getEventDetails(@Path("id") id: Int):Response<EventDetailsResponse>
+
+    @GET("event/{id}/statistics")
+    suspend fun getEventStatistics(@Path("id")id:Int):Response<EventStatisticsResponse>
 
 }

@@ -15,7 +15,7 @@
             android:id="@+id/rv_live_event"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:paddingBottom="65dp"
+            android:paddingBottom="@dimen/padding_bottom_live"
             android:visibility="gone"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -59,8 +59,8 @@
 
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/progressAnimationView"
-                android:layout_width="300dp"
-                android:layout_height="300dp"
+                android:layout_width="@dimen/progress_bar_size"
+                android:layout_height="@dimen/progress_bar_size"
                 android:layout_centerInParent="true"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

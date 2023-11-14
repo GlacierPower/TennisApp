@@ -10,7 +10,7 @@ data class EventModel(
     val customId: String,
     val finalResultOnly: Boolean,
     val firstToServe: Int?,
-    val groundType: String,
+    val groundType: String?,
     val hasGlobalHighlights: Boolean,
     val homeScore: ScoreModel,
     val homeTeam: TeamModelLiveEvent,

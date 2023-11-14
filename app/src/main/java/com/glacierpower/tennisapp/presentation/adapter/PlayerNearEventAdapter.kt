@@ -24,7 +24,7 @@ class PlayerNearEventAdapter(private val listener: NearEventListener) :
                     this.homeTeam.text = nearEventsModel.nextEvent.awayTeam.name
 
                     val date = nearEventsModel.nextEvent.startTimestamp
-                    this.tournamentDate.text = date.shortDate(date)
+                    this.tournamentDate.text = shortDate(date)
 
                     this.tournament.text = nearEventsModel.nextEvent.tournament.name
                     this.tournamentCategory.text =

@@ -12,13 +12,13 @@
         android:layout_height="match_parent"
         tools:context=".presentation.search.DetailsFragment"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-138dp">
+        tools:layout_editor_absoluteY="@dimen/editor">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_search_player"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:paddingBottom="65dp"
+            android:paddingBottom="@dimen/padding_bottom_rankings"
             android:visibility="visible"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -65,8 +65,8 @@
 
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/progressAnimationView"
-                android:layout_width="300dp"
-                android:layout_height="300dp"
+                android:layout_width="@dimen/progress_bar_size"
+                android:layout_height="@dimen/progress_bar_size"
                 android:layout_centerInParent="true"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -95,7 +95,7 @@
         <View
             android:id="@+id/view"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="@dimen/border_size"
             android:background="@color/colorPrimaryDark"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -2,6 +2,8 @@ package com.glacierpower.tennisapp.di
 
 import com.glacierpower.tennisapp.domain.event_details.EventDetailsInteractor
 import com.glacierpower.tennisapp.domain.event_details.EventDetailsRepository
+import com.glacierpower.tennisapp.domain.event_statistics.EventStatisticsInteractor
+import com.glacierpower.tennisapp.domain.event_statistics.EventStatisticsRepository
 import com.glacierpower.tennisapp.domain.events.LiveEventInteractor
 import com.glacierpower.tennisapp.domain.events.LiveEventsRepository
 import com.glacierpower.tennisapp.domain.palyer_details.PlayerDetailsInteractor
@@ -21,17 +23,26 @@ import dagger.hilt.components.SingletonComponent
 class DomainModule {
 
     @Provides
+    fun provideEventStatisticsInteractor(
+        eventStatisticsRepository: EventStatisticsRepository
+    ): EventStatisticsInteractor {
+        return EventStatisticsInteractor(eventStatisticsRepository)
+    }
+
+    @Provides
     fun provideEventDetailsInteractor(
         eventDetailsRepository: EventDetailsRepository
-    ):EventDetailsInteractor{
+    ): EventDetailsInteractor {
         return EventDetailsInteractor(eventDetailsRepository)
     }
+
     @Provides
     fun providePlayerDetailsInteractor(
         playerDetailsRepository: PlayerDetailsRepository
-    ):PlayerDetailsInteractor{
+    ): PlayerDetailsInteractor {
         return PlayerDetailsInteractor(playerDetailsRepository)
     }
+
     @Provides
     fun provideRankingInteractor(
         rankingRepository: RankingRepository

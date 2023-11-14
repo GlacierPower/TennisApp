@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <View
+        android:id="@+id/serviceBorder"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/border_size"
+        android:background="@color/teal_700"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/service" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_stats_name"
+        android:layout_marginTop="@dimen/margin_stats_name"
+        android:text="@string/service"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size_tournament"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/aces"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_first_name"
+        android:text="@string/aces"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size_live"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/homeTeamAces"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_stats_name"
+        android:hint="@string/point"
+        android:textSize="@dimen/text_size_live"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/aces" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/awayTeamAces"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_stats_name"
+        android:hint="@string/point"
+        android:textSize="@dimen/text_size_live"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/aces" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/doubleFaults"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_stats_name"
+        android:text="@string/double_faults"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size_live"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/aces" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/homeTeamDoubleFaults"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_stats_name"
+        android:hint="@string/point"
+        android:textSize="@dimen/text_size_live"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/doubleFaults" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/awayTeamDoubleFaults"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_stats_name"
+        android:hint="@string/point"
+        android:textSize="@dimen/text_size_live"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/doubleFaults" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/firstServePercentage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_stats_name"
+        android:text="@string/_1st_serve_percentage"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size_live"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/doubleFaults" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/homeTeamFirstServePercentage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_stats_name"
+        android:hint="@string/point"
+        android:textSize="@dimen/text_size_live"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/firstServePercentage" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/awayTeamFirstServePercentage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_stats_name"
+        android:hint="@string/point"
+        android:textSize="@dimen/text_size_live"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/firstServePercentage" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/firstServePointWon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_stats_name"
+        android:text="@string/_1st_serve_points_won"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size_live"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firstServePercentage" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/homeTeamFirstServePointWon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_stats_name"
+        android:hint="@string/point"
+        android:textSize="@dimen/text_size_live"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/firstServePointWon" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/awayTeamFirstServePointWon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_stats_name"
+        android:hint="@string/point"
+        android:textSize="@dimen/text_size_live"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/firstServePointWon" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/secondServePointWon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_stats_name"
+        android:text="@string/_2nd_serve_points_won"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size_live"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firstServePointWon" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/homeTeamSecondServePointWon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_stats_name"
+        android:hint="@string/point"
+        android:textSize="@dimen/text_size_live"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/secondServePointWon" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/awayTeamSecondServePointWon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_stats_name"
+        android:hint="@string/point"
+        android:textSize="@dimen/text_size_live"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/secondServePointWon" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/breakPointsSaved"
+        android:layout_marginTop="@dimen/margin_stats_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/break_points_saved"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size_live"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/secondServePointWon" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/homeTeamBreakPointsSaved"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_stats_name"
+        android:hint="@string/point"
+        android:textSize="@dimen/text_size_live"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/breakPointsSaved" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/awayTeamBreakPointsSaved"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_stats_name"
+        android:hint="@string/point"
+        android:textSize="@dimen/text_size_live"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/breakPointsSaved" />
+
+    <View
+        android:id="@+id/returnBorder"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/border_size"
+        android:layout_marginBottom="-10dp"
+        android:background="@color/teal_700"
+        app:layout_constraintBottom_toBottomOf="@+id/breakPointsSaved"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/returnServe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_stats_name"
+        android:layout_marginTop="@dimen/margin_stats_name"
+        android:text="@string/returnServe"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size_tournament"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/breakPointsSaved" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/first_serve_return_points"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_first_name"
+        android:text="@string/first_serve_return_points"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size_live"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/breakPointsSaved" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/homeTeamFirstServeReturnPoints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_stats_name"
+        android:hint="@string/point"
+        android:textSize="@dimen/text_size_live"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/first_serve_return_points" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/awayTeamFirstServeReturnPoints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_stats_name"
+        android:hint="@string/point"
+        android:textSize="@dimen/text_size_live"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/first_serve_return_points" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/second_serve_return_points"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_stats_name"
+        android:text="@string/second_serve_return_points"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size_live"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/first_serve_return_points" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/homeTeamSecondServeReturnPoints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_stats_name"
+        android:hint="@string/point"
+        android:textSize="@dimen/text_size_live"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/second_serve_return_points" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/awayTeamSecondServeReturnPoints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_stats_name"
+        android:hint="@string/point"
+        android:textSize="@dimen/text_size_live"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/second_serve_return_points" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/break_points_converted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/break_points_converted"
+        android:textAlignment="center"
+        android:layout_marginTop="@dimen/margin_stats_name"
+        android:textSize="@dimen/text_size_live"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/second_serve_return_points" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/homeTeamBreakPointsConverted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_stats_name"
+        android:hint="@string/point"
+        android:textSize="@dimen/text_size_live"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/break_points_converted" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/awayTeamTeamBreakPointsConverted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_stats_name"
+        android:hint="@string/point"
+        android:textSize="@dimen/text_size_live"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/break_points_converted" />
+
+    <View
+        android:id="@+id/pointsBorder"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/border_size"
+        android:layout_marginTop="@dimen/margin_stats_name"
+        android:background="@color/teal_700"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/break_points_converted" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/points"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_stats_name"
+        android:layout_marginTop="@dimen/margin_stats_name"
+        android:text="@string/pointsStat"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size_tournament"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/break_points_converted" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/maxPointsInARow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_first_name"
+        android:text="@string/max_points_in_a_row"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size_live"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/break_points_converted" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/homeTeamMaxPointsInARow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_stats_name"
+        android:hint="@string/point"
+        android:textSize="@dimen/text_size_live"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/maxPointsInARow" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/awayTeamTeamMaxPointsInARow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_stats_name"
+        android:hint="@string/point"
+        android:textSize="@dimen/text_size_live"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/maxPointsInARow" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/servicePointsWon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_stats_name"
+        android:text="@string/service_points_won"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size_live"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/maxPointsInARow" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/homeTeamServicePointsWon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_stats_name"
+        android:hint="@string/point"
+        android:textSize="@dimen/text_size_live"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/servicePointsWon" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/awayTeamServicePointsWon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_stats_name"
+        android:hint="@string/point"
+        android:textSize="@dimen/text_size_live"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/servicePointsWon" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/returnPointWon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_stats_name"
+        android:text="@string/return_points_won"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size_live"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/servicePointsWon" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/homeTeamReturnPointsWon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_stats_name"
+        android:hint="@string/point"
+        android:textSize="@dimen/text_size_live"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/returnPointWon" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/awayTeamReturnPointsWon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_stats_name"
+        android:hint="@string/point"
+        android:textSize="@dimen/text_size_live"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/returnPointWon" />
+
+    <View
+        android:id="@+id/gamesBorder"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/border_size"
+        android:layout_marginTop="@dimen/margin_stats_name"
+        android:background="@color/teal_700"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/returnPointWon" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/games"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_stats_name"
+        android:layout_marginTop="@dimen/margin_stats_name"
+        android:text="@string/games"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size_tournament"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/returnPointWon" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/maxGamesInARow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_first_name"
+        android:text="@string/max_games_in_row"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size_live"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/returnPointWon" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/homeTeamMaxGamesInARow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_stats_name"
+        android:hint="@string/point"
+        android:textSize="@dimen/text_size_live"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/maxGamesInARow" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/awayTeamTeamMaxGamesInARow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_stats_name"
+        android:hint="@string/point"
+        android:textSize="@dimen/text_size_live"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/maxGamesInARow" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/serviceGamesWon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_stats_name"
+        android:text="@string/service_games_won"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size_live"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/maxGamesInARow" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/homeTeamServiceGamsesWon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_stats_name"
+        android:hint="@string/point"
+        android:textSize="@dimen/text_size_live"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/serviceGamesWon" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/awayTeamServiceGamesWon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_stats_name"
+        android:hint="@string/point"
+        android:textSize="@dimen/text_size_live"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/serviceGamesWon" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/totalWon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_stats_name"
+        android:text="@string/total_won"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size_live"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/serviceGamesWon" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/homeTeamTotalWon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_stats_name"
+        android:hint="@string/point"
+        android:textSize="@dimen/text_size_live"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/totalWon" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/awayTeamTotalWon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_stats_name"
+        android:hint="@string/point"
+        android:textSize="@dimen/text_size_live"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/totalWon" />
+    <View
+        android:id="@+id/borderorder"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/border_size"
+        android:layout_marginTop="@dimen/margin_stats_name"
+        android:background="@color/teal_700"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/totalWon" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

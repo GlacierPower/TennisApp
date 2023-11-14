@@ -7,6 +7,18 @@
     tools:context=".presentation.event_details.EventDetailsFragment">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSummaryEvent"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginTop="240dp"
+        android:visibility="invisible"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
+        tools:listitem="@layout/items_summary" />
+
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvPlayerDetails"
         android:layout_width="match_parent"
         android:layout_height="200dp"
@@ -14,6 +26,102 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/items_event_detail" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/rv_statistics_height"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvStatistics"
+                android:layout_width="match_parent"
+                android:layout_height="600dp"
+                android:nestedScrollingEnabled="true"
+                android:overScrollMode="never"
+                android:visibility="visible"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:listitem="@layout/items_statistics_layout" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/scroll_view_size"
+        android:layout_below="@+id/rvPlayerDetails"
+        android:scrollbars="none"
+        app:layout_constraintTop_toBottomOf="@+id/rvPlayerDetails">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/summary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/btn_color_stats"
+                android:text="@string/summary"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_live"
+                app:backgroundTint="@color/btn_color_stats"
+                app:iconTint="@color/btn_color_stats" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/stats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/btn_color_stats"
+                android:text="@string/stats_btn"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_live"
+                app:backgroundTint="@color/btn_color_stats"
+                app:iconTint="@color/btn_color_stats" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/pointByPoint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/btn_color_stats"
+                android:text="@string/point_by_point"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_live"
+                app:backgroundTint="@color/btn_color_stats"
+                app:iconTint="@color/btn_color_stats" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/odds"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/btn_color_stats"
+                android:text="@string/odds"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_live"
+                app:backgroundTint="@color/btn_color_stats"
+                app:iconTint="@color/btn_color_stats" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/h2H"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/btn_color_stats"
+                android:text="@string/h2h"
+                android:textColor="@color/white"
+                app:backgroundTint="@color/btn_color_stats"
+                app:iconTint="@color/btn_color_stats" />
+
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
 
     <LinearLayout
         android:id="@+id/tryAgainLayout"
@@ -51,8 +159,8 @@
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/progressAnimationView"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
+            android:layout_width="@dimen/progress_bar_size"
+            android:layout_height="@dimen/progress_bar_size"
             android:layout_centerInParent="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

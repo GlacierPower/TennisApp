@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
 
             android:layout_height="0dp"
-            android:paddingBottom="65dp"
+            android:paddingBottom="@dimen/padding_bottom_rankings"
             android:visibility="visible"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -65,8 +65,8 @@
 
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/progressAnimationView"
-                android:layout_width="300dp"
-                android:layout_height="300dp"
+                android:layout_width="@dimen/progress_bar_size"
+                android:layout_height="@dimen/progress_bar_size"
                 android:layout_centerInParent="true"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -80,7 +80,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layout_title"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="@dimen/ranking_layout_title_size"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -88,11 +88,11 @@
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingStart="15dp"
+                android:paddingStart="@dimen/tv_player_details_margin_start"
                 android:paddingTop="@dimen/default_padding"
                 android:paddingBottom="@dimen/default_padding"
                 android:text="@string/atp_single"
-                android:textSize="30sp"
+                android:textSize="@dimen/title_text_size"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -100,8 +100,8 @@
 
             <Spinner
                 android:id="@+id/spinner"
-                android:layout_width="160dp"
-                android:layout_height="20dp"
+                android:layout_width="@dimen/spinner_weight"
+                android:layout_height="@dimen/spinner_height"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -118,7 +118,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/border_size"
                 android:background="@color/colorPrimaryDark"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -128,9 +128,9 @@
                 android:id="@+id/number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingStart="10dp"
+                android:paddingStart="@dimen/margin_stats_name"
                 android:text="@string/rank_number"
-                android:textSize="18sp"
+                android:textSize="@dimen/points_text_size"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -138,10 +138,10 @@
                 android:id="@+id/points"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
-                android:paddingStart="10dp"
+                android:layout_marginEnd="@dimen/margin_end"
+                android:paddingStart="@dimen/margin_stats_name"
                 android:text="@string/points_title"
-                android:textSize="18sp"
+                android:textSize="@dimen/points_text_size"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

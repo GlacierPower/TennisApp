@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.glacierpower.tennisapp.databinding.ItemsLastEventsBinding
-import com.glacierpower.tennisapp.databinding.ItemsPlayerDetailsBinding
 import com.glacierpower.tennisapp.model.lastEventModel.LastEventModel
 import com.glacierpower.tennisapp.presentation.adapter.listener.Listener
 import com.glacierpower.tennisapp.utils.Constants
@@ -28,7 +27,7 @@ class PlayerLastEventAdapter(private val listener:Listener) : RecyclerView.Adapt
                 this.tournamentCategory.text = lastEventModel.tournament.category?.name
 
                 val date = lastEventModel.startTimestamp
-                this.tournamentDate.text = date.shortDate(date)
+                this.tournamentDate.text = shortDate(date)
 
                 val id = lastEventModel.tournament.uniqueTournament.id
                 Picasso.get()

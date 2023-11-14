@@ -2,13 +2,13 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="60dp">
+    android:layout_height="@dimen/tv_third_set_padding">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/iv_player"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="15dp"
+        android:layout_width="@dimen/team_image_margin"
+        android:layout_height="@dimen/team_image_margin"
+        android:layout_marginStart="@dimen/padding_start"
         android:background="@drawable/player_image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,8 +19,8 @@
         android:id="@+id/tv_player_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="@dimen/padding_start"
+        android:layout_marginTop="@dimen/margin_stats_name"
         android:hint="@string/player_name"
         android:textStyle="bold"
         android:textSize="@dimen/text_size_tournament"
@@ -31,8 +31,8 @@
         android:id="@+id/tv_player_country"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginStart="@dimen/padding_start"
+        android:layout_marginTop="@dimen/default_padding"
         android:hint="@string/country"
         android:textSize="@dimen/text_size_live"
         app:layout_constraintStart_toEndOf="@+id/iv_player"
@@ -40,9 +40,9 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/iv_favorite_player"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginEnd="20dp"
+        android:layout_width="@dimen/iv_ranking_size"
+        android:layout_height="@dimen/iv_ranking_size"
+        android:layout_marginEnd="@dimen/tournament_type_tv_margin_top"
         android:background="@drawable/favorite_border"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,7 +50,7 @@
     <View
         android:id="@+id/border"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/border_size"
         android:background="@color/teal_700"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

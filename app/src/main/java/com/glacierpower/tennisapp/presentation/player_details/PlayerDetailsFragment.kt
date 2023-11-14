@@ -31,6 +31,7 @@ class PlayerDetailsFragment : Fragment(), Listener, NearEventListener {
 
     private lateinit var playerNearEventAdapter: PlayerNearEventAdapter
 
+
     private lateinit var playerDet: PlayerDetailAdapter
 
     private val args: PlayerDetailsFragmentArgs by navArgs()
@@ -46,6 +47,10 @@ class PlayerDetailsFragment : Fragment(), Listener, NearEventListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        viewModel.getPlayerDetails(args.id)
+        viewModel.getPlayerNearEvents(args.id)
+        viewModel.getPlayerLastEvents(args.id)
 
         setupRecyclerView()
 
@@ -63,7 +68,7 @@ class PlayerDetailsFragment : Fragment(), Listener, NearEventListener {
 
 
     private fun showPlayerDetails() {
-        viewModel.getPlayerDetails(args.id)
+
         viewModel.playerDetails.observe(viewLifecycleOwner, Observer { playerDetails ->
             when (playerDetails) {
                 is ResultState.Success -> {
@@ -84,7 +89,7 @@ class PlayerDetailsFragment : Fragment(), Listener, NearEventListener {
 
 
     private fun showPlayerNearEvents() {
-        viewModel.getPlayerNearEvents(args.id)
+
         viewModel.playerNearEvents.observe(viewLifecycleOwner, Observer { playerNearEvents ->
             when (playerNearEvents) {
                 is ResultState.Success -> {
@@ -109,7 +114,7 @@ class PlayerDetailsFragment : Fragment(), Listener, NearEventListener {
 
 
     private fun showPlayerLastEvents() {
-        viewModel.getPlayerLastEvents(args.id)
+
         viewModel.playerLastEvents.observe(viewLifecycleOwner, Observer { playerLastEvents ->
             when (playerLastEvents) {
                 is ResultState.Success -> {
@@ -151,6 +156,7 @@ class PlayerDetailsFragment : Fragment(), Listener, NearEventListener {
 
 
         }
+
     }
 
     override fun getId(id: Int) {

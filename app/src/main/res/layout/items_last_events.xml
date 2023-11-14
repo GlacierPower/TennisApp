@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="110dp">
+    android:layout_height="@dimen/rv_player_near_match_size">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="@dimen/team_image_margin"
         android:background="@color/purple_200"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -19,8 +18,8 @@
             android:id="@+id/tournament"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="75dp"
-            android:layout_marginTop="2dp"
+            android:layout_marginStart="@dimen/tournament_tv_margin"
+            android:layout_marginTop="@dimen/tournament_tv_margin_top"
             android:hint="@string/tournament"
             android:paddingTop="@dimen/default_padding"
             android:paddingBottom="@dimen/default_padding"
@@ -35,8 +34,8 @@
             android:id="@+id/tournament_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="75dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginStart="@dimen/tournament_tv_margin"
+            android:layout_marginTop="@dimen/tournament_type_tv_margin_top"
             android:hint="@string/type"
             android:paddingTop="@dimen/default_padding"
             android:paddingBottom="@dimen/default_padding"
@@ -49,20 +48,20 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/tournament_image"
-            android:layout_width="40dp"
-            android:layout_height="30dp"
+            android:layout_width="@dimen/tournament_image_width"
+            android:layout_height="@dimen/tournament_image_height"
             android:layout_marginStart="@dimen/padding_start"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/margin_stats_name"
             android:background="@color/white"
             app:shapeAppearanceOverlay="@style/circleImageView" />
     </androidx.cardview.widget.CardView>
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/awayTeam"
-        android:layout_width="185dp"
+        android:layout_width="@dimen/tv_team_width"
         android:layout_height="wrap_content"
-        android:layout_marginStart="65dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginStart="@dimen/tv_team_margin_start"
+        android:layout_marginTop="@dimen/tv_team_margin_top"
         android:hint="@string/player_name"
         android:paddingTop="@dimen/default_padding"
         android:paddingBottom="@dimen/default_padding"
@@ -77,7 +76,7 @@
         android:id="@+id/tournamentDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="@dimen/padding_start"
         android:hint="@string/date"
         android:textSize="@dimen/text_size_live"
         app:layout_constraintBottom_toBottomOf="@+id/homeTeam"
@@ -86,10 +85,10 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/homeTeam"
-        android:layout_width="185dp"
+        android:layout_width="@dimen/tv_team_width"
         android:layout_height="wrap_content"
-        android:layout_marginStart="65dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginStart="@dimen/tv_team_margin_start"
+        android:layout_marginBottom="@dimen/colon_margin"
         android:hint="@string/player_name"
         android:paddingTop="@dimen/default_padding"
         android:paddingBottom="@dimen/default_padding"
@@ -104,7 +103,7 @@
         android:id="@+id/awayTeamPont"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="50dp"
+        android:layout_marginEnd="@dimen/team_image_margin"
         android:hint="@string/game"
         android:textSize="@dimen/text_size_live"
         app:fontFamily="@font/arvo"
@@ -117,8 +116,8 @@
         android:id="@+id/second_player_set2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="7dp"
+        android:layout_marginEnd="@dimen/team_image_margin"
+        android:layout_marginBottom="@dimen/tv_second_player_set_margin_bottom"
         android:hint="@string/game"
         android:textSize="@dimen/text_size_live"
         app:fontFamily="@font/arvo"
@@ -129,7 +128,7 @@
     <View
         android:id="@+id/border"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/border_size"
         android:background="@color/teal_700"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

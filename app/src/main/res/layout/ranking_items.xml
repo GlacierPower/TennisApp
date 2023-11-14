@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="40dp">
+    android:layout_height="@dimen/tournament_image_width">
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/ranking"
@@ -22,7 +22,7 @@
         android:id="@+id/countryFlag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="@dimen/team_image_margin"
         app:layout_constraintBottom_toBottomOf="@+id/rowName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/rowName" />
@@ -31,7 +31,7 @@
         android:id="@+id/rowName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="@dimen/tv_second_set_padding"
         android:hint="@string/player_name"
         android:paddingTop="@dimen/default_padding"
         android:paddingBottom="@dimen/default_padding"
@@ -45,7 +45,7 @@
         android:id="@+id/points"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="@dimen/margin_end"
         android:hint="@string/points"
         android:textSize="@dimen/text_size_tournament"
         app:fontFamily="@font/arvo"
@@ -56,7 +56,7 @@
     <View
         android:id="@+id/border"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/border_size"
         android:background="@color/teal_700"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -12,8 +12,8 @@
         android:id="@+id/countryFlag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="@dimen/padding_start"
+        android:layout_marginTop="@dimen/margin_stats_name"
         android:background="@drawable/live_event"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,7 +22,7 @@
         android:id="@+id/countryName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="@dimen/padding_start"
         android:hint="@string/country"
         android:textSize="@dimen/text_size_live"
         app:fontFamily="@font/arvo"
@@ -32,10 +32,10 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/playerImage"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
+        android:layout_width="@dimen/iv_player_size"
+        android:layout_height="@dimen/iv_player_size"
+        android:layout_marginStart="@dimen/padding_start"
+        android:layout_marginTop="@dimen/padding_start"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/countryName" />
 
@@ -43,7 +43,7 @@
         android:id="@+id/playerName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="@dimen/padding_start"
         android:hint="@string/player_name"
         android:textSize="@dimen/text_size_tournament"
         android:textStyle="bold"
@@ -53,10 +53,10 @@
         app:layout_constraintTop_toTopOf="@+id/playerImage" />
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/shapeableImageView"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="15dp"
+        android:id="@+id/rankingImageView"
+        android:layout_width="@dimen/iv_ranking_size"
+        android:layout_height="@dimen/iv_ranking_size"
+        android:layout_marginStart="@dimen/padding_start"
         android:background="@mipmap/growth"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,20 +66,20 @@
         android:id="@+id/tournamentType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="@dimen/margin_stats_name"
         android:text="@string/atp"
-        app:layout_constraintBottom_toBottomOf="@+id/shapeableImageView"
-        app:layout_constraintStart_toEndOf="@+id/shapeableImageView"
-        app:layout_constraintTop_toTopOf="@+id/shapeableImageView" />
+        app:layout_constraintBottom_toBottomOf="@+id/rankingImageView"
+        app:layout_constraintStart_toEndOf="@+id/rankingImageView"
+        app:layout_constraintTop_toTopOf="@+id/rankingImageView" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/ranking"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:paddingStart="2dp"
+        android:layout_marginStart="@dimen/tv_ranking_margin"
+        android:paddingStart="@dimen/tv_ranking_margin"
         android:text="@string/ranking_number"
-        app:layout_constraintBottom_toBottomOf="@+id/shapeableImageView"
+        app:layout_constraintBottom_toBottomOf="@+id/rankingImageView"
         app:layout_constraintStart_toEndOf="@+id/tournamentType"
-        app:layout_constraintTop_toTopOf="@+id/shapeableImageView" />
+        app:layout_constraintTop_toTopOf="@+id/rankingImageView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
