@@ -17,6 +17,7 @@ coreKtxVersion = "1.17.0"
 engageCore = "1.5.9"
 espressoCoreVersion = "3.7.0"
 firebaseBom = "33.14.0"
+safeArgsVersion = "2.9.3"
 
 agp = "8.12.1"
 fragmentKtx = "1.8.9"
@@ -49,7 +50,7 @@ roomRuntime = "2.7.2"
 swiperefreshlayout = "1.1.0"
 timber = "5.0.1"
 ksp = "2.2.0-2.0.2"
-androidGradlePlugin = "8.5.2"
+androidGradlePlugin = "8.12.1"
 mapsCompose = "6.2.0"
 compose = "1.7.8"
 appcompat = "1.7.0"
@@ -126,7 +127,29 @@ picasso = { module = "com.squareup.picasso:picasso", version.ref = "picasso" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofitVersion" }
 room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
 
+
+ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
+kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
+kotlin-compose-gradlePlugin = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
+
 [plugins]
+tennisapp-hilt = { id = "tennisapp.hilt", version = "unspecified" }
+tennisapp-android-application = { id = "tennisapp.android.application", version = "unspecified" }
+tennisapp-android-library = { id = "tennisapp.android.library", version = "unspecified" }
 android-application = { id = "com.android.application", version.ref = "agp" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvmVersion" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hiltAndroidCompiler" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+detekt-plugin = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize" }
+google-services-gms = { id = "com.google.gms.google-services", version.ref = "googleServices" }
+firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "firebaseCrashlytics" }
+firebase-app-distribuiton = { id = "com.google.firebase.appdistribution", version.ref = "appDistribution" }
+navigation-safeargs-kotlin = { id = "androidx.navigation.safeargs.kotlin", version.ref = "safeArgsVersion" }
+
 
