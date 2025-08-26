@@ -18,7 +18,7 @@ engageCore = "1.5.9"
 espressoCoreVersion = "3.7.0"
 firebaseBom = "33.14.0"
 
-agp = "8.8.2"
+agp = "8.12.1"
 fragmentKtx = "1.8.9"
 glide = "4.16.0"
 googleServicesVersion = "4.4.3"
