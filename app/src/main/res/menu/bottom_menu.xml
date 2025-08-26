@@ -11,5 +11,9 @@
         android:id="@+id/searchFragment"
         android:icon="@drawable/search"
         android:title="@string/search"/>
+    <item
+        android:id="@+id/liveEventFragment"
+        android:icon="@drawable/live_event"
+        android:title="@string/live"/>
 
 </menu>

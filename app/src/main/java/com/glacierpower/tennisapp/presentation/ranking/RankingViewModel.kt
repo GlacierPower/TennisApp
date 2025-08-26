@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.glacierpower.tennisapp.domain.events.LiveEventInteractor
 import com.glacierpower.tennisapp.domain.ranking.RankingInteractor
 import com.glacierpower.tennisapp.model.rankingModel.RankingModel
 import com.glacierpower.tennisapp.utils.Constants.NO_CONNECTION

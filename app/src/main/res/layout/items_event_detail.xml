@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/homeTeamImage"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/awayTeamImage"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvDateTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:hint="@string/date"
+        android:textSize="@dimen/text_size_live"
+        app:layout_constraintEnd_toStartOf="@+id/awayTeamImage"
+        app:layout_constraintStart_toEndOf="@+id/homeTeamImage"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="115dp"
+        android:hint="@string/date"
+        android:visibility="invisible"
+        android:textSize="@dimen/text_size_live"
+        app:layout_constraintEnd_toStartOf="@+id/awayTeamImage"
+        app:layout_constraintStart_toEndOf="@+id/homeTeamImage"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/homeTeamSet"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="50dp"
+        android:hint="@string/zero"
+        android:textSize="30sp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/homeTeamImage"
+        app:layout_constraintStart_toEndOf="@+id/homeTeamImage"
+        app:layout_constraintTop_toTopOf="@+id/homeTeamImage" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/awayTeamSet"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="50dp"
+        android:hint="@string/zero"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/homeTeamImage"
+        app:layout_constraintEnd_toStartOf="@+id/awayTeamImage"
+        app:layout_constraintTop_toTopOf="@+id/homeTeamImage" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/dash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/dash"
+        android:textAlignment="center"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toStartOf="@+id/awayTeamSet"
+        app:layout_constraintStart_toEndOf="@+id/homeTeamSet"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/homeTeamGamePoint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="-25dp"
+        android:textSize="15sp"
+        android:textAlignment="center"
+        android:hint="@string/zero"
+        app:layout_constraintEnd_toStartOf="@+id/homeTeamSet"
+        app:layout_constraintTop_toBottomOf="@+id/homeTeamSet" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/awayTeamGamePoint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:hint="@string/zero"
+        android:textSize="15sp"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/homeTeamGamePoint"
+        app:layout_constraintTop_toBottomOf="@+id/homeTeamSet" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/colon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:hint="@string/colon"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/awayTeamGamePoint"
+        app:layout_constraintStart_toEndOf="@+id/homeTeamGamePoint"
+        app:layout_constraintTop_toBottomOf="@+id/homeTeamSet" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/homeTeamGamePointCurrent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="10dp"
+        android:hint="@string/zero"
+        android:textSize="15sp"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/homeTeamGamePoint"
+        app:layout_constraintTop_toBottomOf="@+id/homeTeamSet" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/awayTeamGamePointCurrent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:hint="@string/point"
+        android:textSize="15sp"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/homeTeamGamePoint"
+        app:layout_constraintTop_toBottomOf="@+id/homeTeamSet" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/homeTeamName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:hint="@string/player_name"
+        app:layout_constraintEnd_toEndOf="@+id/homeTeamImage"
+        app:layout_constraintStart_toStartOf="@+id/homeTeamImage"
+        app:layout_constraintTop_toBottomOf="@+id/homeTeamImage" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/awayTeamName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:hint="@string/player_name"
+        app:layout_constraintEnd_toEndOf="@+id/awayTeamImage"
+        app:layout_constraintStart_toStartOf="@+id/awayTeamImage"
+        app:layout_constraintTop_toBottomOf="@+id/awayTeamImage" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/homeTeamRanking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="@string/ranking_number"
+        app:layout_constraintEnd_toEndOf="@+id/homeTeamName"
+        app:layout_constraintStart_toStartOf="@+id/homeTeamName"
+        app:layout_constraintTop_toBottomOf="@+id/homeTeamName" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/awayTeamRanking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="@string/ranking_number"
+        app:layout_constraintEnd_toEndOf="@+id/awayTeamName"
+        app:layout_constraintStart_toStartOf="@+id/awayTeamName"
+        app:layout_constraintTop_toBottomOf="@+id/awayTeamName" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

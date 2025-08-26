@@ -1,44 +1,53 @@
 package com.glacierpower.tennisapp.data.service.responce
 
-import com.squareup.moshi.Json
+import com.glacierpower.tennisapp.data.service.responce.live_event.Category
+import com.google.gson.annotations.SerializedName
 
 data class SearchResponse(
-    @field:Json(name = "result")
-    val result: MutableList<SearchResult>
+    @SerializedName("results")
+    val results: MutableList<SearchResult>
 )
 
 data class SearchResult(
-    @field:Json(name = "entity")
-    val searchEntity: SearchEntity,
-    val score: Int,
+    @SerializedName("entity")
+    val entity: SearchEntity?,
+    @SerializedName("score")
+    val score: Float,
+    @SerializedName("type")
     val type: String
 )
 
 data class SearchEntity(
-    @field:Json(name = "country")
+    @SerializedName("category")
+    val category: Category?,
+    @SerializedName("country")
     val country: Country,
-    @field:Json(name = "gender")
-    val gender: String,
-    @field:Json(name = "id")
+    @SerializedName("displayInverseHomeAwayTeams")
+    val displayInverseHomeAwayTeams: Boolean,
+    @SerializedName("disabled")
+    val disabled: Boolean,
+    @SerializedName("gender")
+    val gender: String?,
+    @SerializedName("id")
     val id: Int,
-    @field:Json(name = "name")
+    @SerializedName("name")
     val name: String,
-    @field:Json(name = "nameCode")
-    val nameCode: String,
-    @field:Json(name = "national")
+    @SerializedName("nameCode")
+    val nameCode: String?,
+    @SerializedName("national")
     val national: Boolean,
-    @field:Json(name = "ranking")
+    @SerializedName("ranking")
     val ranking: Int,
-    @field:Json(name = "shortName")
-    val shortName: String,
-    @field:Json(name = "slug")
+    @SerializedName("shortName")
+    val shortName: String?,
+    @SerializedName("slug")
     val slug: String,
-    @field:Json(name = "sport")
-    val sport: Sport,
-    @field:Json(name = "teamColors")
-    val teamColor: TeamColor,
-    @field:Json(name ="type")
-    val type:Int,
-    @field:Json(name = "userCount")
-    val userCount:Int
+    @SerializedName("sport")
+    val sport: Sport?,
+    @SerializedName("teamColor")
+    val teamColor: TeamColor?,
+    @SerializedName("type")
+    val type: Int,
+    @SerializedName("userCount")
+    val userCount: Int
 )

@@ -10,19 +10,20 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.glacierpower.tennisapp.R
 import com.glacierpower.tennisapp.databinding.FragmentRankingBinding
 import com.glacierpower.tennisapp.presentation.adapter.RankingAdapter
+import com.glacierpower.tennisapp.presentation.adapter.listener.Listener
 import com.glacierpower.tennisapp.utils.ResultState
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class RankingFragment : Fragment() {
+class RankingFragment : Fragment(),Listener
+{
 
     private val viewModel: RankingViewModel by viewModels()
-
-
 
     private lateinit var rankingAdapter: RankingAdapter
 
@@ -69,7 +70,7 @@ class RankingFragment : Fragment() {
 
     private fun setupRecyclerView(){
 
-        rankingAdapter = RankingAdapter()
+        rankingAdapter = RankingAdapter(this)
         viewBinding.rvRanking.apply {
             setHasFixedSize(true)
             adapter = rankingAdapter
@@ -167,5 +168,12 @@ class RankingFragment : Fragment() {
                     }
                 }
             })
+    }
+
+    override fun getId(id: Int) {
+        val action = RankingFragmentDirections.actionRankingFragmentToPlayerDetails(id)
+        findNavController().navigate(
+            action
+        )
     }
 }

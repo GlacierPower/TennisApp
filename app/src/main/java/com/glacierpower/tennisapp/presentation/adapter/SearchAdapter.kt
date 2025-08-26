@@ -6,10 +6,13 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.glacierpower.tennisapp.databinding.SearchItemsBinding
-import com.glacierpower.tennisapp.model.resultModel.EntityModel
 import com.glacierpower.tennisapp.model.resultModel.SearchResultModel
+import com.glacierpower.tennisapp.presentation.adapter.listener.Listener
+import com.glacierpower.tennisapp.utils.Constants.IMAGE_KEY
+import com.glacierpower.tennisapp.utils.Constants.TEAM_IMAGE_URL
+import com.squareup.picasso.Picasso
 
-class SearchAdapter :
+class SearchAdapter(private val listener: Listener) :
     RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
 
     override fun onCreateViewHolder(
@@ -35,7 +38,7 @@ class SearchAdapter :
                 oldItem: SearchResultModel,
                 newItem: SearchResultModel
             ): Boolean {
-                return oldItem.entityModel.id == newItem.entityModel.id
+                return oldItem.entityModel?.id == newItem.entityModel?.id
             }
 
             override fun areContentsTheSame(
@@ -57,10 +60,17 @@ class SearchAdapter :
         RecyclerView.ViewHolder(searchItemsBinding.root) {
         fun bind(searchResultModel: SearchResultModel) {
             searchItemsBinding.apply {
-                searchItemsBinding.tvPlayerName.text = searchResultModel.entityModel.name
+                searchItemsBinding.tvPlayerName.text = searchResultModel.entityModel?.name
                 searchItemsBinding.tvPlayerCountry.text =
-                    searchResultModel.entityModel.country.name
+                    searchResultModel.entityModel?.country?.name
+                val id = searchResultModel.entityModel?.id
+                Picasso.get()
+                    .load("$TEAM_IMAGE_URL$id$IMAGE_KEY")
+                    .into(ivPlayer)
 
+                this.tvPlayerName.setOnClickListener {
+                    listener.getId(searchResultModel.entityModel!!.id)
+                }
             }
 
         }
