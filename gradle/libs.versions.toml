@@ -27,7 +27,7 @@ gsonVersion = "2.10.1"
 hiltAndroidCompiler = "2.57.1"
 hiltCompiler = "1.2.0"
 junitJunit = "4.13.2"
-kotlin = "2.2.10"
+kotlin = "2.0.20"
 coreKtx = "1.15.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
@@ -127,6 +127,7 @@ picasso = { module = "com.squareup.picasso:picasso", version.ref = "picasso" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofitVersion" }
 room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
 
+
 ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
 kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
@@ -150,4 +151,5 @@ google-services-gms = { id = "com.google.gms.google-services", version.ref = "go
 firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "firebaseCrashlytics" }
 firebase-app-distribuiton = { id = "com.google.firebase.appdistribution", version.ref = "appDistribution" }
 navigation-safeargs-kotlin = { id = "androidx.navigation.safeargs.kotlin", version.ref = "safeArgsVersion" }
+
 
