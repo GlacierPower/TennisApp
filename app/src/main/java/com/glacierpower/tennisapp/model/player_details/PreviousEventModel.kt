@@ -2,11 +2,12 @@ package com.glacierpower.tennisapp.model.player_details
 
 import com.glacierpower.tennisapp.data.service.responce.live_event.Status
 import com.glacierpower.tennisapp.model.eventModel.*
+import model.TeamModel
 
 data class PreviousEventModel(
 
     val awayScore: ScoreModel,
-    val awayTeam: TeamModelLiveEvent,
+    val awayTeam: TeamModel,
     val awayTeamSeed: String?,
     val changes: ChangesModel,
     val crowdsourcingDataDisplayEnabled: Boolean,
@@ -17,7 +18,7 @@ data class PreviousEventModel(
     val groundType: String,
     val hasGlobalHighlights: Boolean,
     val homeScore: ScoreModel,
-    val homeTeam: TeamModelLiveEvent,
+    val homeTeam: TeamModel,
     val id: Int,
     val periods: PeriodsModel,
     val roundInfo: RoundInfoModel?,

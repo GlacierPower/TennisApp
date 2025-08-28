@@ -1,14 +1,12 @@
 package com.glacierpower.tennisapp.data.service
 
+import api.responce.ranking.RankingResponse
 import com.glacierpower.tennisapp.data.service.responce.PlayerLastEventsResponse
-import com.glacierpower.tennisapp.data.service.responce.RankingResponse
 import com.glacierpower.tennisapp.data.service.responce.SearchResponse
 import com.glacierpower.tennisapp.data.service.responce.event_details.EventDetailsResponse
 import com.glacierpower.tennisapp.data.service.responce.live_event.LiveEventsResponse
 import com.glacierpower.tennisapp.data.service.responce.player_details.DetailsResponse
 import com.glacierpower.tennisapp.data.service.responce.player_near_events.PlayerNearEventsResponse
-import okhttp3.ResponseBody
-import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path

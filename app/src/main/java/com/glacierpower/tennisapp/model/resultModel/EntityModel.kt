@@ -1,9 +1,9 @@
 package com.glacierpower.tennisapp.model.resultModel
 
 import com.glacierpower.tennisapp.model.eventModel.CategoryModel
-import com.glacierpower.tennisapp.model.rankingModel.ColorModel
-import com.glacierpower.tennisapp.model.rankingModel.CountryModel
-import com.glacierpower.tennisapp.model.rankingModel.SportModel
+import model.ColorModel
+import model.CountryModel
+import model.SportModel
 
 data class EntityModel(
     val category: CategoryModel?,

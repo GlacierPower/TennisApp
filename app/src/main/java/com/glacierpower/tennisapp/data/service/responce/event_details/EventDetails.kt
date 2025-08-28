@@ -1,5 +1,6 @@
 package com.glacierpower.tennisapp.data.service.responce.event_details
 
+import api.responce.common.Team
 import com.glacierpower.tennisapp.data.service.responce.live_event.*
 
 data class EventDetails(

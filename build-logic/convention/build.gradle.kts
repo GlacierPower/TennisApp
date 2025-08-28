@@ -30,8 +30,8 @@ gradlePlugin {
             id = "tennisapp.android.application"
             implementationClass = "AndroidApplicationConventionPlugin"
         }
-        register("ansdroidLibrary") {
-            id = ""
+        register("androidLibrary") {
+            id = "tennisapp.android.library"
             implementationClass = "AndroidLibraryConventionPlugin"
         }
         register("hilt") {

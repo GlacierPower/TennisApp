@@ -16,4 +16,18 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "TennisApp"
-include ':app'
+
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
+include (":app")
+include(":navigation")
+
+include(":core:network")
+
+include(":data:ranking")
+include(":data:common")
+
+include(":features:ranking")
+
+include(":domain:ranking")
+include(":domain:common")

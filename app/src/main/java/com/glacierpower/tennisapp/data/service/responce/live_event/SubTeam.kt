@@ -1,8 +1,8 @@
 package com.glacierpower.tennisapp.data.service.responce.live_event
 
-import com.glacierpower.tennisapp.data.service.responce.Country
-import com.glacierpower.tennisapp.data.service.responce.Sport
-import com.glacierpower.tennisapp.data.service.responce.TeamColor
+import api.responce.common.Country
+import api.responce.common.Sport
+import api.responce.common.TeamColor
 
 data class SubTeam(
     val country: Country,

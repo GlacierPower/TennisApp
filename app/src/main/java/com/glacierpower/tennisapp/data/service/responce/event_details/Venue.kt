@@ -1,6 +1,6 @@
 package com.glacierpower.tennisapp.data.service.responce.event_details
 
-import com.glacierpower.tennisapp.data.service.responce.Country
+import api.responce.common.Country
 
 data class Venue(
     val city:City,

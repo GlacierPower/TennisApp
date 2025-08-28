@@ -1,6 +1,6 @@
 package com.glacierpower.tennisapp.data.service.responce.live_event
 
-import com.glacierpower.tennisapp.data.service.responce.Country
+import api.responce.common.Country
 
 data class UniqueTournament(
     val category: Category,

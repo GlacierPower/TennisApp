@@ -27,6 +27,17 @@ android {
 }
 
 dependencies {
+
+    implementation(projects.domain.common)
+    implementation(projects.navigation)
+
+    implementation(projects.features.ranking)
+
+    implementation(projects.data.ranking)
+    implementation(projects.data.common)
+
+    implementation(projects.core.network)
+
     implementation libs.engage.core
 
 
@@ -51,10 +62,6 @@ dependencies {
 
     implementation libs.kotlinx.coroutines.core
     implementation libs.kotlinx.coroutines.android
-
-    // Coroutine Lifecycle Scopes
-    implementation libs.androidx.lifecycle.viewmodel.ktx
-    implementation libs.androidx.lifecycle.runtime.ktx
 
     //Lifecycle or LiveData
     implementation libs.androidx.lifecycle.viewmodel.ktx
@@ -83,7 +90,6 @@ dependencies {
     implementation libs.lottie
 
     implementation libs.androidx.core.ktx
-    implementation libs.androidx.appcompat
     implementation libs.material
     implementation libs.androidx.constraintlayout
     testImplementation libs.junit

@@ -1,12 +1,17 @@
 package com.glacierpower.tennisapp.model.lastEventModel
 
-import com.glacierpower.tennisapp.data.service.responce.live_event.*
-import com.glacierpower.tennisapp.model.eventModel.*
-import com.glacierpower.tennisapp.model.rankingModel.TeamModel
+import com.glacierpower.tennisapp.data.service.responce.live_event.Status
+import com.glacierpower.tennisapp.model.eventModel.ChangesModel
+import com.glacierpower.tennisapp.model.eventModel.PeriodsModel
+import com.glacierpower.tennisapp.model.eventModel.RoundInfoModel
+import com.glacierpower.tennisapp.model.eventModel.ScoreModel
+import com.glacierpower.tennisapp.model.eventModel.TimeModel
+import com.glacierpower.tennisapp.model.eventModel.TournamentModel
+import model.TeamModel
 
 data class LastEventModel(
     val awayScore: ScoreModel?,
-    val awayTeam:TeamModel,
+    val awayTeam: TeamModel,
     val awayTeamSeed:String?,
     val changes: ChangesModel,
     val crowdsourcingDataDisplayEnabled:Boolean,
