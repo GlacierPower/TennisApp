@@ -1,6 +1,7 @@
 package com.glacierpower.tennisapp.model.eventDetailsModel
 
-import com.glacierpower.tennisapp.model.rankingModel.CountryModel
+import model.CountryModel
+
 
 data class VenueModel(
     val city:CityModel,

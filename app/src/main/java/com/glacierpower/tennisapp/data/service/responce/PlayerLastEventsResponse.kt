@@ -1,5 +1,6 @@
 package com.glacierpower.tennisapp.data.service.responce
 
+import api.responce.common.Team
 import com.glacierpower.tennisapp.data.service.responce.live_event.*
 
 data class PlayerLastEventsResponse(
@@ -9,7 +10,7 @@ data class PlayerLastEventsResponse(
 
 data class Events(
     val awayScore:Score,
-    val awayTeam:Team,
+    val awayTeam: Team,
     val awayTeamSeed:String,
     val changes:Changes,
     val crowdsourcingDataDisplayEnabled:Boolean,
@@ -19,7 +20,7 @@ data class Events(
     val groundType:String,
     val hasGlobalHighlights:Boolean,
     val homeScore:Score,
-    val homeTeam:Team,
+    val homeTeam: Team,
     val homeTeamSeed:String,
     val id:Int,
     val periods:Periods,

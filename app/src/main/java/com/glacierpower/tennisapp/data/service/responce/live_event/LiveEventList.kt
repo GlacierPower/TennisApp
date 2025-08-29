@@ -1,13 +1,14 @@
 package com.glacierpower.tennisapp.data.service.responce.live_event
 
 
+import api.responce.common.Team
 import com.google.gson.annotations.SerializedName
 
 data class LiveEventList(
     @SerializedName("awayScore")
     val awayScore: Score,
     @SerializedName("awayTeam")
-    val awayTeam:Team,
+    val awayTeam: Team,
     @SerializedName("awayTeamSeed")
     val awayTeamSeed:String?,
     @SerializedName("changes")

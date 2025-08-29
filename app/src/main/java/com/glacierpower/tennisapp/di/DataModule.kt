@@ -1,13 +1,15 @@
 package com.glacierpower.tennisapp.di
 
 import android.content.Context
-import com.glacierpower.tennisapp.data.repositoryImpl.*
+import com.glacierpower.tennisapp.data.repositoryImpl.EventDetailsRepositoryImpl
+import com.glacierpower.tennisapp.data.repositoryImpl.LiveEventRepositoryImpl
+import com.glacierpower.tennisapp.data.repositoryImpl.PlayerDetailsRepositoryImpl
+import com.glacierpower.tennisapp.data.repositoryImpl.SearchRepositoryImpl
 import com.glacierpower.tennisapp.data.service.CountriesFlagsApiService
 import com.glacierpower.tennisapp.data.service.TennisApiService
 import com.glacierpower.tennisapp.domain.event_details.EventDetailsRepository
 import com.glacierpower.tennisapp.domain.events.LiveEventsRepository
 import com.glacierpower.tennisapp.domain.palyer_details.PlayerDetailsRepository
-import com.glacierpower.tennisapp.domain.ranking.RankingRepository
 import com.glacierpower.tennisapp.domain.search.SearchRepository
 import com.glacierpower.tennisapp.utils.Constants.KEY
 import dagger.Binds
@@ -39,10 +41,6 @@ abstract class DataModule {
         playerDetailsRepositoryImpl: PlayerDetailsRepositoryImpl
     ): PlayerDetailsRepository
 
-    @Binds
-    abstract fun bindRankingRepository(
-        rankingRepositoryImpl: RankingRepositoryImpl
-    ): RankingRepository
 
     @Binds
     abstract fun bindSearchRepository(

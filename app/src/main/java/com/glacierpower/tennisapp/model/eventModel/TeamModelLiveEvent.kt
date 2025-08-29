@@ -1,8 +1,8 @@
 package com.glacierpower.tennisapp.model.eventModel
 
-import com.glacierpower.tennisapp.model.rankingModel.ColorModel
-import com.glacierpower.tennisapp.model.rankingModel.CountryModel
-import com.glacierpower.tennisapp.model.rankingModel.SportModel
+import model.ColorModel
+import model.CountryModel
+import model.SportModel
 
 data class TeamModelLiveEvent(
     val country: CountryModel?,

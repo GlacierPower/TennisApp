@@ -1,10 +1,11 @@
 package com.glacierpower.tennisapp.model.eventDetailsModel
 
 import com.glacierpower.tennisapp.model.eventModel.*
+import model.TeamModel
 
 data class EventDetailsModel(
     val awayScore: ScoreModel,
-    val awayTeam: TeamModelLiveEvent,
+    val awayTeam: TeamModel,
     val awayTeamSeed: String?,
     val bet365ExcludedCountryCodes: List<String>?,
     val changes: ChangesModel,
@@ -21,7 +22,7 @@ data class EventDetailsModel(
     val hasBet365LiveStream:Boolean,
     val hasGlobalHighlights:Boolean,
     val homeScore: ScoreModel,
-    val homeTeam: TeamModelLiveEvent,
+    val homeTeam: TeamModel,
     val homeTeamSeed:String?,
     val id:Int,
     val lastPeriod:String?,

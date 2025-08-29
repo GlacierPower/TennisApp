@@ -1,5 +1,8 @@
 package com.glacierpower.tennisapp.data.service.responce
 
+import api.responce.common.Country
+import api.responce.common.Sport
+import api.responce.common.TeamColor
 import com.glacierpower.tennisapp.data.service.responce.live_event.Category
 import com.google.gson.annotations.SerializedName
 

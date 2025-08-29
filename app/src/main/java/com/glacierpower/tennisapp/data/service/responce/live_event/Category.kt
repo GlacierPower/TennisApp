@@ -1,6 +1,6 @@
 package com.glacierpower.tennisapp.data.service.responce.live_event
 
-import com.glacierpower.tennisapp.data.service.responce.Sport
+import api.responce.common.Sport
 import com.google.gson.annotations.SerializedName
 
 data class Category(
@@ -13,5 +13,5 @@ data class Category(
     @SerializedName("slug")
     val slug:String,
     @SerializedName("sport")
-    val sport:Sport
+    val sport: Sport
 )

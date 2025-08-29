@@ -1,5 +1,6 @@
 import com.android.build.api.dsl.ApplicationExtension
 import com.glacirepower.buildlogic.Constants
+import com.glacirepower.buildlogic.configureBaseDependencies
 import com.glacirepower.buildlogic.configureKotlinAndroid
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -23,6 +24,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
                 }
 
                 configureKotlinAndroid(this)
+                configureBaseDependencies()
             }
         }
     }

@@ -6,6 +6,7 @@ import com.glacierpower.tennisapp.data.service.responce.player_near_events.Previ
 import com.glacierpower.tennisapp.model.player_details.NextEventModel
 import com.glacierpower.tennisapp.model.player_details.PlayerNearEventsModel
 import com.glacierpower.tennisapp.model.player_details.PreviousEventModel
+import mappers.toTeamModel
 
 fun PlayerNearEventsResponse.toEntity(): PlayerNearEventsModel {
     return PlayerNearEventsModel(
@@ -17,7 +18,7 @@ fun PlayerNearEventsResponse.toEntity(): PlayerNearEventsModel {
 fun NextEvent.toEntity(): NextEventModel {
     return NextEventModel(
         awayScore?.toEntity(),
-        awayTeam.toEntity(),
+        awayTeam.toTeamModel(),
         changes.toEntity(),
         crowdsourcingDataDisplayEnabled,
         customId,
@@ -43,7 +44,7 @@ fun NextEvent.toEntity(): NextEventModel {
 fun PreviousEvent.toEntity(): PreviousEventModel {
     return PreviousEventModel(
         awayScore.toEntity(),
-        awayTeam.toEntity(),
+        awayTeam.toTeamModel(),
         awayTeamSeed,
         changes.toEntity(),
         crowdsourcingDataDisplayEnabled,
@@ -54,7 +55,7 @@ fun PreviousEvent.toEntity(): PreviousEventModel {
         groundType,
         hasGlobalHighlights,
         homeScore.toEntity(),
-        homeTeam.toEntity(),
+        homeTeam.toTeamModel(),
         id,
         periods.toEntity(),
         roundInfo?.toEntity(),

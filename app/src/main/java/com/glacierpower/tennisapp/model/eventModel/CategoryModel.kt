@@ -1,6 +1,6 @@
 package com.glacierpower.tennisapp.model.eventModel
 
-import com.glacierpower.tennisapp.data.service.responce.Sport
+import api.responce.common.Sport
 
 data class CategoryModel(
     val flag:String,

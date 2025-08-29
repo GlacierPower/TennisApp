@@ -1,12 +1,22 @@
 package com.glacierpower.tennisapp.data.mappers
 
+import api.responce.common.Team
 import com.glacierpower.tennisapp.data.service.responce.live_event.*
 import com.glacierpower.tennisapp.model.eventModel.*
+import mappers.toCountryModel
+import mappers.toFieldTranslationModel
+import mappers.toSportModel
+import mappers.toTeamColorModel
+import mappers.toTeamModel
+import model.ColorModel
+import model.CountryModel
+import model.SportModel
+import model.TeamModel
 
 fun LiveEventList.toEntity(): EventModel {
     return EventModel(
         awayScore.toEntity(),
-        awayTeam.toEntity(),
+        awayTeam.toTeamModel(),
         changes.toEntity(),
         crowdsourcingDataDisplayEnabled,
         customId,
@@ -55,33 +65,34 @@ fun Score.toEntity(): ScoreModel {
 
 }
 
-fun Team.toEntity(): TeamModelLiveEvent {
-    return TeamModelLiveEvent(
-        country?.toEntity(),
-        disabled,
-        gender,
-        fullName,
-        id,
-        name,
-        nameCode,
-        national,
-        playerTeamInfo?.toEntity(),
-        ranking,
-        shortName,
-        slug,
-        sport.toEntity(),
-        subTeam?.map {
-            it.toEntity()
-        },
-        teamColors.toEntity(),
-        type,
-        userCount
+fun Team.toEntity(): TeamModel {
+    return TeamModel(
+        name = name,
+        slug = slug,
+        shortName = shortName,
+        gender = gender,
+        sport = sport.toSportModel(),
+        userCount = userCount,
+        nameCode = nameCode,
+        ranking = ranking,
+        disabled = disabled,
+        national = national,
+        type = type,
+        id = id,
+        country = country.toCountryModel(),
+        teamColor = teamColor.toTeamColorModel(),
+        fieldTranslationsModel = fieldTranslations.toFieldTranslationModel()
     )
 }
 
 fun SubTeam.toEntity(): SubTeamModel {
     return SubTeamModel(
-        country.toEntity(),
+        CountryModel(
+            alpha2 = this.country.alpha2,
+            alpha3 = "",
+            name = this.country.name,
+            slug = ""
+        ),
         gender,
         id,
         name,

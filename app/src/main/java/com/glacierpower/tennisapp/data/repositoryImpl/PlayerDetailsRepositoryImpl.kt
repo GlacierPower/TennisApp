@@ -8,7 +8,6 @@ import com.glacierpower.tennisapp.model.player_details.PlayerDetailsModel
 import com.glacierpower.tennisapp.model.player_details.PlayerNearEventsModel
 import com.glacierpower.tennisapp.utils.ResultState
 import kotlinx.coroutines.*
-import kotlinx.coroutines.GlobalScope.coroutineContext
 import javax.inject.Inject
 import javax.inject.Named
 

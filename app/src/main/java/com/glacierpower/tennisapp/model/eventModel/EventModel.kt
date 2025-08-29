@@ -1,10 +1,11 @@
 package com.glacierpower.tennisapp.model.eventModel
 
 import com.glacierpower.tennisapp.data.service.responce.live_event.*
+import model.TeamModel
 
 data class EventModel(
     val awayScore: ScoreModel,
-    val awayTeam: TeamModelLiveEvent,
+    val awayTeam: TeamModel,
     val changes: ChangesModel,
     val crowdsourcingDataDisplayEnabled: Boolean,
     val customId: String,
@@ -13,7 +14,7 @@ data class EventModel(
     val groundType: String,
     val hasGlobalHighlights: Boolean,
     val homeScore: ScoreModel,
-    val homeTeam: TeamModelLiveEvent,
+    val homeTeam: TeamModel,
     val homeTeamSeed: String?,
     val id: Int,
     val lastPeriod: String,

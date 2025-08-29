@@ -2,9 +2,9 @@ package com.glacierpower.tennisapp.model.player_details
 
 import com.glacierpower.tennisapp.model.eventModel.CategoryModel
 import com.glacierpower.tennisapp.model.eventModel.TournamentModel
-import com.glacierpower.tennisapp.model.rankingModel.ColorModel
-import com.glacierpower.tennisapp.model.rankingModel.CountryModel
-import com.glacierpower.tennisapp.model.rankingModel.SportModel
+import model.ColorModel
+import model.CountryModel
+import model.SportModel
 
 data class PlayerDetailsModel(
     val category: CategoryModel?,

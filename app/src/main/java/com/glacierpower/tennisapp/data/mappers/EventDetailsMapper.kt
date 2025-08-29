@@ -3,11 +3,13 @@ package com.glacierpower.tennisapp.data.mappers
 import com.glacierpower.tennisapp.data.service.responce.event_details.*
 import com.glacierpower.tennisapp.data.service.responce.live_event.Status
 import com.glacierpower.tennisapp.model.eventDetailsModel.*
+import mappers.toTeamModel
+import model.CountryModel
 
 fun EventDetails.toEntity(): EventDetailsModel {
     return EventDetailsModel(
         awayScore.toEntity(),
-        awayTeam.toEntity(),
+        awayTeam.toTeamModel(),
         awayTeamSeed,
         bet365ExcludedCountryCodes,
         changes.toEntity(),
@@ -24,7 +26,7 @@ fun EventDetails.toEntity(): EventDetailsModel {
         hasGlobalHighlights,
         hasGlobalHighlights,
         homeScore.toEntity(),
-        homeTeam.toEntity(),
+        homeTeam.toTeamModel(),
         homeTeamSeed,
         id,
         lastPeriod,
@@ -58,7 +60,12 @@ fun Status.toEntity(): StatusModel {
 fun Venue.toEntity(): VenueModel {
     return VenueModel(
         city.toEntity(),
-        country.toEntity(),
+        CountryModel(
+            alpha2 = this.country.alpha2,
+            alpha3 = this.country.alpha3,
+            name = this.country.name,
+            slug = this.country.slug
+        ),
         id,
         stadium.toEntity()
     )

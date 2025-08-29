@@ -1,0 +1,13 @@
+plugins {
+    alias(libs.plugins.tennisapp.android.library)
+    alias(libs.plugins.tennisapp.hilt)
+}
+
+android {
+    namespace = "com.glacierpower.tennisapp.data.common"
+}
+
+dependencies{
+    implementation(projects.core.network)
+    implementation(projects.domain.common)
+}

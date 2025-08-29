@@ -2,11 +2,12 @@ package com.glacierpower.tennisapp.data.mappers
 
 import com.glacierpower.tennisapp.data.service.responce.Events
 import com.glacierpower.tennisapp.model.lastEventModel.LastEventModel
+import mappers.toTeamModel
 
 fun Events.toEntity(): LastEventModel {
     return LastEventModel(
         awayScore.toEntity(),
-        awayTeam.toEntity(),
+        awayTeam.toTeamModel(),
         awayTeamSeed,
         changes.toEntity(),
         crowdsourcingDataDisplayEnabled,
@@ -16,7 +17,7 @@ fun Events.toEntity(): LastEventModel {
         groundType,
         hasGlobalHighlights,
         homeScore.toEntity(),
-        homeTeam.toEntity(),
+        homeTeam.toTeamModel(),
         homeTeamSeed,
         id,
         periods.toEntity(),

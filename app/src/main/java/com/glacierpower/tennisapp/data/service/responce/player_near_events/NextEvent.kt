@@ -1,5 +1,6 @@
 package com.glacierpower.tennisapp.data.service.responce.player_near_events
 
+import api.responce.common.Team
 import com.glacierpower.tennisapp.data.service.responce.live_event.*
 import com.google.gson.annotations.SerializedName
 
@@ -7,7 +8,7 @@ data class NextEvent(
     @SerializedName("awayScore")
     val awayScore:Score?,
     @SerializedName("awayTeam")
-    val awayTeam:Team,
+    val awayTeam: Team,
     @SerializedName("changes")
     val changes:Changes,
     @SerializedName("crowdsourcingDataDisplayEnabled")

@@ -10,7 +10,6 @@ import androidx.navigation.fragment.findNavController
 import com.glacierpower.tennisapp.databinding.FragmentLiveEventBinding
 import com.glacierpower.tennisapp.presentation.adapter.LiveEventAdapter
 import com.glacierpower.tennisapp.presentation.adapter.listener.Listener
-import com.glacierpower.tennisapp.presentation.ranking.RankingFragmentDirections
 import com.glacierpower.tennisapp.utils.ResultState
 import dagger.hilt.android.AndroidEntryPoint
 

@@ -1,4 +1,5 @@
 import com.android.build.gradle.LibraryExtension
+import com.glacirepower.buildlogic.configureBaseDependencies
 import com.glacirepower.buildlogic.configureKotlinAndroid
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -14,6 +15,7 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
 
             with(extensions.getByType<LibraryExtension>()) {
                 configureKotlinAndroid(this)
+                configureBaseDependencies()
             }
         }
     }
