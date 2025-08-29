@@ -6,6 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Space
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -40,26 +49,10 @@ class RankingFragment : Fragment(), Listener {
 
         setupSpinner()
         observeLoadingState()
-//        observeInternetConnection()
-
         getRanking()
 
 
     }
-//    private fun observeInternetConnection(){
-//
-//        rankingViewModel.connection.observe(viewLifecycleOwner, Observer {
-//            it.let {
-//                if (it) {
-//                    viewBinding.tryAgainLayout.visibility = View.VISIBLE
-//                    viewBinding.rvRanking.visibility = View.INVISIBLE
-//                } else {
-//                    viewBinding.tryAgainLayout.visibility =
-//                        View.INVISIBLE
-//                }
-//            }
-//        })
-//    }
 
     private fun getRanking() {
         viewBinding.spinner.onItemSelectedListener =

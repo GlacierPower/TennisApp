@@ -1,4 +1,5 @@
 plugins {
+    alias(libs.plugins.tennisapp.android.application.compose)
     alias(libs.plugins.tennisapp.android.application)
     alias(libs.plugins.ksp)
     alias(libs.plugins.tennisapp.hilt)

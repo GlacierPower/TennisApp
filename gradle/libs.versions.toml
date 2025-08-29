@@ -141,10 +141,18 @@ kotlin-compose-gradlePlugin = { module = "org.jetbrains.kotlin:compose-compiler-
 # Dependencies of the Utils
 timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
 
+#compose
+androidx-compose-bom = { module = "androidx.compose:compose-bom", version.ref = "compose-bom" }
+androidx-compose-material3 = { module = "androidx.compose.material3:material3" }
+androidx-compose-material = { module = "androidx.compose.material:material" }
+androidx-compose-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-compose" }
+androidx-compose-activity = { module = "androidx.activity:activity-compose" }
+androidx-compose-preview = { module = "androidx.compose.ui:ui-tooling" }
+androidx-compose-foundation = { module = "androidx.compose.foundation:foundation" }
+androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
+coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
+
 [plugins]
-tennisapp-hilt = { id = "tennisapp.hilt", version = "unspecified" }
-tennisapp-android-application = { id = "tennisapp.android.application", version = "unspecified" }
-tennisapp-android-library = { id = "tennisapp.android.library", version = "unspecified" }
 android-application = { id = "com.android.application", version.ref = "agp" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvmVersion" }
@@ -159,5 +167,12 @@ google-services-gms = { id = "com.google.gms.google-services", version.ref = "go
 firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "firebaseCrashlytics" }
 firebase-app-distribuiton = { id = "com.google.firebase.appdistribution", version.ref = "appDistribution" }
 navigation-safeargs-kotlin = { id = "androidx.navigation.safeargs.kotlin", version.ref = "safeArgsVersion" }
+
+tennisapp-android-application-compose = { id = "tennisapp.android.application.compose", version = "unspecified" }
+tennisapp-android-library-compose = { id = "tennisapp.android.library.compose", version = "unspecified" }
+tennisapp-hilt = { id = "tennisapp.hilt", version = "unspecified" }
+tennisapp-android-application = { id = "tennisapp.android.application", version = "unspecified" }
+tennisapp-android-library = { id = "tennisapp.android.library", version = "unspecified" }
+
 
 
