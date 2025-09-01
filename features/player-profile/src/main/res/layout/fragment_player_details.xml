@@ -22,6 +22,18 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:listitem="@layout/items_player_details" />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_player_last_match"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:visibility="visible"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView2"
+            tools:listitem="@layout/items_last_events" />
+
         <LinearLayout
             android:id="@+id/tryAgainLayout"
             android:layout_width="wrap_content"

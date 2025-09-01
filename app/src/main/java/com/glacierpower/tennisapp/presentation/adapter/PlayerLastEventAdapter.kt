@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.glacierpower.tennisapp.databinding.ItemsLastEventsBinding
+import com.glacierpower.tennisapp.features.player_profile.databinding.ItemsLastEventsBinding
 import com.glacierpower.tennisapp.model.lastEventModel.LastEventModel
 import com.glacierpower.tennisapp.presentation.adapter.listener.Listener
 import com.glacierpower.tennisapp.utils.Constants
