@@ -9,7 +9,7 @@ data class PlayerInfo(
     @property:Json("highest_singles_ranking")
     val highestSinglesRanking: Int,
     @property:Json("highest_doubles_ranking")
-    val highestDoublesRanking: Int,
+    val highestDoublesRanking: Int?,
     val weight: Int,
     val height: Int,
     @property:Json("date_of_birth")
@@ -17,5 +17,5 @@ data class PlayerInfo(
     @property:Json("highest_singles_ranking_date")
     val highestSinglesRankingDate: String,
     @property:Json("highest_doubles_ranking_date")
-    val highestDoublesRankingDate: String
+    val highestDoublesRankingDate: String?
 )

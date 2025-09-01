@@ -8,5 +8,5 @@ data class PlayerProfileModel(
     val info: PlayerInfoModel,
     val competitorRankings: List<CompetitorRankingProfileModel>,
     val periods: List<ProfilePeriodsModel>,
-    val competitionsPlayed:CompetitionsPlayedModel
+    val competitionsPlayed: List<CompetitionsPlayedModel>
 )

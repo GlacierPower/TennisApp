@@ -77,7 +77,7 @@ class EventDetailsFragment : Fragment(), Listener {
 
     override fun getId(id: Int) {
         val action =
-            EventDetailsFragmentDirections.actionEventDetailsFragmentToPlayerDetails("id")
+            EventDetailsFragmentDirections.actionEventDetailsFragmentToPlayerDetailsFragment("id")
         findNavController().navigate(action)
     }
 }

@@ -6,30 +6,19 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.glacierpower.tennisapp.features.player_profile.databinding.ItemsPlayerDetailsBinding
+import models.PlayerProfileModel
 
-class PlayerDetailAdapter : RecyclerView.Adapter<PlayerDetailAdapter.PlayerDetailViewHolder>() {
+class PlayerProfileAdapter : RecyclerView.Adapter<PlayerProfileAdapter.PlayerDetailViewHolder>() {
 
     inner class PlayerDetailViewHolder(private val itemsPlayerDetailsBinding: ItemsPlayerDetailsBinding) :
         RecyclerView.ViewHolder(itemsPlayerDetailsBinding.root) {
-        fun bind(playerDetailsModel: PlayerDetailsModel) {
+        fun bind(playerDetailsModel: PlayerProfileModel) {
 
             itemsPlayerDetailsBinding.apply {
-                this.playerName.text = playerDetailsModel.fullName
-                this.ranking.text = playerDetailsModel.ranking.toString()
-                this.countryName.text = playerDetailsModel.country?.name
-                this.tournamentType.text = playerDetailsModel.tournament?.category?.name
-                this.ranking.text = playerDetailsModel.ranking.toString()
-
-
-                val id = playerDetailsModel.id
-                val countryCode = playerDetailsModel.country?.alpha2
-
-                Picasso.get()
-                    .load("${Constants.TEAM_IMAGE_URL}${id}${Constants.IMAGE_KEY}")
-                    .into(playerImage)
-                Picasso.get()
-                    .load("${Constants.FLAG_URL}${countryCode}${Constants.IMAGE_FORMAT}")
-                    .into(countryFlag)
+                this.playerName.text = playerDetailsModel.competitor.name
+                this.ranking.text = playerDetailsModel.competitorRankings.first().rank.toString()
+                this.countryName.text = playerDetailsModel.competitor.country
+                this.ranking.text = playerDetailsModel.competitorRankings.first().rank.toString()
 
             }
         }
@@ -53,17 +42,17 @@ class PlayerDetailAdapter : RecyclerView.Adapter<PlayerDetailAdapter.PlayerDetai
     }
 
     private val differCallback =
-        object : DiffUtil.ItemCallback<PlayerDetailsModel>() {
+        object : DiffUtil.ItemCallback<PlayerProfileModel>() {
             override fun areItemsTheSame(
-                oldItem: PlayerDetailsModel,
-                newItem: PlayerDetailsModel
+                oldItem: PlayerProfileModel,
+                newItem: PlayerProfileModel
             ): Boolean {
-                return oldItem.id == newItem.id
+                return oldItem.competitor.id == newItem.competitor.id
             }
 
             override fun areContentsTheSame(
-                oldItem: PlayerDetailsModel,
-                newItem: PlayerDetailsModel
+                oldItem: PlayerProfileModel,
+                newItem: PlayerProfileModel
             ): Boolean {
                 return oldItem == newItem
             }

@@ -9,7 +9,7 @@ class RankingNavigatorImpl @Inject constructor(
     private val navController: NavController
 ): RankingNavigator {
     override fun navigateToProfile(id: String) {
-        val directions = RankingFragmentDirections.actionRankingFragmentToPlayerDetails(id)
+        val directions = RankingFragmentDirections.actionRankingFragmentToPlayerDetailsFragment(id)
         navController.navigate(directions)
     }
 }

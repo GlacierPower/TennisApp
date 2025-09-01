@@ -12,5 +12,5 @@ data class PlayerProfileResponse(
     val competitorRankings: List<CompetitorRankingProfile>,
     val periods: List<ProfilePeriods>,
     @property:Json("competitions_played")
-    val competitionsPlayed: CompetitionsPlayed
+    val competitionsPlayed: List<CompetitionsPlayed>
 )

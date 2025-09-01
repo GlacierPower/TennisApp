@@ -3,11 +3,13 @@ package mappers
 import api.responce.player_profile.CompetitionsPlayed
 import models.CompetitionsPlayedModel
 
-fun CompetitionsPlayed.toCompetitionsPlayedModel(): CompetitionsPlayedModel {
-    return CompetitionsPlayedModel(
-        id = id,
-        name = name,
-        type = type,
-        gender = gender
-    )
+fun List<CompetitionsPlayed>.toCompetitionsPlayedModel(): List<CompetitionsPlayedModel> {
+    return this.map { competitionsPlayed ->
+        CompetitionsPlayedModel(
+            id = competitionsPlayed.id,
+            name = competitionsPlayed.name,
+            type = competitionsPlayed.type,
+            gender = competitionsPlayed.gender
+        )
+    }
 }
