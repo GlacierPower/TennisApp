@@ -9,10 +9,10 @@ import org.jetbrains.kotlin.compose.compiler.gradle.ComposeCompilerGradlePluginE
 
 fun Project.configureAndroidCompose(extension: CommonExtension<*, *, *, *, *, *>) {
     val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
+
     extension.apply {
         buildFeatures {
             compose = true
-            viewBinding = true
         }
     }
 

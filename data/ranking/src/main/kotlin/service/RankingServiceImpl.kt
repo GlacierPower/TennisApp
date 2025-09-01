@@ -1,7 +1,7 @@
 package service
 
-import api.api.TennisApi
-import com.glacierpower.tennisapp.domain.ranking.model.RankingModel
+import api.api.RankingApi
+import com.glacierpower.tennisapp.domain.ranking.models.RankingModel
 import mappers.toRankingModel
 import networkHelper.NetworkHelper
 import network.tennisResult.DataError
@@ -10,12 +10,12 @@ import javax.inject.Inject
 
 class RankingServiceImpl @Inject constructor(
     private val networkHelper: NetworkHelper,
-    private val tennisApi: TennisApi
+    private val rankingApi: RankingApi
 ) : RankingService {
 
     override suspend fun getRanking(): TennisResult<List<RankingModel>, DataError.NetworkError> = networkHelper.fetchToTennisResult(
             apiCall = suspend {
-                tennisApi.getRanking()
+                rankingApi.getRanking()
             },
             mapper = { rankingRs ->
                 rankingRs.rankings.map { it.toRankingModel() }

@@ -120,7 +120,7 @@ class DetailsFragment : Fragment(), Listener {
     }
 
     override fun getId(id: Int) {
-        val action = DetailsFragmentDirections.actionSearchFragmentToPlayerDetails(id)
+        val action = DetailsFragmentDirections.actionSearchFragmentToPlayerDetails("")
         findNavController().navigate(
             action
         )

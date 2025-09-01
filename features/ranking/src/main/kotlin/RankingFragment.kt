@@ -6,15 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Space
-import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -22,11 +13,16 @@ import com.glacierpower.tennisapp.features.ranking.R
 import com.glacierpower.tennisapp.features.ranking.databinding.FragmentRankingBinding
 import com.glacierpower.tennisapp.presentation.ranking.adapter.RankingAdapter
 import com.glacierpower.tennisapp.presentation.ranking.adapter.adapter.Listener
+import com.glacierpower.tennisapp.presentation.ranking.navigation.RankingNavigator
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 
 @AndroidEntryPoint
 class RankingFragment : Fragment(), Listener {
+
+    @Inject
+    lateinit var navigator: RankingNavigator
     private val rankingViewModel: RankingViewModel by viewModels()
 
     private lateinit var rankingAdapter: RankingAdapter
@@ -138,7 +134,7 @@ class RankingFragment : Fragment(), Listener {
         }
     }
 
-    override fun getId(id: Int) {
-
+    override fun getId(id: String) {
+        navigator.navigateToProfile(id)
     }
 }

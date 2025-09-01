@@ -7,6 +7,7 @@ data class Competitor(
     val name: String,
     val country: String,
     @property:Json("country_code")
-    val countryCode: String?,
+    val countryCode: String? = null,
+    val gender: String? = null,
     val abbreviation: String
 )

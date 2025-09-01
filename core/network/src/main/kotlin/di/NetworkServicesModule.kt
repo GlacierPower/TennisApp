@@ -1,6 +1,7 @@
 package di
 
-import api.api.TennisApi
+import api.api.CompetitorsApi
+import api.api.RankingApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,6 +16,11 @@ internal object NetworkServicesModule {
 
     @Provides
     @Singleton
-    fun provideTennisApi(@Tennis retrofit: Retrofit): TennisApi =
-        retrofit.create(TennisApi::class.java)
+    fun provideTennisApi(@Tennis retrofit: Retrofit): RankingApi =
+        retrofit.create(RankingApi::class.java)
+
+    @Provides
+    @Singleton
+    fun provideCompetitorsApi(@Tennis retrofit: Retrofit): CompetitorsApi =
+        retrofit.create(CompetitorsApi::class.java)
 }

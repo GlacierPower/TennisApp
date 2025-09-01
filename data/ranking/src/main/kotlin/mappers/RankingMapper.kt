@@ -1,7 +1,7 @@
 package mappers
 
 import api.responce.ranking.Rankings
-import com.glacierpower.tennisapp.domain.ranking.model.RankingModel
+import com.glacierpower.tennisapp.domain.ranking.models.RankingModel
 
 fun Rankings.toRankingModel(): RankingModel {
     return RankingModel(
