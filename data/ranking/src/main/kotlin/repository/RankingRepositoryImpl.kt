@@ -1,6 +1,6 @@
 package repository
 
-import com.glacierpower.tennisapp.domain.ranking.model.RankingModel
+import com.glacierpower.tennisapp.domain.ranking.models.RankingModel
 import com.glacierpower.tennisapp.domain.ranking.repository.RankingRepository
 import network.tennisResult.DataError
 import network.tennisResult.TennisResult

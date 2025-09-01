@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/rankingFragment4">
+    app:startDestination="@id/rankingFragment">
 
     <fragment
         android:id="@+id/searchFragment"
@@ -11,8 +11,8 @@
         android:label="@string/search"
         tools:layout="@layout/fragment_search">
         <action
-            android:id="@+id/action_searchFragment_to_playerDetails"
-            app:destination="@id/playerDetails" />
+            android:id="@+id/action_searchFragment_to_playerDetailsFragment"
+            app:destination="@id/playerDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/liveEventFragment"
@@ -22,19 +22,9 @@
         <action
             android:id="@+id/action_liveEventFragment_to_eventDetailsFragment"
             app:destination="@id/eventDetailsFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/playerDetails"
-        android:name="com.glacierpower.tennisapp.presentation.player_details.PlayerDetailsFragment"
-        android:label="PlayerDetails">
-
-        <argument
-            android:name="id"
-            android:defaultValue="1"
-            app:argType="integer" />
         <action
-            android:id="@+id/action_playerDetails_to_eventDetailsFragment"
-            app:destination="@id/eventDetailsFragment" />
+            android:id="@+id/action_liveEventFragment_to_playerDetailsFragment"
+            app:destination="@id/playerDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/eventDetailsFragment"
@@ -43,16 +33,28 @@
         tools:layout="@layout/fragment_event_details">
         <argument
             android:name="id"
-            android:defaultValue="1"
-            app:argType="integer" />
+            app:argType="string" />
         <action
-            android:id="@+id/action_eventDetailsFragment_to_playerDetails"
-            app:destination="@id/playerDetails" />
+            android:id="@+id/action_eventDetailsFragment_to_playerDetailsFragment"
+            app:destination="@id/playerDetailsFragment" />
 
     </fragment>
     <fragment
-        android:id="@+id/rankingFragment4"
+        android:id="@+id/rankingFragment"
         android:name="com.glacierpower.tennisapp.presentation.ranking.RankingFragment"
-        android:label="RankingFragment" />
+        android:label="RankingFragment" >
+        <action
+            android:id="@+id/action_rankingFragment_to_playerDetailsFragment"
+            app:destination="@id/playerDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/playerDetailsFragment"
+        android:name="com.glacierpower.tennisapp.features.player_profile.PlayerProfileFragment"
+        android:label="Player Profile" >
+        <argument
+            android:name="id"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
 
 </navigation>

@@ -46,6 +46,10 @@ gradlePlugin {
             id = "tennisapp.hilt"
             implementationClass = "HiltConventionPlugin"
         }
+        register("fragment") {
+            id = "tennisapp.android.library.fragment"
+            implementationClass = "AndroidFragmentLibraryConventionPlugin"
+        }
 
     }
 }

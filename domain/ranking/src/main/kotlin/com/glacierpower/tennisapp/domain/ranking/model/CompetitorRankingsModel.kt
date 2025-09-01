@@ -1,5 +1,7 @@
 package com.glacierpower.tennisapp.domain.ranking.model
 
+import model.CompetitorModel
+
 data class CompetitorRankingsModel(
     val rank:Int,
     val movement:Int,

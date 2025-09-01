@@ -82,7 +82,7 @@ class LiveEventFragment : Fragment(),Listener {
     }
 
     override fun getId(id: Int) {
-        val action = LiveEventFragmentDirections.actionLiveEventFragmentToEventDetailsFragment(id)
+        val action = LiveEventFragmentDirections.actionLiveEventFragmentToEventDetailsFragment("id")
         findNavController().navigate(
             action)
     }

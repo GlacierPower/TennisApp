@@ -47,7 +47,7 @@ class EventDetailsFragment : Fragment(), Listener {
     }
 
     private fun showEventDetails() {
-        viewModel.getEventDetails(args.id)
+        viewModel.getEventDetails(1)
         viewModel.eventDetails.observe(viewLifecycleOwner, Observer { eventDetails ->
             when (eventDetails) {
                 is ResultState.Success -> {
@@ -77,7 +77,7 @@ class EventDetailsFragment : Fragment(), Listener {
 
     override fun getId(id: Int) {
         val action =
-            EventDetailsFragmentDirections.actionEventDetailsFragmentToPlayerDetails(id)
+            EventDetailsFragmentDirections.actionEventDetailsFragmentToPlayerDetailsFragment("id")
         findNavController().navigate(action)
     }
 }

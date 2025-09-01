@@ -4,8 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.glacierpower.tennisapp.domain.ranking.model.RankingModel
+import com.glacierpower.tennisapp.domain.ranking.models.RankingModel
 import com.glacierpower.tennisapp.domain.ranking.use_cases.GetRankingUseCase
+import com.glacierpower.tennisapp.presentation.ranking.navigation.RankingNavigator
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import network.tennisResult.TennisResult

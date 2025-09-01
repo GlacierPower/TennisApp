@@ -30,12 +30,13 @@ android {
 dependencies {
 
     implementation(projects.domain.common)
-    implementation(projects.navigation)
 
     implementation(projects.features.ranking)
+    implementation(projects.features.playerProfile)
 
     implementation(projects.data.ranking)
     implementation(projects.data.common)
+    implementation(projects.data.playerProfile)
 
     implementation(projects.core.network)
 
