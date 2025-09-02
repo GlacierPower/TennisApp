@@ -13,5 +13,7 @@ android {
 dependencies {
     implementation(projects.domain.ranking)
     implementation(projects.domain.common)
+
+    implementation(projects.core.ui)
     implementation(projects.core.network)
 }

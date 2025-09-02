@@ -33,6 +33,10 @@
     <string name="colon">:</string>
     <string name="eventDetails">Event Details</string>
     <string name="stats">Stats</string>
+    <string name="ranking_rank">#</string>
+    <string name="ranking_points">POINTS</string>
+    <string name="ranking_screen_title">Ranking</string>
+    <string name="rankings_week">Week: %1$d</string>
 
     <string-array name="Ranking">
         <item>ATP Ranking</item>
