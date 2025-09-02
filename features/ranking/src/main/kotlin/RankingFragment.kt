@@ -12,7 +12,7 @@ import androidx.lifecycle.Observer
 import com.glacierpower.tennisapp.features.ranking.R
 import com.glacierpower.tennisapp.features.ranking.databinding.FragmentRankingBinding
 import com.glacierpower.tennisapp.presentation.ranking.adapter.RankingAdapter
-import com.glacierpower.tennisapp.presentation.ranking.adapter.adapter.Listener
+import com.glacierpower.tennisapp.presentation.ranking.adapter.Listener
 import com.glacierpower.tennisapp.presentation.ranking.navigation.RankingNavigator
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
