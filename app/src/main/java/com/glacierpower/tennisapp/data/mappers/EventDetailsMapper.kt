@@ -1,3 +1,4 @@
+
 package com.glacierpower.tennisapp.data.mappers
 
 import com.glacierpower.tennisapp.data.service.responce.event_details.*
@@ -42,7 +43,6 @@ fun EventDetails.toEntity(): EventDetailsModel {
         venue?.toEntity(),
         winnerCode
     )
-
 }
 
 fun Season.toEntity(): SeasonModel {

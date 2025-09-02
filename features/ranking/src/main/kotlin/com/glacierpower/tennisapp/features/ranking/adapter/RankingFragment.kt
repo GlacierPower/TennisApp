@@ -1,4 +1,4 @@
-package com.glacierpower.tennisapp.presentation.ranking
+package com.glacierpower.tennisapp.features.ranking.adapter
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,13 +10,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.glacierpower.tennisapp.features.ranking.R
+import com.glacierpower.tennisapp.features.ranking.adapter.navigation.RankingNavigator
 import com.glacierpower.tennisapp.features.ranking.databinding.FragmentRankingBinding
-import com.glacierpower.tennisapp.presentation.ranking.adapter.RankingAdapter
-import com.glacierpower.tennisapp.presentation.ranking.adapter.Listener
-import com.glacierpower.tennisapp.presentation.ranking.navigation.RankingNavigator
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
-
 
 @AndroidEntryPoint
 class RankingFragment : Fragment(), Listener {
@@ -36,7 +33,6 @@ class RankingFragment : Fragment(), Listener {
     ): View {
         _viewBinding = FragmentRankingBinding.inflate(inflater)
         return viewBinding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -46,8 +42,6 @@ class RankingFragment : Fragment(), Listener {
         setupSpinner()
         observeLoadingState()
         getRanking()
-
-
     }
 
     private fun getRanking() {
@@ -107,12 +101,10 @@ class RankingFragment : Fragment(), Listener {
     }
 
     private fun setupRecyclerView() {
-
         rankingAdapter = RankingAdapter(this)
         viewBinding.rvRanking.apply {
             setHasFixedSize(true)
             adapter = rankingAdapter
-
         }
     }
 

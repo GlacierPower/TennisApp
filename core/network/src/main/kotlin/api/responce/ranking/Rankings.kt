@@ -1,6 +1,6 @@
+
 package api.responce.ranking
 
-import com.google.gson.annotations.SerializedName
 import com.squareup.moshi.Json
 
 data class Rankings(

@@ -1,3 +1,4 @@
+
 package com.glacierpower.tennisapp.presentation.event_details
 
 import android.os.Bundle
@@ -8,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import com.glacierpower.tennisapp.databinding.FragmentEventDetailsBinding
 import com.glacierpower.tennisapp.presentation.adapter.EventDetailsAdapter
 import com.glacierpower.tennisapp.presentation.adapter.listener.Listener
@@ -19,10 +19,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class EventDetailsFragment : Fragment(), Listener {
 
     private val viewModel: EventDetailsViewModel by viewModels()
-
-    private val args: EventDetailsFragmentArgs by navArgs()
-
-    private val detailsArgs: EventDetailsFragmentArgs by navArgs()
 
     private lateinit var eventDetailsAdapter: EventDetailsAdapter
 
@@ -43,7 +39,6 @@ class EventDetailsFragment : Fragment(), Listener {
         setupRecyclerView()
 
         showEventDetails()
-
     }
 
     private fun showEventDetails() {
@@ -64,7 +59,6 @@ class EventDetailsFragment : Fragment(), Listener {
                 }
             }
         })
-
     }
 
     private fun setupRecyclerView() {

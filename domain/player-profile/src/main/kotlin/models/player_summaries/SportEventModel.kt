@@ -5,7 +5,7 @@ data class SportEventModel(
     val startTime: String,
     val startTimeConfirmed: Boolean,
     val sportEventContext: SportEventContextModel,
-    val coverage:CoverageModel,
+    val coverage: CoverageModel,
     val competitors: List<CompetitorsModel>,
     val venue: VenueModel
 )

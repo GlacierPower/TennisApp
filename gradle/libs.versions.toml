@@ -39,7 +39,7 @@ kotlinxCoroutinesAndroid = "1.10.2"
 lifecycleExtensions = "2.2.0"
 lifecycleRuntimeKtx = "2.8.7"
 hiltNavigationCompose = "1.2.0"
-lifecycleViewmodelKtx = "2.9.2"
+lifecycleViewmodelKtx = "2.9.3"
 loggingInterceptor = "5.1.0"
 lottie = "6.6.7"
 material = "1.12.0"
@@ -52,7 +52,7 @@ roomRuntime = "2.7.2"
 swiperefreshlayout = "1.1.0"
 timber = "5.0.1"
 ksp = "2.2.0-2.0.2"
-androidGradlePlugin = "8.12.1"
+androidGradlePlugin = "8.12.2"
 mapsCompose = "6.2.0"
 compose = "1.7.8"
 appcompat = "1.7.0"
@@ -113,6 +113,7 @@ circleimageview = { module = "de.hdodenhof:circleimageview", version.ref = "circ
 compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glide" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofitVersion" }
 converter-moshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "retrofitVersion" }
+detekt-gradle-plugin = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt" }
 engage-core = { module = "com.google.android.engage:engage-core", version.ref = "engageCore" }
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 google-services = { module = "com.google.gms:google-services", version.ref = "googleServicesVersion" }
@@ -140,6 +141,9 @@ kotlin-compose-gradlePlugin = { module = "org.jetbrains.kotlin:compose-compiler-
 
 # Dependencies of the Utils
 timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
+
+#Detekt
+detekt-formatting = { group = "io.gitlab.arturbosch.detekt", name = "detekt-formatting", version.ref = "detekt" }
 
 #compose
 androidx-compose-bom = { module = "androidx.compose:compose-bom", version.ref = "compose-bom" }
@@ -174,6 +178,7 @@ tennisapp-hilt = { id = "tennisapp.hilt", version = "unspecified" }
 tennisapp-android-application = { id = "tennisapp.android.application", version = "unspecified" }
 tennisapp-android-library = { id = "tennisapp.android.library", version = "unspecified" }
 tennisapp-android-library-fragment = { id = "tennisapp.android.library.fragment", version = "unspecified" }
+tennisapp-android-library-detekt = { id = "tennisapp.android.library.detekt", version = "unspecified" }
 
 
 

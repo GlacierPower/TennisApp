@@ -1,3 +1,4 @@
+
 package networkHelper
 
 import model.ApiResult
@@ -13,7 +14,6 @@ import network.tennisResult.DataError.NetworkError.Unknown
 import network.tennisResult.TennisResult
 import network.tennisResult.TennisResult.Error
 import network.tennisResult.TennisResult.Success
-import timber.log.Timber
 import javax.inject.Inject
 
 class NetworkHelperImpl @Inject constructor() : NetworkHelper {
@@ -40,7 +40,6 @@ class NetworkHelperImpl @Inject constructor() : NetworkHelper {
                     415 -> IncorrectFormat(result.codes)
                     503 -> ServiceUnavailable(result.codes)
                     else -> Unknown
-
                 }
                 Error(errorResult)
             }

@@ -1,3 +1,4 @@
+
 package com.glacierpower.tennisapp.presentation.adapter
 
 import android.view.LayoutInflater
@@ -20,10 +21,27 @@ import com.squareup.picasso.Picasso
 class EventDetailsAdapter(private val listener: Listener) :
     RecyclerView.Adapter<EventDetailsAdapter.EventDetailViewHolder>() {
 
+    private val differCallback =
+        object : DiffUtil.ItemCallback<EventDetailsModel>() {
+            override fun areItemsTheSame(
+                oldItem: EventDetailsModel,
+                newItem: EventDetailsModel
+            ): Boolean {
+                return oldItem.id == newItem.id
+            }
+
+            override fun areContentsTheSame(
+                oldItem: EventDetailsModel,
+                newItem: EventDetailsModel
+            ): Boolean {
+                return oldItem == newItem
+            }
+        }
+
+    val differ = AsyncListDiffer(this, differCallback)
     inner class EventDetailViewHolder(private val itemsEventDetailBinding: ItemsEventDetailBinding) :
         RecyclerView.ViewHolder(itemsEventDetailBinding.root) {
         fun bind(eventDetailsModel: EventDetailsModel) {
-
             itemsEventDetailBinding.apply {
                 this.homeTeamName.text = eventDetailsModel.homeTeam.name
                 this.awayTeamName.text = eventDetailsModel.awayTeam.name
@@ -35,7 +53,6 @@ class EventDetailsAdapter(private val listener: Listener) :
                 this.tvDateTime.text = date.fullDate(date)
 
                 if (eventDetailsModel.status.type == "inprogress") {
-
                     this.homeTeamGamePoint.text =
                         eventDetailsModel.homeScore.period1.toString()
                     this.awayTeamGamePoint.text =
@@ -71,7 +88,6 @@ class EventDetailsAdapter(private val listener: Listener) :
                     this.colon.visibility = View.GONE
                     this.status.visibility = View.VISIBLE
                     this.status.text = eventDetailsModel.status.type.uppercase()
-
                 }
 
                 val rankingHome = eventDetailsModel.homeTeam.ranking
@@ -94,8 +110,6 @@ class EventDetailsAdapter(private val listener: Listener) :
                 this.homeTeamImage.setOnClickListener {
                     listener.getId(eventDetailsModel.homeTeam.id)
                 }
-
-
             }
         }
     }
@@ -116,24 +130,4 @@ class EventDetailsAdapter(private val listener: Listener) :
         val liveEvent = differ.currentList[position]
         holder.bind(liveEvent)
     }
-
-    private val differCallback =
-        object : DiffUtil.ItemCallback<EventDetailsModel>() {
-            override fun areItemsTheSame(
-                oldItem: EventDetailsModel,
-                newItem: EventDetailsModel
-            ): Boolean {
-                return oldItem.id == newItem.id
-            }
-
-            override fun areContentsTheSame(
-                oldItem: EventDetailsModel,
-                newItem: EventDetailsModel
-            ): Boolean {
-                return oldItem == newItem
-            }
-
-        }
-
-    val differ = AsyncListDiffer(this, differCallback)
 }

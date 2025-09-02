@@ -1,6 +1,5 @@
 package com.glacierpower.tennisapp.data.service.responce.live_event
 
-
 import api.responce.common.Team
 import com.google.gson.annotations.SerializedName
 
@@ -10,45 +9,44 @@ data class LiveEventList(
     @SerializedName("awayTeam")
     val awayTeam: Team,
     @SerializedName("awayTeamSeed")
-    val awayTeamSeed:String?,
+    val awayTeamSeed: String?,
     @SerializedName("changes")
-    val changes:Changes,
+    val changes: Changes,
     @SerializedName("crowdsourcingDataDisplayEnabled")
-    val crowdsourcingDataDisplayEnabled:Boolean,
+    val crowdsourcingDataDisplayEnabled: Boolean,
     @SerializedName("customId")
-    val customId:String,
+    val customId: String,
     @SerializedName("finalResultOnly")
-    val finalResultOnly:Boolean,
+    val finalResultOnly: Boolean,
     @SerializedName("firstToServe")
-    val firstToServe:Int?,
+    val firstToServe: Int?,
     @SerializedName("groundType")
-    val groundType:String,
+    val groundType: String,
     @SerializedName("hasGlobalHighlights")
-    val hasGlobalHighlights:Boolean,
+    val hasGlobalHighlights: Boolean,
     @SerializedName("homeScore")
-    val homeScore:Score,
+    val homeScore: Score,
     @SerializedName("homeTeam")
-    val homeTeam:Team,
+    val homeTeam: Team,
     @SerializedName("homeTeamSeed")
-    val homeTeamSeed:String?,
+    val homeTeamSeed: String?,
     @SerializedName("id")
-    val id:Int,
+    val id: Int,
     @SerializedName("lastPeriod")
-    val lastPeriod:String,
+    val lastPeriod: String,
     @SerializedName("periods")
-    val periods : Periods,
+    val periods: Periods,
     @SerializedName("roundInfo")
     val roundInfo: RoundInfo?,
     @SerializedName("slug")
-    val slug:String,
+    val slug: String,
     @SerializedName("startTimestamp")
-    val startTimestamp:Long,
+    val startTimestamp: Long,
     @SerializedName("status")
-    val status:Status,
+    val status: Status,
     @SerializedName("time")
-    val time:Time,
+    val time: Time,
     @SerializedName("tournament")
-    val tournament:Tournament
-
+    val tournament: Tournament
 
 )

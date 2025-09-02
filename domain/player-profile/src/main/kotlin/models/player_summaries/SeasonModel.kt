@@ -6,5 +6,5 @@ data class SeasonModel(
     val startDate: String,
     val endDate: String,
     val year: Int,
-    val competitionId : String
+    val competitionId: String
 )

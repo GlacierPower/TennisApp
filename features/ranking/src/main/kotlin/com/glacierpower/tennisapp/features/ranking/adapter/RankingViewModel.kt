@@ -1,4 +1,4 @@
-package com.glacierpower.tennisapp.presentation.ranking
+package com.glacierpower.tennisapp.features.ranking.adapter
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.glacierpower.tennisapp.domain.ranking.models.RankingModel
 import com.glacierpower.tennisapp.domain.ranking.use_cases.GetRankingUseCase
-import com.glacierpower.tennisapp.presentation.ranking.navigation.RankingNavigator
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import network.tennisResult.TennisResult
@@ -27,7 +26,6 @@ class RankingViewModel @Inject constructor(
     private var _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> get() = _isLoading
 
-
     private var _ranking = MutableLiveData<List<RankingModel>>()
     val ranking: LiveData<List<RankingModel>> get() = _ranking
 
@@ -35,7 +33,6 @@ class RankingViewModel @Inject constructor(
         viewModelScope.launch {
             when (val result = getRankingUseCase()) {
                 is TennisResult.Error -> {
-
                 }
 
                 is TennisResult.Success -> {

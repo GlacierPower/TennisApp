@@ -41,7 +41,7 @@
     </fragment>
     <fragment
         android:id="@+id/rankingFragment"
-        android:name="com.glacierpower.tennisapp.presentation.ranking.RankingFragment"
+        android:name="com.glacierpower.tennisapp.presentation.ranking.com.glacierpower.tennisapp.features.ranking.adapter.RankingFragment"
         android:label="RankingFragment" >
         <action
             android:id="@+id/action_rankingFragment_to_playerDetailsFragment"

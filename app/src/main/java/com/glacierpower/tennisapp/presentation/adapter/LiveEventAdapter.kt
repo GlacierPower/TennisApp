@@ -1,3 +1,4 @@
+
 package com.glacierpower.tennisapp.presentation.adapter
 
 import android.view.LayoutInflater
@@ -24,6 +25,24 @@ import com.squareup.picasso.Picasso
 class LiveEventAdapter(private val listener: Listener) :
     RecyclerView.Adapter<LiveEventAdapter.LiveEventViewHolder>() {
 
+    private val differCallback =
+        object : DiffUtil.ItemCallback<EventModel>() {
+            override fun areItemsTheSame(
+                oldItem: EventModel,
+                newItem: EventModel
+            ): Boolean {
+                return oldItem.id == newItem.id
+            }
+
+            override fun areContentsTheSame(
+                oldItem: EventModel,
+                newItem: EventModel
+            ): Boolean {
+                return oldItem == newItem
+            }
+        }
+
+    val differ = AsyncListDiffer(this, differCallback)
     inner class LiveEventViewHolder(private val liveEventItemBinding: LiveEventItemBinding) :
         RecyclerView.ViewHolder(liveEventItemBinding.root) {
         fun bind(eventModel: EventModel) {
@@ -49,7 +68,6 @@ class LiveEventAdapter(private val listener: Listener) :
                     liveEventItemBinding.firstPlayerSet3.text = ZERO
                     liveEventItemBinding.secondPlayerSet3.text = ZERO
                 } else {
-
                     liveEventItemBinding.firstPlayerSet3.text =
                         eventModel.awayScore.period3.toString()
                     liveEventItemBinding.secondPlayerSet3.text =
@@ -61,7 +79,6 @@ class LiveEventAdapter(private val listener: Listener) :
                     PERIOD2 -> liveEventItemBinding.period.text = SET2
                     PERIOD3 -> liveEventItemBinding.period.text = SET3
                 }
-
 
                 val firstFlag = eventModel.awayTeam.country?.alpha2
                 val secondFlag = eventModel.homeTeam.country?.alpha2
@@ -102,24 +119,4 @@ class LiveEventAdapter(private val listener: Listener) :
         val liveEvent = differ.currentList[position]
         holder.bind(liveEvent)
     }
-
-    private val differCallback =
-        object : DiffUtil.ItemCallback<EventModel>() {
-            override fun areItemsTheSame(
-                oldItem: EventModel,
-                newItem: EventModel
-            ): Boolean {
-                return oldItem.id == newItem.id
-            }
-
-            override fun areContentsTheSame(
-                oldItem: EventModel,
-                newItem: EventModel
-            ): Boolean {
-                return oldItem == newItem
-            }
-
-        }
-
-    val differ = AsyncListDiffer(this, differCallback)
 }

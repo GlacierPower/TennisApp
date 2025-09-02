@@ -1,3 +1,4 @@
+
 package com.glacierpower.tennisapp.domain.event_details
 
 import com.glacierpower.tennisapp.model.eventDetailsModel.EventDetailsModel
@@ -9,5 +10,4 @@ class EventDetailsInteractor @Inject constructor(private val eventDetailsReposit
     suspend fun getEventDetails(id: Int): ResultState<EventDetailsModel> {
         return eventDetailsRepository.getEventDetails(id)
     }
-
 }

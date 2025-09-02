@@ -7,7 +7,7 @@ data class SportEventProperties(
     val enhancedStats: Boolean,
     val scores: String,
     @property:Json("detailed_serve_outcomes")
-    val detailedServeOutcomes : Boolean,
+    val detailedServeOutcomes: Boolean,
     @property:Json("play_by_play")
     val playByPlay: Boolean
 )

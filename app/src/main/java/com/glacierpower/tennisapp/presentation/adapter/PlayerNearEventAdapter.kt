@@ -1,3 +1,4 @@
+
 package com.glacierpower.tennisapp.presentation.adapter
 
 import android.view.LayoutInflater
@@ -15,6 +16,24 @@ import com.squareup.picasso.Picasso
 class PlayerNearEventAdapter(private val listener: NearEventListener) :
     RecyclerView.Adapter<PlayerNearEventAdapter.PlayerNearEventViewHolder>() {
 
+    private val differCallback =
+        object : DiffUtil.ItemCallback<PlayerNearEventsModel>() {
+            override fun areItemsTheSame(
+                oldItem: PlayerNearEventsModel,
+                newItem: PlayerNearEventsModel
+            ): Boolean {
+                return oldItem.nextEvent!!.id == newItem.nextEvent!!.id
+            }
+
+            override fun areContentsTheSame(
+                oldItem: PlayerNearEventsModel,
+                newItem: PlayerNearEventsModel
+            ): Boolean {
+                return oldItem == newItem
+            }
+        }
+
+    val differ = AsyncListDiffer(this, differCallback)
     inner class PlayerNearEventViewHolder(private val itemsNearPlayerEventBinding: ItemsNearPlayerEventBinding) :
         RecyclerView.ViewHolder(itemsNearPlayerEventBinding.root) {
         fun bind(nearEventsModel: PlayerNearEventsModel) {
@@ -40,9 +59,7 @@ class PlayerNearEventAdapter(private val listener: NearEventListener) :
                         listener.getEventId(nearEventId)
                     }
                 }
-
             }
-
         }
     }
 
@@ -65,24 +82,4 @@ class PlayerNearEventAdapter(private val listener: NearEventListener) :
         val liveEvent = differ.currentList[position]
         holder.bind(liveEvent)
     }
-
-    private val differCallback =
-        object : DiffUtil.ItemCallback<PlayerNearEventsModel>() {
-            override fun areItemsTheSame(
-                oldItem: PlayerNearEventsModel,
-                newItem: PlayerNearEventsModel
-            ): Boolean {
-                return oldItem.nextEvent!!.id == newItem.nextEvent!!.id
-            }
-
-            override fun areContentsTheSame(
-                oldItem: PlayerNearEventsModel,
-                newItem: PlayerNearEventsModel
-            ): Boolean {
-                return oldItem == newItem
-            }
-
-        }
-
-    val differ = AsyncListDiffer(this, differCallback)
 }

@@ -12,7 +12,6 @@ import com.glacierpower.tennisapp.utils.ResultState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import java.io.IOException
 import javax.inject.Inject
 
 @HiltViewModel
@@ -29,26 +28,21 @@ class LiveEventViewModel @Inject constructor(
     private var _liveEvent = MutableLiveData<ResultState<List<EventModel>>>()
     val liveEvent: LiveData<ResultState<List<EventModel>>> get() = _liveEvent
 
-
     fun getLiveEvent() {
         _liveEvent.postValue(ResultState.Loading())
         viewModelScope.launch {
-
-                if (internetConnection.isOnline()) {
-                    while (true) {
-                        val response = liveEventInteractor.getLiveEvent()
-                        _liveEvent.value = response
-                        _connection.value = false
-                        delay(5000)
-                    }
-                } else {
-                    _connection.value = true
-                    _liveEvent.postValue(ResultState.Error(Constants.NO_CONNECTION))
-                    delay(30000)
+            if (internetConnection.isOnline()) {
+                while (true) {
+                    val response = liveEventInteractor.getLiveEvent()
+                    _liveEvent.value = response
+                    _connection.value = false
+                    delay(5000)
                 }
-
+            } else {
+                _connection.value = true
+                _liveEvent.postValue(ResultState.Error(Constants.NO_CONNECTION))
+                delay(30000)
+            }
         }
     }
-
 }
-

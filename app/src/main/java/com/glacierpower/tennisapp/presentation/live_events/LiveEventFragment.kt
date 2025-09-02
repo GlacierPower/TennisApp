@@ -14,7 +14,7 @@ import com.glacierpower.tennisapp.utils.ResultState
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class LiveEventFragment : Fragment(),Listener {
+class LiveEventFragment : Fragment(), Listener {
 
     private val viewModel: LiveEventViewModel by viewModels()
 
@@ -86,6 +86,4 @@ class LiveEventFragment : Fragment(),Listener {
         findNavController().navigate(
             action)
     }
-
 }
-

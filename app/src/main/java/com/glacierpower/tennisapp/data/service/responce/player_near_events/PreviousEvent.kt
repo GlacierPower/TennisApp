@@ -1,6 +1,5 @@
 package com.glacierpower.tennisapp.data.service.responce.player_near_events
 
-
 import api.responce.common.Team
 import com.glacierpower.tennisapp.data.service.responce.live_event.*
 import com.google.gson.annotations.SerializedName
@@ -47,8 +46,8 @@ data class PreviousEvent(
     @SerializedName("time")
     val time: Time,
     @SerializedName("tournament")
-    val tournament:Tournament,
+    val tournament: Tournament,
     @SerializedName("winnerCode")
-    val winnerCode:Int
+    val winnerCode: Int
 
-    )
+)

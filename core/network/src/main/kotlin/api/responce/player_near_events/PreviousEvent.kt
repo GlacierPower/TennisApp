@@ -54,6 +54,6 @@ data class PreviousEvent(
     @SerializedName("tournament")
     val tournament: Tournament,
     @SerializedName("winnerCode")
-    val winnerCode:Int
+    val winnerCode: Int
 
-    )
+)

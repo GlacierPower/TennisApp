@@ -1,3 +1,4 @@
+
 package com.glacierpower.tennisapp.data.dao
 
 import androidx.room.TypeConverter
@@ -11,7 +12,6 @@ class Converters {
     @TypeConverter
     fun fromCountry(country: EntityCountry): String = (country.name)
 
-
     @TypeConverter
     fun toCountry(name: String): EntityCountry = EntityCountry(name, name)
 
@@ -21,10 +21,8 @@ class Converters {
     }
 
     @TypeConverter
-    fun toTeam(value: String): EntityTeam{
+    fun toTeam(value: String): EntityTeam {
         val team = object : TypeToken<EntityTeam>() {}.type
         return Gson().fromJson(value, team)
     }
-
-
 }

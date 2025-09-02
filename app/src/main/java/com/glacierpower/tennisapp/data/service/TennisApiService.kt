@@ -1,3 +1,4 @@
+
 package com.glacierpower.tennisapp.data.service
 
 import api.responce.ranking.RankingResponse
@@ -35,6 +36,5 @@ interface TennisApiService {
     suspend fun getPlayerLastEvents(@Path("id") id: Int): Response<PlayerLastEventsResponse>
 
     @GET("event/{id}")
-    suspend fun getEventDetails(@Path("id") id: Int):Response<EventDetailsResponse>
-
+    suspend fun getEventDetails(@Path("id") id: Int): Response<EventDetailsResponse>
 }

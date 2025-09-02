@@ -1,3 +1,4 @@
+
 package com.glacierpower.tennisapp.presentation.adapter
 
 import android.view.LayoutInflater
@@ -14,24 +15,6 @@ import com.squareup.picasso.Picasso
 
 class SearchAdapter(private val listener: Listener) :
     RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
-
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): SearchAdapter.SearchViewHolder {
-        return SearchViewHolder(
-            SearchItemsBinding.inflate(
-                LayoutInflater.from(parent.context), parent, false
-            )
-        )
-    }
-
-    override fun onBindViewHolder(holder: SearchAdapter.SearchViewHolder, position: Int) {
-        val search = differ.currentList[position]
-        holder.bind(search)
-
-    }
-
     private val differCallback =
         object : DiffUtil.ItemCallback<SearchResultModel>() {
             override fun areItemsTheSame(
@@ -47,10 +30,24 @@ class SearchAdapter(private val listener: Listener) :
             ): Boolean {
                 return oldItem == newItem
             }
-
         }
 
     val differ = AsyncListDiffer(this, differCallback)
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): SearchAdapter.SearchViewHolder {
+        return SearchViewHolder(
+            SearchItemsBinding.inflate(
+                LayoutInflater.from(parent.context), parent, false
+            )
+        )
+    }
+
+    override fun onBindViewHolder(holder: SearchAdapter.SearchViewHolder, position: Int) {
+        val search = differ.currentList[position]
+        holder.bind(search)
+    }
 
     override fun getItemCount(): Int {
         return differ.currentList.size
@@ -72,7 +69,6 @@ class SearchAdapter(private val listener: Listener) :
                     listener.getId(searchResultModel.entityModel!!.id)
                 }
             }
-
         }
     }
 }

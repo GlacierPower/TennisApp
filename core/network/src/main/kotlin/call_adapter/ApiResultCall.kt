@@ -1,3 +1,4 @@
+
 package call_adapter
 
 import kotlinx.serialization.json.Json
@@ -8,7 +9,6 @@ import okio.Timeout
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import timber.log.Timber
 import java.lang.reflect.Type
 
 internal class ApiResultCall<T : Any>(

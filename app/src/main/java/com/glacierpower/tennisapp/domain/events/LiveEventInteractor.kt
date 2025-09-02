@@ -1,3 +1,4 @@
+
 package com.glacierpower.tennisapp.domain.events
 
 import com.glacierpower.tennisapp.model.eventModel.EventModel
@@ -11,7 +12,7 @@ class LiveEventInteractor @Inject constructor(
         return liveEventsRepository.getLiveEvent()
     }
 
-    suspend fun getCountryFlag(code:String){
+    suspend fun getCountryFlag(code: String) {
         return liveEventsRepository.getCountryFlag(code)
     }
 }

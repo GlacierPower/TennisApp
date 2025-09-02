@@ -16,5 +16,5 @@ data class Periods(
     @SerializedName("period5")
     val period5: String,
     @SerializedName("point")
-    val point : String
+    val point: String
 )

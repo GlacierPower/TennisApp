@@ -9,7 +9,7 @@ data class EntityModel(
     val category: CategoryModel?,
     val country: CountryModel,
     val displayInverseHomeAwayTeams: Boolean,
-    val disabled:Boolean,
+    val disabled: Boolean,
     val gender: String?,
     val id: Int,
     val name: String,
@@ -20,6 +20,6 @@ data class EntityModel(
     val slug: String,
     val sport: SportModel?,
     val teamColor: ColorModel?,
-    val type:Int,
-    val userCount:Int
+    val type: Int,
+    val userCount: Int
 )

@@ -1,3 +1,4 @@
+
 package com.glacierpower.tennisapp.utils
 
 import android.content.Context
@@ -34,5 +35,4 @@ class InternetConnection @Inject constructor(
         }
         return false
     }
-
 }

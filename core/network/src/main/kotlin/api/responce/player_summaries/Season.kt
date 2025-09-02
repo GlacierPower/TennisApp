@@ -11,5 +11,5 @@ data class Season(
     val endDate: String,
     val year: Int,
     @property:Json("competition_id")
-    val competitionId : String
+    val competitionId: String
 )

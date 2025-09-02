@@ -9,17 +9,31 @@ import com.glacierpower.tennisapp.features.player_profile.databinding.ItemsPlaye
 import models.PlayerProfileModel
 
 class PlayerProfileAdapter : RecyclerView.Adapter<PlayerProfileAdapter.PlayerDetailViewHolder>() {
+    private val differCallback =
+        object : DiffUtil.ItemCallback<PlayerProfileModel>() {
+            override fun areItemsTheSame(
+                oldItem: PlayerProfileModel,
+                newItem: PlayerProfileModel
+            ): Boolean {
+                return oldItem.competitor.id == newItem.competitor.id
+            }
 
+            override fun areContentsTheSame(
+                oldItem: PlayerProfileModel,
+                newItem: PlayerProfileModel
+            ): Boolean {
+                return oldItem == newItem
+            }
+        }
+    val differ = AsyncListDiffer(this, differCallback)
     inner class PlayerDetailViewHolder(private val itemsPlayerDetailsBinding: ItemsPlayerDetailsBinding) :
         RecyclerView.ViewHolder(itemsPlayerDetailsBinding.root) {
         fun bind(playerDetailsModel: PlayerProfileModel) {
-
             itemsPlayerDetailsBinding.apply {
                 this.playerName.text = playerDetailsModel.competitor.name
                 this.ranking.text = playerDetailsModel.competitorRankings.first().rank.toString()
                 this.countryName.text = playerDetailsModel.competitor.country
                 this.ranking.text = playerDetailsModel.competitorRankings.first().rank.toString()
-
             }
         }
     }
@@ -40,24 +54,4 @@ class PlayerProfileAdapter : RecyclerView.Adapter<PlayerProfileAdapter.PlayerDet
         val liveEvent = differ.currentList[position]
         holder.bind(liveEvent)
     }
-
-    private val differCallback =
-        object : DiffUtil.ItemCallback<PlayerProfileModel>() {
-            override fun areItemsTheSame(
-                oldItem: PlayerProfileModel,
-                newItem: PlayerProfileModel
-            ): Boolean {
-                return oldItem.competitor.id == newItem.competitor.id
-            }
-
-            override fun areContentsTheSame(
-                oldItem: PlayerProfileModel,
-                newItem: PlayerProfileModel
-            ): Boolean {
-                return oldItem == newItem
-            }
-
-        }
-
-    val differ = AsyncListDiffer(this, differCallback)
 }

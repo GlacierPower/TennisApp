@@ -22,6 +22,7 @@ dependencies {
     compileOnly(libs.kotlin.gradlePlugin)
     compileOnly(libs.kotlin.compose.gradlePlugin)
     compileOnly(libs.ksp.gradlePlugin)
+    compileOnly(libs.detekt.gradle.plugin)
 }
 
 gradlePlugin {
@@ -50,6 +51,9 @@ gradlePlugin {
             id = "tennisapp.android.library.fragment"
             implementationClass = "AndroidFragmentLibraryConventionPlugin"
         }
-
+        register("detekt") {
+            id = "tennisapp.android.library.detekt"
+            implementationClass = "AndroidDetektConventionPlugin"
+        }
     }
 }

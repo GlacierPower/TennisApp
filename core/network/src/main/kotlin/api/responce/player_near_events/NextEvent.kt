@@ -12,37 +12,37 @@ import com.google.gson.annotations.SerializedName
 
 data class NextEvent(
     @SerializedName("awayScore")
-    val awayScore:Score?,
+    val awayScore: Score?,
     @SerializedName("awayTeam")
     val awayTeam: Team,
     @SerializedName("changes")
     val changes: Changes,
     @SerializedName("crowdsourcingDataDisplayEnabled")
-    val crowdsourcingDataDisplayEnabled:Boolean,
+    val crowdsourcingDataDisplayEnabled: Boolean,
     @SerializedName("customId")
-    val customId:String,
+    val customId: String,
     @SerializedName("finalResultOnly")
-    val finalResultOnly:Boolean,
+    val finalResultOnly: Boolean,
     @SerializedName("groundType")
-    val groundType:String,
+    val groundType: String,
     @SerializedName("hasGlobalHighlights")
-    val hasGlobalHighlights:Boolean,
+    val hasGlobalHighlights: Boolean,
     @SerializedName("homeScore")
     val homeScore: Score?,
     @SerializedName("homeTeam")
-    val homeTeam:Team,
+    val homeTeam: Team,
     @SerializedName("homeTeamSeed")
-    val homeTeamSeed:String?,
+    val homeTeamSeed: String?,
     @SerializedName("id")
-    val id:Int,
+    val id: Int,
     @SerializedName("periods")
     val periods: Periods,
     @SerializedName("roundInfo")
     val roundInfo: RoundInfo,
     @SerializedName("slug")
-    val slug:String,
+    val slug: String,
     @SerializedName("startTimestamp")
-    val startTimestamp:Long,
+    val startTimestamp: Long,
     @SerializedName("status")
     val status: Status,
     @SerializedName("time")
