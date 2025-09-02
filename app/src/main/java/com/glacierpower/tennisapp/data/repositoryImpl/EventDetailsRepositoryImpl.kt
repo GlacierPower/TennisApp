@@ -1,3 +1,4 @@
+
 package com.glacierpower.tennisapp.data.repositoryImpl
 
 import com.glacierpower.tennisapp.data.mappers.toEntity
@@ -14,10 +15,9 @@ class EventDetailsRepositoryImpl @Inject constructor(
     @Named("Tennis") private val tennisApiService: TennisApiService
 ) : EventDetailsRepository {
     override suspend fun getEventDetails(id: Int): ResultState<EventDetailsModel> {
-       val response = tennisApiService.getEventDetails(id)
-        return withContext(Dispatchers.IO){
+        val response = tennisApiService.getEventDetails(id)
+        return withContext(Dispatchers.IO) {
             ResultState.Success(response.body()!!.event.toEntity())
         }
     }
-
 }

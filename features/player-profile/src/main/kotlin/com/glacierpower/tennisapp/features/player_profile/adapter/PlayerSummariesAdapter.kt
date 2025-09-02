@@ -8,12 +8,29 @@ import androidx.recyclerview.widget.RecyclerView
 import com.glacierpower.tennisapp.features.player_profile.databinding.ItemsLastEventsBinding
 import models.player_summaries.PlayerSummariesModel
 
-class PlayerSummariesAdapter() : RecyclerView.Adapter<PlayerSummariesAdapter.PlayerDetailsViewHolder>() {
+class PlayerSummariesAdapter : RecyclerView.Adapter<PlayerSummariesAdapter.PlayerDetailsViewHolder>() {
+    private val differCallback =
+        object : DiffUtil.ItemCallback<PlayerSummariesModel>() {
+            override fun areItemsTheSame(
+                oldItem: PlayerSummariesModel,
+                newItem: PlayerSummariesModel
+            ): Boolean {
+                return oldItem.summaries.first() == newItem.summaries.first()
+            }
+
+            override fun areContentsTheSame(
+                oldItem: PlayerSummariesModel,
+                newItem: PlayerSummariesModel
+            ): Boolean {
+                return oldItem == newItem
+            }
+        }
+
+    val differ = AsyncListDiffer(this, differCallback)
 
     inner class PlayerDetailsViewHolder(private val itemsLastEventsBinding: ItemsLastEventsBinding) :
         RecyclerView.ViewHolder(itemsLastEventsBinding.root) {
         fun bind(lastEventModel: PlayerSummariesModel) {
-
             itemsLastEventsBinding.apply {
                 this.awayTeam.text = lastEventModel.summaries.first().sportEvent.competitors.first().name
                 this.homeTeam.text = lastEventModel.summaries.last().sportEvent.competitors.last().name
@@ -23,7 +40,6 @@ class PlayerSummariesAdapter() : RecyclerView.Adapter<PlayerSummariesAdapter.Pla
 //                this.tournamentCategory.text = lastEventModel.tournament.category?.name
 
                 this.tournamentDate.text = lastEventModel.summaries.first().sportEvent.startTime
-
             }
         }
     }
@@ -44,24 +60,4 @@ class PlayerSummariesAdapter() : RecyclerView.Adapter<PlayerSummariesAdapter.Pla
         val liveEvent = differ.currentList[position]
         holder.bind(liveEvent)
     }
-
-    private val differCallback =
-        object : DiffUtil.ItemCallback<PlayerSummariesModel>() {
-            override fun areItemsTheSame(
-                oldItem: PlayerSummariesModel,
-                newItem: PlayerSummariesModel
-            ): Boolean {
-                return oldItem.summaries.first() == newItem.summaries.first()
-            }
-
-            override fun areContentsTheSame(
-                oldItem: PlayerSummariesModel,
-                newItem: PlayerSummariesModel
-            ): Boolean {
-                return oldItem == newItem
-            }
-
-        }
-
-    val differ = AsyncListDiffer(this, differCallback)
 }

@@ -27,5 +27,5 @@ data class PreviousEventModel(
     val status: Status,
     val time: TimeModel,
     val tournament: TournamentModel,
-    val winnerCode:Int
+    val winnerCode: Int
 )

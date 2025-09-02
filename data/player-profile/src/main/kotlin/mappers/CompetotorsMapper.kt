@@ -1,9 +1,10 @@
+
 package mappers
 
 import api.responce.player_profile.PlayerProfileResponse
 import models.PlayerProfileModel
 
-fun PlayerProfileResponse.toPlayerProfileModel(): PlayerProfileModel{
+fun PlayerProfileResponse.toPlayerProfileModel(): PlayerProfileModel {
     return PlayerProfileModel(
         generatedAt = generatedAt,
         competitor = competitor.toCompetitorModel(),

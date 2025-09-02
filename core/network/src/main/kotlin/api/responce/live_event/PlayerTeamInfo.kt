@@ -3,6 +3,6 @@ package api.responce.live_event
 import com.google.gson.annotations.SerializedName
 
 data class PlayerTeamInfo(
-   @SerializedName("id")
-    val id:Int
+    @SerializedName("id")
+    val id: Int
 )

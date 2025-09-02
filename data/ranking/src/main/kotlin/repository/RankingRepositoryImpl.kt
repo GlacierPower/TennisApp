@@ -1,3 +1,4 @@
+
 package repository
 
 import com.glacierpower.tennisapp.domain.ranking.models.RankingModel
@@ -12,5 +13,4 @@ class RankingRepositoryImpl @Inject constructor(
 ) : RankingRepository {
     override suspend fun getRanking(): TennisResult<List<RankingModel>, DataError.NetworkError> =
         rankingService.getRanking()
-
 }

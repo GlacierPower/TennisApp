@@ -1,3 +1,4 @@
+
 package service
 
 import api.api.RankingApi
@@ -14,11 +15,11 @@ class RankingServiceImpl @Inject constructor(
 ) : RankingService {
 
     override suspend fun getRanking(): TennisResult<List<RankingModel>, DataError.NetworkError> = networkHelper.fetchToTennisResult(
-            apiCall = suspend {
-                rankingApi.getRanking()
-            },
-            mapper = { rankingRs ->
-                rankingRs.rankings.map { it.toRankingModel() }
-            }
-        )
+        apiCall = suspend {
+            rankingApi.getRanking()
+        },
+        mapper = { rankingRs ->
+            rankingRs.rankings.map { it.toRankingModel() }
+        }
+    )
 }

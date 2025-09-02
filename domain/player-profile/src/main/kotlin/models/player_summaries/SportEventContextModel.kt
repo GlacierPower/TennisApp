@@ -7,6 +7,6 @@ data class SportEventContextModel(
     val season: SeasonModel,
     val stage: StageModel,
     val round: RoundModel,
-    val groups : List<GroupsModel>,
-    val mode:ModeModel
+    val groups: List<GroupsModel>,
+    val mode: ModeModel
 )

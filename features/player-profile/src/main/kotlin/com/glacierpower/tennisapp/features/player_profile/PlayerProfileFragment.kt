@@ -41,14 +41,12 @@ class PlayerProfileFragment : Fragment() {
         return viewBinding.root
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         setupRecyclerView()
 
         showPlayerDetails()
-
     }
 
     private fun showPlayerDetails() {
@@ -56,7 +54,7 @@ class PlayerProfileFragment : Fragment() {
         viewModel.playerDetails.observe(viewLifecycleOwner, Observer { playerDetails ->
             playerDetailsAdapter.differ.submitList(listOf(playerDetails))
         })
-        viewModel.playerSummaries.observe(viewLifecycleOwner, Observer{ playersSummaries->
+        viewModel.playerSummaries.observe(viewLifecycleOwner, Observer { playersSummaries ->
             playerSummariesAdapter.differ.submitList(listOf(playersSummaries))
         })
     }
@@ -66,7 +64,6 @@ class PlayerProfileFragment : Fragment() {
         viewBinding.rvPlayerDetails.apply {
             setHasFixedSize(true)
             adapter = playerDetailsAdapter
-
         }
         playerSummariesAdapter = PlayerSummariesAdapter()
         viewBinding.rvPlayerLastMatch.apply {
@@ -75,7 +72,3 @@ class PlayerProfileFragment : Fragment() {
         }
     }
 }
-
-
-
-

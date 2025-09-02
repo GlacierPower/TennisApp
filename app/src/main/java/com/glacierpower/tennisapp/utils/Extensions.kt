@@ -30,7 +30,6 @@ object Extensions {
         return formatter.format(this)
     }
 
-
     fun Long.shortDate(
         time: Long,
         timeZone: TimeZone = TimeZone.getTimeZone("Europe/Minsk")
@@ -48,8 +47,4 @@ object Extensions {
         sdf.timeZone = timeZone
         return sdf.format(time * 1000L)
     }
-
-
-
-
 }

@@ -1,3 +1,4 @@
+
 package com.glacierpower.tennisapp.data.mappers
 
 import api.responce.common.Team
@@ -8,9 +9,7 @@ import mappers.toFieldTranslationModel
 import mappers.toSportModel
 import mappers.toTeamColorModel
 import mappers.toTeamModel
-import model.ColorModel
 import model.CountryModel
-import model.SportModel
 import model.TeamModel
 
 fun LiveEventList.toEntity(): EventModel {
@@ -62,7 +61,6 @@ fun Score.toEntity(): ScoreModel {
         period5TieBreak,
         point
     )
-
 }
 
 fun Team.toEntity(): TeamModel {
@@ -144,7 +142,6 @@ fun Tournament.toEntity(): TournamentModel {
         category?.toEntity(), id, name, priority, slug, uniqueTournament.toEntity()
     )
 }
-
 
 fun UniqueTournament.toEntity(): UniqueTournamentModel {
     return UniqueTournamentModel(

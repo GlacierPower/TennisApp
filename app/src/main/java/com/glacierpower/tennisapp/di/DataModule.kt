@@ -1,3 +1,4 @@
+
 package com.glacierpower.tennisapp.di
 
 import android.content.Context
@@ -30,7 +31,6 @@ import javax.inject.Named
 @InstallIn(SingletonComponent::class)
 abstract class DataModule {
 
-
     @Binds
     abstract fun bindEventDetailsRepository(
         eventDetailsRepositoryImpl: EventDetailsRepositoryImpl
@@ -40,7 +40,6 @@ abstract class DataModule {
     abstract fun bindPlayerDetailsRepository(
         playerDetailsRepositoryImpl: PlayerDetailsRepositoryImpl
     ): PlayerDetailsRepository
-
 
     @Binds
     abstract fun bindSearchRepository(
@@ -80,7 +79,6 @@ abstract class DataModule {
 
                     val newRequest = newRequestBuilder.build()
                     chain.proceed(newRequest)
-
                 }
                 .connectTimeout(5, TimeUnit.SECONDS)
                 .readTimeout(5, TimeUnit.SECONDS)
@@ -124,6 +122,5 @@ abstract class DataModule {
         fun provideCountriesFlagsApiService(@Named("Countries Flags") retrofit: Retrofit): CountriesFlagsApiService {
             return retrofit.create(CountriesFlagsApiService::class.java)
         }
-
     }
 }

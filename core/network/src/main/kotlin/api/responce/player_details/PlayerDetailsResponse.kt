@@ -15,23 +15,22 @@ data class DetailsResponse(
 data class PlayerDetailsResponse(
     val category: Category?,
     val country: Country?,
-    val disabled:Boolean,
-    val fullName:String?,
-    val gender:String?,
-    val id:Int,
-    val name:String?,
-    val nameCode:String?,
-    val national:Boolean,
+    val disabled: Boolean,
+    val fullName: String?,
+    val gender: String?,
+    val id: Int,
+    val name: String?,
+    val nameCode: String?,
+    val national: Boolean,
     @SerializedName("playerTeamInfoDetails")
     val playerTeamInfoDetails: PlayerTeamInfoDetails?,
-    val ranking:Int,
-    val shortName:String,
-    val slug:String?,
+    val ranking: Int,
+    val shortName: String,
+    val slug: String?,
     val sport: Sport?,
     val teamColor: TeamColor?,
     val tournament: Tournament?,
-    val type:Int,
-    val userCount:Int
-
+    val type: Int,
+    val userCount: Int
 
 )

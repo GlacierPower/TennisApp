@@ -13,4 +13,4 @@ data class SportEvent(
     val coverage: Coverage,
     val competitors: List<Competitors>,
     val venue: Venue
-    )
+)

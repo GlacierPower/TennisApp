@@ -1,9 +1,9 @@
+
 package model
 
 import kotlinx.serialization.json.Json
 import retrofit2.HttpException
 import retrofit2.Response
-import timber.log.Timber
 import java.lang.reflect.Type
 
 sealed interface ApiResult<T : Any?> {

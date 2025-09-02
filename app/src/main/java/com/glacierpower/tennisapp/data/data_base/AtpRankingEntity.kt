@@ -2,9 +2,11 @@ package com.glacierpower.tennisapp.data.data_base
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.io.Serializable
+
+import kotlinx.serialization.Serializable
 
 @Entity(tableName = "rankingEntity")
+@Serializable
 data class AtpRankingEntity(
     val bestRanking: Int,
     val bestRankingDateTimestamp: Int,
@@ -20,8 +22,9 @@ data class AtpRankingEntity(
 //    val team: EntityTeam,
     val tournamentsPlayed: Int,
     val type: Int
-) : Serializable
+)
 
+@Serializable
 data class EntityTeam(
     val country: EntityCountry,
     val disabled: Boolean,
@@ -37,22 +40,24 @@ data class EntityTeam(
     val teamColors: TeamColorEntity,
     val type: Int,
     val userCount: Int
-) : Serializable
+)
 
-
+@Serializable
 data class TeamColorEntity(
     val primary: String,
     val secondary: String,
     val text: String
-) : Serializable
+)
 
+@Serializable
 data class SportEntity(
     val id: Int,
     val name: String,
     val slug: String
-) : Serializable
+)
 
+@Serializable
 data class EntityCountry(
     val alpha2: String,
     val name: String
-) : Serializable
+)

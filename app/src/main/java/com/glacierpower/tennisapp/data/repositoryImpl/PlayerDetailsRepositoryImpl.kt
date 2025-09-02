@@ -1,3 +1,4 @@
+
 package com.glacierpower.tennisapp.data.repositoryImpl
 
 import com.glacierpower.tennisapp.data.mappers.toEntity
@@ -34,9 +35,6 @@ class PlayerDetailsRepositoryImpl @Inject constructor(
             ResultState.Success(playerLastEventsResponse.body()!!.events.map { events ->
                 events.toEntity()
             })
-
         }
-
     }
-
 }

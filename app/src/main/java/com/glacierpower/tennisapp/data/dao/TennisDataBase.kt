@@ -1,3 +1,4 @@
+
 package com.glacierpower.tennisapp.data.dao
 
 import android.content.Context
@@ -13,7 +14,6 @@ abstract class TennisDataBase : RoomDatabase() {
     companion object {
         private const val DATABASE_NAME = "tennis_base"
         private var DB_INSTANCE: TennisDataBase? = null
-
 
         fun getTennisDataBaseInstance(context: Context): TennisDataBase {
             return DB_INSTANCE ?: Room

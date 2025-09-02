@@ -10,13 +10,10 @@ import com.glacierpower.tennisapp.utils.Constants
 import com.glacierpower.tennisapp.utils.InternetConnection
 import com.glacierpower.tennisapp.utils.ResultState
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.cancel
-import kotlinx.coroutines.cancelChildren
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.io.IOException
 import javax.inject.Inject
-
 
 @HiltViewModel
 class EventDetailsViewModel @Inject constructor(private val eventDetailsInteractor: EventDetailsInteractor) :
@@ -46,7 +43,6 @@ class EventDetailsViewModel @Inject constructor(private val eventDetailsInteract
                         _connection.value = false
                         delay(5000)
                     }
-
                 } else {
                     _connection.value = true
                     _eventDetails.postValue(ResultState.Error(Constants.NO_CONNECTION))
@@ -55,9 +51,7 @@ class EventDetailsViewModel @Inject constructor(private val eventDetailsInteract
                 when (exception) {
                     is IOException -> _eventDetails.postValue(ResultState.Error(exception.message!!))
                 }
-
             }
         }
     }
 }
-

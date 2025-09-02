@@ -1,5 +1,5 @@
 package api.responce.event_details
 
 data class EventDetailsResponse(
-    val event:EventDetails
+    val event: EventDetails
 )

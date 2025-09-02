@@ -1,3 +1,4 @@
+
 package com.glacierpower.tennisapp.data.mappers
 
 import com.glacierpower.tennisapp.data.service.responce.player_near_events.NextEvent
@@ -36,7 +37,6 @@ fun NextEvent.toEntity(): NextEventModel {
         status,
         time?.toEntity(),
         tournament.toEntity()
-
 
     )
 }

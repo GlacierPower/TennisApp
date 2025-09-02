@@ -1,3 +1,4 @@
+
 package call_adapter
 
 import kotlinx.serialization.json.Json
@@ -5,7 +6,6 @@ import model.ApiResult
 import retrofit2.Call
 import retrofit2.CallAdapter
 import retrofit2.Retrofit
-import timber.log.Timber
 import java.lang.reflect.ParameterizedType
 import java.lang.reflect.Type
 
@@ -35,6 +35,5 @@ internal class ApiResultCallAdapterFactory private constructor(
     }
 
     internal companion object {
-        fun create(json: Json): ApiResultCallAdapterFactory  = ApiResultCallAdapterFactory(json) }
-
+        fun create(json: Json): ApiResultCallAdapterFactory = ApiResultCallAdapterFactory(json) }
 }

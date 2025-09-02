@@ -4,9 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.glacierpower.tennisapp.R
 import com.glacierpower.tennisapp.domain.search.SearchInteractor
-import com.glacierpower.tennisapp.model.player_details.PlayerDetailsModel
 import com.glacierpower.tennisapp.model.resultModel.SearchResultModel
 import com.glacierpower.tennisapp.utils.Constants
 import com.glacierpower.tennisapp.utils.InternetConnection
@@ -45,15 +43,11 @@ class SearchViewModel @Inject constructor(
                     _connection.value = true
                     _search.postValue(ResultState.Error(Constants.NO_CONNECTION))
                 }
-
             } catch (exception: Exception) {
                 when (exception) {
                     is IOException -> _search.postValue(ResultState.Error(exception.message!!))
                 }
             }
         }
-
     }
-
-
 }

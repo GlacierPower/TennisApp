@@ -3,17 +3,17 @@ package api.responce.event_details
 import api.responce.common.Country
 
 data class Venue(
-    val city:City,
+    val city: City,
     val country: Country,
-    val id:Int,
-    val stadium:Stadium
+    val id: Int,
+    val stadium: Stadium
 
 )
 
 data class City(
-    val name:String
+    val name: String
 )
 
 data class Stadium(
-    val name:String
+    val name: String
 )

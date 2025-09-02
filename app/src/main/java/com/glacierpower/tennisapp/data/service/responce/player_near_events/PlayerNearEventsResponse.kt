@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class PlayerNearEventsResponse(
     @SerializedName("nextEvent")
-    val nextEvent:NextEvent?,
+    val nextEvent: NextEvent?,
     @SerializedName("previousEvent")
     val previousEvent: PreviousEvent?
 )

@@ -1,7 +1,7 @@
+
 package com.glacierpower.tennisapp.domain.palyer_details
 
 import com.glacierpower.tennisapp.model.lastEventModel.LastEventModel
-import com.glacierpower.tennisapp.model.player_details.NextEventModel
 import com.glacierpower.tennisapp.model.player_details.PlayerDetailsModel
 import com.glacierpower.tennisapp.model.player_details.PlayerNearEventsModel
 import com.glacierpower.tennisapp.utils.ResultState
@@ -13,12 +13,11 @@ class PlayerDetailsInteractor @Inject constructor(private val playerDetailsRepos
         return playerDetailsRepository.getPlayerDetails(id)
     }
 
-    suspend fun getPlayerNearEvents(id:Int):ResultState<PlayerNearEventsModel>{
+    suspend fun getPlayerNearEvents(id: Int): ResultState<PlayerNearEventsModel> {
         return playerDetailsRepository.getPlayerNearEvents(id)
     }
 
-
-    suspend fun getPlayerLastEvents(id:Int):ResultState<List<LastEventModel>>{
+    suspend fun getPlayerLastEvents(id: Int): ResultState<List<LastEventModel>> {
         return playerDetailsRepository.getPlayerLastEvents(id)
     }
 }

@@ -1,11 +1,8 @@
+
 package com.glacierpower.tennisapp.data.mappers
 
 import com.glacierpower.tennisapp.data.service.responce.player_details.PlayerDetailsResponse
-import com.glacierpower.tennisapp.data.service.responce.player_details.PlayerTeamInfoDetails
-import com.glacierpower.tennisapp.data.service.responce.player_details.PrizeCurrentRaw
 import com.glacierpower.tennisapp.model.player_details.PlayerDetailsModel
-import com.glacierpower.tennisapp.model.player_details.PlayerTeamInfoDetailsModel
-import com.glacierpower.tennisapp.model.player_details.PrizeCurrentRawModel
 import model.ColorModel
 import model.CountryModel
 import model.SportModel
@@ -14,10 +11,10 @@ fun PlayerDetailsResponse.toEntity(): PlayerDetailsModel {
     return PlayerDetailsModel(
         category?.toEntity(),
         CountryModel(
-            alpha2 = this.country?.alpha2?:"",
-            alpha3 = this.country?.alpha3?:"",
-            name = this.country?.name?:"",
-            slug =this.country?.slug?:""
+            alpha2 = this.country?.alpha2 ?: "",
+            alpha3 = this.country?.alpha3 ?: "",
+            name = this.country?.name ?: "",
+            slug = this.country?.slug ?: ""
         ),
         disabled,
         fullName,
@@ -31,42 +28,18 @@ fun PlayerDetailsResponse.toEntity(): PlayerDetailsModel {
         shortName,
         slug,
         SportModel(
-            id = this.sport?.id?:1,
-            name = this.sport?.name?:"",
-            slug = this.sport?.slug?:""
+            id = this.sport?.id ?: 1,
+            name = this.sport?.name ?: "",
+            slug = this.sport?.slug ?: ""
         ),
         ColorModel(
-            primary = this.teamColor?.primary?:"",
-            secondary = this.teamColor?.secondary?:"",
-            text = this.teamColor?.text?:""
+            primary = this.teamColor?.primary ?: "",
+            secondary = this.teamColor?.secondary ?: "",
+            text = this.teamColor?.text ?: ""
         ),
         tournament?.toEntity(),
         type,
         userCount
 
-    )
-}
-
-fun PlayerTeamInfoDetails.toEntity(): PlayerTeamInfoDetailsModel {
-    return PlayerTeamInfoDetailsModel(
-        birthDateTimestamp,
-        birthplace,
-        currentRanking,
-        height,
-        id,
-        plays,
-        prizeCurrent,
-        prizeCurrentRaw.toEntity(),
-        prizeTotal,
-        prizeTotalRaw.toEntity(),
-        residence,
-        turnedPro,
-        weight
-    )
-}
-
-fun PrizeCurrentRaw.toEntity(): PrizeCurrentRawModel {
-    return PrizeCurrentRawModel(
-        currency, value
     )
 }

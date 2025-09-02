@@ -48,8 +48,6 @@ class DetailsFragment : Fragment(), Listener {
         searchPlayer()
 
         observeSearchLiveData()
-
-
     }
 
     private fun observeInternetConnection() {
@@ -67,7 +65,6 @@ class DetailsFragment : Fragment(), Listener {
     }
 
     private fun searchPlayer() {
-
         viewBinding.searchView.setOnQueryTextListener(
             object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?): Boolean {
@@ -83,10 +80,8 @@ class DetailsFragment : Fragment(), Listener {
                     }
                     return false
                 }
-
             }
         )
-
     }
 
     private fun setupRecyclerView() {
@@ -115,7 +110,6 @@ class DetailsFragment : Fragment(), Listener {
                         View.VISIBLE
                 }
             }
-
         })
     }
 
@@ -125,5 +119,4 @@ class DetailsFragment : Fragment(), Listener {
             action
         )
     }
-
 }

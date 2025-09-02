@@ -1,4 +1,5 @@
-package com.glacierpower.tennisapp.presentation.ranking.adapter
+
+package com.glacierpower.tennisapp.features.ranking.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -10,7 +11,17 @@ import com.glacierpower.tennisapp.features.ranking.databinding.RankingItemsBindi
 
 class RankingAdapter(private val listener: Listener) :
     RecyclerView.Adapter<RankingAdapter.RankingViewHolder>() {
+    private val differCallback = object : DiffUtil.ItemCallback<CompetitorRankingsModel>() {
+        override fun areItemsTheSame(oldItem: CompetitorRankingsModel, newItem: CompetitorRankingsModel): Boolean {
+            return oldItem.rank == newItem.rank && oldItem.competitor.id == newItem.competitor.id
+        }
 
+        override fun areContentsTheSame(oldItem: CompetitorRankingsModel, newItem: CompetitorRankingsModel): Boolean {
+            return oldItem == newItem
+        }
+    }
+
+    val differ = AsyncListDiffer(this, differCallback)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RankingViewHolder {
         return RankingViewHolder(
             RankingItemsBinding.inflate(
@@ -23,18 +34,6 @@ class RankingAdapter(private val listener: Listener) :
         val competitorRanking = differ.currentList[position]
         holder.bind(competitorRanking)
     }
-
-    private val differCallback = object : DiffUtil.ItemCallback<CompetitorRankingsModel>() {
-        override fun areItemsTheSame(oldItem: CompetitorRankingsModel, newItem: CompetitorRankingsModel): Boolean {
-            return oldItem.rank == newItem.rank && oldItem.competitor.id == newItem.competitor.id
-        }
-
-        override fun areContentsTheSame(oldItem: CompetitorRankingsModel, newItem: CompetitorRankingsModel): Boolean {
-            return oldItem == newItem
-        }
-    }
-
-    val differ = AsyncListDiffer(this, differCallback)
 
     override fun getItemCount(): Int {
         return differ.currentList.size

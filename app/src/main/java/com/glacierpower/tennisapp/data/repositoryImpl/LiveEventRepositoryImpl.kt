@@ -28,7 +28,5 @@ class LiveEventRepositoryImpl @Inject constructor(
 
     override suspend fun getCountryFlag(code: String) {
         countriesFlagsApiService.getCountryFlag(code).raw().request.url
-
     }
-
 }

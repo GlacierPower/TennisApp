@@ -1,3 +1,4 @@
+
 package api.api
 
 import api.responce.ranking.RankingResponse
@@ -8,5 +9,4 @@ interface RankingApi {
 
     @GET("rankings.json")
     suspend fun getRanking(): ApiResult<RankingResponse>
-
 }

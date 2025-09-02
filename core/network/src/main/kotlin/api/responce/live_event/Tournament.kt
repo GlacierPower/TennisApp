@@ -1,11 +1,11 @@
 package api.responce.live_event
 
 data class Tournament(
-    val category:Category?,
-    val competitionType:Int?,
-    val id:Int,
-    val name:String,
-    val priority:Int,
-    val slug:String,
-    val uniqueTournament:UniqueTournament
+    val category: Category?,
+    val competitionType: Int?,
+    val id: Int,
+    val name: String,
+    val priority: Int,
+    val slug: String,
+    val uniqueTournament: UniqueTournament
 )

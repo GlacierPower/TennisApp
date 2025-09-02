@@ -7,6 +7,6 @@ data class SportEventContext(
     val season: Season,
     val stage: Stage,
     val round: Round,
-    val groups : List<Groups>,
-    val mode:Mode
+    val groups: List<Groups>,
+    val mode: Mode
 )

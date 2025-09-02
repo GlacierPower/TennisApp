@@ -76,4 +76,4 @@ data class TotalStatistics(
     val volleyUnforcedErrors: Int,
     @property:Json("volley_winners")
     val volleyWinners: Int
-    )
+)
