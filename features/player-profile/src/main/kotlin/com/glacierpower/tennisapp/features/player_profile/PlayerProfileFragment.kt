@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import com.glacierpower.tennisapp.features.player_profile.adapter.PlayerSummariesAdapter
 import com.glacierpower.tennisapp.features.player_profile.databinding.FragmentPlayerDetailsBinding
 import com.glacierpower.tennisapp.features.player_profile.navigation.PlayerProfileNavigator
 import dagger.hilt.android.AndroidEntryPoint
@@ -24,6 +25,9 @@ class PlayerProfileFragment : Fragment() {
     private val viewBinding get() = _viewBinding!!
 
     private lateinit var playerDetailsAdapter: PlayerProfileAdapter
+
+    private lateinit var playerSummariesAdapter: PlayerSummariesAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         activity?.title = "New Fragment Title"
@@ -47,11 +51,13 @@ class PlayerProfileFragment : Fragment() {
 
     }
 
-
     private fun showPlayerDetails() {
         viewModel.getPlayerDetails()
         viewModel.playerDetails.observe(viewLifecycleOwner, Observer { playerDetails ->
             playerDetailsAdapter.differ.submitList(listOf(playerDetails))
+        })
+        viewModel.playerSummaries.observe(viewLifecycleOwner, Observer{ playersSummaries->
+            playerSummariesAdapter.differ.submitList(listOf(playersSummaries))
         })
     }
 
@@ -61,6 +67,11 @@ class PlayerProfileFragment : Fragment() {
             setHasFixedSize(true)
             adapter = playerDetailsAdapter
 
+        }
+        playerSummariesAdapter = PlayerSummariesAdapter()
+        viewBinding.rvPlayerLastMatch.apply {
+            setHasFixedSize(true)
+            adapter = playerSummariesAdapter
         }
     }
 }

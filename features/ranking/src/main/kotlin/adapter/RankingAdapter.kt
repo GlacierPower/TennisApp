@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.glacierpower.tennisapp.domain.ranking.model.CompetitorRankingsModel
 import com.glacierpower.tennisapp.features.ranking.databinding.RankingItemsBinding
-import com.glacierpower.tennisapp.presentation.ranking.adapter.adapter.Listener
 
 class RankingAdapter(private val listener: Listener) :
     RecyclerView.Adapter<RankingAdapter.RankingViewHolder>() {
