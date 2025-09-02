@@ -1,0 +1,30 @@
+#!/bin/bash
+echo "*********************************************************"
+echo "Running git pre-commit hook. Running Detekt Auto-Correct..."
+echo "*********************************************************"
+
+# Gather staged files
+stagedFiles=$(git diff --cached --name-only --diff-filter=ACM)
+
+# Run detekt with auto-correct
+./gradlew detekt --auto-correct
+status=$?
+
+if [ "$status" -eq 0 ]; then
+    echo "✅ Static analysis found no problems."
+
+    # Re-add only staged files (so corrected changes are included in commit)
+    for file in $stagedFiles; do
+      if [ -f "$file" ]; then
+        git add "$file"
+      fi
+    done
+
+    exit 0
+else
+    echo "*********************************************************"
+    echo "Detekt found violations it could not fix."
+    echo "Please run './gradlew detekt' and fix issues manually before committing."
+    echo "*********************************************************"
+    exit 1
+fi

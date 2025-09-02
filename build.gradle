@@ -1,3 +1,6 @@
+import java.nio.file.Files
+import java.nio.file.StandardCopyOption
+
 buildscript {
     repositories {
         google()
@@ -19,4 +22,27 @@ plugins {
     alias(libs.plugins.google.services.gms) apply false
     alias(libs.plugins.firebase.crashlytics) apply false
     alias(libs.plugins.firebase.app.distribuiton) apply false
+}
+
+tasks.register('installGitHooks') {
+    doLast {
+        def gitHooksDir = file(".git/hooks")
+        def hooksSrcDir = file("gradle/git-hooks")
+
+        if (!gitHooksDir.exists()) {
+            gitHooksDir.mkdirs()
+        }
+
+        hooksSrcDir.listFiles().each { hook ->
+            def target = new File(gitHooksDir, hook.name)
+            Files.copy(
+                    hook.toPath(),
+                    target.toPath(),
+                    StandardCopyOption.REPLACE_EXISTING
+            )
+            target.setExecutable(true)
+        }
+
+        println "Git hooks installed from $hooksSrcDir to $gitHooksDir"
+    }
 }
