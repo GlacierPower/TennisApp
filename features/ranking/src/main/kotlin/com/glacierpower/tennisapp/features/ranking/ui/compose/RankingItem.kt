@@ -1,19 +1,19 @@
 package com.glacierpower.tennisapp.features.ranking.ui.compose
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.material3.HorizontalDivider
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import com.glacierpower.tennisapp.core.design_system.TennisAppDivider
+import com.glacierpower.tennisapp.core.design_system.TennisAppSpacer
+import com.glacierpower.tennisapp.core.design_system.TennisAppText
+import com.glacierpower.tennisapp.features.ranking.utils.formatName
+import theme.TennisTheme
 
 @Composable
 fun RankingItem(
@@ -25,31 +25,35 @@ fun RankingItem(
 ) {
     Column(
         modifier = modifier
+            .background(color = TennisTheme.colors.backgroundGlobe)
             .fillMaxWidth()
     ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .clickable { onPlayerClick() }
-                .padding(horizontal = 24.dp, vertical = 4.dp),
+                .padding(
+                    vertical = TennisTheme.dimensions.paddingSmall,
+                    horizontal = TennisTheme.dimensions.paddingLarge
+                ),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             Row {
-                Text(
+                TennisAppText(
                     text = "${rank}.",
-                    fontSize = 14.sp
+                    style = TennisTheme.typography.body2
                 )
-                Spacer(modifier = Modifier.size(20.dp))
-                Text(
-                    text = name,
-                    fontSize = 14.sp
+                TennisAppSpacer(size = TennisTheme.dimensions.spaserLarge)
+                TennisAppText(
+                    text = name.formatName(),
+                    style = TennisTheme.typography.body2
                 )
             }
-            Text(
+            TennisAppText(
                 text = points,
-                fontSize = 14.sp,
+                style = TennisTheme.typography.body2
             )
         }
-        HorizontalDivider(thickness = 1.dp)
+        TennisAppDivider()
     }
 }

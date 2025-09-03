@@ -2,6 +2,7 @@ package com.glacierpower.tennisapp.features.ranking.ui.compose
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -9,23 +10,23 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.HorizontalDivider
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.glacierpower.tennisapp.core.design_system.TennisAppDivider
+import com.glacierpower.tennisapp.core.design_system.TennisAppText
 import com.glacierpower.tennisapp.features.ranking.R
 import com.glacierpower.tennisapp.features.ranking.ui.RankingViewModel
+import theme.TennisTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -35,63 +36,81 @@ fun RankingScreen(
     val viewModel: RankingViewModel = hiltViewModel()
     val state by viewModel.state.collectAsStateWithLifecycle()
     Scaffold(
-        modifier = Modifier.systemBarsPadding(),
+        containerColor = TennisTheme.colors.backgroundGlobe,
+        modifier = Modifier
+            .systemBarsPadding(),
         topBar = {
             TopAppBar(
-                modifier = Modifier.background(color = MaterialTheme.colorScheme.primaryContainer),
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = TennisTheme.colors.backgroundGlobe
+                ),
                 title = {
-                    Text(
-                        text = stringResource(R.string.ranking_screen_title)
+                    TennisAppText(
+                        text = stringResource(R.string.ranking_screen_title),
+                        style = TennisTheme.typography.title1
                     )
                 })
         },
     ) { paddingValues ->
         Column(
             modifier = Modifier
+                .background(color = TennisTheme.colors.backgroundGlobe)
                 .padding(paddingValues)
         ) {
-            state.ranking.forEach { rankingModel ->
-                Text(
-                    modifier = Modifier.padding(horizontal = 24.dp, vertical = 4.dp),
-                    text = rankingModel.name,
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight.Bold
-                )
-                Column(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .background(color = MaterialTheme.colorScheme.secondaryContainer)
+            if (state.isLoading) {
+                Box(
+                    contentAlignment = Alignment.Center
                 ) {
-                    Text(
-                        modifier = Modifier.padding(horizontal = 24.dp),
-                        text = stringResource(R.string.rankings_week, rankingModel.week),
-                        fontSize = 16.sp
+                    CircularProgressIndicator(
+                        color = TennisTheme.colors.backgroundGlobe
                     )
-                    HorizontalDivider(
-                        thickness = 1.dp
+                }
+            } else {
+                state.ranking.forEach { rankingModel ->
+                    TennisAppText(
+                        modifier = Modifier.padding(
+                            horizontal = TennisTheme.dimensions.paddingLarge,
+                            vertical = TennisTheme.dimensions.paddingExtraSmall
+                        ),
+                        text = "${rankingModel.name} ${
+                            stringResource(
+                                R.string.rankings_week,
+                                rankingModel.week
+                            )
+                        }",
+                        style = TennisTheme.typography.title3
                     )
+
+                    TennisAppDivider()
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(vertical = 4.dp),
+                            .background(color = TennisTheme.colors.backgroundIsland)
+                            .padding(
+                                vertical = TennisTheme.dimensions.paddingExtraSmall,
+                                horizontal = TennisTheme.dimensions.paddingLarge
+                            ),
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
-                        Text(text = stringResource(R.string.ranking_rank), fontSize = 12.sp)
-                        Text(text = stringResource(R.string.ranking_points), fontSize = 12.sp)
-                    }
-                    HorizontalDivider(
-                        thickness = 1.dp
-                    )
-                }
-
-                LazyColumn {
-                    items(rankingModel.competitorRankings) { player ->
-                        RankingItem(
-                            rank = player.rank.toString(),
-                            name = player.competitor.name,
-                            points = player.points.toString(),
-                            onPlayerClick = { onPlayerClick(player.competitor.id) }
+                        TennisAppText(
+                            text = stringResource(R.string.ranking_rank),
+                            style = TennisTheme.typography.body3
                         )
+                        TennisAppText(
+                            text = stringResource(R.string.ranking_points),
+                            style = TennisTheme.typography.body3
+                        )
+                    }
+                    TennisAppDivider()
+                    LazyColumn {
+                        items(rankingModel.competitorRankings) { player ->
+                            RankingItem(
+                                rank = player.rank.toString(),
+                                name = player.competitor.name,
+                                points = player.points.toString(),
+                                onPlayerClick = { onPlayerClick(player.competitor.id) }
+                            )
+                        }
                     }
                 }
             }

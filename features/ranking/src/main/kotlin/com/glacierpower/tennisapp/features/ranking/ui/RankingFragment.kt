@@ -4,12 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import com.glacierpower.tennisapp.features.ranking.navigation.RankingNavigator
 import com.glacierpower.tennisapp.features.ranking.ui.compose.RankingScreen
 import dagger.hilt.android.AndroidEntryPoint
+import theme.TennisTheme
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -23,7 +23,7 @@ class RankingFragment : Fragment() {
     ): View {
         return ComposeView(requireContext()).apply {
             setContent {
-                MaterialTheme {
+                TennisTheme {
                     RankingScreen(
                         onPlayerClick = { id -> navigator.navigateToProfile(id) }
                     )
