@@ -11,6 +11,7 @@ import androidx.compose.material3.ButtonElevation
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.tooling.preview.Preview
 import theme.TennisTheme
 
 @Composable
@@ -57,3 +58,18 @@ private val TennisButtonElevation: ButtonElevation
         hoveredElevation = TennisTheme.elevation.extraSmallElevation,
         disabledElevation = TennisTheme.elevation.noElevation,
     )
+
+@Composable
+@Preview
+fun PreviewTennisButton() {
+    TennisTheme {
+        TennisAppButton(
+            onClick = {},
+            content = {
+                TennisAppText(
+                    "Save"
+                )
+            }
+        )
+    }
+}

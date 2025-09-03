@@ -11,7 +11,9 @@ data class TennisDimensions(
     val paddingSmall: Dp = 8.dp,
     val paddingMedium: Dp = 16.dp,
     val paddingLarge: Dp = 24.dp,
-    val paddingExtraLarge: Dp = 32.dp
+    val paddingExtraLarge: Dp = 32.dp,
+
+    val spaserLarge: Dp = 20.dp
 )
 
 internal val LocalDimensions = staticCompositionLocalOf { TennisDimensions() }
