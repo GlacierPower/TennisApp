@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="player_profile_app_bar_title">Player Profile</string>
+    <string name="player_profile_age">Age: %1$s (%2$s)</string>
+</resources>

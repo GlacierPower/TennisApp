@@ -1,4 +1,4 @@
-package com.glacierpower.tennisapp.core.design_system
+package com.glacierpower.tennisapp.core.design_system.common
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height

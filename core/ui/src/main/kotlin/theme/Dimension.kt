@@ -5,15 +5,42 @@ import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
+@ConsistentCopyVisibility
 @Immutable
-data class TennisDimensions(
-    val paddingExtraSmall: Dp = 4.dp,
-    val paddingSmall: Dp = 8.dp,
-    val paddingMedium: Dp = 16.dp,
-    val paddingLarge: Dp = 24.dp,
-    val paddingExtraLarge: Dp = 32.dp,
+data class TennisDimensions internal constructor(
+    val padding: PaddingDimmens = PaddingDimmens(),
+    val button: ButtonDimens = ButtonDimens(),
+    val base: BaseDimmens = BaseDimmens(),
+    val space: SpaceDimmens = SpaceDimmens()
+)
 
-    val spaserLarge: Dp = 20.dp
+@ConsistentCopyVisibility
+@Immutable
+data class PaddingDimmens internal constructor(
+    val paddingXs: Dp = 4.dp,
+    val paddingS: Dp = 8.dp,
+    val paddingM: Dp = 16.dp,
+    val paddingL: Dp = 24.dp,
+    val paddingXl: Dp = 32.dp,
+)
+
+@ConsistentCopyVisibility
+@Immutable
+data class SpaceDimmens internal constructor(
+    val space20: Dp = 20.dp,
+    val space10: Dp = 10.dp
+)
+
+@ConsistentCopyVisibility
+@Immutable
+data class ButtonDimens internal constructor(
+    val circularButtonSize: Dp = 40.dp
+)
+
+@ConsistentCopyVisibility
+@Immutable
+data class BaseDimmens internal constructor(
+    val spaserLarge: Dp = 20.dp,
 )
 
 internal val LocalDimensions = staticCompositionLocalOf { TennisDimensions() }

@@ -22,8 +22,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.glacierpower.tennisapp.core.design_system.TennisAppDivider
-import com.glacierpower.tennisapp.core.design_system.TennisAppText
+import com.glacierpower.tennisapp.core.design_system.common.TennisAppDivider
+import com.glacierpower.tennisapp.core.design_system.text.TennisAppText
 import com.glacierpower.tennisapp.features.ranking.R
 import com.glacierpower.tennisapp.features.ranking.ui.RankingViewModel
 import theme.TennisTheme
@@ -41,6 +41,7 @@ fun RankingScreen(
             .systemBarsPadding(),
         topBar = {
             TopAppBar(
+                modifier = Modifier.padding(top = TennisTheme.dimensions.padding.paddingXl),
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = TennisTheme.colors.backgroundGlobe
                 ),
@@ -69,8 +70,8 @@ fun RankingScreen(
                 state.ranking.forEach { rankingModel ->
                     TennisAppText(
                         modifier = Modifier.padding(
-                            horizontal = TennisTheme.dimensions.paddingLarge,
-                            vertical = TennisTheme.dimensions.paddingExtraSmall
+                            horizontal = TennisTheme.dimensions.padding.paddingL,
+                            vertical = TennisTheme.dimensions.padding.paddingXs
                         ),
                         text = "${rankingModel.name} ${
                             stringResource(
@@ -87,8 +88,8 @@ fun RankingScreen(
                             .fillMaxWidth()
                             .background(color = TennisTheme.colors.backgroundIsland)
                             .padding(
-                                vertical = TennisTheme.dimensions.paddingExtraSmall,
-                                horizontal = TennisTheme.dimensions.paddingLarge
+                                vertical = TennisTheme.dimensions.padding.paddingXs,
+                                horizontal = TennisTheme.dimensions.padding.paddingL
                             ),
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {

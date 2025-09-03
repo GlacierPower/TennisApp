@@ -1,0 +1,3 @@
+package com.glacierpower.tennisapp.core.design_system.params_checker
+
+interface TennisAppDesignSystemComponentId

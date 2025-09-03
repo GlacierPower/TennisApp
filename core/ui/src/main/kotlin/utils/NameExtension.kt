@@ -1,4 +1,4 @@
-package com.glacierpower.tennisapp.features.ranking.utils
+package utils
 
 fun String.formatName(): String {
     return this

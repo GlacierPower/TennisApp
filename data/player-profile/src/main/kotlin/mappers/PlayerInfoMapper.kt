@@ -3,6 +3,8 @@ package mappers
 
 import api.responce.player_profile.PlayerInfo
 import models.PlayerInfoModel
+import utils.dateToAge
+import utils.formatDateToDotted
 
 fun PlayerInfo.toPlayerInfoModel(): PlayerInfoModel {
     return PlayerInfoModel(
@@ -12,7 +14,8 @@ fun PlayerInfo.toPlayerInfoModel(): PlayerInfoModel {
         highestDoublesRanking = highestDoublesRanking,
         weight = weight,
         height = height,
-        dateOfBirth = dateOfBirth,
+        dateOfBirth = dateOfBirth.formatDateToDotted(),
+        age = dateOfBirth.dateToAge(),
         highestSinglesRankingDate = highestSinglesRankingDate,
         highestDoublesRankingDate = highestDoublesRankingDate
     )

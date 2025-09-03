@@ -1,4 +1,4 @@
-package com.glacierpower.tennisapp.core.design_system
+package com.glacierpower.tennisapp.core.design_system.buttons
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.tooling.preview.Preview
+import com.glacierpower.tennisapp.core.design_system.text.TennisAppText
 import theme.TennisTheme
 
 @Composable
