@@ -12,6 +12,7 @@ fun TennisTheme(
     typography: TennisTypography = TennisTheme.typography,
     shapes: TennisShapes = TennisTheme.shapes,
     dimensions: TennisDimensions = TennisTheme.dimensions,
+    elevation: TennisElevation = TennisTheme.elevation,
     isDarkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
@@ -22,7 +23,8 @@ fun TennisTheme(
         LocalColors provides rememberColors,
         LocalShapes provides shapes,
         LocalTypography provides typography,
-        LocalDimensions provides dimensions
+        LocalDimensions provides dimensions,
+        LocalElevation provides elevation
     ) {
         ProvideTextStyle(value = typography.body1, content = content)
     }
@@ -49,4 +51,9 @@ data object TennisTheme {
         @Composable
         @ReadOnlyComposable
         get() = LocalShapes.current
+
+    val elevation: TennisElevation
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalElevation.current
 }
