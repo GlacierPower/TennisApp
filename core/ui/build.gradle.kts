@@ -9,3 +9,7 @@ plugins {
 android {
     namespace = "com.glacierpower.tennisapp.core.ui"
 }
+
+dependencies {
+    implementation(libs.androidx.lifecycle.viewmodel.android)
+}
