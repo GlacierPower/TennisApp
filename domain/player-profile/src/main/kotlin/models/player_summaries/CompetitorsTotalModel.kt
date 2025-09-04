@@ -5,5 +5,5 @@ data class CompetitorsTotalModel(
     val name: String,
     val abbreviation: String,
     val qualifier: String,
-    val statistics: TotalStatisticsModel
+    val statistics: TotalStatisticsModel? = null
 )

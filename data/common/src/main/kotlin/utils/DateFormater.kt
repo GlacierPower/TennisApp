@@ -29,3 +29,15 @@ fun String.formatDateToDotted(): String {
     val date: Date = inputFormat.parse(this) ?: return this
     return outputFormat.format(date)
 }
+
+fun String.convertToDayMonth(): String {
+    val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX", Locale.getDefault())
+    val outputFormat = SimpleDateFormat("dd.MM", Locale.getDefault())
+
+    return try {
+        val date: Date = inputFormat.parse(this) ?: return this
+        outputFormat.format(date)
+    } catch (e: Exception) {
+        this
+    }
+}

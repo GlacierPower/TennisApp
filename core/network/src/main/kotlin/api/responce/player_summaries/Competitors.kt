@@ -8,7 +8,7 @@ data class Competitors(
     val country: String,
     val abbreviation: String,
     val qualifier: String,
-    val seed: Int,
+    val seed: Int? = null,
     @property:Json("bracket_number")
     val bracketNumber: Int
 )

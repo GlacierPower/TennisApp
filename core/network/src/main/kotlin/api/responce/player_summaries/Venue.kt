@@ -12,6 +12,6 @@ data class Venue(
     @property:Json("country_code")
     val countryCode: String,
     val timezone: String,
-    val channels: List<String>,
-    val estimated: Boolean
+    val channels: List<Channels>? = null,
+    val estimated: Boolean? = null
 )

@@ -1,10 +1,10 @@
 package models.player_summaries
 
 data class SportEventStatusModel(
-    val status: String,
-    val matchStatus: String,
-    val homeScore: Int,
-    val awayScore: Int,
-    val periodScores: List<PeriodScoresModel>,
-    val winnerId: String
+    val status: String? = null,
+    val matchStatus: String? = null,
+    val homeScore: Int? = null,
+    val awayScore: Int? = null,
+    val periodScores: List<PeriodScoresModel>? = null,
+    val winnerId: String? = null
 )

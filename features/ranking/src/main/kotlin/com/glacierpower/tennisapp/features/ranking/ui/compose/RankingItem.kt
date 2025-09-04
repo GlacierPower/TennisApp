@@ -12,7 +12,6 @@ import androidx.compose.ui.Modifier
 import com.glacierpower.tennisapp.core.design_system.common.TennisAppDivider
 import com.glacierpower.tennisapp.core.design_system.common.TennisAppSpacer
 import com.glacierpower.tennisapp.core.design_system.text.TennisAppText
-import utils.formatName
 import theme.TennisTheme
 
 @Composable
@@ -33,8 +32,8 @@ fun RankingItem(
                 .fillMaxWidth()
                 .clickable { onPlayerClick() }
                 .padding(
-                    vertical = TennisTheme.dimensions.padding.paddingS,
-                    horizontal = TennisTheme.dimensions.padding.paddingL
+                    vertical = TennisTheme.dimensions.padding.s,
+                    horizontal = TennisTheme.dimensions.padding.l
                 ),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
@@ -45,7 +44,7 @@ fun RankingItem(
                 )
                 TennisAppSpacer(size = TennisTheme.dimensions.base.spaserLarge)
                 TennisAppText(
-                    text = name.formatName(),
+                    text = name,
                     style = TennisTheme.typography.body3
                 )
             }

@@ -21,7 +21,8 @@ class PlayerProfileViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
 ) : BaseViewModel<PlayerProfileState, PlayerProfileEvent, PlayerProfileEffect>(
     initialState = PlayerProfileState.initial(
-        playerId = savedStateHandle.getStateFlow<String?>("id", initialValue = null).value
+        playerId = savedStateHandle.getStateFlow<String?>("id", initialValue = null).value,
+        rank = savedStateHandle.getStateFlow<String?>("rank", initialValue = null).value
     ),
     reducer = PlayerProfileReducer()
 ), PlayerProfileIntent {
@@ -39,12 +40,14 @@ class PlayerProfileViewModel @Inject constructor(
                 val summaries = async {
                     getPlayerSummariesUseCase(id)
                 }.await()
-                sendEvent(
-                    PlayerProfileEvent.OnPlayerInfoLoaded(
-                        profile.getOrNull(),
-                        summaries.getOrNull()
+                summaries.getOrNull()?.let {
+                    sendEvent(
+                        PlayerProfileEvent.OnPlayerInfoLoaded(
+                            profile.getOrNull(),
+                            it
+                        )
                     )
-                )
+                }
             }
         }
     }

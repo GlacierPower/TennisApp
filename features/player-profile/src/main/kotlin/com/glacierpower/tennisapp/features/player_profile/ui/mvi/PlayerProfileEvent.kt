@@ -7,7 +7,7 @@ import mvi.Reducer
 sealed interface PlayerProfileEvent : Reducer.ViewEvent {
     data class OnPlayerInfoLoaded(
         val profile: PlayerProfileModel?,
-        val summaries: PlayerSummariesModel?
+        val summaries: PlayerSummariesModel
     ) :
         PlayerProfileEvent
 }

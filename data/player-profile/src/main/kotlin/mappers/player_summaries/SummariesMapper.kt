@@ -9,7 +9,7 @@ fun List<Summaries>.toListSummariesModel(): List<SummariesModel> {
         SummariesModel(
             sportEvent = summaries.sportEvent.toSportEventModel(),
             sportEventStatus = summaries.sportEventStatus.toSportEventStatusModel(),
-            statistics = summaries.statistics.toStatisticsModel()
+            statistics = summaries.statistics?.toStatisticsModel()
         )
     }
 }

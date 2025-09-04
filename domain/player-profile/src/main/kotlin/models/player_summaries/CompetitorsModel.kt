@@ -6,6 +6,6 @@ data class CompetitorsModel(
     val country: String,
     val abbreviation: String,
     val qualifier: String,
-    val seed: Int,
+    val seed: Int? = null,
     val bracketNumber: Int
 )

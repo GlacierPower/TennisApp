@@ -15,7 +15,6 @@ import com.glacierpower.tennisapp.features.player_profile.PlayerProfileIntent
 import com.glacierpower.tennisapp.features.player_profile.R
 import com.glacierpower.tennisapp.features.player_profile.ui.mvi.PlayerProfileState
 import theme.TennisTheme
-import utils.formatName
 import com.glacierpower.tennisapp.core.design_system.R as DsR
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -30,7 +29,7 @@ fun PlayerProfileScreenContent(
             .systemBarsPadding(),
         topBar = {
             TopAppBar(
-                modifier = Modifier.padding(top = TennisTheme.dimensions.padding.paddingXl),
+                modifier = Modifier.padding(top = TennisTheme.dimensions.padding.xl),
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = TennisTheme.colors.backgroundGlobe
                 ),
@@ -54,12 +53,14 @@ fun PlayerProfileScreenContent(
             PlayerProfileContent(
                 modifier = Modifier.padding(paddingValues),
                 country = player.competitor.country,
-                name = player.competitor.name.formatName(),
+                name = player.competitor.name,
                 age = stringResource(
                     R.string.player_profile_age,
                     player.info.age,
                     player.info.dateOfBirth
-                )
+                ),
+                playerSummaries = state.playerSummaries,
+                rankName = "${state.playerSummaries.first().rankName}. ${state.rank}"
             )
         }
     }

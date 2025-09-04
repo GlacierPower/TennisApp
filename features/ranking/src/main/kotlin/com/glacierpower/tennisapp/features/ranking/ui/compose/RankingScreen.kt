@@ -31,7 +31,7 @@ import theme.TennisTheme
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RankingScreen(
-    onPlayerClick: (String) -> Unit
+    onPlayerClick: (String, String) -> Unit
 ) {
     val viewModel: RankingViewModel = hiltViewModel()
     val state by viewModel.state.collectAsStateWithLifecycle()
@@ -41,7 +41,7 @@ fun RankingScreen(
             .systemBarsPadding(),
         topBar = {
             TopAppBar(
-                modifier = Modifier.padding(top = TennisTheme.dimensions.padding.paddingXl),
+                modifier = Modifier.padding(top = TennisTheme.dimensions.padding.xl),
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = TennisTheme.colors.backgroundGlobe
                 ),
@@ -70,8 +70,8 @@ fun RankingScreen(
                 state.ranking.forEach { rankingModel ->
                     TennisAppText(
                         modifier = Modifier.padding(
-                            horizontal = TennisTheme.dimensions.padding.paddingL,
-                            vertical = TennisTheme.dimensions.padding.paddingXs
+                            horizontal = TennisTheme.dimensions.padding.l,
+                            vertical = TennisTheme.dimensions.padding.xs
                         ),
                         text = "${rankingModel.name} ${
                             stringResource(
@@ -88,8 +88,8 @@ fun RankingScreen(
                             .fillMaxWidth()
                             .background(color = TennisTheme.colors.backgroundIsland)
                             .padding(
-                                vertical = TennisTheme.dimensions.padding.paddingXs,
-                                horizontal = TennisTheme.dimensions.padding.paddingL
+                                vertical = TennisTheme.dimensions.padding.xs,
+                                horizontal = TennisTheme.dimensions.padding.l
                             ),
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
@@ -109,7 +109,12 @@ fun RankingScreen(
                                 rank = player.rank.toString(),
                                 name = player.competitor.name,
                                 points = player.points.toString(),
-                                onPlayerClick = { onPlayerClick(player.competitor.id) }
+                                onPlayerClick = {
+                                    onPlayerClick(
+                                        player.competitor.id,
+                                        player.rank.toString()
+                                    )
+                                }
                             )
                         }
                     }

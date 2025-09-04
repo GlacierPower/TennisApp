@@ -25,7 +25,7 @@ class RankingFragment : Fragment() {
             setContent {
                 TennisTheme {
                     RankingScreen(
-                        onPlayerClick = { id -> navigator.navigateToProfile(id) }
+                        onPlayerClick = { id, rank -> navigator.navigateToProfile(id, rank) }
                     )
                 }
             }

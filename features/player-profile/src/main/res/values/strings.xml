@@ -2,4 +2,9 @@
 <resources>
     <string name="player_profile_app_bar_title">Player Profile</string>
     <string name="player_profile_age">Age: %1$s (%2$s)</string>
+    <string name="player_profile_walkover">WO</string>
+    <string name="player_profile_retired">Retired</string>
+    <string name="player_profile_match_not_started">\?</string>
+    <string name="player_profile_match_won">W</string>
+    <string name="player_profile_match_lost">L</string>
 </resources>
