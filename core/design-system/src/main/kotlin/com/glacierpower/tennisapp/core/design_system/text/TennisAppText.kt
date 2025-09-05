@@ -1,4 +1,4 @@
-package com.glacierpower.tennisapp.core.design_system
+package com.glacierpower.tennisapp.core.design_system.text
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable

@@ -4,9 +4,9 @@ import com.squareup.moshi.Json
 
 data class PeriodScores(
     @property:Json("home_score")
-    val homeScore: Int,
+    val homeScore: Int? = null,
     @property:Json("away_score")
-    val awayScore: Int,
-    val type: String,
-    val number: Int
+    val awayScore: Int? = null,
+    val type: String? = null,
+    val number: Int? = null
 )

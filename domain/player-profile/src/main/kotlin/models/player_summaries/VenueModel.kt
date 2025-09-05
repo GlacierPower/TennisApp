@@ -7,6 +7,6 @@ data class VenueModel(
     val countryName: String,
     val countryCode: String,
     val timezone: String,
-    val channels: List<String>,
-    val estimated: Boolean
+    val channels: List<ChannelsModel>? = null,
+    val estimated: Boolean? = null
 )

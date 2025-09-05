@@ -8,6 +8,7 @@ data class PlayerInfoModel(
     val weight: Int,
     val height: Int,
     val dateOfBirth: String,
+    val age: String,
     val highestSinglesRankingDate: String,
     val highestDoublesRankingDate: String?
 )

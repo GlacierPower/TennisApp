@@ -7,5 +7,5 @@ data class Summaries(
     val sportEvent: SportEvent,
     @property:Json("sport_event_status")
     val sportEventStatus: SportEventStatus,
-    val statistics: Statistics
+    val statistics: Statistics?
 )

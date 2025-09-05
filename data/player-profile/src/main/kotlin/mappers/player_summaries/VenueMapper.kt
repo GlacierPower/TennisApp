@@ -12,7 +12,7 @@ fun Venue.toVenueModel(): VenueModel {
         countryName = countryName,
         countryCode = countryCode,
         timezone = timezone,
-        channels = channels,
+        channels = channels?.toChannelModel(),
         estimated = estimated
     )
 }

@@ -22,8 +22,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.glacierpower.tennisapp.core.design_system.TennisAppDivider
-import com.glacierpower.tennisapp.core.design_system.TennisAppText
+import com.glacierpower.tennisapp.core.design_system.common.TennisAppDivider
+import com.glacierpower.tennisapp.core.design_system.text.TennisAppText
 import com.glacierpower.tennisapp.features.ranking.R
 import com.glacierpower.tennisapp.features.ranking.ui.RankingViewModel
 import theme.TennisTheme
@@ -31,7 +31,7 @@ import theme.TennisTheme
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RankingScreen(
-    onPlayerClick: (String) -> Unit
+    onPlayerClick: (String, String) -> Unit
 ) {
     val viewModel: RankingViewModel = hiltViewModel()
     val state by viewModel.state.collectAsStateWithLifecycle()
@@ -41,6 +41,7 @@ fun RankingScreen(
             .systemBarsPadding(),
         topBar = {
             TopAppBar(
+                modifier = Modifier.padding(top = TennisTheme.dimensions.padding.xl),
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = TennisTheme.colors.backgroundGlobe
                 ),
@@ -69,8 +70,8 @@ fun RankingScreen(
                 state.ranking.forEach { rankingModel ->
                     TennisAppText(
                         modifier = Modifier.padding(
-                            horizontal = TennisTheme.dimensions.paddingLarge,
-                            vertical = TennisTheme.dimensions.paddingExtraSmall
+                            horizontal = TennisTheme.dimensions.padding.l,
+                            vertical = TennisTheme.dimensions.padding.xs
                         ),
                         text = "${rankingModel.name} ${
                             stringResource(
@@ -87,8 +88,8 @@ fun RankingScreen(
                             .fillMaxWidth()
                             .background(color = TennisTheme.colors.backgroundIsland)
                             .padding(
-                                vertical = TennisTheme.dimensions.paddingExtraSmall,
-                                horizontal = TennisTheme.dimensions.paddingLarge
+                                vertical = TennisTheme.dimensions.padding.xs,
+                                horizontal = TennisTheme.dimensions.padding.l
                             ),
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
@@ -108,7 +109,12 @@ fun RankingScreen(
                                 rank = player.rank.toString(),
                                 name = player.competitor.name,
                                 points = player.points.toString(),
-                                onPlayerClick = { onPlayerClick(player.competitor.id) }
+                                onPlayerClick = {
+                                    onPlayerClick(
+                                        player.competitor.id,
+                                        player.rank.toString()
+                                    )
+                                }
                             )
                         }
                     }

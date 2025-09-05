@@ -1,5 +1,6 @@
 package theme
 
+import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.staticCompositionLocalOf
@@ -9,7 +10,8 @@ import androidx.compose.ui.unit.dp
 data class TennisShapes(
     val small: RoundedCornerShape = RoundedCornerShape(size = 8.dp),
     val medium: RoundedCornerShape = RoundedCornerShape(size = 16.dp),
-    val large: RoundedCornerShape = RoundedCornerShape(size = 24.dp)
+    val large: RoundedCornerShape = RoundedCornerShape(size = 24.dp),
+    val circularButton: CornerBasedShape = RoundedCornerShape(30.dp)
 )
 
 internal val LocalShapes = staticCompositionLocalOf { TennisShapes() }

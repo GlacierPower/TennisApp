@@ -10,7 +10,7 @@ fun SportEventStatus.toSportEventStatusModel(): SportEventStatusModel {
         matchStatus = matchStatus,
         homeScore = homeScore,
         awayScore = awayScore,
-        periodScores = periodScores.toPeriodScoresModel(),
+        periodScores = periodScores?.toPeriodScoresModel(),
         winnerId = winnerId
     )
 }

@@ -11,7 +11,7 @@ fun List<CompetitorsTotal>.toCompetitorsTotalModel(): List<CompetitorsTotalModel
             name = competitorsTotal.name,
             abbreviation = competitorsTotal.abbreviation,
             qualifier = competitorsTotal.qualifier,
-            statistics = competitorsTotal.statistics.toTotalStatisticsModel()
+            statistics = competitorsTotal.statistics?.toTotalStatisticsModel()
         )
     }
 }

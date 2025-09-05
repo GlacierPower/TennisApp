@@ -5,5 +5,5 @@ data class CompetitorsTotal(
     val name: String,
     val abbreviation: String,
     val qualifier: String,
-    val statistics: TotalStatistics
+    val statistics: TotalStatistics? = null
 )
