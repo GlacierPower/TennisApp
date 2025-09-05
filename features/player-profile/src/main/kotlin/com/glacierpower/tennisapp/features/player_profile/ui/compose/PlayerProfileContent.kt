@@ -45,7 +45,9 @@ fun PlayerProfileContent(
                     matchStatus = summary.matchStatus,
                     isWin = summary.isWin,
                     homeScore = summary.homeScore.toString(),
-                    awayScore = summary.awayScore.toString()
+                    awayScore = summary.awayScore.toString(),
+                    isHomeWin = summary.isHomeWin,
+                    isAwayWin = summary.isAwayWin
                 )
             }
         }

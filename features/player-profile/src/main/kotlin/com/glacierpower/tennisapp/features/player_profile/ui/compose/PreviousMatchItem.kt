@@ -24,10 +24,12 @@ fun PreviousMatchItem(
     matchStatus: MatchStatus,
     isWin: Boolean,
     homeScore: String,
-    awayScore: String
+    awayScore: String,
+    isHomeWin: Boolean,
+    isAwayWin: Boolean
 ) {
-    val homeWin = TennisTheme.colors.run { if (isWin) textAccentSecondary else textPrimary }
-    val awayWin = TennisTheme.colors.run { if (isWin.not()) textAccentSecondary else textPrimary }
+    val homeWin = TennisTheme.colors.run { if (isHomeWin) textAccentSecondary else textPrimary }
+    val awayWin = TennisTheme.colors.run { if (isAwayWin) textAccentSecondary else textPrimary }
     Column {
         Row(
             modifier = Modifier
@@ -109,7 +111,9 @@ fun PreviousMatchPreview() {
             matchStatus = MatchStatus.WALKOVER,
             isWin = true,
             homeScore = "3",
-            awayScore = "1"
+            awayScore = "1",
+            isHomeWin = true,
+            isAwayWin = false
         )
     }
 }

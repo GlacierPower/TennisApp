@@ -14,7 +14,7 @@ class PlayerProfileReducer @Inject constructor() :
             is PlayerProfileEvent.OnPlayerInfoLoaded -> {
                 previousState.copy(
                     playerProfile = event.profile,
-                    playerSummaries = event.summaries.summaries.map { it.toSummariesDvo() },
+                    playerSummaries = event.summaries.summaries.map { it.toSummariesDvo(previousState.playerId) },
                     isLoading = false
                 ) to null
             }

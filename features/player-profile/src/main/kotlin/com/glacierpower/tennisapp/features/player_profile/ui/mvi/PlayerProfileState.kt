@@ -11,8 +11,8 @@ data class PlayerProfileState(
     val playerId: String?,
     val playerSummaries: List<SummariesDvo> = emptyList(),
     val playerProfile: PlayerProfileModel? = null,
-    val rank: String? = null
-
+    val rank: String? = null,
+    val isWin: Boolean = false
 ) : Reducer.ViewState {
     companion object {
         fun initial(playerId: String?, rank: String?): PlayerProfileState {
