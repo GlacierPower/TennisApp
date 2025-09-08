@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.update
 
 abstract class BaseViewModel<State : Reducer.ViewState, Event : Reducer.ViewEvent, Effect : Reducer.ViewEffect>(
     initialState: State,
-    private val reducer: Reducer<State, Event, Effect>
+    private val reducer: Reducer<State, Event, Effect>,
 ) : ViewModel() {
 
     private val _state: MutableStateFlow<State> = MutableStateFlow(initialState)

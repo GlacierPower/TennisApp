@@ -8,18 +8,9 @@ import mvi.Reducer
 @Immutable
 data class PlayerProfileState(
     val isLoading: Boolean = true,
-    val playerId: String?,
+    val playerId: String? = null,
     val playerSummaries: List<SummariesDvo> = emptyList(),
     val playerProfile: PlayerProfileModel? = null,
     val rank: String? = null,
     val isWin: Boolean = false
-) : Reducer.ViewState {
-    companion object {
-        fun initial(playerId: String?, rank: String?): PlayerProfileState {
-            return PlayerProfileState(
-                playerId = playerId,
-                rank = rank
-            )
-        }
-    }
-}
+) : Reducer.ViewState

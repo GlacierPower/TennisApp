@@ -6,12 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import com.glacierpower.tennisapp.databinding.FragmentLiveEventBinding
 import com.glacierpower.tennisapp.presentation.adapter.LiveEventAdapter
 import com.glacierpower.tennisapp.presentation.adapter.listener.Listener
 import com.glacierpower.tennisapp.utils.ResultState
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
 @AndroidEntryPoint
 class LiveEventFragment : Fragment(), Listener {
@@ -82,8 +82,6 @@ class LiveEventFragment : Fragment(), Listener {
     }
 
     override fun getId(id: Int) {
-        val action = LiveEventFragmentDirections.actionLiveEventFragmentToEventDetailsFragment("id")
-        findNavController().navigate(
-            action)
+        Timber.tag("id")
     }
 }
