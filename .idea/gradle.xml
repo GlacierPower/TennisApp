@@ -40,6 +40,8 @@
             <option value="$PROJECT_DIR$/features" />
             <option value="$PROJECT_DIR$/features/player-profile" />
             <option value="$PROJECT_DIR$/features/ranking" />
+            <option value="$PROJECT_DIR$/navigation" />
+            <option value="$PROJECT_DIR$/navigation/common" />
           </set>
         </option>
       </GradleProjectSettings>

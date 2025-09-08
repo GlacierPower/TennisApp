@@ -15,5 +15,5 @@ data class SummariesDvo(
     val isWin: Boolean,
     val rankName: String,
     val isHomeWin: Boolean,
-    val isAwayWin: Boolean
+    val isAwayWin: Boolean,
 )

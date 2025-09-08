@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="navigation_all_games">All games</string>
+    <string name="navigation_live">Live</string>
+    <string name="navigation_favorites">Favorites</string>
+    <string name="navigation_news">News</string>
+    <string name="navigation_ranking">Ranking</string>
+</resources>

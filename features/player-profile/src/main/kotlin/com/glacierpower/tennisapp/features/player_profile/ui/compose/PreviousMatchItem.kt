@@ -26,11 +26,14 @@ fun PreviousMatchItem(
     homeScore: String,
     awayScore: String,
     isHomeWin: Boolean,
-    isAwayWin: Boolean
+    isAwayWin: Boolean,
+    modifier: Modifier = Modifier
 ) {
     val homeWin = TennisTheme.colors.run { if (isHomeWin) textAccentSecondary else textPrimary }
     val awayWin = TennisTheme.colors.run { if (isAwayWin) textAccentSecondary else textPrimary }
-    Column {
+    Column(
+        modifier = modifier
+    ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()

@@ -21,6 +21,7 @@ fun PlayerProfileContent(
     rankName: String,
     modifier: Modifier = Modifier
 ) {
+    val grouped = playerSummaries.groupBy { it.tournamentName }
     Column(
         modifier = modifier
             .fillMaxWidth()
@@ -32,23 +33,30 @@ fun PlayerProfileContent(
             age = age,
             rank = rankName
         )
-        LazyColumn(
-            modifier = Modifier
-                .padding(bottom = 100.dp)
-                .padding(horizontal = TennisTheme.dimensions.padding.l)
-        ) {
-            items(playerSummaries) { summary ->
-                PreviousMatchItem(
-                    date = summary.date,
-                    homePlayerName = summary.homeName,
-                    awayPlayerName = summary.awayName,
-                    matchStatus = summary.matchStatus,
-                    isWin = summary.isWin,
-                    homeScore = summary.homeScore.toString(),
-                    awayScore = summary.awayScore.toString(),
-                    isHomeWin = summary.isHomeWin,
-                    isAwayWin = summary.isAwayWin
-                )
+        LazyColumn(modifier = Modifier.padding(bottom = 100.dp)) {
+            grouped.forEach { (tournamentName, matches) ->
+                stickyHeader {
+                    TournamentItem(
+                        tournamentName = tournamentName,
+                        countryName = matches.first().tournamentCountry
+                    )
+                }
+
+                items(matches) { summary ->
+                    PreviousMatchItem(
+                        modifier = Modifier
+                            .padding(horizontal = TennisTheme.dimensions.padding.l),
+                        date = summary.date,
+                        homePlayerName = summary.homeName,
+                        awayPlayerName = summary.awayName,
+                        matchStatus = summary.matchStatus,
+                        isWin = summary.isWin,
+                        homeScore = summary.homeScore.toString(),
+                        awayScore = summary.awayScore.toString(),
+                        isHomeWin = summary.isHomeWin,
+                        isAwayWin = summary.isAwayWin
+                    )
+                }
             }
         }
     }

@@ -41,7 +41,6 @@ fun RankingScreen(
             .systemBarsPadding(),
         topBar = {
             TopAppBar(
-                modifier = Modifier.padding(top = TennisTheme.dimensions.padding.xl),
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = TennisTheme.colors.backgroundGlobe
                 ),

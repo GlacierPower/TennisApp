@@ -1,29 +1,23 @@
-
 package com.glacierpower.tennisapp.presentation
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.WindowCompat
-import androidx.navigation.findNavController
-import androidx.navigation.ui.setupWithNavController
-import com.glacierpower.tennisapp.R
-import com.glacierpower.tennisapp.databinding.ActivityMainBinding
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
+import com.glacirepower.tennisapp.navigation.NavigationScreen
 import dagger.hilt.android.AndroidEntryPoint
+import theme.TennisTheme
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class MainActivity : ComponentActivity() {
 
-    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        WindowCompat.enableEdgeToEdge(window)
-        supportActionBar?.hide()
-
-        binding = ActivityMainBinding.inflate(LayoutInflater.from(this))
-        setContentView(binding.root)
-
-        val navController = findNavController(R.id.nav_host_fragment)
-        binding.bottomNav.setupWithNavController(navController)
+        enableEdgeToEdge()
+        setContent {
+            TennisTheme {
+                NavigationScreen()
+            }
+        }
     }
 }

@@ -1,18 +1,23 @@
-package com.glacierpower.tennisapp.features.player_profile.ui.compose
+package com.glacierpower.tennisapp.features.player_profile
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.glacierpower.tennisapp.features.player_profile.PlayerProfileViewModel
+import com.glacierpower.tennisapp.features.player_profile.args.ProfileArgs
+import com.glacierpower.tennisapp.features.player_profile.ui.compose.PlayerProfileScreenContent
 import com.glacierpower.tennisapp.features.player_profile.ui.mvi.PlayerProfileEffect
 
 @Composable
 fun PlayerProfileScreen(
-    onNavigateBack: () -> Unit
+    onNavigateBack: () -> Unit,
+    args: ProfileArgs,
+    viewModel: PlayerProfileViewModel =
+        hiltViewModel(creationCallback = { factory: PlayerProfileViewModel.PlayerProfileViewModelFactory ->
+            factory.create(args)
+        })
 ) {
-    val viewModel: PlayerProfileViewModel = hiltViewModel()
     val state by viewModel.state.collectAsStateWithLifecycle()
 
     LaunchedEffect(viewModel.effect) {
@@ -22,6 +27,7 @@ fun PlayerProfileScreen(
             }
         }
     }
+
     PlayerProfileScreenContent(
         state = state,
         intentListener = viewModel

@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import com.glacierpower.tennisapp.databinding.FragmentSearchBinding
 import com.glacierpower.tennisapp.presentation.adapter.SearchAdapter
 import com.glacierpower.tennisapp.presentation.adapter.listener.Listener
@@ -18,6 +17,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 @AndroidEntryPoint
 class DetailsFragment : Fragment(), Listener {
@@ -114,9 +114,6 @@ class DetailsFragment : Fragment(), Listener {
     }
 
     override fun getId(id: Int) {
-        val action = DetailsFragmentDirections.actionSearchFragmentToPlayerDetailsFragment("", "")
-        findNavController().navigate(
-            action
-        )
+        Timber.tag("id")
     }
 }

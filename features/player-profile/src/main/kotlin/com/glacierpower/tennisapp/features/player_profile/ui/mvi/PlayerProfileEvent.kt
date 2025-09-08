@@ -8,6 +8,7 @@ sealed interface PlayerProfileEvent : Reducer.ViewEvent {
     data class OnPlayerInfoLoaded(
         val profile: PlayerProfileModel?,
         val summaries: PlayerSummariesModel
-    ) :
-        PlayerProfileEvent
+    ) : PlayerProfileEvent
+
+    data class OnUpdatePlayerData(val playerId: String?, val rank: String?) : PlayerProfileEvent
 }

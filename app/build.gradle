@@ -29,17 +29,16 @@ android {
 }
 
 dependencies {
+    implementation(projects.navigation)
 
     implementation(projects.domain.common)
-
-    implementation(projects.features.ranking)
-    implementation(projects.features.playerProfile)
 
     implementation(projects.data.ranking)
     implementation(projects.data.common)
     implementation(projects.data.playerProfile)
 
     implementation(projects.core.network)
+    implementation(projects.core.ui)
 
     implementation libs.engage.core
 

@@ -18,6 +18,8 @@ class PlayerProfileReducer @Inject constructor() :
                     isLoading = false
                 ) to null
             }
+
+            is PlayerProfileEvent.OnUpdatePlayerData -> previousState.copy(playerId = event.playerId, rank = event.rank) to null
         }
     }
 }
