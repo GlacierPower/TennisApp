@@ -1,6 +1,6 @@
 package com.glacierpower.tennisapp.features.player_profile.model
 
-import models.player_summaries.SummariesModel
+import model.player_summaries.SummariesModel
 import utils.orZero
 
 fun SummariesModel.toSummariesDvo(playerId: String?): SummariesDvo {
@@ -16,6 +16,8 @@ fun SummariesModel.toSummariesDvo(playerId: String?): SummariesDvo {
         isWin = sportEventStatus.winnerId == playerId,
         rankName = sportEvent.sportEventContext.category.name,
         isHomeWin = sportEventStatus.homeScore.orZero() > sportEventStatus.awayScore.orZero(),
-        isAwayWin = sportEventStatus.homeScore.orZero() < sportEventStatus.awayScore.orZero()
+        isAwayWin = sportEventStatus.homeScore.orZero() < sportEventStatus.awayScore.orZero(),
+        eventId = sportEvent.id,
+        stat = statistics?.totals?.competitors.orEmpty()
     )
 }

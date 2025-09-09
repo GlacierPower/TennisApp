@@ -7,6 +7,6 @@ import retrofit2.http.GET
 
 interface RankingApi {
 
-    @GET("rankings.json")
+    @GET("rankings")
     suspend fun getRanking(): ApiResult<RankingResponse>
 }

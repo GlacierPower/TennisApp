@@ -1,7 +1,7 @@
 package com.glacierpower.tennisapp.features.player_profile.ui.mvi
 
+import model.player_summaries.PlayerSummariesModel
 import models.PlayerProfileModel
-import models.player_summaries.PlayerSummariesModel
 import mvi.Reducer
 
 sealed interface PlayerProfileEvent : Reducer.ViewEvent {

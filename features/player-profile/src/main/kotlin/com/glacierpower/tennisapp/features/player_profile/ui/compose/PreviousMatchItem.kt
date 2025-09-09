@@ -1,5 +1,6 @@
 package com.glacierpower.tennisapp.features.player_profile.ui.compose
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -27,7 +28,8 @@ fun PreviousMatchItem(
     awayScore: String,
     isHomeWin: Boolean,
     isAwayWin: Boolean,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onMatchClick: () -> Unit
 ) {
     val homeWin = TennisTheme.colors.run { if (isHomeWin) textAccentSecondary else textPrimary }
     val awayWin = TennisTheme.colors.run { if (isAwayWin) textAccentSecondary else textPrimary }
@@ -37,6 +39,9 @@ fun PreviousMatchItem(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
+                .clickable {
+                    onMatchClick()
+                }
                 .padding(
                     vertical = TennisTheme.dimensions.padding.s
                 ),
@@ -116,7 +121,8 @@ fun PreviousMatchPreview() {
             homeScore = "3",
             awayScore = "1",
             isHomeWin = true,
-            isAwayWin = false
+            isAwayWin = false,
+            onMatchClick = {}
         )
     }
 }

@@ -1,8 +1,7 @@
-
 package service
 
+import model.player_summaries.PlayerSummariesModel
 import models.PlayerProfileModel
-import models.player_summaries.PlayerSummariesModel
 import network.tennisResult.DataError
 import network.tennisResult.TennisResult
 

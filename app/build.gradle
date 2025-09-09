@@ -36,6 +36,7 @@ dependencies {
     implementation(projects.data.ranking)
     implementation(projects.data.common)
     implementation(projects.data.playerProfile)
+    implementation(projects.data.matchDetails)
 
     implementation(projects.core.network)
     implementation(projects.core.ui)

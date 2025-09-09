@@ -7,5 +7,6 @@ import mvi.Reducer
 @Immutable
 data class RankingState(
     val isLoading: Boolean = true,
-    val ranking: List<RankingModel> = emptyList()
+    val ranking: List<RankingModel> = emptyList(),
+    val flagUri: String = ""
 ) : Reducer.ViewState

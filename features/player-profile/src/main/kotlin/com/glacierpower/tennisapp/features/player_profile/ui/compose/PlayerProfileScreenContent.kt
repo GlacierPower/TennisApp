@@ -60,7 +60,8 @@ fun PlayerProfileScreenContent(
                     player.info.dateOfBirth
                 ),
                 playerSummaries = state.playerSummaries,
-                rankName = "${state.playerSummaries.first().rankName}. ${state.rank}"
+                rankName = "${state.playerSummaries.first().rankName}. ${state.rank}",
+                onMatchClick = intentListener::onNavigateToMatchDetails
             )
         }
     }

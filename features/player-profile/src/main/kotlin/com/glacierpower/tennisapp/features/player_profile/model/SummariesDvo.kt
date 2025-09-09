@@ -1,6 +1,7 @@
 package com.glacierpower.tennisapp.features.player_profile.model
 
 import androidx.compose.runtime.Immutable
+import model.player_summaries.CompetitorsTotalModel
 
 @Immutable
 data class SummariesDvo(
@@ -16,4 +17,6 @@ data class SummariesDvo(
     val rankName: String,
     val isHomeWin: Boolean,
     val isAwayWin: Boolean,
+    val eventId: String,
+    val stat: List<CompetitorsTotalModel>
 )

@@ -14,12 +14,14 @@ class RankingServiceImpl @Inject constructor(
     private val rankingApi: RankingApi
 ) : RankingService {
 
-    override suspend fun getRanking(): TennisResult<List<RankingModel>, DataError.NetworkError> = networkHelper.fetchToTennisResult(
-        apiCall = suspend {
-            rankingApi.getRanking()
-        },
-        mapper = { rankingRs ->
-            rankingRs.rankings.map { it.toRankingModel() }
-        }
-    )
+    override suspend fun getRanking(): TennisResult<List<RankingModel>, DataError.NetworkError> {
+        return networkHelper.fetchToTennisResult(
+            apiCall = suspend {
+                rankingApi.getRanking()
+            },
+            mapper = { rankingRs ->
+                rankingRs.rankings.map { it.toRankingModel() }
+            }
+        )
+    }
 }

@@ -19,7 +19,8 @@ fun PlayerProfileContent(
     name: String,
     age: String,
     rankName: String,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onMatchClick: (String) -> Unit
 ) {
     val grouped = playerSummaries.groupBy { it.tournamentName }
     Column(
@@ -54,7 +55,8 @@ fun PlayerProfileContent(
                         homeScore = summary.homeScore.toString(),
                         awayScore = summary.awayScore.toString(),
                         isHomeWin = summary.isHomeWin,
-                        isAwayWin = summary.isAwayWin
+                        isAwayWin = summary.isAwayWin,
+                        onMatchClick = { onMatchClick(summary.eventId) }
                     )
                 }
             }

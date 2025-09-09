@@ -1,5 +1,6 @@
 package com.glacierpower.tennisapp.features.player_profile
 
+import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.glacierpower.tennisapp.features.player_profile.args.ProfileArgs
 import com.glacierpower.tennisapp.features.player_profile.ui.mvi.PlayerProfileEffect
@@ -15,11 +16,13 @@ import kotlinx.coroutines.launch
 import mvi.BaseViewModel
 import use_case.GetPlayerProfileUseCase
 import use_case.GetPlayerSummariesUseCase
+import use_case.GetPlayersImagesManifestUseCase
 
 @HiltViewModel(assistedFactory = PlayerProfileViewModel.PlayerProfileViewModelFactory::class)
 class PlayerProfileViewModel @AssistedInject constructor(
     private val getPlayerProfileUseCase: GetPlayerProfileUseCase,
     private val getPlayerSummariesUseCase: GetPlayerSummariesUseCase,
+    private val getPlayersImagesManifestUseCase: GetPlayersImagesManifestUseCase,
     @Assisted private val args: ProfileArgs,
 ) : BaseViewModel<PlayerProfileState, PlayerProfileEvent, PlayerProfileEffect>(
     initialState = PlayerProfileState(),
@@ -41,6 +44,10 @@ class PlayerProfileViewModel @AssistedInject constructor(
                 val summaries = async {
                     getPlayerSummariesUseCase(id)
                 }.await()
+                val image = async {
+                    getPlayersImagesManifestUseCase()
+                }.await()
+                Log.d("Images", "${image}")
                 summaries.getOrNull()?.let {
                     sendEvent(
                         PlayerProfileEvent.OnPlayerInfoLoaded(
@@ -55,6 +62,10 @@ class PlayerProfileViewModel @AssistedInject constructor(
 
     override fun onNavigateBack() {
         sendEffect(PlayerProfileEffect.NavigateBack)
+    }
+
+    override fun onNavigateToMatchDetails(eventId: String) {
+        sendEffect(PlayerProfileEffect.NavigateToMatchDetails(eventId))
     }
 
     @AssistedFactory

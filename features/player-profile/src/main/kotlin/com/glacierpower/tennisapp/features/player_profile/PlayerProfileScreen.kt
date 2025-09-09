@@ -12,6 +12,7 @@ import com.glacierpower.tennisapp.features.player_profile.ui.mvi.PlayerProfileEf
 @Composable
 fun PlayerProfileScreen(
     onNavigateBack: () -> Unit,
+    onNavigateToDetails: (String) -> Unit,
     args: ProfileArgs,
     viewModel: PlayerProfileViewModel =
         hiltViewModel(creationCallback = { factory: PlayerProfileViewModel.PlayerProfileViewModelFactory ->
@@ -24,6 +25,7 @@ fun PlayerProfileScreen(
         viewModel.effect.collect { effect ->
             when (effect) {
                 PlayerProfileEffect.NavigateBack -> onNavigateBack()
+                is PlayerProfileEffect.NavigateToMatchDetails -> onNavigateToDetails(effect.eventId)
             }
         }
     }

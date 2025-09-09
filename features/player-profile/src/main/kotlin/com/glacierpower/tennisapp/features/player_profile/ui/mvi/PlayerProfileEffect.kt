@@ -4,4 +4,5 @@ import mvi.Reducer
 
 sealed interface PlayerProfileEffect : Reducer.ViewEffect {
     data object NavigateBack : PlayerProfileEffect
+    data class NavigateToMatchDetails(val eventId: String) : PlayerProfileEffect
 }
