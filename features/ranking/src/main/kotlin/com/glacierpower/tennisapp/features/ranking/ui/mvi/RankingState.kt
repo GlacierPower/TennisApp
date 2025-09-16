@@ -1,7 +1,7 @@
 package com.glacierpower.tennisapp.features.ranking.ui.mvi
 
 import androidx.compose.runtime.Immutable
-import com.glacierpower.tennisapp.domain.ranking.models.RankingModel
+import com.glacierpower.tennisapp.domain.ranking.model.RankingModel
 import mvi.Reducer
 
 @Immutable

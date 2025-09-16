@@ -67,65 +67,55 @@ fun RankingScreen(
                     .background(color = TennisTheme.colors.backgroundGlobe)
                     .padding(paddingValues)
             ) {
-                state.ranking.forEach { rankingModel ->
-
-                    item {
-                        TennisAppText(
-                            modifier = Modifier.padding(
-                                horizontal = TennisTheme.dimensions.padding.l,
-                                vertical = TennisTheme.dimensions.padding.xs
+                item {
+                    TennisAppText(
+                        modifier = Modifier.padding(
+                            horizontal = TennisTheme.dimensions.padding.l,
+                            vertical = TennisTheme.dimensions.padding.xs
+                        ),
+                        text = "${state.ranking.first().type}: ${state.ranking.first().officialUpdatedAt}",
+                        style = TennisTheme.typography.title3
+                    )
+                    TennisAppDivider()
+                }
+                item {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .background(color = TennisTheme.colors.backgroundIsland)
+                            .padding(
+                                vertical = TennisTheme.dimensions.padding.xs,
+                                horizontal = TennisTheme.dimensions.padding.l
                             ),
-                            text = "${rankingModel.name} ${
-                                stringResource(
-                                    R.string.rankings_week,
-                                    rankingModel.week
-                                )
-                            }",
-                            style = TennisTheme.typography.title3
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        TennisAppText(
+                            text = stringResource(R.string.ranking_rank),
+                            style = TennisTheme.typography.body3
                         )
-                        TennisAppDivider()
-                    }
-
-                    item {
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .background(color = TennisTheme.colors.backgroundIsland)
-                                .padding(
-                                    vertical = TennisTheme.dimensions.padding.xs,
-                                    horizontal = TennisTheme.dimensions.padding.l
-                                ),
-                            horizontalArrangement = Arrangement.SpaceBetween
-                        ) {
-                            TennisAppText(
-                                text = stringResource(R.string.ranking_rank),
-                                style = TennisTheme.typography.body3
-                            )
-                            TennisAppText(
-                                text = stringResource(R.string.ranking_points),
-                                style = TennisTheme.typography.body3
-                            )
-                        }
-                        TennisAppDivider()
-                    }
-
-                    items(
-                        items = rankingModel.competitorRankings,
-                        key = { player -> player.competitor.id }
-                    ) { player ->
-                        RankingItem(
-                            rank = player.rank.toString(),
-                            name = player.competitor.name,
-                            points = player.points.toString(),
-                            onPlayerClick = {
-                                onPlayerClick(
-                                    player.competitor.id,
-                                    player.rank.toString()
-                                )
-                            },
-                            flagUri = state.flagUri
+                        TennisAppText(
+                            text = stringResource(R.string.ranking_points),
+                            style = TennisTheme.typography.body3
                         )
                     }
+                    TennisAppDivider()
+                }
+                items(
+                    items = state.ranking,
+                    key = { player -> player.id }
+                ) { player ->
+                    RankingItem(
+                        rank = player.ranking.toString(),
+                        name = player.team.name,
+                        points = player.points.toString(),
+                        onPlayerClick = {
+                            onPlayerClick(
+                                player.id.toString(),
+                                player.ranking.toString()
+                            )
+                        },
+                        flagUri = player.team.logo
+                    )
                 }
             }
         }

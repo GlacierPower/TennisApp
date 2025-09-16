@@ -5,9 +5,8 @@ import androidx.navigation3.runtime.NavKey
 import com.glacierpower.tennisapp.features.player_profile.PlayerProfileScreen
 import com.glacierpower.tennisapp.features.player_profile.args.ProfileArgs
 import com.glacirepower.tennisapp.match_details.MatchDetailsScreen
-import com.glacirepower.tennisapp.match_details.navigation.MatchDetailsArgs
-import com.glacirepower.tennisapp.navigation.navigator_provider.NavigationProvider
 import com.glacirepower.tennisapp.navigation.keys.RankingsKeys
+import com.glacirepower.tennisapp.navigation.navigator_provider.NavigationProvider
 
 class RankingNavProvider(
     private val addToBackStack: (RankingsKeys) -> Unit,
@@ -26,9 +25,7 @@ class RankingNavProvider(
             }
 
             is RankingsKeys.MatchDetails -> NavEntry(key) {
-                MatchDetailsScreen(
-                    args = MatchDetailsArgs(eventId = key.eventId)
-                )
+                MatchDetailsScreen()
             }
 
             else -> error("Unknown screen key: $key")

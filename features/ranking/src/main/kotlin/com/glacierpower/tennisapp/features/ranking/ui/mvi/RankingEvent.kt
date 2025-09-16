@@ -1,7 +1,7 @@
 
 package com.glacierpower.tennisapp.features.ranking.ui.mvi
 
-import com.glacierpower.tennisapp.domain.ranking.models.RankingModel
+import com.glacierpower.tennisapp.domain.ranking.model.RankingModel
 import mvi.Reducer
 
 sealed interface RankingEvent : Reducer.ViewEvent {

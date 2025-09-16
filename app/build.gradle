@@ -7,7 +7,6 @@ plugins {
     alias(libs.plugins.tennisapp.android.library.detekt)
 }
 
-
 android {
     namespace = "com.glacierpower.tennisapp"
 
@@ -17,7 +16,6 @@ android {
 
     buildFeatures {
         buildConfig = true
-        viewBinding = true
     }
 
     packaging {

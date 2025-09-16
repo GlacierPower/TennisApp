@@ -1,7 +1,7 @@
 
 package mappers
 
-import api.responce.ranking.Competitor
+import api.responce.player_profile.Competitor
 import model.CompetitorModel
 import utils.formatName
 

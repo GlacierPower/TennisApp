@@ -1,7 +1,7 @@
 
 package service
 
-import com.glacierpower.tennisapp.domain.ranking.models.RankingModel
+import com.glacierpower.tennisapp.domain.ranking.model.RankingModel
 import network.tennisResult.DataError
 import network.tennisResult.TennisResult
 
