@@ -11,4 +11,6 @@ android {
 dependencies{
     implementation(projects.core.network)
     implementation(projects.domain.common)
+
+    implementation(libs.kotlin.serialization.json)
 }

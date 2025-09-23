@@ -15,4 +15,6 @@ dependencies {
 
     implementation(projects.domain.common)
     implementation(projects.domain.playerProfile)
+
+    implementation(libs.coil.compose)
 }

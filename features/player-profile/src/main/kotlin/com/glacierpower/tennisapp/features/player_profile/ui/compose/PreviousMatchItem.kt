@@ -13,8 +13,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.glacierpower.tennisapp.core.design_system.common.TennisAppDivider
 import com.glacierpower.tennisapp.core.design_system.common.TennisAppSpacer
 import com.glacierpower.tennisapp.core.design_system.text.TennisAppText
-import com.glacierpower.tennisapp.features.player_profile.model.MatchStatus
 import com.glacierpower.tennisapp.features.player_profile.R
+import com.glacierpower.tennisapp.features.player_profile.model.MatchStatus
 import theme.TennisTheme
 
 @Composable
@@ -60,7 +60,7 @@ fun PreviousMatchItem(
                     style = TennisTheme.typography.body3,
                     color = homeWin
                 )
-                TennisAppSpacer(size = TennisTheme.dimensions.space.extraSmall, isVertical = true)
+                TennisAppSpacer(size = TennisTheme.dimensions.space.xxs, isVertical = true)
                 TennisAppText(
                     text = awayPlayerName,
                     style = TennisTheme.typography.body3,
@@ -75,7 +75,7 @@ fun PreviousMatchItem(
                             style = TennisTheme.typography.body3
                         )
                         TennisAppSpacer(
-                            size = TennisTheme.dimensions.space.extraSmall,
+                            size = TennisTheme.dimensions.space.xxs,
                             isVertical = true
                         )
                         TennisAppText(

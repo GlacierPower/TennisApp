@@ -1,15 +1,14 @@
-
 package di
 
 import api.api.CompetitorsApi
+import api.api.CountryFlagApi
 import api.api.EventApi
-import api.api.ImagesApi
 import api.api.RankingApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import qualifiers.Images
+import qualifiers.CountryFlags
 import qualifiers.Tennis
 import retrofit2.Retrofit
 import javax.inject.Singleton
@@ -35,6 +34,6 @@ internal object NetworkServicesModule {
 
     @Provides
     @Singleton
-    fun provideImagesApi(@Images retrofit: Retrofit): ImagesApi =
-        retrofit.create(ImagesApi::class.java)
+    fun provideCountryFlagsApi(@CountryFlags retrofit: Retrofit): CountryFlagApi =
+        retrofit.create(CountryFlagApi::class.java)
 }

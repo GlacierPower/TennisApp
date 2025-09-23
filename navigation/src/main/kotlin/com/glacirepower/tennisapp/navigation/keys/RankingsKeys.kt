@@ -6,7 +6,7 @@ import kotlinx.serialization.Serializable
 sealed interface RankingsKeys : NavKey {
 
     @Serializable
-    data class PlayerProfile(val id: String?, val rank: String) : RankingsKeys
+    data class PlayerProfile(val id: String?) : RankingsKeys
 
     @Serializable
     data class MatchDetails(

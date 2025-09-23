@@ -5,12 +5,11 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import repository.CompetitorsRepository
-import repository.CompetitorsRepositoryImpl
-import repository.ImagesRepository
-import service.CompetitorsService
-import service.CompetitorsServiceImpl
-import javax.inject.Singleton
+import jakarta.inject.Singleton
+import repository.PlayerDetailsRepository
+import repository.PlayerDetailsRepositoryImpl
+import service.PlayerDetailsService
+import service.PlayerDetailsServiceImpl
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -18,13 +17,9 @@ abstract class CompetitorsModule {
 
     @Binds
     @Singleton
-    abstract fun bindCompetitorsRepository(impl: CompetitorsRepositoryImpl): CompetitorsRepository
+    abstract fun bindCompetitorsRepository(impl: PlayerDetailsRepositoryImpl): PlayerDetailsRepository
 
     @Binds
     @Singleton
-    abstract fun bindCompetitorsService(impl: CompetitorsServiceImpl): CompetitorsService
-
-    @Binds
-    @Singleton
-    abstract fun bindImagesRepository(impl: CompetitorsRepositoryImpl): ImagesRepository
+    abstract fun bindCompetitorsService(impl: PlayerDetailsServiceImpl): PlayerDetailsService
 }

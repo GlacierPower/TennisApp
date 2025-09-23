@@ -29,8 +29,8 @@ data class PaddingDimmens internal constructor(
 @ConsistentCopyVisibility
 @Immutable
 data class SpaceDimmens internal constructor(
-    val extraSmall: Dp = 4.dp,
-    val small: Dp = 8.dp,
+    val xxs: Dp = 4.dp,
+    val s: Dp = 8.dp,
     val space20: Dp = 20.dp,
     val space10: Dp = 10.dp
 )
@@ -44,15 +44,18 @@ data class ButtonDimens internal constructor(
 @ConsistentCopyVisibility
 @Immutable
 data class IconDimens internal constructor(
-    val extraSmall: Dp = 16.dp,
-    val small: Dp = 24.dp,
-    val large: Dp = 32.dp
+    val xss: Dp = 8.dp,
+    val s: Dp = 16.dp,
+    val l: Dp = 24.dp,
+    val m: Dp = 32.dp,
+    val xxl: Dp = 48.dp
 )
 
 @ConsistentCopyVisibility
 @Immutable
 data class BaseDimmens internal constructor(
     val spaserLarge: Dp = 20.dp,
+    val bottomBarHeight: Dp = 120.dp
 )
 
 internal val LocalDimensions = staticCompositionLocalOf { TennisDimensions() }

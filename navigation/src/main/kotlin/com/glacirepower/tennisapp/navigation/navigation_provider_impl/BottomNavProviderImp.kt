@@ -18,7 +18,7 @@ class BottomNavProviderImp(
         return when (key) {
             is BottomNavKey.Ranking -> NavEntry(key) {
                 RankingScreen(onPlayerClick = { id, rank ->
-                    addToBackStack(RankingsKeys.PlayerProfile(id, rank))
+                    addToBackStack(RankingsKeys.PlayerProfile(id))
                 })
             }
 

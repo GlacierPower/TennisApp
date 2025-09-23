@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.tennisapp.android.library)
     alias(libs.plugins.tennisapp.hilt)
     alias(libs.plugins.tennisapp.android.library.detekt)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {

@@ -3,25 +3,23 @@ package com.glacierpower.tennisapp.features.ranking.ui
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.glacierpower.tennisapp.core.design_system.TennisAppTopBar
 import com.glacierpower.tennisapp.core.design_system.common.TennisAppDivider
 import com.glacierpower.tennisapp.core.design_system.text.TennisAppText
 import com.glacierpower.tennisapp.features.ranking.R
@@ -35,26 +33,17 @@ fun RankingScreen(
     viewModel: RankingViewModel = hiltViewModel()
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
-    Scaffold(
-        containerColor = TennisTheme.colors.backgroundGlobe,
+    Column(
         modifier = Modifier
-            .systemBarsPadding(),
-        topBar = {
-            TopAppBar(
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = TennisTheme.colors.backgroundGlobe
-                ),
-                title = {
-                    TennisAppText(
-                        text = stringResource(R.string.ranking_screen_title),
-                        style = TennisTheme.typography.title1
-                    )
-                })
-        },
-    ) { paddingValues ->
+            .background(color = TennisTheme.colors.backgroundGlobe)
+    ) {
+        TennisAppTopBar(
+            title = R.string.ranking_screen_title
+        )
         if (state.isLoading) {
             Box(
-                modifier = Modifier.fillMaxSize(),
+                modifier = Modifier
+                    .fillMaxSize(),
                 contentAlignment = Alignment.Center
             ) {
                 CircularProgressIndicator(
@@ -62,11 +51,7 @@ fun RankingScreen(
                 )
             }
         } else {
-            LazyColumn(
-                modifier = Modifier
-                    .background(color = TennisTheme.colors.backgroundGlobe)
-                    .padding(paddingValues)
-            ) {
+            LazyColumn {
                 item {
                     TennisAppText(
                         modifier = Modifier.padding(
@@ -106,15 +91,15 @@ fun RankingScreen(
                 ) { player ->
                     RankingItem(
                         rank = player.ranking.toString(),
-                        name = player.team.name,
+                        name = player.team.nameFull,
                         points = player.points.toString(),
                         onPlayerClick = {
                             onPlayerClick(
-                                player.id.toString(),
+                                player.team.id.toString(),
                                 player.ranking.toString()
                             )
                         },
-                        flagUri = player.team.logo
+                        flagUri = player.countryFlag.orEmpty()
                     )
                 }
             }

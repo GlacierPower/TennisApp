@@ -7,9 +7,9 @@ data class Meta(
     val currentPage: Int,
     val from: Int,
     @property:Json(name = "last_page")
-    val lastPage: Int,
+    val lastPage: Int?,
     @property:Json(name = "per_page")
     val perPage: Int,
     val to: Int,
-    val total: Int
+    val total: Int?
 )

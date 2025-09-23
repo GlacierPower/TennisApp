@@ -7,5 +7,10 @@ data class RankingModel(
     val ranking: Int,
     val tournaments: Int?,
     val officialUpdatedAt: String,
-    val team: TeamModel
-)
+    val team: TeamModel,
+    val countryFlag: String? = null
+) {
+    fun copyWithCountryFlag(flag: String?): RankingModel {
+        return this.copy(countryFlag = flag)
+    }
+}

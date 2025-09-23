@@ -1,5 +1,7 @@
 package com.glacierpower.tennisapp.domain.ranking.model
 
+import model.common.NameTranslationsModel
+
 data class TeamModel(
     val id: Int,
     val sportId: Int,

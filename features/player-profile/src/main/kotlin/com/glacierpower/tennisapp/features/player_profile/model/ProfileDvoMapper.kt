@@ -1,23 +1,37 @@
 package com.glacierpower.tennisapp.features.player_profile.model
 
-import model.player_summaries.SummariesModel
+import models.player_details.events.PlayerEventsDataModel
 import utils.orZero
+import utils.toDayMonth
 
-fun SummariesModel.toSummariesDvo(playerId: String?): SummariesDvo {
-    return SummariesDvo(
-        date = sportEvent.startTime,
-        homeName = sportEvent.competitors.first().name,
-        awayName = sportEvent.competitors.last().name,
-        matchStatus = MatchStatus.valueOf(sportEventStatus.matchStatus.orEmpty().uppercase()),
-        homeScore = sportEventStatus.homeScore.orZero(),
-        awayScore = sportEventStatus.awayScore.orZero(),
-        tournamentName = sportEvent.sportEventContext.competition.name,
-        tournamentCountry = sportEvent.venue.countryName,
-        isWin = sportEventStatus.winnerId == playerId,
-        rankName = sportEvent.sportEventContext.category.name,
-        isHomeWin = sportEventStatus.homeScore.orZero() > sportEventStatus.awayScore.orZero(),
-        isAwayWin = sportEventStatus.homeScore.orZero() < sportEventStatus.awayScore.orZero(),
-        eventId = sportEvent.id,
-        stat = statistics?.totals?.competitors.orEmpty()
+const val HOME_TEAM_WIN = 1
+const val AWAY_TEAM_WIN = 2
+fun PlayerEventsDataModel.toSummariesDvo(playerId: String): PlayerEventDvo {
+    val isHomePlayer = playerId == homeTeam.id.toString()
+    val isAwayPlayer = playerId == awayTeam.id.toString()
+
+    val isWin = when {
+        isHomePlayer && winnerCode == 1 -> true
+        isAwayPlayer && winnerCode == 2 -> true
+        isHomePlayer && winnerCode == 2 -> false
+        isAwayPlayer && winnerCode == 1 -> false
+        else -> false
+    }
+    return PlayerEventDvo(
+        date = startAt.toDayMonth().orEmpty(),
+        homeName = homeTeam.name,
+        awayName = awayTeam.name,
+        matchStatus = MatchStatus.fromString(statusMore.orEmpty()),
+        homeScore = homeScore?.display.orZero().toString(),
+        awayScore = awayScore?.display.orZero().toString(),
+        tournamentName = league.name,
+        groundType = groundType.orEmpty(),
+        isWin = isWin,
+        rankName = "ATP: ",
+        isHomeWin = winnerCode == HOME_TEAM_WIN,
+        isAwayWin = winnerCode == AWAY_TEAM_WIN,
+        eventId = leagueId.toString(),
+        tournamentLogo = league.logo,
+        mainStatModel = mainStat,
     )
 }

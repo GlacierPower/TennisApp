@@ -8,6 +8,7 @@ import com.glacierpower.tennisapp.features.ranking.ui.mvi.RankingReducer
 import com.glacierpower.tennisapp.features.ranking.ui.mvi.RankingState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import model.common.country_flag.CountryDataGenerator.generateCountries
 import mvi.BaseViewModel
 import network.tennisResult.TennisResult
 import javax.inject.Inject
@@ -21,10 +22,11 @@ class RankingViewModel @Inject constructor(
 ) {
 
     init {
+        getCountryFlags()
         getRanking()
     }
 
-    fun getRanking() {
+    private fun getRanking() {
         viewModelScope.launch {
             when (val result = getRankingUseCase()) {
                 is TennisResult.Error -> {
@@ -34,6 +36,12 @@ class RankingViewModel @Inject constructor(
                     sendEvent(RankingEvent.OnGetRankings(result.data))
                 }
             }
+        }
+    }
+
+    private fun getCountryFlags() {
+        viewModelScope.launch {
+            sendEvent(RankingEvent.OnGetCountryFlags(generateCountries()))
         }
     }
 }

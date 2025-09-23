@@ -2,6 +2,7 @@ package com.glacirepower.tennisapp.navigation.navigator_provider
 
 import androidx.navigation3.runtime.NavEntry
 import androidx.navigation3.runtime.NavKey
+import timber.log.Timber
 
 internal class CompositeNavigationProvider(
     private val providers: List<NavigationProvider>
@@ -11,7 +12,7 @@ internal class CompositeNavigationProvider(
             try {
                 return provider.provideEntry(key)
             } catch (e: Exception) {
-                error("No navigation provider found for key: $e")
+                Timber.tag(e.message.orEmpty()).e(e.message.orEmpty())
             }
         }
         error("No navigation provider found for key: $key")

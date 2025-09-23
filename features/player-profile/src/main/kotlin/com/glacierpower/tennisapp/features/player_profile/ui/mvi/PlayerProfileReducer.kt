@@ -14,12 +14,21 @@ class PlayerProfileReducer @Inject constructor() :
             is PlayerProfileEvent.OnPlayerInfoLoaded -> {
                 previousState.copy(
                     playerProfile = event.profile,
-                    playerSummaries = event.summaries.summaries.map { it.toSummariesDvo(previousState.playerId) },
                     isLoading = false
                 ) to null
             }
 
-            is PlayerProfileEvent.OnUpdatePlayerData -> previousState.copy(playerId = event.playerId, rank = event.rank) to null
+            is PlayerProfileEvent.OnUpdatePlayerData -> previousState.copy(playerId = event.playerId) to null
+            is PlayerProfileEvent.OnUpdateCountryFlag -> {
+                val flagUrl = event.flags.find {
+                    it.name == previousState.playerProfile?.country
+                }?.flagUrl
+                previousState.copy(flagUrl = flagUrl) to null
+            }
+
+            is PlayerProfileEvent.OnPlayerEventsLoaded -> previousState.copy(
+                events = event.events.map { it.toSummariesDvo(previousState.playerId.orEmpty()) },
+            ) to null
         }
     }
 }

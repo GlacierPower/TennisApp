@@ -21,7 +21,6 @@ plugins {
     alias(libs.plugins.detekt.plugin) apply false
     alias(libs.plugins.google.services.gms) apply false
     alias(libs.plugins.firebase.crashlytics) apply false
-    alias(libs.plugins.firebase.app.distribuiton) apply false
 }
 
 tasks.register('installGitHooks') {

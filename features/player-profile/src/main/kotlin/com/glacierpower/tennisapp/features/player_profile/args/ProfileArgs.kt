@@ -4,6 +4,5 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class ProfileArgs(
-    val rank: String? = null,
     val id: String? = null
 )

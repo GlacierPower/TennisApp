@@ -20,7 +20,7 @@ class RankingNavProvider(
                     onNavigateToDetails = { eventId ->
                         addToBackStack(RankingsKeys.MatchDetails(eventId))
                     },
-                    args = ProfileArgs(id = key.id, rank = key.rank)
+                    args = ProfileArgs(id = key.id)
                 )
             }
 

@@ -1,6 +1,5 @@
 package com.glacierpower.tennisapp.features.player_profile
 
-import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.glacierpower.tennisapp.features.player_profile.args.ProfileArgs
 import com.glacierpower.tennisapp.features.player_profile.ui.mvi.PlayerProfileEffect
@@ -11,18 +10,18 @@ import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
+import model.common.country_flag.CountryDataGenerator.generateCountries
 import mvi.BaseViewModel
-import use_case.GetPlayerProfileUseCase
-import use_case.GetPlayerSummariesUseCase
-import use_case.GetPlayersImagesManifestUseCase
+import network.tennisResult.TennisResult
+import timber.log.Timber
+import use_case.GetPlayerDetailsUseCase
+import use_case.GetPlayerEventsUseCase
 
 @HiltViewModel(assistedFactory = PlayerProfileViewModel.PlayerProfileViewModelFactory::class)
 class PlayerProfileViewModel @AssistedInject constructor(
-    private val getPlayerProfileUseCase: GetPlayerProfileUseCase,
-    private val getPlayerSummariesUseCase: GetPlayerSummariesUseCase,
-    private val getPlayersImagesManifestUseCase: GetPlayersImagesManifestUseCase,
+    private val getPlayerDetailsUseCase: GetPlayerDetailsUseCase,
+    private val getPlayerEventsUseCase: GetPlayerEventsUseCase,
     @Assisted private val args: ProfileArgs,
 ) : BaseViewModel<PlayerProfileState, PlayerProfileEvent, PlayerProfileEffect>(
     initialState = PlayerProfileState(),
@@ -30,31 +29,44 @@ class PlayerProfileViewModel @AssistedInject constructor(
 ), PlayerProfileIntent {
 
     init {
-        sendEvent(PlayerProfileEvent.OnUpdatePlayerData(playerId = args.id, rank = args.rank))
+        sendEvent(PlayerProfileEvent.OnUpdatePlayerData(playerId = args.id))
         getPlayerInfo()
+    }
+
+    private fun getCountryFlags() {
+        viewModelScope.launch {
+            sendEvent(PlayerProfileEvent.OnUpdateCountryFlag(generateCountries()))
+        }
     }
 
     private fun getPlayerInfo() {
         val playerId = state.value.playerId
         viewModelScope.launch {
             playerId?.let { id ->
-                val profile = async {
-                    getPlayerProfileUseCase(id)
-                }.await()
-                val summaries = async {
-                    getPlayerSummariesUseCase(id)
-                }.await()
-                val image = async {
-                    getPlayersImagesManifestUseCase()
-                }.await()
-                Log.d("Images", "${image}")
-                summaries.getOrNull()?.let {
-                    sendEvent(
-                        PlayerProfileEvent.OnPlayerInfoLoaded(
-                            profile.getOrNull(),
-                            it
-                        )
-                    )
+                when (val result = getPlayerDetailsUseCase(id)) {
+                    is TennisResult.Error -> {
+                        Timber.e(result.error.toString())
+                    }
+
+                    is TennisResult.Success -> {
+                        sendEvent(PlayerProfileEvent.OnPlayerInfoLoaded(result.data))
+                        getCountryFlags()
+                        getPlayerEvent()
+                    }
+                }
+            }
+        }
+    }
+
+    private fun getPlayerEvent() {
+        val playerId = state.value.playerId
+        viewModelScope.launch {
+            playerId?.let { id ->
+                when (val result = getPlayerEventsUseCase(id)) {
+                    is TennisResult.Error -> Timber.e(result.error.toString())
+                    is TennisResult.Success -> {
+                        sendEvent(PlayerProfileEvent.OnPlayerEventsLoaded(result.data.data))
+                    }
                 }
             }
         }
