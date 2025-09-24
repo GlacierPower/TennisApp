@@ -15,4 +15,6 @@ dependencies {
 
     implementation(projects.domain.common)
     implementation(projects.domain.matchDetails)
+
+    implementation(libs.coil.compose)
 }
