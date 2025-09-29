@@ -7,4 +7,5 @@
     <string name="player_profile_match_not_started">\?</string>
     <string name="player_profile_match_won">W</string>
     <string name="player_profile_match_lost">L</string>
+    <string name="player_profile_age_template">Age: %1$s</string>
 </resources>

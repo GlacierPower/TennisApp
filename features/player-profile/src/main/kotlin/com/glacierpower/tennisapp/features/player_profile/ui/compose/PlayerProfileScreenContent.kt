@@ -1,66 +1,46 @@
 package com.glacierpower.tennisapp.features.player_profile.ui.compose
 
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.systemBarsPadding
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import com.glacierpower.tennisapp.core.design_system.buttons.TennisAppCircularButton
-import com.glacierpower.tennisapp.core.design_system.text.TennisAppText
+import com.glacierpower.tennisapp.core.design_system.TennisAppTopBar
 import com.glacierpower.tennisapp.features.player_profile.PlayerProfileIntent
 import com.glacierpower.tennisapp.features.player_profile.R
 import com.glacierpower.tennisapp.features.player_profile.ui.mvi.PlayerProfileState
+import kotlinx.serialization.InternalSerializationApi
 import theme.TennisTheme
 import com.glacierpower.tennisapp.core.design_system.R as DsR
-
+@InternalSerializationApi
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PlayerProfileScreenContent(
     state: PlayerProfileState,
     intentListener: PlayerProfileIntent
 ) {
-    Scaffold(
-        containerColor = TennisTheme.colors.backgroundGlobe,
-        modifier = Modifier
-            .systemBarsPadding(),
-        topBar = {
-            TopAppBar(
-                modifier = Modifier.padding(top = TennisTheme.dimensions.padding.xl),
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = TennisTheme.colors.backgroundGlobe
-                ),
-                title = {
-                    TennisAppText(
-                        text = stringResource(R.string.player_profile_app_bar_title),
-                        style = TennisTheme.typography.title1
-
-                    )
-                },
-                navigationIcon = {
-                    TennisAppCircularButton(
-                        iconId = DsR.drawable.ic_back,
-                        onClick = intentListener::onNavigateBack
-                    )
-                }
-            )
-        }
-    ) { paddingValues ->
+    Column(
+        modifier = Modifier.background(TennisTheme.colors.backgroundGlobe)
+    ) {
+        TennisAppTopBar(
+            title = R.string.player_profile_app_bar_title,
+            leftIcon = DsR.drawable.ic_arrow_left,
+            onLeftIconClick = intentListener::onNavigateBack
+        )
         state.playerProfile?.let { player ->
             PlayerProfileContent(
-                modifier = Modifier.padding(paddingValues),
-                country = player.competitor.country,
-                name = player.competitor.name,
+                country = player.country,
+                name = player.name,
                 age = stringResource(
-                    R.string.player_profile_age,
-                    player.info.age,
-                    player.info.dateOfBirth
+                    R.string.player_profile_age_template,
+                    player.details?.dateOfBirth.orEmpty()
                 ),
-                playerSummaries = state.playerSummaries,
-                rankName = "${state.playerSummaries.first().rankName}. ${state.rank}"
+                playerEvents = state.events,
+                rankName = "ATP: ${player.tennisRanking?.ranking}",
+                onMatchClick = intentListener::onNavigateToMatchDetails,
+                imageUrl = player.logo,
+                flagUrl = state.flagUrl.toString()
             )
         }
     }

@@ -1,7 +1,6 @@
 
 package api.responce.player_profile
 
-import api.responce.ranking.Competitor
 import com.squareup.moshi.Json
 
 data class PlayerProfileResponse(

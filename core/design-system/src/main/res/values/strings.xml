@@ -1,0 +1,8 @@
+<resources>
+    <string name="stats">Stats</string>
+    <string name="aces">Aces</string>
+    <string name="doubleFaults">Double Faults</string>
+    <string name="firstServe">First Serve</string>
+    <string name="secondServe">Second Serve</string>
+    <string name="odds">Odds</string>
+</resources>

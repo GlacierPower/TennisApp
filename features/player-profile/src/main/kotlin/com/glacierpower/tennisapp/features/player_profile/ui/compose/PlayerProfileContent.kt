@@ -8,20 +8,24 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
-import com.glacierpower.tennisapp.features.player_profile.model.SummariesDvo
+import com.glacierpower.tennisapp.features.player_profile.model.PlayerEventDvo
+import kotlinx.serialization.InternalSerializationApi
 import theme.TennisTheme
 
+@InternalSerializationApi
 @Composable
 fun PlayerProfileContent(
-    playerSummaries: List<SummariesDvo>,
+    playerEvents: List<PlayerEventDvo>,
     country: String,
     name: String,
     age: String,
     rankName: String,
-    modifier: Modifier = Modifier
+    imageUrl: String,
+    flagUrl: String,
+    modifier: Modifier = Modifier,
+    onMatchClick: (String) -> Unit
 ) {
-    val grouped = playerSummaries.groupBy { it.tournamentName }
+    val grouped = playerEvents.groupBy { it.leagueId }
     Column(
         modifier = modifier
             .fillMaxWidth()
@@ -31,30 +35,34 @@ fun PlayerProfileContent(
             country = country,
             name = name,
             age = age,
-            rank = rankName
+            rank = rankName,
+            imageUrl = imageUrl,
+            flagUrl = flagUrl
         )
-        LazyColumn(modifier = Modifier.padding(bottom = 100.dp)) {
-            grouped.forEach { (tournamentName, matches) ->
+        LazyColumn(modifier = Modifier.fillMaxWidth()) {
+            grouped.forEach { (_, matches) ->
                 stickyHeader {
                     TournamentItem(
-                        tournamentName = tournamentName,
-                        countryName = matches.first().tournamentCountry
+                        tournamentName = matches.first().tournamentName,
+                        groundType = matches.first().groundType,
+                        tournamentLogo = matches.first().tournamentLogo
                     )
                 }
 
-                items(matches) { summary ->
+                items(matches) { event ->
                     PreviousMatchItem(
                         modifier = Modifier
                             .padding(horizontal = TennisTheme.dimensions.padding.l),
-                        date = summary.date,
-                        homePlayerName = summary.homeName,
-                        awayPlayerName = summary.awayName,
-                        matchStatus = summary.matchStatus,
-                        isWin = summary.isWin,
-                        homeScore = summary.homeScore.toString(),
-                        awayScore = summary.awayScore.toString(),
-                        isHomeWin = summary.isHomeWin,
-                        isAwayWin = summary.isAwayWin
+                        date = event.date,
+                        homePlayerName = event.homeName,
+                        awayPlayerName = event.awayName,
+                        matchStatus = event.matchStatus,
+                        isWin = event.isWin,
+                        homeScore = event.homeScore,
+                        awayScore = event.awayScore,
+                        isHomeWin = event.isHomeWin,
+                        isAwayWin = event.isAwayWin,
+                        onMatchClick = { onMatchClick(event.eventId) },
                     )
                 }
             }

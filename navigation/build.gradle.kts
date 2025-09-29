@@ -15,8 +15,12 @@ dependencies {
     implementation(libs.nav3.runtime)
     implementation(libs.androidx.lifecycle.viewmodel.nav3)
     implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.kotlin.serialization.json)
 
     implementation(projects.core.ui)
     implementation(projects.features.ranking)
     implementation(projects.features.playerProfile)
+    implementation(projects.features.matchDetails)
+
+    implementation(projects.domain.common)
 }

@@ -21,7 +21,6 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 include(":app")
 include(":navigation")
-include(":navigation:common")
 
 include(":core:network")
 include(":core:ui")
@@ -30,10 +29,13 @@ include(":core:design-system")
 include(":data:ranking")
 include(":data:common")
 include(":data:player-profile")
+include(":data:match_details")
 
 include(":features:ranking")
 include(":features:player-profile")
+include(":features:match-details")
 
 include(":domain:ranking")
 include(":domain:common")
 include(":domain:player-profile")
+include(":domain:match_details")

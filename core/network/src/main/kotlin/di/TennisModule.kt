@@ -55,7 +55,7 @@ internal object TennisModule {
         okHttpClient: OkHttpClient,
         json: Json
     ): Retrofit {
-        val baseUrl = "https://api.sportradar.com/tennis/trial/v3/en/"
+        val baseUrl = "https://sportscore1.p.rapidapi.com/"
         val moshi = Moshi.Builder()
             .add(KotlinJsonAdapterFactory())
             .build()

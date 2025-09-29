@@ -1,8 +1,9 @@
 package com.glacirepower.tennisapp.navigation
 
 import androidx.activity.compose.BackHandler
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -19,9 +20,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.navigation3.runtime.NavBackStack
 import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.rememberNavBackStack
+import com.glacirepower.tennisapp.navigation.keys.BottomNavKey
 import com.glacirepower.tennisapp.navigation.root.NavigationRoot
+import kotlinx.serialization.InternalSerializationApi
 import theme.TennisTheme
 
+@OptIn(InternalSerializationApi::class)
 @Composable
 fun NavigationScreen() {
     val rankingBackStack = rememberNavBackStack(BottomNavKey.Ranking)
@@ -50,9 +54,9 @@ fun NavigationScreen() {
             BottomNavKey.News -> newsBackStack.add(it)
         }
     }
-    val resetBackStack: (NavBackStack) -> Unit = {
+    val resetBackStack: (NavBackStack<*>) -> Unit = {
         if (it.size > 1)
-            it.removeRange(1, it.size)
+            it.removeFirstOrNull()
     }
 
     val onHandleBackPressed: () -> Unit = {
@@ -71,10 +75,16 @@ fun NavigationScreen() {
     }
 
     Scaffold(
+        modifier = Modifier.fillMaxSize(),
         bottomBar = {
-            NavigationBar(modifier = Modifier.background(color = TennisTheme.colors.backgroundGlobe)) {
+            NavigationBar(
+                modifier = Modifier.height(TennisTheme.dimensions.base.bottomBarHeight),
+                containerColor = TennisTheme.colors.backgroundGlobe,
+                contentColor = TennisTheme.colors.iconPrimary
+            ) {
                 BottomNavKey.items.forEach { key ->
                     NavigationBarItem(
+                        alwaysShowLabel = true,
                         selected = key == currentKey,
                         onClick = {
                             if (currentKey != key) {
@@ -99,15 +109,18 @@ fun NavigationScreen() {
                     )
                 }
             }
+        },
+        content = { padding ->
+            NavigationRoot(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(padding),
+                addToBackStack = addToBackStack,
+                currentBackStack = currentBackStack,
+                onNavigateBack = onHandleBackPressed
+            )
         }
-    ) { _ ->
-        NavigationRoot(
-            modifier = Modifier.fillMaxSize(),
-            addToBackStack = addToBackStack,
-            currentBackStack = currentBackStack,
-            onNavigateBack = onHandleBackPressed
-        )
-    }
+    )
 
     BackHandler(enabled = true) {
         onHandleBackPressed()

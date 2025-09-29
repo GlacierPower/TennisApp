@@ -32,5 +32,6 @@ fun Project.configureAndroidCompose(extension: CommonExtension<*, *, *, *, *, *>
         "implementation"(libs.findLibrary("androidx-compose-preview").get())
         "implementation"(libs.findLibrary("androidx-compose-foundation").get())
         "implementation"(libs.findLibrary("androidx-hilt-navigation-compose").get())
+        "implementation"(libs.findLibrary("androidx-compose-runtime").get())
     }
 }

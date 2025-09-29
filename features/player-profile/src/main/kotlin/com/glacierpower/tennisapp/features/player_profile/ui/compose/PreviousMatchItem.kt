@@ -1,5 +1,6 @@
 package com.glacierpower.tennisapp.features.player_profile.ui.compose
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -12,8 +13,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.glacierpower.tennisapp.core.design_system.common.TennisAppDivider
 import com.glacierpower.tennisapp.core.design_system.common.TennisAppSpacer
 import com.glacierpower.tennisapp.core.design_system.text.TennisAppText
-import com.glacierpower.tennisapp.features.player_profile.model.MatchStatus
 import com.glacierpower.tennisapp.features.player_profile.R
+import com.glacierpower.tennisapp.features.player_profile.model.MatchStatus
 import theme.TennisTheme
 
 @Composable
@@ -27,7 +28,8 @@ fun PreviousMatchItem(
     awayScore: String,
     isHomeWin: Boolean,
     isAwayWin: Boolean,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onMatchClick: () -> Unit
 ) {
     val homeWin = TennisTheme.colors.run { if (isHomeWin) textAccentSecondary else textPrimary }
     val awayWin = TennisTheme.colors.run { if (isAwayWin) textAccentSecondary else textPrimary }
@@ -37,6 +39,9 @@ fun PreviousMatchItem(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
+                .clickable {
+                    onMatchClick()
+                }
                 .padding(
                     vertical = TennisTheme.dimensions.padding.s
                 ),
@@ -46,7 +51,7 @@ fun PreviousMatchItem(
                 text = date,
                 style = TennisTheme.typography.body3
             )
-            TennisAppSpacer(size = TennisTheme.dimensions.space.space10)
+            TennisAppSpacer(size = TennisTheme.dimensions.space.m)
             Column(
                 modifier = Modifier.weight(1f)
             ) {
@@ -55,7 +60,7 @@ fun PreviousMatchItem(
                     style = TennisTheme.typography.body3,
                     color = homeWin
                 )
-                TennisAppSpacer(size = TennisTheme.dimensions.space.extraSmall, isVertical = true)
+                TennisAppSpacer(size = TennisTheme.dimensions.space.xxs, isVertical = true)
                 TennisAppText(
                     text = awayPlayerName,
                     style = TennisTheme.typography.body3,
@@ -63,14 +68,14 @@ fun PreviousMatchItem(
                 )
             }
             when (matchStatus) {
-                MatchStatus.ENDED -> {
+                MatchStatus.ENDED, MatchStatus.FINISHED -> {
                     Column {
                         TennisAppText(
                             text = homeScore,
                             style = TennisTheme.typography.body3
                         )
                         TennisAppSpacer(
-                            size = TennisTheme.dimensions.space.extraSmall,
+                            size = TennisTheme.dimensions.space.xxs,
                             isVertical = true
                         )
                         TennisAppText(
@@ -95,8 +100,9 @@ fun PreviousMatchItem(
                 }
 
                 MatchStatus.NOT_STARTED -> {}
+                else -> {}
             }
-            TennisAppSpacer(size = TennisTheme.dimensions.space.space10)
+            TennisAppSpacer(size = TennisTheme.dimensions.space.m)
             StatusIcon(matchStatus, isWin)
         }
         TennisAppDivider()
@@ -116,7 +122,8 @@ fun PreviousMatchPreview() {
             homeScore = "3",
             awayScore = "1",
             isHomeWin = true,
-            isAwayWin = false
+            isAwayWin = false,
+            onMatchClick = {}
         )
     }
 }

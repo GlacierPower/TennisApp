@@ -7,8 +7,12 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import coil.compose.AsyncImage
 import com.glacierpower.tennisapp.core.design_system.common.TennisAppDivider
 import com.glacierpower.tennisapp.core.design_system.common.TennisAppSpacer
 import com.glacierpower.tennisapp.core.design_system.text.TennisAppText
@@ -20,7 +24,8 @@ fun RankingItem(
     rank: String,
     name: String,
     points: String,
-    onPlayerClick: () -> Unit
+    onPlayerClick: () -> Unit,
+    flagUri: String
 ) {
     Column(
         modifier = modifier
@@ -35,12 +40,25 @@ fun RankingItem(
                     vertical = TennisTheme.dimensions.padding.s,
                     horizontal = TennisTheme.dimensions.padding.l
                 ),
-            horizontalArrangement = Arrangement.SpaceBetween
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
         ) {
-            Row {
+            Row(
+                verticalAlignment = Alignment.CenterVertically
+            ) {
                 TennisAppText(
                     text = "${rank}.",
-                    style = TennisTheme.typography.body3
+                    style = TennisTheme.typography.body3,
+                    modifier = Modifier.width(TennisTheme.dimensions.icon.l)
+                )
+                TennisAppSpacer(size = TennisTheme.dimensions.base.spaserLarge)
+                AsyncImage(
+                    model = flagUri,
+                    contentDescription = null,
+                    modifier = Modifier.size(
+                        height = TennisTheme.dimensions.icon.s,
+                        width = TennisTheme.dimensions.icon.l
+                    )
                 )
                 TennisAppSpacer(size = TennisTheme.dimensions.base.spaserLarge)
                 TennisAppText(
