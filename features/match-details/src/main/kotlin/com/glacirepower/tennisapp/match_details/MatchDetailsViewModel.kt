@@ -43,7 +43,7 @@ class MatchDetailsViewModel @AssistedInject constructor(
     }
 
     override fun onTournamentClick(id: String) {
-        TODO("Not yet implemented")
+        sendEffect(MatchDetailsEffect.NavigateToTournamentDetails(id))
     }
 
     @AssistedFactory

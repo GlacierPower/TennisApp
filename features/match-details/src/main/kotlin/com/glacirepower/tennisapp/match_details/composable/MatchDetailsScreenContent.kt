@@ -1,5 +1,6 @@
 package com.glacirepower.tennisapp.match_details.composable
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
@@ -7,6 +8,7 @@ import androidx.compose.ui.Modifier
 import com.glacirepower.tennisapp.match_details.MatchDetailsIntent
 import com.glacirepower.tennisapp.match_details.mvi.MatchDetailsState
 import kotlinx.serialization.InternalSerializationApi
+import theme.TennisTheme
 import utils.orEmptyString
 
 @Composable
@@ -16,7 +18,9 @@ fun MatchDetailsScreenContent(
     matchDetailsIntent: MatchDetailsIntent
 ) {
     Column(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier
+            .fillMaxSize()
+            .background(TennisTheme.colors.backgroundGlobe)
     ) {
         state.event?.let { event ->
             MatchDetailsHeader(

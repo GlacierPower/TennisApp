@@ -32,6 +32,8 @@ fun MatchDetailsScreen(
                 is MatchDetailsEffect.NavigateToPlayerDetails -> navigator.navigateToPlayerDetails(
                     effect.playerId
                 )
+
+                is MatchDetailsEffect.NavigateToTournamentDetails -> {}
             }
         }
     }

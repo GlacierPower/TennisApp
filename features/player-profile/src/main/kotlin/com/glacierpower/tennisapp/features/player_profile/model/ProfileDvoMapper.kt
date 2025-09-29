@@ -24,7 +24,7 @@ fun PlayerEventsDataModel.toSummariesDvo(playerId: String): PlayerEventDvo {
         date = startAt.toDayMonth().orEmpty(),
         homeName = homeTeam.name,
         awayName = awayTeam.name,
-        matchStatus = MatchStatus.fromString(statusMore.orEmpty()),
+        matchStatus = MatchStatus.fromString(status.uppercase()),
         homeScore = homeScore?.display.orEmptyString(),
         awayScore = awayScore?.display.orEmptyString(),
         tournamentName = league.name,

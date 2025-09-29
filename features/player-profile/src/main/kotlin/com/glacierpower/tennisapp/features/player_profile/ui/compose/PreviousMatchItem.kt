@@ -68,7 +68,7 @@ fun PreviousMatchItem(
                 )
             }
             when (matchStatus) {
-                MatchStatus.ENDED -> {
+                MatchStatus.ENDED, MatchStatus.FINISHED -> {
                     Column {
                         TennisAppText(
                             text = homeScore,
@@ -100,6 +100,7 @@ fun PreviousMatchItem(
                 }
 
                 MatchStatus.NOT_STARTED -> {}
+                else -> {}
             }
             TennisAppSpacer(size = TennisTheme.dimensions.space.m)
             StatusIcon(matchStatus, isWin)

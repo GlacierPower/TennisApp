@@ -19,7 +19,7 @@ fun List<PlayerEventsDataRs>.toPlayerEventsDataModel(): List<PlayerEventsDataMod
             refereeId = data.refereeId,
             slug = data.slug,
             name = data.name,
-            status = data.status,
+            status = data.status.replaceFirstChar { it.uppercase() },
             statusMore = data.statusMore,
             timeDetails = data.timeDetails?.toTimeDetailsModel(),
             homeTeam = data.homeTeam.toTeamModel(),
