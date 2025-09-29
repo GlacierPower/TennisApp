@@ -1,7 +1,7 @@
 package mappers.events
 
 import api.responce.player_events.ScoreRs
-import models.player_details.events.ScoreModel
+import model.events.ScoreModel
 
 fun ScoreRs.toScoreModel(): ScoreModel {
     return ScoreModel(

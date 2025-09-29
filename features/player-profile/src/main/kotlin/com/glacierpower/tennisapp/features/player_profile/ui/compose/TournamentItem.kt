@@ -38,7 +38,7 @@ fun TournamentItem(
             modifier = Modifier
                 .background(
                     color = TennisTheme.colors.iconPrimary,
-                    shape = TennisTheme.shapes.small
+                    shape = TennisTheme.shapes.s
                 ),
             contentAlignment = Alignment.Center
         ) {
@@ -59,7 +59,7 @@ fun TournamentItem(
                 text = tournamentName,
                 style = TennisTheme.typography.body2
             )
-            TennisAppSpacer(size = TennisTheme.dimensions.space.space10)
+            TennisAppSpacer(size = TennisTheme.dimensions.space.m)
             TennisAppText(
                 text = groundType,
                 style = TennisTheme.typography.body3

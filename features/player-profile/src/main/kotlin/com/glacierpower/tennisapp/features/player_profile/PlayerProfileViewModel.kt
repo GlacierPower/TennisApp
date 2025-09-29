@@ -11,6 +11,7 @@ import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import kotlinx.serialization.InternalSerializationApi
 import model.common.country_flag.CountryDataGenerator.generateCountries
 import mvi.BaseViewModel
 import network.tennisResult.TennisResult
@@ -18,6 +19,7 @@ import timber.log.Timber
 import use_case.GetPlayerDetailsUseCase
 import use_case.GetPlayerEventsUseCase
 
+@InternalSerializationApi
 @HiltViewModel(assistedFactory = PlayerProfileViewModel.PlayerProfileViewModelFactory::class)
 class PlayerProfileViewModel @AssistedInject constructor(
     private val getPlayerDetailsUseCase: GetPlayerDetailsUseCase,
@@ -77,7 +79,7 @@ class PlayerProfileViewModel @AssistedInject constructor(
     }
 
     override fun onNavigateToMatchDetails(eventId: String) {
-        sendEffect(PlayerProfileEffect.NavigateToMatchDetails(eventId))
+        sendEventForEffect(PlayerProfileEvent.OnNavigateToMatchDetails(eventId))
     }
 
     @AssistedFactory

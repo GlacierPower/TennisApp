@@ -1,4 +1,4 @@
-package models.player_details.events
+package model.events
 
 data class MetaModel(
     val currentPage: Int,

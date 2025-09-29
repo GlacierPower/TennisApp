@@ -2,7 +2,7 @@ package mappers.events
 
 import api.responce.player_events.LeagueRs
 import mappers.toNameTranslationsModel
-import models.player_details.events.LeagueModel
+import model.events.LeagueModel
 
 fun LeagueRs.toLeagueModel(): LeagueModel {
     return LeagueModel(

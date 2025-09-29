@@ -1,7 +1,7 @@
 package mappers.events
 
 import api.responce.player_events.PlayerEventsRs
-import models.player_details.events.PlayerEventsModel
+import model.events.PlayerEventsModel
 
 fun PlayerEventsRs.toPlayerEventsModel(): PlayerEventsModel {
     return PlayerEventsModel(

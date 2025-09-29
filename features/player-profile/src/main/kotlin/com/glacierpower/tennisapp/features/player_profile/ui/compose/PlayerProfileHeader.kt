@@ -62,13 +62,13 @@ fun PlayerProfileHeader(
                 contentDescription = null
             )
             Column {
-                TennisAppSpacer(size = TennisTheme.dimensions.space.space10, isVertical = true)
+                TennisAppSpacer(size = TennisTheme.dimensions.space.m, isVertical = true)
                 TennisAppText(
                     modifier = Modifier.padding(horizontal = TennisTheme.dimensions.padding.l),
                     text = name,
                     style = TennisTheme.typography.title3
                 )
-                TennisAppSpacer(size = TennisTheme.dimensions.space.space10, isVertical = true)
+                TennisAppSpacer(size = TennisTheme.dimensions.space.m, isVertical = true)
                 TennisAppText(
                     modifier = Modifier.padding(horizontal = TennisTheme.dimensions.padding.l),
                     text = age,
@@ -88,7 +88,7 @@ fun PlayerProfileHeader(
                     .padding(vertical = TennisTheme.dimensions.padding.s)
                     .background(
                         color = TennisTheme.colors.iconSecondary,
-                        shape = TennisTheme.shapes.small
+                        shape = TennisTheme.shapes.s
                     )
             ) {
                 Icon(
@@ -99,7 +99,7 @@ fun PlayerProfileHeader(
                     contentDescription = null,
                 )
             }
-            TennisAppSpacer(size = TennisTheme.dimensions.space.space10)
+            TennisAppSpacer(size = TennisTheme.dimensions.space.m)
             TennisAppText(
                 text = rank,
                 style = TennisTheme.typography.body3

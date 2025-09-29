@@ -1,7 +1,7 @@
 package mappers.events
 
 import api.responce.player_events.MainOddsRs
-import models.player_details.events.MainOddsModel
+import model.events.MainOddsModel
 
 fun MainOddsRs.toMainOddsModel(): MainOddsModel {
     return MainOddsModel(

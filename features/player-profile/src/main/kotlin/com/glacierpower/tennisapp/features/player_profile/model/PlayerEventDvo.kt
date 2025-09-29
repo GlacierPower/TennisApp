@@ -1,8 +1,10 @@
 package com.glacierpower.tennisapp.features.player_profile.model
 
 import androidx.compose.runtime.Immutable
-import models.player_details.events.MainStatModel
+import kotlinx.serialization.InternalSerializationApi
+import model.events.MainStatModel
 
+@InternalSerializationApi
 @Immutable
 data class PlayerEventDvo(
     val date: String,
@@ -17,7 +19,8 @@ data class PlayerEventDvo(
     val rankName: String,
     val isHomeWin: Boolean,
     val isAwayWin: Boolean,
-    val eventId: String,
+    val leagueId: String,
     val tournamentLogo: String,
-    val mainStatModel: MainStatModel?
+    val mainStatModel: MainStatModel?,
+    val eventId: String
 )

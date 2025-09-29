@@ -149,6 +149,13 @@ data class TennisTypography(
         fontSize = 10.sp,
         lineHeight = 16.sp,
         letterSpacing = 1.5.sp,
+    ),
+    val timeSmall: TextStyle = TextStyle(
+        fontFamily = TennisFontFamily,
+        fontWeight = FontWeight.Medium,
+        fontSize = 8.sp,
+        lineHeight = 16.sp,
+        letterSpacing = 0.5.sp,
     )
 )
 

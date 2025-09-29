@@ -1,18 +1,17 @@
 package com.glacirepower.tennisapp.match_details.composable
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Surface
+import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import coil.compose.AsyncImage
+import androidx.compose.ui.unit.dp
 import com.glacierpower.tennisapp.core.design_system.TennisAppTopBar
 import com.glacierpower.tennisapp.core.design_system.buttons.TennisAppCircularButton
 import com.glacierpower.tennisapp.core.design_system.common.TennisAppDivider
@@ -25,9 +24,13 @@ import com.glacierpower.tennisapp.core.design_system.R as DsR
 fun MatchDetailsHeader(
     tournamentName: String,
     homeTeamImage: String,
-    awayReamImage: String,
-    homeTeamScore: Int,
-    awayTeamScore: Int,
+    awayTeamImage: String,
+    homeTeamName: String,
+    awayTeamName: String,
+    homeTeamRank: String,
+    awayTeamRank: String,
+    homeTeamScore: String,
+    awayTeamScore: String,
     date: String,
     matchStatus: String,
     onHomeTeamClick: () -> Unit,
@@ -62,7 +65,8 @@ fun MatchDetailsHeader(
             TennisAppCircularButton(
                 onClick = { onTournamentClick() },
                 iconId = DsR.drawable.ic_arrow_right,
-                colors = TennisTheme.colors.iconPrimary,
+                modifier = Modifier.size(12.dp),
+                colors = TennisTheme.colors.backgroundIsland
             )
         }
         TennisAppDivider()
@@ -75,18 +79,19 @@ fun MatchDetailsHeader(
                     vertical = TennisTheme.dimensions.padding.m
                 ),
         ) {
-            AsyncImage(
-                model = homeTeamImage,
-                contentDescription = homeTeamImage,
-                modifier = Modifier.clickable { onHomeTeamClick() }
+            PlayerContent(
+                playerImage = homeTeamImage,
+                playerName = homeTeamName,
+                playerRank = homeTeamRank,
+                onPlayerClick = { onHomeTeamClick() }
             )
             Column(
-                modifier = Modifier.fillMaxWidth(),
-                verticalArrangement = Arrangement.SpaceBetween
+                modifier = Modifier.weight(1f),
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 TennisAppText(
                     text = date,
-                    style = TennisTheme.typography.title1
+                    style = TennisTheme.typography.body3,
                 )
 
                 TennisAppText(
@@ -95,13 +100,14 @@ fun MatchDetailsHeader(
                 )
                 TennisAppText(
                     text = matchStatus,
-                    style = TennisTheme.typography.title1
+                    style = TennisTheme.typography.body3
                 )
             }
-            AsyncImage(
-                model = awayReamImage,
-                contentDescription = awayReamImage,
-                modifier = Modifier.clickable { onAwayTeamClick() }
+            PlayerContent(
+                playerImage = awayTeamImage,
+                playerName = awayTeamName,
+                playerRank = awayTeamRank,
+                onPlayerClick = { onAwayTeamClick() }
             )
         }
     }
@@ -110,26 +116,26 @@ fun MatchDetailsHeader(
 @Preview(
     name = "MatchDetailsHeader — Home Win (Light)",
     showBackground = true,
-    widthDp = 360,
-    heightDp = 120
 )
 @Composable
 fun PreviewMatchDetailsHeader_HomeWin_Light() {
     TennisTheme {
-        Surface {
-            MatchDetailsHeader(
-                tournamentName = "ATP Finals",
-                homeTeamImage = "https://via.placeholder.com/64.png?text=HOME",
-                awayReamImage = "https://via.placeholder.com/64.png?text=AWAY",
-                homeTeamScore = 3,
-                awayTeamScore = 1,
-                date = "24.09.2025 20:00",
-                matchStatus = "Finished",
-                onHomeTeamClick = {},
-                onAwayTeamClick = {},
-                onTournamentClick = {},
-                onBackClick = {}
-            )
-        }
+        MatchDetailsHeader(
+            tournamentName = "ATP Finals",
+            homeTeamImage = "https://via.placeholder.com/64.png?text=HOME",
+            awayTeamImage = "https://via.placeholder.com/64.png?text=AWAY",
+            homeTeamScore = "3",
+            awayTeamScore = "1",
+            date = "24.09.2025 20:00",
+            matchStatus = "Finished",
+            onHomeTeamClick = {},
+            onAwayTeamClick = {},
+            onTournamentClick = {},
+            onBackClick = {},
+            homeTeamName = "Sinner",
+            awayTeamName = "Alcaraz",
+            homeTeamRank = "2",
+            awayTeamRank = "1"
+        )
     }
 }

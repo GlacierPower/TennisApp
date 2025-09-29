@@ -9,8 +9,10 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.glacierpower.tennisapp.features.player_profile.model.PlayerEventDvo
+import kotlinx.serialization.InternalSerializationApi
 import theme.TennisTheme
 
+@InternalSerializationApi
 @Composable
 fun PlayerProfileContent(
     playerEvents: List<PlayerEventDvo>,
@@ -23,7 +25,7 @@ fun PlayerProfileContent(
     modifier: Modifier = Modifier,
     onMatchClick: (String) -> Unit
 ) {
-    val grouped = playerEvents.groupBy { it.eventId }
+    val grouped = playerEvents.groupBy { it.leagueId }
     Column(
         modifier = modifier
             .fillMaxWidth()

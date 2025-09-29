@@ -1,7 +1,7 @@
 package mappers.events
 
 import api.responce.player_events.TimeDetailsRs
-import models.player_details.events.TimeDetailsModel
+import model.events.TimeDetailsModel
 
 fun TimeDetailsRs.toTimeDetailsModel(): TimeDetailsModel {
     return TimeDetailsModel(

@@ -1,7 +1,7 @@
 package mappers.events
 
 import api.responce.player_events.SeasonRs
-import models.player_details.events.SeasonModel
+import model.events.SeasonModel
 
 fun SeasonRs.toSeasonModel(): SeasonModel {
     return SeasonModel(

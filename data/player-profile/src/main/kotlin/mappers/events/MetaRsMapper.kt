@@ -1,7 +1,7 @@
 package mappers.events
 
 import api.responce.ranking.Meta
-import models.player_details.events.MetaModel
+import model.events.MetaModel
 
 fun Meta.toMetaModel(): MetaModel {
     return MetaModel(

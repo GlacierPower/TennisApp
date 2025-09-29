@@ -16,8 +16,10 @@ import androidx.navigation3.ui.rememberSceneSetupNavEntryDecorator
 import com.glacirepower.tennisapp.navigation.navigation_provider_impl.BottomNavProviderImp
 import com.glacirepower.tennisapp.navigation.navigation_provider_impl.RankingNavProvider
 import com.glacirepower.tennisapp.navigation.navigator_provider.CompositeNavigationProvider
+import kotlinx.serialization.InternalSerializationApi
 import theme.TennisTheme
 
+@InternalSerializationApi
 @Composable
 fun NavigationRoot(
     modifier: Modifier = Modifier,

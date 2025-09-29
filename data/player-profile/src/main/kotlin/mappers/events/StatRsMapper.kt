@@ -1,7 +1,7 @@
 package mappers.events
 
 import api.responce.player_events.StatRs
-import models.player_details.events.StatModel
+import model.events.StatModel
 
 fun StatRs.toStatModel(): StatModel {
     return StatModel(

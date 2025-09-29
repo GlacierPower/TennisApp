@@ -1,7 +1,7 @@
 package mappers.events
 
 import api.responce.player_events.PeriodsTimeRs
-import models.player_details.events.PeriodsTimeModel
+import model.events.PeriodsTimeModel
 
 fun PeriodsTimeRs.toPeriodsTimeModel(): PeriodsTimeModel {
     return PeriodsTimeModel(

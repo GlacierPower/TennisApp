@@ -4,7 +4,7 @@ import api.api.RankingApi
 import mappers.events.toPlayerEventsModel
 import mappers.player_summaries.toPlayerDetailsModel
 import models.player_details.details.PlayerDetailsModel
-import models.player_details.events.PlayerEventsModel
+import model.events.PlayerEventsModel
 import network.tennisResult.DataError
 import network.tennisResult.TennisResult
 import networkHelper.NetworkHelper

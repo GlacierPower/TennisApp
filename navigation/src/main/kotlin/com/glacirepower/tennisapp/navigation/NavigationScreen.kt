@@ -22,8 +22,10 @@ import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.rememberNavBackStack
 import com.glacirepower.tennisapp.navigation.keys.BottomNavKey
 import com.glacirepower.tennisapp.navigation.root.NavigationRoot
+import kotlinx.serialization.InternalSerializationApi
 import theme.TennisTheme
 
+@OptIn(InternalSerializationApi::class)
 @Composable
 fun NavigationScreen() {
     val rankingBackStack = rememberNavBackStack(BottomNavKey.Ranking)

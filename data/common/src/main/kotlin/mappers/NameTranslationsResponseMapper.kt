@@ -1,8 +1,9 @@
 package mappers
 
 import api.responce.common.newCommon.NameTranslationsRs
+import kotlinx.serialization.InternalSerializationApi
 import model.common.NameTranslationsModel
-
+@InternalSerializationApi
 fun NameTranslationsRs.toNameTranslationsModel(): NameTranslationsModel {
     return NameTranslationsModel(
         en = en,

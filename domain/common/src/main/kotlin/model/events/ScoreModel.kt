@@ -1,5 +1,10 @@
-package models.player_details.events
+package model.events
 
+import kotlinx.serialization.InternalSerializationApi
+import kotlinx.serialization.Serializable
+
+@Serializable
+@InternalSerializationApi
 data class ScoreModel(
     val current: Int?,
     val display: Int?,

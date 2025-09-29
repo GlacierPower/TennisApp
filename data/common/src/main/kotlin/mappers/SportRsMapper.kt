@@ -1,8 +1,9 @@
 package mappers
 
 import api.responce.common.newCommon.SportRs
+import kotlinx.serialization.InternalSerializationApi
 import model.common.SportModel
-
+@InternalSerializationApi
 fun SportRs.toSportModel(): SportModel {
     return SportModel(
         id = id,

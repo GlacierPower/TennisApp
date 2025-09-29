@@ -1,9 +1,11 @@
 package com.glacierpower.tennisapp.features.player_profile.ui.mvi
 
 import com.glacierpower.tennisapp.features.player_profile.model.toSummariesDvo
+import kotlinx.serialization.InternalSerializationApi
 import mvi.Reducer
 import javax.inject.Inject
 
+@InternalSerializationApi
 class PlayerProfileReducer @Inject constructor() :
     Reducer<PlayerProfileState, PlayerProfileEvent, PlayerProfileEffect> {
     override fun reduce(
@@ -28,7 +30,13 @@ class PlayerProfileReducer @Inject constructor() :
 
             is PlayerProfileEvent.OnPlayerEventsLoaded -> previousState.copy(
                 events = event.events.map { it.toSummariesDvo(previousState.playerId.orEmpty()) },
+                eventModel = event.events
             ) to null
+
+            is PlayerProfileEvent.OnNavigateToMatchDetails -> {
+                val event = previousState.eventModel.first { it.id == event.eventId }
+                previousState to PlayerProfileEffect.NavigateToMatchDetails(event)
+            }
         }
     }
 }

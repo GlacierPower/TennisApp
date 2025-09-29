@@ -19,7 +19,7 @@ import theme.TennisTheme
 fun TennisAppButton(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    shape: Shape = TennisTheme.shapes.small,
+    shape: Shape = TennisTheme.shapes.s,
     colors: ButtonColors = TennisButtonColors,
     elevation: ButtonElevation = TennisButtonElevation,
     border: BorderStroke? = null,

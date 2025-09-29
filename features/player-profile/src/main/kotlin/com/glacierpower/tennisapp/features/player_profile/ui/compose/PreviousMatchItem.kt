@@ -51,7 +51,7 @@ fun PreviousMatchItem(
                 text = date,
                 style = TennisTheme.typography.body3
             )
-            TennisAppSpacer(size = TennisTheme.dimensions.space.space10)
+            TennisAppSpacer(size = TennisTheme.dimensions.space.m)
             Column(
                 modifier = Modifier.weight(1f)
             ) {
@@ -101,7 +101,7 @@ fun PreviousMatchItem(
 
                 MatchStatus.NOT_STARTED -> {}
             }
-            TennisAppSpacer(size = TennisTheme.dimensions.space.space10)
+            TennisAppSpacer(size = TennisTheme.dimensions.space.m)
             StatusIcon(matchStatus, isWin)
         }
         TennisAppDivider()

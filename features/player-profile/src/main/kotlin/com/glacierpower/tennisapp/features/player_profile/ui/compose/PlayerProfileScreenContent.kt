@@ -10,9 +10,10 @@ import com.glacierpower.tennisapp.core.design_system.TennisAppTopBar
 import com.glacierpower.tennisapp.features.player_profile.PlayerProfileIntent
 import com.glacierpower.tennisapp.features.player_profile.R
 import com.glacierpower.tennisapp.features.player_profile.ui.mvi.PlayerProfileState
+import kotlinx.serialization.InternalSerializationApi
 import theme.TennisTheme
 import com.glacierpower.tennisapp.core.design_system.R as DsR
-
+@InternalSerializationApi
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PlayerProfileScreenContent(
@@ -24,7 +25,7 @@ fun PlayerProfileScreenContent(
     ) {
         TennisAppTopBar(
             title = R.string.player_profile_app_bar_title,
-            leftIcon = DsR.drawable.ic_back,
+            leftIcon = DsR.drawable.ic_arrow_left,
             onLeftIconClick = intentListener::onNavigateBack
         )
         state.playerProfile?.let { player ->

@@ -2,7 +2,7 @@ package mappers.events
 
 import api.responce.ranking.TeamRs
 import mappers.toNameTranslationsModel
-import models.player_details.events.TeamModel
+import model.events.TeamModel
 
 fun TeamRs.toTeamModel(): TeamModel {
     return TeamModel(

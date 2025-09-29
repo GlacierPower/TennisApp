@@ -27,7 +27,7 @@ internal fun StatusIcon(
     }
     Box(
         modifier = Modifier
-            .background(color = color, shape = TennisTheme.shapes.small)
+            .background(color = color, shape = TennisTheme.shapes.s)
             .size(TennisTheme.dimensions.icon.l),
         contentAlignment = Alignment.Center
     ) {

@@ -2,7 +2,7 @@ package mappers.events
 
 import api.responce.player_events.ChallengeRs
 import mappers.toNameTranslationsModel
-import models.player_details.events.ChallengeModel
+import model.events.ChallengeModel
 
 fun ChallengeRs.toChallengeModel(): ChallengeModel {
     return ChallengeModel(

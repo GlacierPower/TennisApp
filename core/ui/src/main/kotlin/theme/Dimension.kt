@@ -31,8 +31,10 @@ data class PaddingDimmens internal constructor(
 data class SpaceDimmens internal constructor(
     val xxs: Dp = 4.dp,
     val s: Dp = 8.dp,
-    val space20: Dp = 20.dp,
-    val space10: Dp = 10.dp
+    val m: Dp = 16.dp,
+    val l: Dp = 24.dp,
+    val xxl: Dp = 32.dp,
+    val xxxl: Dp = 80.dp
 )
 
 @ConsistentCopyVisibility
@@ -54,6 +56,8 @@ data class IconDimens internal constructor(
 @ConsistentCopyVisibility
 @Immutable
 data class BaseDimmens internal constructor(
+    val nameSpace: Dp = 12.dp,
+    val pagerIndicatorHeight: Dp = 8.dp,
     val spaserLarge: Dp = 20.dp,
     val bottomBarHeight: Dp = 120.dp
 )

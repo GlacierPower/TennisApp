@@ -3,7 +3,7 @@ package mappers.events
 import api.responce.player_events.PlayerEventsDataRs
 import mappers.toSectionModel
 import mappers.toSportModel
-import models.player_details.events.PlayerEventsDataModel
+import model.events.PlayerEventsDataModel
 
 fun List<PlayerEventsDataRs>.toPlayerEventsDataModel(): List<PlayerEventsDataModel> {
     return this.map { data ->
