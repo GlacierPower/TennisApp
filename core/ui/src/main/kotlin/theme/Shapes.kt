@@ -9,6 +9,7 @@ import androidx.compose.ui.unit.dp
 @Immutable
 data class TennisShapes(
     val xss: RoundedCornerShape = RoundedCornerShape(2.dp),
+    val xs: RoundedCornerShape = RoundedCornerShape(4.dp),
     val s: RoundedCornerShape = RoundedCornerShape(size = 8.dp),
     val m: RoundedCornerShape = RoundedCornerShape(size = 16.dp),
     val l: RoundedCornerShape = RoundedCornerShape(size = 24.dp),

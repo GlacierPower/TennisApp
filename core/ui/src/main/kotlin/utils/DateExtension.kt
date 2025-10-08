@@ -12,7 +12,20 @@ fun String.toDayMonth(): String? {
             outputFormat.format(date)
         }
     } catch (e: Exception) {
-        null
+        error(e.message.toString())
+    }
+}
+
+fun String.toDotDate(): String? {
+    return try {
+        val inputFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+        val outputFormat = SimpleDateFormat("dd.MM.yyyy HH:mm", Locale.getDefault())
+        val date = inputFormat.parse(this)
+        date?.let {
+            outputFormat.format(date)
+        }
+    } catch (e: Exception) {
+        error(e.message.toString())
     }
 }
 

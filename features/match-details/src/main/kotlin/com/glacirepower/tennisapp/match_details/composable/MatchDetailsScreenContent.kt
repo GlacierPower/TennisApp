@@ -6,10 +6,16 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.glacirepower.tennisapp.match_details.MatchDetailsIntent
+import com.glacirepower.tennisapp.match_details.composable.pager.EventDetailsPager
+import com.glacirepower.tennisapp.match_details.composable.point_by_point.PointByPointContent
+import com.glacirepower.tennisapp.match_details.composable.summary.MainStatsContent
+import com.glacirepower.tennisapp.match_details.composable.summary.OddsContent
+import com.glacirepower.tennisapp.match_details.composable.summary.TotalScoreContent
 import com.glacirepower.tennisapp.match_details.mvi.MatchDetailsState
 import kotlinx.serialization.InternalSerializationApi
 import theme.TennisTheme
-import utils.orEmptyString
+import utils.orFalse
+import utils.orZero
 
 @Composable
 @InternalSerializationApi
@@ -22,23 +28,24 @@ fun MatchDetailsScreenContent(
             .fillMaxSize()
             .background(TennisTheme.colors.backgroundGlobe)
     ) {
-        state.event?.let { event ->
+        state.eventDvo?.let { event ->
             MatchDetailsHeader(
-                tournamentName = event.league.name,
-                homeTeamImage = event.homeTeam.logo,
-                awayTeamImage = event.awayTeam.logo,
-                homeTeamScore = event.homeScore?.display.orEmptyString(),
-                awayTeamScore = event.awayScore?.display.orEmptyString(),
-                date = event.startAt,
-                matchStatus = event.status,
-                onHomeTeamClick = { matchDetailsIntent.onHomeTeamClick(event.homeTeamId.toString()) },
-                onAwayTeamClick = { matchDetailsIntent.onAwayTeamClick(event.awayTeamId.toString()) },
-                onTournamentClick = { matchDetailsIntent.onTournamentClick(event.leagueId.toString()) },
+                tournamentName = event.leagueName,
+                homeTeamImage = event.homeTeamImage,
+                awayTeamImage = event.awayTeamImage,
+                homeTeamScore = event.homeTeamScore,
+                awayTeamScore = event.awayTeamScore,
+                date = event.date,
+                matchStatus = event.matchStatus,
+                onHomeTeamClick = { matchDetailsIntent.onHomeTeamClick(event.homeTeamId) },
+                onAwayTeamClick = { matchDetailsIntent.onAwayTeamClick(event.awayTeamId) },
+                onTournamentClick = { matchDetailsIntent.onTournamentClick(event.leagueId) },
                 onBackClick = matchDetailsIntent::onNavigateBack,
-                homeTeamName = event.homeTeam.nameShort,
-                awayTeamName = event.awayTeam.nameShort,
-                homeTeamRank = event.homeTeam.countryCode,
-                awayTeamRank = event.awayTeam.countryCode
+                homeTeamName = event.homeTeamName,
+                awayTeamName = event.awayTeamName,
+                homeTeamCountry = event.homeTeamCountry,
+                awayTeamCountry = event.awayTeamCountry,
+                isWinner = event.isWinner
             )
         }
         EventDetailsPager(
@@ -46,13 +53,20 @@ fun MatchDetailsScreenContent(
                 state.scoreDvo?.let {
                     TotalScoreContent(scoreDvo = state.scoreDvo)
                 }
-                state.event?.mainStat?.let { mainStat ->
+                state.eventDvo?.mainStatsDvo?.let { mainStat ->
                     MainStatsContent(mainStat = mainStat, onShowMoreClick = {})
                 }
                 OddsContent(
-                    state.event?.mainOdds,
-                    isHomeWin = state.event?.winnerCode == 1,
-                    isAwayWin = state.event?.winnerCode == 2
+                    isHomeWin = state.eventDvo?.isHomeWin.orFalse(),
+                    isAwayWin = state.eventDvo?.isAwayWin.orFalse(),
+                    homeOdds = state.eventDvo?.homeOdds.orZero(),
+                    awayOdds = state.eventDvo?.awayOdds.orZero(),
+                )
+            },
+            pointByPointContent = {
+                PointByPointContent(
+                    state,
+                    onSetClick = matchDetailsIntent::onSetClick
                 )
             }
         )

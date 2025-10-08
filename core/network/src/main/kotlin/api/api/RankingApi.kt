@@ -1,7 +1,6 @@
 package api.api
 
 import api.responce.player_details.PlayerDetailsRs
-import api.responce.player_events.PlayerEventsRs
 import api.responce.ranking.RankingRs
 import model.ApiResult
 import retrofit2.http.GET
@@ -16,9 +15,4 @@ interface RankingApi {
     suspend fun getPlayerDetails(
         @Path("id") id: String
     ): ApiResult<PlayerDetailsRs>
-
-    @GET("teams/{id}/events?page=1")
-    suspend fun getPlayerEvents(
-        @Path("id") id: String
-    ): ApiResult<PlayerEventsRs>
 }

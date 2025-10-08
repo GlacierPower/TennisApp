@@ -17,6 +17,7 @@ import com.glacierpower.tennisapp.core.design_system.buttons.TennisAppCircularBu
 import com.glacierpower.tennisapp.core.design_system.common.TennisAppDivider
 import com.glacierpower.tennisapp.core.design_system.text.TennisAppText
 import com.glacierpower.tennisapp.features.match_details.R
+import com.glacirepower.tennisapp.match_details.composable.summary.PlayerContent
 import theme.TennisTheme
 import com.glacierpower.tennisapp.core.design_system.R as DsR
 
@@ -27,12 +28,13 @@ fun MatchDetailsHeader(
     awayTeamImage: String,
     homeTeamName: String,
     awayTeamName: String,
-    homeTeamRank: String,
-    awayTeamRank: String,
+    homeTeamCountry: String,
+    awayTeamCountry: String,
     homeTeamScore: String,
     awayTeamScore: String,
     date: String,
     matchStatus: String,
+    isWinner: Boolean,
     onHomeTeamClick: () -> Unit,
     onAwayTeamClick: () -> Unit,
     onTournamentClick: () -> Unit,
@@ -82,7 +84,8 @@ fun MatchDetailsHeader(
             PlayerContent(
                 playerImage = homeTeamImage,
                 playerName = homeTeamName,
-                playerRank = homeTeamRank,
+                playerRank = homeTeamCountry,
+                isWinner = isWinner,
                 onPlayerClick = { onHomeTeamClick() }
             )
             Column(
@@ -106,7 +109,8 @@ fun MatchDetailsHeader(
             PlayerContent(
                 playerImage = awayTeamImage,
                 playerName = awayTeamName,
-                playerRank = awayTeamRank,
+                playerRank = awayTeamCountry,
+                isWinner = isWinner.not(),
                 onPlayerClick = { onAwayTeamClick() }
             )
         }
@@ -134,8 +138,9 @@ fun PreviewMatchDetailsHeader_HomeWin_Light() {
             onBackClick = {},
             homeTeamName = "Sinner",
             awayTeamName = "Alcaraz",
-            homeTeamRank = "2",
-            awayTeamRank = "1"
+            homeTeamCountry = "2",
+            awayTeamCountry = "1",
+            isWinner = true
         )
     }
 }

@@ -1,6 +1,9 @@
 package com.glacirepower.tennisapp.match_details.mvi
 
+import com.glacirepower.tennisapp.match_details.mappers.toEventDvo
 import com.glacirepower.tennisapp.match_details.mappers.toScoreDvo
+import com.glacirepower.tennisapp.match_details.mappers.toServeDvo
+import com.glacirepower.tennisapp.match_details.model.ServeDvo
 import kotlinx.serialization.InternalSerializationApi
 import mvi.Reducer
 import javax.inject.Inject
@@ -17,9 +20,43 @@ class MatchDetailsReducer @Inject constructor() :
             is MatchDetailsEvent.OnEventDetailsLoaded -> {
                 previousState.copy(
                     scoreDvo = previousState.event?.toScoreDvo(),
+                    eventDvo = previousState.event?.toEventDvo(),
                     isLoading = false
                 ) to null
             }
+
+            is MatchDetailsEvent.OnPointByPointLoaded -> {
+                val filteredPointByPoint = filterPointByPointBySet(
+                    pointByPoint = event.pointByPoint.flatMap { it.type.toServeDvo() },
+                    selectedSet = previousState.set
+                )
+
+                previousState.copy(
+                    serveDvo = filteredPointByPoint,
+                    originalServeDvo = event.pointByPoint.flatMap { it.type.toServeDvo() },
+                    sets = event.pointByPoint.flatMap { it.type },
+                    isLoading = false
+                ) to null
+            }
+
+            is MatchDetailsEvent.OnUpdateSet -> {
+                val filteredPointByPoint = filterPointByPointBySet(
+                    pointByPoint = previousState.originalServeDvo,
+                    selectedSet = event.set
+                )
+
+                previousState.copy(
+                    set = event.set,
+                    serveDvo = filteredPointByPoint
+                ) to null
+            }
         }
+    }
+
+    private fun filterPointByPointBySet(
+        pointByPoint: List<ServeDvo>,
+        selectedSet: Int
+    ): List<ServeDvo> {
+        return pointByPoint.filter { it.set == selectedSet }
     }
 }
