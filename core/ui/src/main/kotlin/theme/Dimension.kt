@@ -58,8 +58,11 @@ data class IconDimens internal constructor(
 data class BaseDimmens internal constructor(
     val nameSpace: Dp = 12.dp,
     val pagerIndicatorHeight: Dp = 8.dp,
+    val playerProfileItem: Dp = 100.dp,
+    val pointItemHeight: Dp = 24.dp,
     val spaserLarge: Dp = 20.dp,
-    val bottomBarHeight: Dp = 120.dp
+    val bottomBarHeight: Dp = 120.dp,
+    val borderSize: Dp = 1.dp
 )
 
 internal val LocalDimensions = staticCompositionLocalOf { TennisDimensions() }

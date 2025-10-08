@@ -4,7 +4,7 @@ package service
 import api.api.CountryFlagApi
 import api.api.RankingApi
 import com.glacierpower.tennisapp.domain.ranking.model.RankingModel
-import mappers.country_flags.toCountryFlagsModel
+import mappers.toCountryFlagsModel
 import mappers.toRankingsModel
 import model.common.CountryFlagsModel
 import network.tennisResult.DataError

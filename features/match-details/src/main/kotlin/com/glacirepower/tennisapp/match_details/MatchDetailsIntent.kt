@@ -5,4 +5,6 @@ interface MatchDetailsIntent {
     fun onHomeTeamClick(id: String)
     fun onAwayTeamClick(id: String)
     fun onTournamentClick(id: String)
+
+    fun onSetClick(set: Int)
 }

@@ -1,6 +1,5 @@
 package di
 
-import api.api.CompetitorsApi
 import api.api.CountryFlagApi
 import api.api.EventApi
 import api.api.RankingApi
@@ -21,11 +20,6 @@ internal object NetworkServicesModule {
     @Singleton
     fun provideTennisApi(@Tennis retrofit: Retrofit): RankingApi =
         retrofit.create(RankingApi::class.java)
-
-    @Provides
-    @Singleton
-    fun provideCompetitorsApi(@Tennis retrofit: Retrofit): CompetitorsApi =
-        retrofit.create(CompetitorsApi::class.java)
 
     @Provides
     @Singleton

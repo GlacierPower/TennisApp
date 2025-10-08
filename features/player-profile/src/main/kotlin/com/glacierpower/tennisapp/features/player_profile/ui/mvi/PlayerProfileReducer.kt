@@ -15,8 +15,7 @@ class PlayerProfileReducer @Inject constructor() :
         return when (event) {
             is PlayerProfileEvent.OnPlayerInfoLoaded -> {
                 previousState.copy(
-                    playerProfile = event.profile,
-                    isLoading = false
+                    playerProfile = event.profile
                 ) to null
             }
 
@@ -30,7 +29,8 @@ class PlayerProfileReducer @Inject constructor() :
 
             is PlayerProfileEvent.OnPlayerEventsLoaded -> previousState.copy(
                 events = event.events.map { it.toSummariesDvo(previousState.playerId.orEmpty()) },
-                eventModel = event.events
+                eventModel = event.events,
+                isLoading = false
             ) to null
 
             is PlayerProfileEvent.OnNavigateToMatchDetails -> {
