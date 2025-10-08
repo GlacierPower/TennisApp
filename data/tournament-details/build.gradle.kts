@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.tennisapp.data.ranking"
+    namespace = "com.glacierpower.tennisapp.data.tournament_details"
 }
 
 dependencies {

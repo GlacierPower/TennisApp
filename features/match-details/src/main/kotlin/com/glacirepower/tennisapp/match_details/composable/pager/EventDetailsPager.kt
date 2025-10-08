@@ -78,20 +78,20 @@ fun EventDetailsPager(
                     summaryContent(
                         Modifier
                             .fillMaxSize()
-                            .padding(12.dp)
+                            .padding(TennisTheme.dimensions.padding.m)
                     )
                 }
 
-                1 -> statContent(
+                1 -> pointByPointContent(
                     Modifier
                         .fillMaxSize()
-                        .padding(12.dp)
+                        .padding(TennisTheme.dimensions.padding.m)
                 )
 
-                2 -> pointByPointContent(
+                2 -> statContent(
                     Modifier
                         .fillMaxSize()
-                        .padding(12.dp)
+                        .padding(TennisTheme.dimensions.padding.m)
                 )
             }
         }
