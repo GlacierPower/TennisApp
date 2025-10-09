@@ -1,6 +1,6 @@
 package mappers
 
-import api.responce.common.newCommon.PerformanceRs
+import api.responce.common.PerformanceRs
 import model.common.PerformanceModel
 
 fun PerformanceRs.toPerformanceModel(): PerformanceModel {

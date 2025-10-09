@@ -1,6 +1,6 @@
 package mappers
 
-import api.responce.ranking.TeamRs
+import api.responce.common.TeamRs
 import com.glacierpower.tennisapp.domain.ranking.model.TeamModel
 
 fun TeamRs.toTeamModel(): TeamModel {

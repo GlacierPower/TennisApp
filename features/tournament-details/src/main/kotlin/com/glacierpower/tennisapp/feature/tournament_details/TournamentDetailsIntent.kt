@@ -1,0 +1,3 @@
+package com.glacierpower.tennisapp.feature.tournament_details
+
+interface TournamentDetailsIntent

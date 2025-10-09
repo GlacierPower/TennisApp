@@ -10,7 +10,7 @@ android {
 
 dependencies {
     implementation(projects.domain.common)
-    implementation(projects.domain.tournamentDetails)
+    implementation(projects.domain.ranking)
     implementation(projects.core.network)
     implementation(projects.data.common)
 

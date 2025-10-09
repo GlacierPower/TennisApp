@@ -33,7 +33,9 @@ fun MatchDetailsScreen(
                     effect.playerId
                 )
 
-                is MatchDetailsEffect.NavigateToTournamentDetails -> {}
+                is MatchDetailsEffect.NavigateToTournamentDetails -> {
+                    navigator.navigateToTournamentDetails(effect.tournamentId)
+                }
             }
         }
     }

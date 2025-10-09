@@ -34,12 +34,13 @@ dependencies {
     implementation(projects.data.common)
     implementation(projects.data.playerProfile)
     implementation(projects.data.matchDetails)
+    implementation(projects.data.tournamentDetails)
 
     implementation(projects.core.network)
     implementation(projects.core.ui)
 
     implementation libs.engage.core
-    
+
     // Coroutines
     implementation libs.kotlinx.coroutines.core
     implementation libs.kotlinx.coroutines.android

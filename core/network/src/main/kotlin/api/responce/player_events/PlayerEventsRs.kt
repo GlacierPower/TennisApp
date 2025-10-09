@@ -1,6 +1,6 @@
 package api.responce.player_events
 
-import api.responce.ranking.Meta
+import api.responce.common.Meta
 
 data class PlayerEventsRs(
     val data: List<PlayerEventsDataRs>,

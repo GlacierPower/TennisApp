@@ -1,8 +1,17 @@
 package mappers.events
 
 import api.responce.player_events.PlayerEventsDataRs
+import mappers.toChallengeModel
+import mappers.toLeagueModel
+import mappers.toMainOddsModel
+import mappers.toPeriodsTimeModel
+import mappers.toRoundInfoModel
+import mappers.toScoreModel
+import mappers.toSeasonModel
 import mappers.toSectionModel
 import mappers.toSportModel
+import mappers.toTeamModel
+import mappers.toTimeDetailsModel
 import model.events.PlayerEventsDataModel
 
 fun List<PlayerEventsDataRs>.toPlayerEventsDataModel(): List<PlayerEventsDataModel> {
@@ -47,7 +56,7 @@ fun List<PlayerEventsDataRs>.toPlayerEventsDataModel(): List<PlayerEventsDataMod
             cupMatchInRound = data.cupMatchInRound,
             periods = data.periods,
             roundInfo = data.roundInfo?.toRoundInfoModel(),
-            periodsTime = data.periodsTime.map { it.toPeriodsTimeModel() },
+            periodsTime = data.periodsTime.toPeriodsTimeModel(),
             mainStat = data.mainStat?.toMainStatModel(),
             mainOdds = data.mainOdds?.toMainOddsModel(),
             league = data.league.toLeagueModel(),

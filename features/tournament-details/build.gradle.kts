@@ -17,4 +17,5 @@ dependencies {
     implementation(projects.core.network)
     implementation(projects.core.designSystem)
     implementation(libs.coil.compose)
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.8.4")
 }

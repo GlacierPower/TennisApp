@@ -1,8 +1,16 @@
 package api.responce.player_events
 
-import api.responce.common.newCommon.SectionRs
-import api.responce.common.newCommon.SportRs
-import api.responce.ranking.TeamRs
+import api.responce.common.ChallengeRs
+import api.responce.common.LeagueRs
+import api.responce.common.MainOddsRs
+import api.responce.common.PeriodsTimeRs
+import api.responce.common.RoundInfoRs
+import api.responce.common.ScoreRs
+import api.responce.common.SeasonRs
+import api.responce.common.TimeDetailsRs
+import api.responce.common.SectionRs
+import api.responce.common.SportRs
+import api.responce.common.TeamRs
 import com.squareup.moshi.Json
 import kotlinx.serialization.InternalSerializationApi
 import kotlinx.serialization.SerialName
