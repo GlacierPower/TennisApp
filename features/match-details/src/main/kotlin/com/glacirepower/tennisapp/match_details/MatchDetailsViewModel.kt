@@ -7,6 +7,7 @@ import com.glacirepower.tennisapp.match_details.mvi.MatchDetailsReducer
 import com.glacirepower.tennisapp.match_details.mvi.MatchDetailsState
 import com.glacirepower.tennisapp.match_details.navigation.MatchDetailsArgs
 import com.glacirepower.tennisapp.match_details.use_case.GetEventPointByPointUseCase
+import com.glacirepower.tennisapp.match_details.use_case.GetEventStatisticUseCase
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
@@ -21,6 +22,7 @@ import timber.log.Timber
 @HiltViewModel(assistedFactory = MatchDetailsViewModel.MatchDetailsViewModelFactory::class)
 class MatchDetailsViewModel @AssistedInject constructor(
     private val getEventPointByPointUseCase: GetEventPointByPointUseCase,
+    private val getEventStatisticUseCase: GetEventStatisticUseCase,
     @Assisted private val args: MatchDetailsArgs
 ) :
     BaseViewModel<MatchDetailsState, MatchDetailsEvent, MatchDetailsEffect>(
@@ -31,6 +33,7 @@ class MatchDetailsViewModel @AssistedInject constructor(
     init {
         getEventDetails()
         getPointByPoint()
+        getStatistics()
     }
 
     private fun getPointByPoint() {
@@ -41,6 +44,20 @@ class MatchDetailsViewModel @AssistedInject constructor(
                     is TennisResult.Error -> Timber.e(result.error.toString())
                     is TennisResult.Success -> {
                         sendEvent(MatchDetailsEvent.OnPointByPointLoaded(result.data.data))
+                    }
+                }
+            }
+        }
+    }
+
+    private fun getStatistics() {
+        val eventId = state.value.event?.id
+        eventId?.let { id ->
+            viewModelScope.launch {
+                when (val result = getEventStatisticUseCase(id)) {
+                    is TennisResult.Error -> {}
+                    is TennisResult.Success -> {
+                        sendEvent(MatchDetailsEvent.OnStatisticsLoaded(result.data))
                     }
                 }
             }

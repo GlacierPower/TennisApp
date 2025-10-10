@@ -1,4 +1,4 @@
-package com.glacirepower.tennisapp.match_details.mappers
+package com.glacirepower.tennisapp.match_details.mappers.point_by_point
 
 import api.responce.point_by_point.MatchDataRs
 import com.glacirepower.tennisapp.match_details.model.MatchDataModel

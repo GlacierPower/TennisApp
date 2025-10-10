@@ -3,7 +3,9 @@ package com.glacirepower.tennisapp.match_details.mvi
 import com.glacirepower.tennisapp.match_details.mappers.toEventDvo
 import com.glacirepower.tennisapp.match_details.mappers.toScoreDvo
 import com.glacirepower.tennisapp.match_details.mappers.toServeDvo
+import com.glacirepower.tennisapp.match_details.mappers.toStatisticDvo
 import com.glacirepower.tennisapp.match_details.model.ServeDvo
+import com.glacirepower.tennisapp.match_details.model.statistics.StatisticModel
 import kotlinx.serialization.InternalSerializationApi
 import mvi.Reducer
 import javax.inject.Inject
@@ -50,6 +52,16 @@ class MatchDetailsReducer @Inject constructor() :
                     serveDvo = filteredPointByPoint
                 ) to null
             }
+
+            is MatchDetailsEvent.OnStatisticsLoaded -> {
+                previousState.copy(
+                    statistics = event.statistics.data.toFilteredStatistics(
+                        selectedPeriod = "all"
+                    ).toStatisticDvo(),
+                    setStatistic = event.statistics.data.map { it.period }
+                        .distinct()
+                ) to null
+            }
         }
     }
 
@@ -58,5 +70,11 @@ class MatchDetailsReducer @Inject constructor() :
         selectedSet: Int
     ): List<ServeDvo> {
         return pointByPoint.filter { it.set == selectedSet }
+    }
+
+    private fun List<StatisticModel>.toFilteredStatistics(
+        selectedPeriod: String
+    ): List<StatisticModel> {
+        return this.filter { it.period == selectedPeriod }
     }
 }

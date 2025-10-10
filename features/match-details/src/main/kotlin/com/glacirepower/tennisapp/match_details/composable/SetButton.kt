@@ -12,7 +12,7 @@ import theme.TennisTheme
 
 @Composable
 fun SetButton(
-    set: Int,
+    set: String,
     isSelected: Boolean,
     onClick: () -> Unit
 ) {

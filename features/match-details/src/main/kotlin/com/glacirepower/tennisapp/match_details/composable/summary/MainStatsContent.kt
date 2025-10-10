@@ -11,13 +11,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.glacierpower.tennisapp.core.design_system.StatisticHorizontalBar
-import kotlinx.serialization.InternalSerializationApi
-import com.glacierpower.tennisapp.core.design_system.R as DsR
 import com.glacierpower.tennisapp.core.design_system.text.TennisAppText
-import theme.TennisTheme
-import utils.orZero
 import com.glacierpower.tennisapp.features.match_details.R
 import com.glacirepower.tennisapp.match_details.model.MainStatsDvo
+import kotlinx.serialization.InternalSerializationApi
+import theme.TennisTheme
+import utils.orZero
+import com.glacierpower.tennisapp.core.design_system.R as DsR
 
 @OptIn(InternalSerializationApi::class)
 @Composable
@@ -46,24 +46,33 @@ fun MainStatsContent(
             )
         }
         StatisticHorizontalBar(
-            titleId = DsR.string.aces,
+            title = stringResource(DsR.string.aces),
             homeValue = mainStat.aces?.home.orZero(),
-            awayValue = mainStat.aces?.away.orZero()
+            awayValue = mainStat.aces?.away.orZero(),
+            homeStat = mainStat.aces?.home.toString(),
+            awayStat = mainStat.aces?.away.toString(),
+
         )
         StatisticHorizontalBar(
-            titleId = DsR.string.doubleFaults,
+            title = stringResource(DsR.string.doubleFaults),
             homeValue = mainStat.doubleFaults?.home.orZero(),
-            awayValue = mainStat.doubleFaults?.away.orZero()
+            awayValue = mainStat.doubleFaults?.away.orZero(),
+            homeStat = mainStat.doubleFaults?.home.toString(),
+            awayStat = mainStat.doubleFaults?.away.toString(),
         )
         StatisticHorizontalBar(
-            titleId = DsR.string.firstServe,
+            title = stringResource(DsR.string.firstServe),
             homeValue = mainStat.firstServe?.home.orZero(),
-            awayValue = mainStat.firstServe?.away.orZero()
+            awayValue = mainStat.firstServe?.away.orZero(),
+            homeStat = mainStat.firstServe?.home.toString(),
+            awayStat = mainStat.firstServe?.away.toString()
         )
         StatisticHorizontalBar(
-            titleId = DsR.string.secondServe,
+            title = stringResource(DsR.string.secondServe),
             homeValue = mainStat.secondServe?.home.orZero(),
-            awayValue = mainStat.secondServe?.away.orZero()
+            awayValue = mainStat.secondServe?.away.orZero(),
+            homeStat = mainStat.secondServe?.home.toString(),
+            awayStat = mainStat.secondServe?.away.toString()
         )
         TennisAppText(
             text = stringResource(R.string.show_more),
