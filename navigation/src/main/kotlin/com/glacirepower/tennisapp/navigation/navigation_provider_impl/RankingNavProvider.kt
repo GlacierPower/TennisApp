@@ -2,6 +2,8 @@ package com.glacirepower.tennisapp.navigation.navigation_provider_impl
 
 import androidx.navigation3.runtime.NavEntry
 import androidx.navigation3.runtime.NavKey
+import com.glacierpower.tennisapp.feature.tournament_details.TournamentDetailsScreen
+import com.glacierpower.tennisapp.feature.tournament_details.navigation.TournamentDetailsArgs
 import com.glacierpower.tennisapp.features.player_profile.PlayerProfileScreen
 import com.glacierpower.tennisapp.features.player_profile.args.ProfileArgs
 import com.glacirepower.tennisapp.match_details.MatchDetailsScreen
@@ -31,11 +33,24 @@ class RankingNavProvider(
             is RankingsKeys.MatchDetails -> NavEntry(key) {
                 val matchNavigator = MatchDetailsNavigatorImp(
                     onNavigateToPlayerDetails = { addToBackStack(RankingsKeys.PlayerProfile(it)) },
-                    onNavigateBack = { onNavigateBack() }
+                    onNavigateBack = { onNavigateBack() },
+                    onNavigateToTournamentDetails = {
+                        addToBackStack(
+                            RankingsKeys.TournamentDetails(
+                                it
+                            )
+                        )
+                    }
                 )
                 MatchDetailsScreen(
                     MatchDetailsArgs(event = key.event),
                     navigator = matchNavigator,
+                )
+            }
+
+            is RankingsKeys.TournamentDetails -> NavEntry(key) {
+                TournamentDetailsScreen(
+                    args = TournamentDetailsArgs(key.id)
                 )
             }
 

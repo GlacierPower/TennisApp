@@ -1,4 +1,4 @@
-import api.responce.player_events.PeriodsTimeRs
+import api.responce.common.PeriodsTimeRs
 import kotlinx.serialization.InternalSerializationApi
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.builtins.ListSerializer

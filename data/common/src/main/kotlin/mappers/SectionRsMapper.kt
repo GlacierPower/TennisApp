@@ -1,6 +1,6 @@
 package mappers
 
-import api.responce.common.newCommon.SectionRs
+import api.responce.common.SectionRs
 import kotlinx.serialization.InternalSerializationApi
 import model.common.SectionModel
 @InternalSerializationApi

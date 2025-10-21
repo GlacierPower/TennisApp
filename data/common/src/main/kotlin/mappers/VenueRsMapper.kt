@@ -1,6 +1,6 @@
 package mappers
 
-import api.responce.common.newCommon.VenueRs
+import api.responce.common.VenueRs
 import model.common.VenueModel
 
 fun VenueRs.toVenueModel(): VenueModel {

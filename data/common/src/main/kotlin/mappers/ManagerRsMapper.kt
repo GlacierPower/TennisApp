@@ -1,6 +1,6 @@
 package mappers
 
-import api.responce.common.newCommon.ManagerRs
+import api.responce.common.ManagerRs
 import model.common.ManagerModel
 
 fun ManagerRs.toManagerModel(): ManagerModel {

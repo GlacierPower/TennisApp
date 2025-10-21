@@ -5,6 +5,7 @@ pluginManagement {
         google()
         mavenCentral()
         gradlePluginPortal()
+        maven { url = uri("https://maven.lokalise.com") }
     }
 }
 dependencyResolutionManagement {
@@ -12,6 +13,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url = uri("https://maven.lokalise.com") }
     }
 }
 
@@ -30,12 +32,15 @@ include(":data:ranking")
 include(":data:common")
 include(":data:player-profile")
 include(":data:match_details")
+include(":data:tournament-details")
 
 include(":features:ranking")
 include(":features:player-profile")
 include(":features:match-details")
+include(":features:tournament-details")
 
 include(":domain:ranking")
 include(":domain:common")
 include(":domain:player-profile")
 include(":domain:match_details")
+include(":domain:tournament-details")

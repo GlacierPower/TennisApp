@@ -4,6 +4,7 @@ import androidx.compose.runtime.Immutable
 import com.glacirepower.tennisapp.match_details.model.EventDvo
 import com.glacirepower.tennisapp.match_details.model.ServeDvo
 import com.glacirepower.tennisapp.match_details.model.SetDataModel
+import com.glacirepower.tennisapp.match_details.model.StatisticDvo
 import com.glacirepower.tennisapp.match_details.model.TotalScoreDvo
 import kotlinx.serialization.InternalSerializationApi
 import model.events.PlayerEventsDataModel
@@ -20,7 +21,10 @@ data class MatchDetailsState(
     val set: Int = 1,
     val isSelected: Boolean = true,
     val serveDvo: List<ServeDvo> = emptyList(),
-    val originalServeDvo: List<ServeDvo> = emptyList()
+    val originalServeDvo: List<ServeDvo> = emptyList(),
+    val statistics: List<StatisticDvo> = emptyList(),
+    val originalStatistics: List<StatisticDvo> = emptyList(),
+    val setStatistic: List<String> = emptyList()
 ) : Reducer.ViewState {
     companion object {
         fun init(event: PlayerEventsDataModel?): MatchDetailsState {

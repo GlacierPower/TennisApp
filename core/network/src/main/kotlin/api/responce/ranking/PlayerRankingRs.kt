@@ -1,5 +1,6 @@
 package api.responce.ranking
 
+import api.responce.common.TeamRs
 import com.squareup.moshi.Json
 
 data class PlayerRankingRs(

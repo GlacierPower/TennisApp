@@ -1,6 +1,6 @@
 package mappers
 
-import api.responce.common.newCommon.SportRs
+import api.responce.common.SportRs
 import kotlinx.serialization.InternalSerializationApi
 import model.common.SportModel
 @InternalSerializationApi

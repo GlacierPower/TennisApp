@@ -15,4 +15,7 @@ sealed interface RankingsKeys : NavKey {
     data class MatchDetails(
         val event: PlayerEventsDataModel?
     ) : RankingsKeys
+
+    @Serializable
+    data class TournamentDetails(val id: String?) : RankingsKeys
 }

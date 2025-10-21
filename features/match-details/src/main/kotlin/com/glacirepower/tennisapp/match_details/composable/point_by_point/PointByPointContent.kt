@@ -10,6 +10,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import com.glacierpower.tennisapp.core.design_system.common.TennisAppDivider
 import com.glacirepower.tennisapp.match_details.composable.SetButton
 import com.glacirepower.tennisapp.match_details.mvi.MatchDetailsState
 import kotlinx.serialization.InternalSerializationApi
@@ -32,11 +33,12 @@ fun PointByPointContent(
         ) {
             state.sets.forEach { sets ->
                 SetButton(
-                    set = sets.set,
+                    set = sets.set.toString(),
                     isSelected = state.set == sets.set
                 ) { onSetClick(sets.set) }
             }
         }
+        TennisAppDivider()
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize(),

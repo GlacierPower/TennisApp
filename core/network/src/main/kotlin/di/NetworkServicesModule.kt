@@ -3,6 +3,7 @@ package di
 import api.api.CountryFlagApi
 import api.api.EventApi
 import api.api.RankingApi
+import api.api.TournamentApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,6 +26,11 @@ internal object NetworkServicesModule {
     @Singleton
     fun provideEventApi(@Tennis retrofit: Retrofit): EventApi =
         retrofit.create(EventApi::class.java)
+
+    @Provides
+    @Singleton
+    fun provideTournamentApi(@Tennis retrofit: Retrofit): TournamentApi =
+        retrofit.create(TournamentApi::class.java)
 
     @Provides
     @Singleton

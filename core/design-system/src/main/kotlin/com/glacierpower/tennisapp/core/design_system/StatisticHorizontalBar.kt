@@ -1,6 +1,5 @@
 package com.glacierpower.tennisapp.core.design_system
 
-import androidx.annotation.StringRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -14,7 +13,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.glacierpower.tennisapp.core.design_system.common.TennisAppSpacer
 import com.glacierpower.tennisapp.core.design_system.text.TennisAppText
@@ -22,9 +20,11 @@ import theme.TennisTheme
 
 @Composable
 fun StatisticHorizontalBar(
-    @StringRes titleId: Int,
+    title: String,
     homeValue: Int,
+    homeStat: String,
     awayValue: Int,
+    awayStat: String,
     modifier: Modifier = Modifier
 ) {
     val total = (homeValue + awayValue).coerceAtLeast(1)
@@ -40,10 +40,31 @@ fun StatisticHorizontalBar(
         modifier = modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        TennisAppSpacer(size = TennisTheme.dimensions.space.s, isVertical = true)
         TennisAppText(
-            text = stringResource(titleId),
+            text = title,
             style = TennisTheme.typography.body3
         )
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = TennisTheme.dimensions.padding.l),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            TennisAppText(
+                text = homeStat,
+                style = TennisTheme.typography.body3,
+                maxLines = 1
+            )
+            TennisAppSpacer(size = TennisTheme.dimensions.space.s)
+            TennisAppText(
+                text = awayStat,
+                style = TennisTheme.typography.body3,
+                maxLines = 1
+            )
+        }
+        TennisAppSpacer(size = TennisTheme.dimensions.space.s, isVertical = true)
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -55,12 +76,6 @@ fun StatisticHorizontalBar(
                 modifier = Modifier.weight(1f),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                TennisAppText(
-                    text = homeValue.toString(),
-                    style = TennisTheme.typography.body3,
-                    maxLines = 1
-                )
-                TennisAppSpacer(size = TennisTheme.dimensions.space.s)
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -99,12 +114,6 @@ fun StatisticHorizontalBar(
                     )
                 }
             }
-            TennisAppSpacer(size = TennisTheme.dimensions.space.s)
-            TennisAppText(
-                text = awayValue.toString(),
-                style = TennisTheme.typography.body3,
-                maxLines = 1
-            )
         }
     }
 }
@@ -114,9 +123,11 @@ fun StatisticHorizontalBar(
 fun StatisticHorizontalBarPreview() {
     TennisTheme {
         StatisticHorizontalBar(
-            titleId = R.string.doubleFaults,
+            title = "",
             homeValue = 10,
             awayValue = 16,
+            homeStat = "1",
+            awayStat = "2",
         )
     }
 }

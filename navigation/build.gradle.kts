@@ -21,6 +21,7 @@ dependencies {
     implementation(projects.features.ranking)
     implementation(projects.features.playerProfile)
     implementation(projects.features.matchDetails)
+    implementation(projects.features.tournamentDetails)
 
     implementation(projects.domain.common)
 }

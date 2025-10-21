@@ -8,6 +8,7 @@ import androidx.compose.ui.Modifier
 import com.glacirepower.tennisapp.match_details.MatchDetailsIntent
 import com.glacirepower.tennisapp.match_details.composable.pager.EventDetailsPager
 import com.glacirepower.tennisapp.match_details.composable.point_by_point.PointByPointContent
+import com.glacirepower.tennisapp.match_details.composable.statistics.StatisticsContent
 import com.glacirepower.tennisapp.match_details.composable.summary.MainStatsContent
 import com.glacirepower.tennisapp.match_details.composable.summary.OddsContent
 import com.glacirepower.tennisapp.match_details.composable.summary.TotalScoreContent
@@ -67,6 +68,12 @@ fun MatchDetailsScreenContent(
                 PointByPointContent(
                     state,
                     onSetClick = matchDetailsIntent::onSetClick
+                )
+            },
+            statContent = {
+                StatisticsContent(
+                    statistics = state.statistics,
+                    setStatistic = state.setStatistic,
                 )
             }
         )

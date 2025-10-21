@@ -1,6 +1,6 @@
 package mappers
 
-import api.responce.common.newCommon.NameTranslationsRs
+import api.responce.common.NameTranslationsRs
 import kotlinx.serialization.InternalSerializationApi
 import model.common.NameTranslationsModel
 @InternalSerializationApi

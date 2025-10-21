@@ -1,10 +1,10 @@
 package api.responce.player_details
 
-import api.responce.common.newCommon.ManagerRs
-import api.responce.common.newCommon.NameTranslationsRs
-import api.responce.common.newCommon.SectionRs
-import api.responce.common.newCommon.SportRs
-import api.responce.common.newCommon.VenueRs
+import api.responce.common.ManagerRs
+import api.responce.common.NameTranslationsRs
+import api.responce.common.SectionRs
+import api.responce.common.SportRs
+import api.responce.common.VenueRs
 import com.squareup.moshi.Json
 
 data class DetailsRs(
