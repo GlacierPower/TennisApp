@@ -11,6 +11,27 @@ android {
 
     defaultConfig {
         applicationId = "com.glacierpower.tennisapp"
+        def LOCAL_PROPERTIES_PATH = "local.properties"
+        def STRING_TYPE = "String"
+        def SDK_TOKEN_KEY = "SDK_TOCKEN"
+        def PROJECT_ID_KEY = "PROJECT_ID"
+
+        def localProperties = new Properties()
+        def localPropertiesFile = rootProject.file(LOCAL_PROPERTIES_PATH)
+        if (localPropertiesFile.exists()) {
+            localProperties.load(localPropertiesFile.newInputStream())
+        }
+
+        buildConfigField(
+                STRING_TYPE,
+                SDK_TOKEN_KEY,
+                "\"${localProperties.getProperty(SDK_TOKEN_KEY)}\""
+        )
+        buildConfigField(
+                STRING_TYPE,
+                PROJECT_ID_KEY,
+                "\"${localProperties.getProperty(PROJECT_ID_KEY)}\""
+        )
     }
 
     buildFeatures {
@@ -21,11 +42,27 @@ android {
         resources {
             excludes += "META-INF/LICENSE.md"
             excludes += "META-INF/LICENSE-notice.md"
+            excludes += "lib/arm64-v8a/librealm-jni.so"
+            excludes += "lib/x86_64/librealm-jni.so"
+            excludes += "lib/armeabi-v7a/librealm-jni.so"
+            excludes += "lib/x86/librealm-jni.so"
+        }
+        jniLibs {
+            useLegacyPackaging = true
+        }
+    }
+    bundle {
+        language {
+            enableSplit = true
         }
     }
 }
 
 dependencies {
+    implementation(libs.sdk) {
+        transitive = true
+    }
+    implementation(libs.realm.android.library)
     implementation(projects.navigation)
 
     implementation(projects.domain.common)

@@ -6,6 +6,7 @@ buildscript {
         google()
         mavenCentral()
         gradlePluginPortal()
+        maven { url = uri("https://maven.lokalise.com") }
     }
 }
 
