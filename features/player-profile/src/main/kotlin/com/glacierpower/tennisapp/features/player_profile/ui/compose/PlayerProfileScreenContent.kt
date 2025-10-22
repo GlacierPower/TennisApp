@@ -11,6 +11,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.glacierpower.tennisapp.core.design_system.TennisAppTopBar
+import com.glacierpower.tennisapp.core.design_system.text.LokaliseText
 import com.glacierpower.tennisapp.features.player_profile.PlayerProfileIntent
 import com.glacierpower.tennisapp.features.player_profile.R
 import com.glacierpower.tennisapp.features.player_profile.ui.mvi.PlayerProfileState
@@ -32,6 +33,9 @@ fun PlayerProfileScreenContent(
             title = R.string.player_profile_app_bar_title,
             leftIcon = DsR.drawable.ic_arrow_left,
             onLeftIconClick = intentListener::onNavigateBack
+        )
+        LokaliseText(
+            stringRes = R.string.AccountDetailsTitle
         )
         if (state.isLoading) {
             Box(

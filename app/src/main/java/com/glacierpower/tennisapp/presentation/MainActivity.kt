@@ -6,20 +6,19 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.RequiresApi
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Text
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.unit.dp
-import com.glacierpower.tennisapp.R
 import com.glacierpower.tennisapp.utils.getCurrentLocale
-import com.glacierpower.tennisapp.utils.getStringByResId
 import com.glacirepower.tennisapp.navigation.NavigationScreen
 import com.lokalise.sdk.Lokalise
-import com.lokalise.sdk.LokaliseResources
+import com.lokalise.sdk.LokaliseCallback
+import com.lokalise.sdk.LokaliseUpdateError
 import dagger.hilt.android.AndroidEntryPoint
 import theme.TennisTheme
 
@@ -31,21 +30,37 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            TennisTheme {
-                NavigationScreen()
-            }
+            val isLoading = remember { mutableStateOf(true) }
             val context = LocalContext.current
             val currentLocale = getCurrentLocale(context)
             Lokalise.setLocale(language = currentLocale.language)
-            val lokalise = remember {
-                LokaliseResources(context)
-            }
-            Column {
-                Text(
-                    text = lokalise.getStringByResId(context, R.string.account_details_title),
-                    color = Color.Red,
-                    modifier = Modifier.padding(top = 100.dp)
-                )
+            Lokalise.addCallback(object : LokaliseCallback {
+                override fun onUpdateFailed(error: LokaliseUpdateError) {
+                    isLoading.value = false
+                }
+
+                override fun onUpdateNotNeeded() {
+                    isLoading.value = false
+                }
+
+                override fun onUpdated(oldBundleId: Long, newBundleId: Long) {
+                    if (newBundleId != 0L) {
+                        isLoading.value = false
+                    }
+                }
+            })
+            if (isLoading.value) { // Here can hande showing splash screen
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize(),
+                    contentAlignment = Alignment.Center
+                ) {
+                    CircularProgressIndicator()
+                }
+            } else {
+                TennisTheme {
+                    NavigationScreen()
+                }
             }
         }
     }

@@ -21,6 +21,7 @@ import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.glacierpower.tennisapp.core.design_system.TennisAppTopBar
 import com.glacierpower.tennisapp.core.design_system.common.TennisAppDivider
+import com.glacierpower.tennisapp.core.design_system.text.LokaliseText
 import com.glacierpower.tennisapp.core.design_system.text.TennisAppText
 import com.glacierpower.tennisapp.features.ranking.R
 import com.glacierpower.tennisapp.features.ranking.ui.compose.RankingItem
@@ -62,6 +63,9 @@ fun RankingScreen(
                         style = TennisTheme.typography.title3
                     )
                     TennisAppDivider()
+                    LokaliseText(
+                        stringRes = R.string.welcome_header
+                    )
                 }
                 item {
                     Row(
