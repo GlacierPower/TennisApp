@@ -33,7 +33,6 @@
     <string name="colon" translatable="false">:</string>
     <string name="eventDetails" translatable="false">Event Details</string>
     <string name="stats" translatable="false">Stats</string>
-    <string name="account_details_title" translatable="false">Account.Detail.Title</string>
     <string-array name="Ranking">
         <item>ATP Ranking</item>
         <item>WTA Ranking</item>
