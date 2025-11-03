@@ -16,6 +16,7 @@ import kotlinx.coroutines.launch
 import kotlinx.serialization.InternalSerializationApi
 import mvi.BaseViewModel
 import network.tennisResult.TennisResult
+import repository.LoggerRepository
 import timber.log.Timber
 
 @InternalSerializationApi
@@ -23,7 +24,8 @@ import timber.log.Timber
 class MatchDetailsViewModel @AssistedInject constructor(
     private val getEventPointByPointUseCase: GetEventPointByPointUseCase,
     private val getEventStatisticUseCase: GetEventStatisticUseCase,
-    @Assisted private val args: MatchDetailsArgs
+    @Assisted private val args: MatchDetailsArgs,
+    private val logger: LoggerRepository,
 ) :
     BaseViewModel<MatchDetailsState, MatchDetailsEvent, MatchDetailsEffect>(
         initialState = MatchDetailsState.init(args.event),
