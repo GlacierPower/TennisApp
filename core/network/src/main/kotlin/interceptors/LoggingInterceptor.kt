@@ -57,7 +57,7 @@ class LoggingInterceptor @Inject constructor(
 
     private fun logResponse(response: Response, duration: Long) {
         try {
-            val body = response.body?.let { responseBody ->
+            val body = response.body.let { responseBody ->
                 val source = responseBody.source()
                 source.request(Long.MAX_VALUE)
                 val buffer = source.buffer

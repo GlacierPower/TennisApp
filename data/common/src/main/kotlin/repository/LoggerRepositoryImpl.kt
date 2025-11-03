@@ -1,6 +1,5 @@
 package com.yourpackage.data.common.repository
 
-import android.content.Context
 import repository.LoggerRepository
 import javax.inject.Inject
 import javax.inject.Singleton
