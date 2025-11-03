@@ -12,6 +12,7 @@ android {
 dependencies {
     implementation(projects.core.ui)
     implementation(projects.core.designSystem)
+    implementation(projects.core.network)
 
     implementation(projects.domain.common)
     implementation(projects.domain.matchDetails)

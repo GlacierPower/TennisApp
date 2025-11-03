@@ -9,6 +9,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import interceptors.LoggingInterceptor
 import interceptors.TennisInterceptor
 import kotlinx.serialization.json.Json
 import okhttp3.Cache
@@ -29,6 +30,7 @@ internal object TennisModule {
     @Tennis
     fun provideTennisOkHttpClient(
         tennisInterceptor: TennisInterceptor,
+        loggingInterceptor: LoggingInterceptor,
         context: Context
     ): OkHttpClient {
         val httpCacheDirectory = File(context.cacheDir, "http-cache")
@@ -41,6 +43,7 @@ internal object TennisModule {
         return OkHttpClient.Builder()
             .addInterceptor(httpLoggingInterceptor)
             .addInterceptor(tennisInterceptor)
+            .addInterceptor(loggingInterceptor)
             .connectTimeout(5, TimeUnit.SECONDS)
             .readTimeout(5, TimeUnit.SECONDS)
             .cache(cache)
