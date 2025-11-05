@@ -1,0 +1,3 @@
+package network.tennisResult
+
+interface DomainError

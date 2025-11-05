@@ -1,44 +1,98 @@
 plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
+    alias(libs.plugins.tennisapp.android.application.compose)
+    alias(libs.plugins.tennisapp.android.application)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.tennisapp.hilt)
+    alias(libs.plugins.tennisapp.android.library.detekt)
 }
 
 android {
-    namespace 'com.glacierpower.tennisapp'
-    compileSdk 33
+    namespace = "com.glacierpower.tennisapp"
 
     defaultConfig {
-        applicationId "com.glacierpower.tennisapp"
-        minSdk 24
-        targetSdk 33
-        versionCode 1
-        versionName "1.0"
+        applicationId = "com.glacierpower.tennisapp"
+        def LOCAL_PROPERTIES_PATH = "local.properties"
+        def STRING_TYPE = "String"
+        def SDK_TOKEN_KEY = "SDK_TOCKEN"
+        def PROJECT_ID_KEY = "PROJECT_ID"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        def localProperties = new Properties()
+        def localPropertiesFile = rootProject.file(LOCAL_PROPERTIES_PATH)
+        if (localPropertiesFile.exists()) {
+            localProperties.load(localPropertiesFile.newInputStream())
+        }
+
+        buildConfigField(
+                STRING_TYPE,
+                SDK_TOKEN_KEY,
+                "\"${localProperties.getProperty(SDK_TOKEN_KEY)}\""
+        )
+        buildConfigField(
+                STRING_TYPE,
+                PROJECT_ID_KEY,
+                "\"${localProperties.getProperty(PROJECT_ID_KEY)}\""
+        )
     }
 
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    buildFeatures {
+        buildConfig = true
+    }
+
+    packaging {
+        resources {
+            excludes += "META-INF/LICENSE.md"
+            excludes += "META-INF/LICENSE-notice.md"
+            excludes += "lib/arm64-v8a/librealm-jni.so"
+            excludes += "lib/x86_64/librealm-jni.so"
+            excludes += "lib/armeabi-v7a/librealm-jni.so"
+            excludes += "lib/x86/librealm-jni.so"
+        }
+        jniLibs {
+            useLegacyPackaging = true
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
+    bundle {
+        language {
+            enableSplit = true
+        }
     }
 }
 
 dependencies {
+    implementation(libs.sdk) {
+        transitive = true
+    }
+    implementation(libs.realm.android.library)
+    implementation(projects.navigation)
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.8.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation(projects.domain.common)
+
+    implementation(projects.data.ranking)
+    implementation(projects.data.common)
+    implementation(projects.data.playerProfile)
+    implementation(projects.data.matchDetails)
+    implementation(projects.data.tournamentDetails)
+
+    implementation(projects.core.network)
+    implementation(projects.core.ui)
+
+    implementation libs.engage.core
+
+    // Coroutines
+    implementation libs.kotlinx.coroutines.core
+    implementation libs.kotlinx.coroutines.android
+
+    //Lifecycle or LiveData
+    implementation libs.androidx.lifecycle.viewmodel.ktx
+    implementation libs.androidx.lifecycle.livedata.ktx
+    implementation libs.androidx.lifecycle.extensions
+    implementation libs.androidx.lifecycle.runtime.ktx
+
+    implementation libs.androidx.activity.ktx
+    implementation libs.androidx.appcompat
+    implementation libs.androidx.core.ktx
+    implementation libs.material
+    testImplementation libs.junit
+    androidTestImplementation libs.androidx.junit
+    androidTestImplementation libs.androidx.espresso.core
 }

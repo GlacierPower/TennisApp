@@ -1,0 +1,46 @@
+<resources>
+    <string name="welcome_header">Ranking screen local res</string>
+    <string name="app_name" translatable="false">TennisApp</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="player_name" translatable="false">Player name</string>
+    <string name="ranking_number" translatable="false">1</string>
+    <string name="period" translatable="false">Set 1</string>
+    <string name="points" translatable="false">1234</string>
+    <string name="point" translatable="false">0</string>
+    <string name="game" translatable="false">0</string>
+    <string name="atp_single" translatable="false">ATP-single</string>
+    <string name="rank_number" translatable="false">#</string>
+    <string name="points_title" translatable="false">Points</string>
+    <string name="rankings" translatable="false">Rankings</string>
+    <string name="no_internet_connection" translatable="false">No internet connection</string>
+    <string name="adapter_position_ranking" translatable="false">0</string>
+    <string name="nothing_selected" translatable="false">Nothing selected</string>
+    <string name="wta_single" translatable="false">WTA-single</string>
+    <string name="country" translatable="false">Country</string>
+    <string name="enter_player_name" translatable="false">Enter player name or tournament</string>
+    <string name="search" translatable="false">Search</string>
+    <string name="live" translatable="false">Live</string>
+    <string name="set1" translatable="false">Set 1</string>
+    <string name="set2" translatable="false">Set 2</string>
+    <string name="set3" translatable="false">Set 3</string>
+    <string name="tournament" translatable="false">Tournament</string>
+    <string name="type" translatable="false">Type</string>
+    <string name="age" translatable="false">Age</string>
+    <string name="atp" translatable="false">ATP:</string>
+    <string name="results" translatable="false">Results</string>
+    <string name="date" translatable="false">date</string>
+    <string name="dash" translatable="false">-</string>
+    <string name="zero" translatable="false">0</string>
+    <string name="colon" translatable="false">:</string>
+    <string name="eventDetails" translatable="false">Event Details</string>
+    <string name="stats" translatable="false">Stats</string>
+    <string name="ranking_rank" translatable="false">#</string>
+    <string name="ranking_points" translatable="false">POINTS</string>
+    <string name="ranking_screen_title" translatable="false">Ranking</string>
+    <string name="rankings_week" translatable="false">Week: %1$d</string>
+
+    <string-array name="Ranking">
+        <item>ATP Ranking</item>
+        <item>WTA Ranking</item>
+    </string-array>
+</resources>

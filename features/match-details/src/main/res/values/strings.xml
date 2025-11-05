@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="event_details_title">Event Details</string>
+    <string name="match_details_set">S</string>
+    <string name="match_details_first_set">1</string>
+    <string name="match_details_second_set">2</string>
+    <string name="match_details_third_set">3</string>
+    <string name="match_details_fourth_set">4</string>
+    <string name="match_details_fifth_set">5</string>
+    <string name="event_details_match_time">Match time: </string>
+    <string name="show_more">Show more</string>
+    <string name="home_team_odds">1</string>
+    <string name="away_team_odds">2</string>
+    <string name="match_details_lost_serve">LOST SERVE</string>
+</resources>

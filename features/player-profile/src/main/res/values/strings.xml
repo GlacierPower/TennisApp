@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="AccountDetailsTitle">Account details local title</string>
+    <string name="player_profile_app_bar_title" translatable="false">Player Profile</string>
+    <string name="player_profile_age" translatable="false">Age: %1$s (%2$s)</string>
+    <string name="player_profile_walkover" translatable="false">WO</string>
+    <string name="player_profile_retired" translatable="false">Retired</string>
+    <string name="player_profile_match_not_started" translatable="false">\?</string>
+    <string name="player_profile_match_won" translatable="false">W</string>
+    <string name="player_profile_match_lost" translatable="false">L</string>
+    <string name="player_profile_age_template" translatable="false">Age: %1$s</string>
+</resources>
